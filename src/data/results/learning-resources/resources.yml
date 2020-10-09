@@ -1,0 +1,163 @@
+#
+# This file has been automatically generated.
+# Please do not modify it manually as it might
+# be overriden.
+#
+section_id: resources
+aggregations:
+  - id: blogs-magazines
+    resources:
+      total: 11317
+      completion:
+        count: 10384
+        percentage: 91.76
+      others_count: 0
+      buckets:
+        - id: CSS Tricks
+          count: 10085
+          percentage: 89.11
+        - id: Smashing Magazine
+          count: 6456
+          percentage: 57.05
+        - id: A List Apart
+          count: 3861
+          percentage: 34.12
+        - id: CoDrops
+          count: 3216
+          percentage: 28.42
+        - id: SitePoint
+          count: 2942
+          percentage: 26
+  - id: blogs-magazines-others
+    others:
+      total: 11317
+      completion:
+        count: 660
+        percentage: 5.83
+      others_count: 383
+      buckets:
+        - id: medium
+          count: 92
+          percentage: 0.81
+        - id: mdn
+          count: 88
+          percentage: 0.78
+        - id: stackoverflow
+          count: 38
+          percentage: 0.34
+        - id: codepen
+          count: 34
+          percentage: 0.3
+        - id: twitter
+          count: 25
+          percentage: 0.22
+  - id: sites-courses
+    resources:
+      total: 11317
+      completion:
+        count: 11001
+        percentage: 97.21
+      others_count: 0
+      buckets:
+        - id: Stack Overflow
+          count: 9732
+          percentage: 85.99
+        - id: MDN
+          count: 8602
+          percentage: 76.01
+        - id: W3Schools
+          count: 5951
+          percentage: 52.58
+        - id: 'Wes Bos Courses (GSSGrid.io, Flexbox.io, etc.)'
+          count: 3351
+          percentage: 29.61
+        - id: FreeCodeCamp
+          count: 2326
+          percentage: 20.55
+        - id: Codecademy
+          count: 2221
+          percentage: 19.63
+        - id: The CSS Specs
+          count: 2174
+          percentage: 19.21
+        - id: Pluralsight
+          count: 1223
+          percentage: 10.81
+        - id: LevelUp Tutorials
+          count: 715
+          percentage: 6.32
+  - id: sites-courses-others
+    others:
+      total: 11317
+      completion:
+        count: 669
+        percentage: 5.91
+      others_count: 315
+      buckets:
+        - id: udemy
+          count: 133
+          percentage: 1.18
+        - id: csstricks
+          count: 60
+          percentage: 0.53
+        - id: caniuse
+          count: 59
+          percentage: 0.52
+        - id: front_end_masters
+          count: 55
+          percentage: 0.49
+        - id: egghead
+          count: 47
+          percentage: 0.42
+  - id: podcasts
+    resources:
+      total: 11317
+      completion:
+        count: 3126
+        percentage: 27.62
+      others_count: 0
+      buckets:
+        - id: Syntax
+          count: 2007
+          percentage: 17.73
+        - id: Shop Talk Show
+          count: 1089
+          percentage: 9.62
+        - id: The Changelog
+          count: 560
+          percentage: 4.95
+        - id: The Web Ahead
+          count: 429
+          percentage: 3.79
+        - id: The Big Web Show
+          count: 385
+          percentage: 3.4
+        - id: Style Guide Podcast
+          count: 227
+          percentage: 2.01
+        - id: Non Breaking Space Show
+          count: 100
+          percentage: 0.88
+  - id: podcasts-others
+    others:
+      total: 11317
+      completion:
+        count: 474
+        percentage: 4.19
+      others_count: 264
+      buckets:
+        - id: web_standards
+          count: 100
+          percentage: 0.88
+        - id: front_end_happy_hour
+          count: 34
+          percentage: 0.3
+        - id: working_draft
+          count: 28
+          percentage: 0.25
+        - id: toolsday
+          count: 26
+          percentage: 0.23
+        - id: fullstack_radio
+          count: 22
+          percentage: 0.19

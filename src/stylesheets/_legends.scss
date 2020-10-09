@@ -1,0 +1,68 @@
+.Legends--horizontal {
+    @include medium-large {
+        display: grid;
+    }
+    @include medium {
+        grid-template-columns: 1fr 1fr;
+    }
+    @include large {
+        // fit in as many columns as possible as long as they're wider than 150px
+        grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+    }
+    &.Legends--withFrame {
+        @include small {
+            padding: $spacing/2;
+        }
+        @include medium-large {
+            padding: $spacing $spacing * 1.5;
+        }
+    }
+}
+
+.Legends--vertical {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @include small {
+        margin-top: $spacing;
+        border: 1px solid $border-color-dark;
+        padding: $spacing;
+    }
+}
+
+.Legends--withFrame {
+    @include border;
+    padding: $spacing;
+}
+
+.Legends--vertical.Legends--withFrame {
+    padding: $spacing;
+}
+
+.Legends__Item {
+    @include small{
+        margin-bottom: $spacing/2;
+    }
+    &.Legends__Item--withKeyLabel {
+        @include small {
+            margin-bottom: $spacing/2;
+        }
+    }
+    .Legends--vertical & {
+        margin-bottom: $spacing/2;
+    }
+}
+
+.Legends__Item__KeyLabel {
+    width: 120px;
+    @include font-bold;
+}
+
+.Legends__Item__Label{
+    @include small{
+        flex: 1;
+    }
+}
+.Legends__Item__Value {
+    @include font-bold;
+}

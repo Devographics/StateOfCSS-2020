@@ -1,0 +1,134 @@
+###############################################################################
+#
+# Features
+#
+###############################################################################
+
+featuresPageTemplate:
+    blocks:
+        - id: features_introduction
+          template: pageIntroductionTemplate
+          variables:
+              pageId: '${id}'
+        - id: ${id}_featuresOverview
+          template: featuresOverviewTemplate
+          blockName: featuresOverview
+
+###############################################################################
+#
+# TOOLS
+#
+###############################################################################
+
+# Tool section (/front-end, /data-layer, etc.)
+toolSectionTemplate:
+    blocks:
+        - id: '${id}_introduction'
+          template: pageIntroductionTemplate
+          variables:
+              pageId: '${id}'
+
+        - id: '${id}_experience_ranking'
+          blockName: toolsExperienceRanking
+          template: toolsExperienceRankingTemplate
+          variables:
+              sectionId: '${id}'
+
+        - id: '${id}_section_overview'
+          blockName: toolsSectionOverview
+          template: toolsSectionOverviewTemplate
+          variables:
+              category: '${id}'
+              toolIds: ${toolIds}
+
+        - id: '${id}_experience_heatmap'
+          blockName: workExperience
+          template: heatmapTemplate
+          variables:
+              subject: tools
+              heatmapId: workExperience
+              toolIds: ${toolIds}
+
+        - id: '${id}_salary_heatmap'
+          blockName: salary
+          template: heatmapTemplate
+          variables:
+              subject: tools
+              heatmapId: salary
+              toolIds: ${toolIds}
+
+        - id: '${id}_company_size_heatmap'
+          blockName: companySize
+          template: heatmapTemplate
+          variables:
+              subject: tools
+              heatmapId: companySize
+              toolIds: ${toolIds}
+
+        # - id: '${id}-scatterplot'
+        #   blockName: scatterplot
+        #   template: scatterplotTemplate
+        #   variables:
+        #       sectionId: ${id}
+        #       toolIds: ${toolIds}
+
+        - id: '${id}_happiness'
+          blockName: happiness
+          template: happinessTemplate
+          variables:
+              sectionId: '${id}'
+
+        - id: '${id}_recommended_resources'
+          template: recommendedResourcesTemplate
+
+# Tool (/front-end/react, /front-end/angular, etc.)
+toolPageTemplate:
+    showTitle: false
+    defaultVariables:
+        sponsors: []
+    blocks:
+        - id: ${id}_header
+          template: toolHeaderTemplate
+          variables:
+              toolId: '${id}'
+
+        - id: '${id}_experience'
+          blockName: toolExperience
+          template: toolExperienceTemplate
+          bucketKeysName: toolExperience
+          variables:
+              toolId: '${id}'
+
+        # - id: '${id}_experience_graph'
+        #   blockName: toolExperienceGraph
+        #   template: toolExperienceGraphTemplate
+        #   variables:
+        #       toolId: '${id}'
+
+        # - id: '${id}-related-tools-heatmap'
+        #   blockName: relatedTools
+        #   template: heatmapTemplate
+        #   variables:
+        #       heatmapId: 'relatedTools'
+        #       pageId: '${id}'
+        #       toolIds: ${toolIds}
+
+        - id: '${id}_recommended_resources'
+          template: recommendedResourcesTemplate
+          variables:
+              sponsors: ${sponsors}
+
+# Other Tools (/front-end/others, /data-layer/others, etc.)
+categoryOtherToolsPageTemplate:
+    defaultVariables:
+        sponsors: []
+    blocks:
+        - id: ${id}_other_tools
+          blockName: category-other-tools
+          template: categoryOtherToolsTemplate
+          variables:
+              sectionId: ${sectionId}
+        - id: '${id}_recommended_resources'
+          template: recommendedResourcesTemplate
+          variables:
+              sponsors: ${sponsors}

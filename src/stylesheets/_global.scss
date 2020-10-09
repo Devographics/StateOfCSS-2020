@@ -1,0 +1,142 @@
+body {
+    @include primary-font;
+    @include small {
+        font-size: $root-size-mobile;
+    }
+    @include large {
+        font-size: $root-size;
+        min-height: 100vh;
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @include secondary-font;
+    margin: 0 0 $spacing 0;
+}
+
+p,
+ul,
+ol {
+    margin: 0 0 $spacing 0;
+    @include small {
+        line-height: 1.6;
+    }
+    @include medium-large {
+        line-height: 1.8;
+    }
+}
+
+a {
+    @include font-bold;
+}
+
+.conclusion__byline {
+    text-align: right;
+    display: block;
+    @include font-bold;
+}
+
+.desktop {
+    @include small {
+        display: none;
+    }
+}
+.mobile {
+    @include medium-large {
+        display: none;
+    }
+}
+
+.main-logo-wrapper {
+    max-width: 350px;
+    margin: 0 auto $spacing * 2 auto;
+}
+.logo-image {
+    display: block;
+    width: 100%;
+}
+.error {
+    color: $red;
+    border: 3px solid $redLighter;
+    padding: $spacing;
+}
+.error-data {
+    font-size: $small-font;
+}
+.page-query {
+    width: 100%;
+    font-size: $small-font;
+    background-color: black;
+    color: #94eeee;
+    padding: 12px 24px;
+    overflow: auto;
+    margin: 24px 0;
+    textarea {
+        width: 100%;
+    }
+}
+iframe {
+    display: none;
+}
+
+.Page__Title {
+    font-size: $largest-font;
+}
+.Page__Introduction {
+    @include small-medium {
+        margin-bottom: $spacing * 2;
+    }
+    @include large {
+        font-size: $larger-font;
+        margin-bottom: $spacing * 4;
+    }
+}
+
+.Hamburger {
+    fill: $white;
+    stroke: $white;
+}
+
+/*
+
+Page-specific styles
+
+*/
+.SurveyIntro__Content {
+    @include large {
+        max-width: 700px;
+        margin: 0 auto;
+    }
+    .block__content {
+        p:first-child {
+            @include medium-large {
+                font-size: $larger-font;
+            }
+        }
+    }
+}
+
+.ToolsArrows__Contents {
+    position: relative;
+}
+
+.ToolsArrows__Description {
+    @include large {
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        max-width: 450px;
+        background: rgba(0, 0, 0, 0.3);
+        padding: $spacing;
+        font-size: $smallish-font;
+        p:last-child {
+            margin: 0;
+        }
+    }
+}

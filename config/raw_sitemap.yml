@@ -1,0 +1,735 @@
+--- # ------------------------------------------------------------------------------------
+
+# ------------------------------------------------------------------------------------
+# Pages Properties
+# - id: the unique (survey-wide) ID of the page
+# - pageName: the name of the page (used for titles, descriptions, etc.)
+# - path: the page's path
+# - children: the page's children pages
+# - blocks: the page's blocks
+# - pageTemplate: a template from which to inherit its properties
+# - defaultVariables: default values for variables
+# - showTitle: whether to show the page title or not
+# - variables: page variables (compiled during sitemap generation)
+
+# Block Properties
+# - id: the unique (survey-wide) ID of the block
+# - blockName: the name of the block (used for titles, descriptions, etc.)
+# - bucketKeysName: the name of the block's keys (used for legends, formatting data, etc.)
+# - blockType: the type of block (which component to use)
+# - query: the query used to populate the block's data
+# - dataPath: the path to use (from the query root) to access the block's data
+# - showLegend: whether to show the block's legend
+# - showDescription: whether to show the block's description
+# - template: a template from which to inherit its properties
+# - translateData: whether to try and translate
+# - queryVariables: GraphQL query variables (handled by GraphQL)
+# - variables: block variables (compiled during sitemap generation)
+
+- id: introduction
+  path: /
+  showTitle: false
+  blocks:
+      - id: survey_intro
+        variables:
+            pageId: ${id}
+        template: pageIntroductionTemplate
+        blockType: SurveyIntroBlock
+
+- id: tshirt
+  showTitle: false
+  path: /tshirt
+  blocks:
+      - id: tshirt_intro
+        template: pageIntroductionTemplate
+        variables:
+            pageId: ${id}
+      - id: tshirt_block
+        blockType: TshirtBlock
+
+- id: demographics
+  path: /demographics
+  blocks:
+      - id: demographics_intro
+        template: pageIntroductionTemplate
+        variables:
+            pageId: ${id}
+      - id: country
+        template: demographicsTemplate
+        blockType: ParticipationByCountryBlock
+      - id: salary
+        template: demographicsTemplate
+      - id: workExperience
+        template: demographicsTemplate
+      - id: companySize
+        template: demographicsTemplate
+      - id: source
+        template: sourceTemplate
+        blockType: HorizontalBarBlock
+      - id: gender
+        template: demographicsTemplate
+        showLegend: true
+        blockType: GenderBlock
+      - id: jobTitle
+        template: demographicsTemplate
+        blockType: HorizontalBarBlock
+        translateData: true
+      - id: cssProficiency
+        showLegend: true
+        template: demographicsTemplate
+      - id: backendProficiency
+        showLegend: true
+        template: demographicsTemplate
+      - id: resources-sponsors
+        blockType: RecommendedResourcesBlock
+        items:
+            - frontendmasters-design
+
+- id: overview
+  path: /overview
+  blocks:
+      - id: overviewIntroduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+      - id: toolsArrow
+        template: toolsArrowsTemplate
+      - id: scatterplotOverview
+        template: scatterplotOverviewTemplate
+      - id: overview_recommended_resources
+        template: recommendedResourcesTemplate
+        sponsors:
+            - fullstack-d3
+            
+- id: features
+  path: /features
+  template: featuresPageTemplate
+  children:
+      - id: syntax
+        path: /syntax
+        blocks:
+            - id: syntax
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            # - id: syntax_overview
+            #   template: featuresCategoryOverviewTemplate
+            #   variables:
+            #       featureIds: ${featuresCategories.syntax}
+
+            - id: destructuring
+              template: featureExperienceTemplate
+
+            - id: spread_operator
+              template: featureExperienceTemplate
+
+            - id: arrow_functions
+              template: featureExperienceTemplate
+
+      - id: language
+        path: /language
+        blocks:
+            - id: language
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            # - id: language_overview
+            #   template: featuresCategoryOverviewTemplate
+            #   variables:
+            #       featureIds: ${featuresCategories.language}
+
+            - id: proxies
+              template: featureExperienceTemplate
+
+            - id: async_await
+              template: featureExperienceTemplate
+
+            - id: promises
+              template: featureExperienceTemplate
+
+            - id: decorators
+              template: featureExperienceTemplate
+
+            - id: language_recommended_resources
+              template: recommendedResourcesTemplate
+              sponsors:
+                  - wesbos-es6
+
+      - id: data_structures
+        path: /data-structures
+        blocks:
+            - id: data_structures
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            # - id: data_structures_overview
+            #   template: featuresCategoryOverviewTemplate
+            #   variables:
+            #       featureIds: ${featuresCategories.data_structures}
+
+            - id: maps
+              template: featureExperienceTemplate
+
+            - id: sets
+              template: featureExperienceTemplate
+
+            - id: typed_arrays
+              template: featureExperienceTemplate
+
+            - id: array_prototype_flat
+              template: featureExperienceTemplate
+
+            - id: browser_apis_recommended_resources
+              template: recommendedResourcesTemplate
+              sponsors:
+                  - wesbos-js30
+
+      - id: browser_apis
+        path: /browser-apis
+        blocks:
+            - id: browser_apis
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            # - id: browser_apis_overview
+            #   template: featuresCategoryOverviewTemplate
+            #   variables:
+            #       featureIds: ${featuresCategories.browser_apis}
+
+            - id: fetch
+              template: featureExperienceTemplate
+
+            - id: i18n
+              template: featureExperienceTemplate
+
+            - id: local_storage
+              template: featureExperienceTemplate
+
+            - id: service_workers
+              template: featureExperienceTemplate
+
+            - id: web_animations
+              template: featureExperienceTemplate
+
+            - id: web_audio
+              template: featureExperienceTemplate
+
+            - id: web_components
+              template: featureExperienceTemplate
+
+            - id: webgl
+              template: featureExperienceTemplate
+
+            - id: webrtc
+              template: featureExperienceTemplate
+
+            - id: websocket
+              template: featureExperienceTemplate
+
+            - id: web_speech
+              template: featureExperienceTemplate
+
+            - id: webvr
+              template: featureExperienceTemplate
+
+            - id: browser_apis_recommended_resources
+              template: recommendedResourcesTemplate
+              sponsors:
+                  - service-workers
+
+      - id: other_features
+        path: /other-features
+        blocks:
+            - id: other_features
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            # - id: other_features_overview
+            #   template: featuresCategoryOverviewTemplate
+            #   variables:
+            #       featureIds: ${featuresCategories.other_features}
+
+            - id: pwa
+              template: featureExperienceTemplate
+
+            - id: wasm
+              template: featureExperienceTemplate
+
+            - id: browser_apis_recommended_resources
+              template: recommendedResourcesTemplate
+              sponsors:
+                  - js-recent-parts
+                  
+- id: javascript_flavors
+  path: /javascript-flavors
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.javascript_flavors}
+  children:
+      - id: typescript
+        template: toolPageTemplate
+        sponsors:
+            - typescript-v2
+            - intermediate-react-v2
+
+      - id: reason
+        template: toolPageTemplate
+
+      - id: elm
+        template: toolPageTemplate
+        sponsors:
+            - intro-elm
+
+      - id: clojurescript
+        template: toolPageTemplate
+
+      - id: purescript
+        template: toolPageTemplate
+
+      - id: javascript_flavors_others
+        sectionId: javascript_flavors
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+- id: front_end_frameworks
+  path: /front-end-frameworks
+  template: toolSectionTemplate
+  sponsors: 
+    - wesbos-advanced-react
+  variables:
+      toolIds: ${toolsCategories.front_end_frameworks}
+  children:
+      - id: react
+        template: toolPageTemplate
+        sponsors:
+            - complete-react-v5
+            - fullstack-react-masterclass-tinyhouse-1
+      - id: vuejs
+        template: toolPageTemplate
+        sponsors:
+            - fullstack-vue-1
+            - fem-vue
+      - id: angular
+        template: toolPageTemplate
+        sponsors:
+            - fullstack-ng-book-1
+            - angular-core
+      - id: preact
+        template: toolPageTemplate
+        sponsors:
+            - complete-react-v5
+
+      - id: ember
+        template: toolPageTemplate
+        sponsors:
+            - ember-octane
+      - id: svelte
+        template: toolPageTemplate
+
+      - id: front_end_frameworks_others
+        sectionId: front_end_frameworks
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+      # - id: frontend-conclusion
+      #   template: toolConclusionTemplate
+
+- id: data_layer
+  path: /data-layer
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.data_layer}
+  children:
+      - id: redux
+        template: toolPageTemplate
+        sponsors:
+            - intermediate-react-v2
+            - redux-mobx
+      - id: apollo
+        template: toolPageTemplate
+        sponsors:
+            - client-graphql-react
+      - id: graphql
+        template: toolPageTemplate
+        sponsors:
+            - server-graphql-nodejs
+      - id: relay
+        template: toolPageTemplate
+
+      - id: mobx
+        template: toolPageTemplate
+        sponsors:
+            - redux-mobx
+      - id: data_layer_others
+        sectionId: data_layer
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+      # - id: datalayer-conclusion
+      #   template: toolConclusionTemplate
+
+- id: back_end_frameworks
+  path: /back-end
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.back_end_frameworks}
+  children:
+      - id: express
+        template: toolPageTemplate
+        sponsors:
+            - api-design-nodejs-v3
+            - fullstack-node-1
+      - id: nextjs
+        template: toolPageTemplate
+
+      - id: koa
+        template: toolPageTemplate
+
+      - id: meteor
+        template: toolPageTemplate
+
+      - id: sails
+        template: toolPageTemplate
+
+      - id: feathers
+        template: toolPageTemplate
+
+      - id: nuxt
+        template: toolPageTemplate
+
+      - id: gatsby
+        template: toolPageTemplate
+        sponsors:
+            - gatsby
+      - id: back_end_frameworks_others
+        sectionId: back_end_frameworks
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+      # - id: backend-conclusion
+      #   template: toolConclusionTemplate
+
+- id: testing
+  path: /testing
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.testing}
+  children:
+      - id: jest
+        template: toolPageTemplate
+        sponsors:
+            - testing-react
+      - id: mocha
+        template: toolPageTemplate
+
+      - id: storybook
+        template: toolPageTemplate
+        sponsors:
+            - storybook1
+
+      - id: cypress
+        template: toolPageTemplate
+        sponsors:
+            - testing-react
+      - id: enzyme
+        template: toolPageTemplate
+
+      - id: ava
+        template: toolPageTemplate
+
+      - id: jasmine
+        template: toolPageTemplate
+
+      - id: puppeteer
+        template: toolPageTemplate
+
+      - id: testing_others
+        sectionId: testing
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+      # - id: testing-conclusion
+      #   template: toolConclusionTemplate
+
+- id: mobile_desktop
+  path: /mobile-desktop
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.mobile_desktop}
+  children:
+      - id: electron
+        template: toolPageTemplate
+        sponsors:
+            - electron-v2
+      - id: reactnative
+        template: toolPageTemplate
+        sponsors:
+            - fullstack-react-native-1
+
+      - id: nativeapps
+        template: toolPageTemplate
+
+      - id: cordova
+        template: toolPageTemplate
+
+      - id: ionic
+        template: toolPageTemplate
+
+      - id: nwjs
+        template: toolPageTemplate
+
+      - id: expo
+        template: toolPageTemplate
+
+      - id: mobile_desktop_others
+        sectionId: mobile_desktop
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
+      # - id: mobiledesktop-conclusion
+      #   template: toolConclusionTemplate
+
+- id: other_tools
+  path: /other-tools
+  blocks:
+      - id: other_tools_intro
+        template: pageIntroductionTemplate
+        variables:
+            pageId: ${id}
+      - id: utilities
+        template: otherToolsTemplate
+
+      - id: utilities_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+      - id: text_editors
+        template: otherToolsTemplate
+
+      - id: text_editors_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+      - id: browsers
+        template: otherToolsTemplate
+
+      - id: browsers_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+      - id: build_tools
+        template: otherToolsTemplate
+
+      - id: build_tools_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+      - id: non_js_languages
+        template: otherToolsTemplate
+
+      - id: non_js_languages_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+- id: resources
+  path: /resources
+  blocks:
+      - id: resources_introduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
+      - id: blogs_news_magazines
+        template: resourcesTemplate
+
+      - id: blogs_news_magazines_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
+
+      - id: sites_courses
+        template: resourcesTemplate
+
+      - id: sites_courses_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
+
+      - id: podcasts
+        template: resourcesTemplate
+
+      - id: podcasts_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
+
+      # - id: resources-sponsors
+      #   blockType: RecommendedResourcesBlock
+      #   sponsors:
+      #       - storybook1
+
+- id: opinions
+  path: /opinions
+  blocks:
+      - id: opinions-introduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
+      - id: js_moving_in_right_direction
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      - id: building_js_apps_overly_complex
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      - id: js_over_used_online
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      - id: enjoy_building_js_apps
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      - id: would_like_js_to_be_main_lang
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      - id: js_ecosystem_changing_to_fast
+        template: opinionTemplate
+        bucketKeysName: opinions
+
+      # - id: missing-features
+      #   blockType: HorizontalBarBlock
+      #   dataKey: features
+
+- id: awards
+  path: /awards
+  blocks:
+      - id: awards_intro
+        template: pageIntroductionTemplate
+        variables:
+            pageId: ${id}
+
+      - id: feature_adoption_award
+        blockType: AwardBlock
+        awards:
+            - id: arrow_functions
+              name: Arrow Functions
+              value: 97.8%
+            - id: promises
+              name: Promises
+              value: 94.8%
+            - id: spread_operator
+              name: Spread Operator
+              value: 92.3%
+
+      - id: tool_usage_award
+        blockType: AwardBlock
+        awards:
+            - id: react
+              name: React
+              value: 16099
+            - id: express
+              name: Express
+              value: 15374
+            - id: redux
+              name: Redux
+              value: 13441
+
+      - id: tool_satisfaction_award
+        blockType: AwardBlock
+        awards:
+            - id: jest
+              name: Jest
+              value: 96.4%
+            - id: graphql
+              name: GraphQL
+              value: 94.8%
+            - id: cypress
+              name: Cypress
+              value: 93.2%
+
+      - id: tool_interest_award
+        blockType: AwardBlock
+        awards:
+            - id: graphql
+              name: GraphQL
+              value: 89.6%
+            - id: jest
+              name: Jest
+              value: 81.6%
+            - id: graphql
+              name: Apollo
+              value: 78.8%
+
+      - id: resource_usage_award
+        blockType: AwardBlock
+        awards:
+            - id: stack_overflow
+              name: Stack Overflow
+              value: 17942
+            - id: mdn
+              name: MDN
+              value: 15531
+            - id: css_tricks
+              name: CSS Tricks
+              value: 12842
+
+      - id: prediction_award
+        blockType: AwardBlock
+        awards:
+            - id: svelte
+              name: Svelte
+            - id: nest
+              name: Nest.js
+            - id: stencil
+              name: Stencil
+
+- id: conclusion
+  path: /conclusion
+  blocks:
+      - id: conclusion
+        variables:
+            pageId: ${id}
+        template: pageIntroductionTemplate
+        blockType: ConclusionBlock
+
+# note: other pages need to be included in the sitemap too so they can get the proper
+# locale passed to them
+
+- id: support
+  path: /support
+  is_hidden: true
+  blocks:
+    - id: support
+      variables:
+          pageId: ${id}
+      template: pageIntroductionTemplate
+
+- id: notfound
+  path: /404
+  is_hidden: true

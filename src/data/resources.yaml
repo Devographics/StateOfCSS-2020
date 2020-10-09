@@ -1,0 +1,333 @@
+# sample item to set the schema fields
+- id: aaa
+  name: aaa
+  description: aaa
+  aliases:
+    - aaa
+    - bbb
+  homepage: aaa
+  npm: aaa
+  github: aaa
+# ------------------------------------ #
+- id: csstricks
+  name: CSS Tricks
+  homepage: https://css-tricks.com/
+  category: blogs
+  aliases: 
+    - foo
+- id: smashing_magazine
+  name: Smashing Magazine
+  homepage: https://www.smashingmagazine.com/
+  category: blogs
+- id: A List Apart
+  name: A List Apart
+  homepage: https://alistapart.com/
+  category: blogs
+- id: CoDrops
+  name: CoDrops
+  homepage: https://tympanus.net/codrops/
+  category: blogs
+- id: SitePoint
+  name: SitePoint
+  homepage: https://www.sitepoint.com/
+  category: blogs
+- id: Stack Overflow
+  name: Stack Overflow
+  homepage: https://stackoverflow.com/
+  category: resources
+- id: MDN
+  name: MDN
+  homepage: https://developer.mozilla.org/en-US/
+  category: resources
+- id: W3Schools
+  name: W3Schools
+  homepage: https://www.w3schools.com/
+  category: resources
+- id: wesbos
+  name: Wes Bos
+  homepage: https://wesbos.com/
+  category: courses
+  aliases: 
+    - Wes Bos Courses (GSSGrid.io, Flexbox.io, etc.)
+- id: freecodecamp
+  name: FreeCodeCamp
+  homepage: https://www.freecodecamp.org/
+  category: courses
+- id: freecodecamp-announcement-css2019
+  name: Announcement
+  homepage: https://medium.com/free-code-camp/announcing-the-state-of-css-2019-survey-e1e4268df64d
+  category: blogs
+  aliases: 
+    - announcement
+- id: Codecademy
+  name: Codecademy
+  homepage: https://www.codecademy.com/
+  category: courses
+- id: The CSS Specs
+  name: The CSS Specs
+  homepage: https://www.w3.org/Style/CSS/specs.en.html
+  category: resources
+- id: Pluralsight
+  name: Pluralsight
+  homepage: https://www.pluralsight.com/
+  category: courses
+- id: levelup
+  name: Level Up Tutorials
+  aliases: 
+    - LevelUp Tutorials
+  homepage: https://www.leveluptutorials.com/
+  category: courses
+
+- id: Syntax
+  name: Syntax
+  homepage: https://syntax.fm/
+  category: podcasts
+- id: Shop Talk Show
+  name: Shop Talk Show
+  homepage: https://shoptalkshow.com/
+  category: podcasts
+- id: The Changelog
+  name: The Changelog
+  homepage: https://changelog.com/
+  category: podcasts
+- id: The Web Ahead
+  name: The Web Ahead
+  homepage: http://thewebahead.net/
+  category: podcasts
+- id: The Big Web Show
+  name: The Big Web Show
+  homepage: https://5by5.tv/bigwebshow
+  category: podcasts
+- id: Style Guide Podcast
+  name: Style Guide Podcast
+  homepage: http://styleguides.io/podcast/
+  category: podcasts
+- id: Non Breaking Space Show
+  name: Non Breaking Space Show
+  homepage: https://goodstuff.fm/nbsp/
+  category: podcasts
+
+- id: hn
+  name: Hacker News
+  homepage: https://news.ycombinator.com/
+  category: socialmedia
+- id: stateofjs
+  name: State of JS
+  homepage: https://stateofjs.com
+  category: resources
+- id: State of CSS
+  name: State of CSS
+  homepage: https://stateofcss.com
+  category: resources
+- id: reddit
+  name: Reddit
+  homepage: https://reddit.com
+  category: socialmedia
+- id: sidebar
+  name: Sidebar
+  homepage: https://sidebar.io
+  category: newsletters
+- id: designernews
+  name: Designer News
+  homepage: https://www.designernews.co/
+  category: socialmedia
+- id: one_page_love
+  name: One Page Love
+  homepage: https://onepagelove.com/
+  category: resources
+- id: free
+  name: Sidebar
+  homepage: https://sidebar.io
+  category: newsletters
+- id: Front-End Front
+  name: Front-End Front
+  homepage: https://frontendfront.com/
+  category: newsletters
+- id: css_weekly
+  name: CSS Weekly
+  homepage: https://css-weekly.com/
+  category: newsletters
+- id: CSS Layout News
+  name: CSS Layout News
+  homepage: http://csslayout.news/
+  category: newsletters
+- id: responsive_design_weekly
+  name: Responsive Design Weekly
+  homepage: http://responsivedesignweekly.com/
+  category: newsletters
+- id: muzli
+  name: Muzli
+  homepage: https://muz.li/
+  category: resources
+- id: wordpress_tavern
+  name: WordPress Tavern
+  homepage: https://wptavern.com/
+  category: resources
+- id: frontend-focus
+  name: Frontend Focus
+  homepage: https://frontendfoc.us/
+  category: newsletters
+- id: facebook
+  name: Facebook
+  category: socialmedia
+  homepage: https://facebook.com
+- id: word_of_mouth
+  name: Word Of Mouth
+  category: socialmedia
+- id: producthunt
+  name: Product Hunt
+  category: socialmedia
+  homepage: https://www.producthunt.com/
+- id: telegram
+  name: Telegram
+  category: socialmedia
+  homepage: https://telegram.org/
+- id: slack
+  name: Slack
+  category: socialmedia
+  homepage: https://slack.com/
+- id: hangouts
+  name: Hangouts
+  category: socialmedia
+  homepage: https://tools.google.com/dlpage/hangoutplugin
+- id: udemy
+  name: Udemy
+  homepage: https://www.udemy.com/
+  category: resources
+- id: lynda
+  name: Lynda
+  homepage: https://www.lynda.com/
+  category: resources
+- id: egghead
+  name: egghead.io
+  homepage: https://egghead.io/
+  category: resources
+- id: caniuse
+  name: Can I use
+  homepage: https://caniuse.com/
+  category: resources
+- id: front_end_masters
+  name: Frontend Masters
+  homepage: https://frontendmasters.com/
+  category: resources
+- id: treehouse
+  name: treehouse
+  homepage: https://teamtreehouse.com/
+  category: resources
+- id: codepen
+  name: CodePen
+  homepage: https://codepen.io/
+  category: resources
+- id: udacity
+  name: Udacity
+  homepage: https://www.udacity.com/
+  category: resources
+- id: http_203
+  name: HTTP 203
+  homepage: https://developers.google.com/web/shows/http203/podcast/
+  category: resources
+- id: alligator
+  name: alligator.io
+  homepage: https://alligator.io/
+  category: resources
+- id: devto
+  name: dev.to
+  homepage: https://dev.to/
+  category: resources
+- id: css_wizardry
+  name: CSS Wizardry
+  homepage: https://css_wizardry.com
+  category: resources
+- id: web_standards
+  name: Web Standards
+  homepage: https://www.webstandards.org/
+  category: resources
+- id: medium
+  name: Medium
+  category: resources
+- id: google
+  name: Google
+  category: resources
+- id: youtube
+  name: YouTube
+  category: resources
+- id: stackoverflow
+  name: Stack Overflow
+  homepage: https://stackoverflow.com/
+  category: resources
+- id: frontend_focus
+  name: Frontend Focus
+  homepage: https://frontendfoc.us/
+  category: resources
+- id: css_layout_news
+  name: CSS Layout News
+  homepage: http://csslayout.news/
+  category: resources
+- id: flexbox_zombies
+  name: Flexbox Zombies
+  homepage: https://mastery.games/p/flexbox-zombies
+  category: resources
+- id: traversy_media
+  name: Traversy Media
+  homepage: https://www.traversymedia.com/
+  category: resources
+- id: superhi
+  name: SuperHi
+  homepage: https://www.superhi.com/
+  category: resources
+- id: platzi
+  name: Platzi
+  homepage: https://platzi.com/
+  category: resources
+- id: scrimba
+  name: Scrimba
+  homepage: https://scrimba.com/
+  category: resources
+- id: devdocs
+  name: devdocs.io
+  homepage: https://devdocs.io
+  category: resources
+- id: front_end_happy_hour
+  name: Front End Happy Hour
+  homepage: https://frontendhappyhour.com/
+  category: resources
+- id: toolsday
+  name: Toolsday
+  homepage: https://spec.fm/podcasts/toolsday
+  category: resources
+- id: fullstack_radio
+  name: Full Stack Radio
+  homepage: http://www.fullstackradio.com/
+  category: resources
+- id: react_podcast
+  name: React Podcast
+  homepage: https://reactpodcast.simplecast.fm/
+  category: resources
+- id: code_newbie
+  name: Code Newbie
+  homepage: https://www.codenewbie.org/
+  category: resources
+- id: developer_tea
+  name: Developer Tea
+  homepage: https://developertea.simplecast.fm/
+  category: resources
+- id: the_web_platform
+  name: The Web Platform Podcast
+  homepage: https://thewebplatformpodcast.com/
+  category: resources
+- id: web_standards_ru
+  name: Веб-стандарты
+  homepage: https://web-standards.ru/
+  category: resources
+- id: working_draft
+  name: Working Draft Podcast
+  homepage: https://workingdraft.de/
+  category: resources
+- id: software_engineering
+  name: Software Engineering Radio
+  homepage: https://www.se-radio.net/
+  category: resources
+- id: frontend_weekend
+  name: Frontend Weekend
+  homepage: https://frontendweekend.ml/ru/
+  category: resources
