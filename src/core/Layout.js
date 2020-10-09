@@ -26,7 +26,7 @@ const ThemedLayout = ({
     props
 }) => {
     const sidebarClassName = showSidebar ? 'Sidebar--shown' : 'Sidebar--hidden'
-    const [themeId, setThemeId] = useState('js')
+    const [themeId, setThemeId] = useState('css')
 
     const switchTheme = useCallback(
         event => {
