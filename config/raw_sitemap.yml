@@ -239,6 +239,14 @@
             - id: calc
               template: featureExperienceTemplate
 
+- id: units_and_selectors
+  path: /units-and-selectors
+  blocks:
+      - id: units_and_selectors
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
 - id: pre_post_processors
   path: /pre-post-processors
   template: toolSectionTemplate
