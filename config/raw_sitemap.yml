@@ -199,11 +199,70 @@
             - id: initial_letter
               template: featureExperienceTemplate
 
+      - id: animations_and_transforms
+        path: /animations-and-transforms
+        blocks:
+            - id: animations_and_transforms
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            - id: transitions
+              template: featureExperienceTemplate
+
+            - id: transforms
+              template: featureExperienceTemplate
+
+            - id: animations
+              template: featureExperienceTemplate
+
+      - id: other_features
+        path: /other-features
+        blocks:
+            - id: other_features
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
+
+            - id: variables
+              template: featureExperienceTemplate
+
+            - id: feature_support_queries
+              template: featureExperienceTemplate
+
+            - id: containment
+              template: featureExperienceTemplate
+
+            - id: will_change
+              template: featureExperienceTemplate
+
+            - id: calc
+              template: featureExperienceTemplate
+
 - id: pre_post_processors
   path: /pre-post-processors
   template: toolSectionTemplate
   variables:
       toolIds: ${toolsCategories.pre_post_processors}
+#  children:
+#      - id: sass
+#        template: toolPageTemplate
+#
+#      - id: less
+#        template: toolPageTemplate
+#
+#      - id: postcss
+#        template: toolPageTemplate
+#
+#      - id: stylus
+#        template: toolPageTemplate
+
+#      - id: pre_post_processors_others
+#        sectionId: pre_post_processors
+#        path: /other-tools
+#        template: categoryOtherToolsPageTemplate
+#        variables:
+#            sectionId: ${sectionId}
 
 #- id: css_frameworks
 #  path: /css-frameworks
