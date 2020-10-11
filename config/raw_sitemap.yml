@@ -264,11 +264,57 @@
         variables:
             sectionId: ${sectionId}
 
-#- id: css_frameworks
-#  path: /css-frameworks
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.css_frameworks}
+- id: css_frameworks
+  path: /css-frameworks
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.css_frameworks}
+  children:
+      - id: bootstrap
+        template: toolPageTemplate
+
+      - id: materialize
+        template: toolPageTemplate
+
+      - id: ant_design
+        template: toolPageTemplate
+
+      - id: semanticui
+        template: toolPageTemplate
+
+      - id: bulma
+        template: toolPageTemplate
+
+      - id: foundation
+        template: toolPageTemplate
+
+      - id: uikit
+        template: toolPageTemplate
+
+      - id: tachyons
+        template: toolPageTemplate
+
+      - id: primer
+        template: toolPageTemplate
+
+      - id: tailwind
+        template: toolPageTemplate
+
+      - id: purecss
+        template: toolPageTemplate
+
+      #    - id: skeleton
+      #      template: toolPageTemplate
+
+      #    - id: spectre
+      #      template: toolPageTemplate
+
+      - id: css_frameworks_others
+        sectionId: css_frameworks
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
 #
 #- id: css_methodologies
 #  path: /methodologies
@@ -282,248 +328,6 @@
 #  variables:
 #      toolIds: ${toolsCategories.css_in_js}
 
-#
-#- id: javascript_flavors
-#  path: /javascript-flavors
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.javascript_flavors}
-#  children:
-#      - id: typescript
-#        template: toolPageTemplate
-#        sponsors:
-#            - typescript-v2
-#            - intermediate-react-v2
-#
-#      - id: reason
-#        template: toolPageTemplate
-#
-#      - id: elm
-#        template: toolPageTemplate
-#        sponsors:
-#            - intro-elm
-#
-#      - id: clojurescript
-#        template: toolPageTemplate
-#
-#      - id: purescript
-#        template: toolPageTemplate
-#
-#      - id: javascript_flavors_others
-#        sectionId: javascript_flavors
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#- id: front_end_frameworks
-#  path: /front-end-frameworks
-#  template: toolSectionTemplate
-#  sponsors:
-#    - wesbos-advanced-react
-#  variables:
-#      toolIds: ${toolsCategories.front_end_frameworks}
-#  children:
-#      - id: react
-#        template: toolPageTemplate
-#        sponsors:
-#            - complete-react-v5
-#            - fullstack-react-masterclass-tinyhouse-1
-#      - id: vuejs
-#        template: toolPageTemplate
-#        sponsors:
-#            - fullstack-vue-1
-#            - fem-vue
-#      - id: angular
-#        template: toolPageTemplate
-#        sponsors:
-#            - fullstack-ng-book-1
-#            - angular-core
-#      - id: preact
-#        template: toolPageTemplate
-#        sponsors:
-#            - complete-react-v5
-#
-#      - id: ember
-#        template: toolPageTemplate
-#        sponsors:
-#            - ember-octane
-#      - id: svelte
-#        template: toolPageTemplate
-#
-#      - id: front_end_frameworks_others
-#        sectionId: front_end_frameworks
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#      # - id: frontend-conclusion
-#      #   template: toolConclusionTemplate
-#
-#- id: data_layer
-#  path: /data-layer
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.data_layer}
-#  children:
-#      - id: redux
-#        template: toolPageTemplate
-#        sponsors:
-#            - intermediate-react-v2
-#            - redux-mobx
-#      - id: apollo
-#        template: toolPageTemplate
-#        sponsors:
-#            - client-graphql-react
-#      - id: graphql
-#        template: toolPageTemplate
-#        sponsors:
-#            - server-graphql-nodejs
-#      - id: relay
-#        template: toolPageTemplate
-#
-#      - id: mobx
-#        template: toolPageTemplate
-#        sponsors:
-#            - redux-mobx
-#      - id: data_layer_others
-#        sectionId: data_layer
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#      # - id: datalayer-conclusion
-#      #   template: toolConclusionTemplate
-#
-#- id: back_end_frameworks
-#  path: /back-end
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.back_end_frameworks}
-#  children:
-#      - id: express
-#        template: toolPageTemplate
-#        sponsors:
-#            - api-design-nodejs-v3
-#            - fullstack-node-1
-#      - id: nextjs
-#        template: toolPageTemplate
-#
-#      - id: koa
-#        template: toolPageTemplate
-#
-#      - id: meteor
-#        template: toolPageTemplate
-#
-#      - id: sails
-#        template: toolPageTemplate
-#
-#      - id: feathers
-#        template: toolPageTemplate
-#
-#      - id: nuxt
-#        template: toolPageTemplate
-#
-#      - id: gatsby
-#        template: toolPageTemplate
-#        sponsors:
-#            - gatsby
-#      - id: back_end_frameworks_others
-#        sectionId: back_end_frameworks
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#      # - id: backend-conclusion
-#      #   template: toolConclusionTemplate
-#
-#- id: testing
-#  path: /testing
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.testing}
-#  children:
-#      - id: jest
-#        template: toolPageTemplate
-#        sponsors:
-#            - testing-react
-#      - id: mocha
-#        template: toolPageTemplate
-#
-#      - id: storybook
-#        template: toolPageTemplate
-#        sponsors:
-#            - storybook1
-#
-#      - id: cypress
-#        template: toolPageTemplate
-#        sponsors:
-#            - testing-react
-#      - id: enzyme
-#        template: toolPageTemplate
-#
-#      - id: ava
-#        template: toolPageTemplate
-#
-#      - id: jasmine
-#        template: toolPageTemplate
-#
-#      - id: puppeteer
-#        template: toolPageTemplate
-#
-#      - id: testing_others
-#        sectionId: testing
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#      # - id: testing-conclusion
-#      #   template: toolConclusionTemplate
-#
-#- id: mobile_desktop
-#  path: /mobile-desktop
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.mobile_desktop}
-#  children:
-#      - id: electron
-#        template: toolPageTemplate
-#        sponsors:
-#            - electron-v2
-#      - id: reactnative
-#        template: toolPageTemplate
-#        sponsors:
-#            - fullstack-react-native-1
-#
-#      - id: nativeapps
-#        template: toolPageTemplate
-#
-#      - id: cordova
-#        template: toolPageTemplate
-#
-#      - id: ionic
-#        template: toolPageTemplate
-#
-#      - id: nwjs
-#        template: toolPageTemplate
-#
-#      - id: expo
-#        template: toolPageTemplate
-#
-#      - id: mobile_desktop_others
-#        sectionId: mobile_desktop
-#        path: /other-tools
-#        template: categoryOtherToolsPageTemplate
-#        variables:
-#            sectionId: ${sectionId}
-#
-#      # - id: mobiledesktop-conclusion
-#      #   template: toolConclusionTemplate
-#
 #- id: other_tools
 #  path: /other-tools
 #  blocks:

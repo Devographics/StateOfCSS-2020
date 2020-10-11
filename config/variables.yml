@@ -55,6 +55,8 @@ toolsCategories:
         - primer
         - tailwind
         - purecss
+        - skeleton
+        - spectre
     css_methodologies:
         - bem
         - atomic_design
