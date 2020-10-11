@@ -108,10 +108,10 @@
       - id: layout
         path: /layout
         blocks:
-            #- id: syntax
-            #  template: pageIntroductionTemplate
-            #  variables:
-            #      pageId: '${id}'
+            - id: layout
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
 
             - id: grid
               template: featureExperienceTemplate
@@ -136,10 +136,10 @@
       - id: shapes_and_graphics
         path: /shapes-and-graphics
         blocks:
-            #- id: shapes_and_graphics
-            #  template: pageIntroductionTemplate
-            #  variables:
-            #      pageId: '${id}'
+            - id: shapes_and_graphics
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
 
             - id: shapes
               template: featureExperienceTemplate
@@ -162,10 +162,10 @@
       - id: interactions
         path: /interactions
         blocks:
-            #- id: interactions
-            #  template: pageIntroductionTemplate
-            #  variables:
-            #      pageId: '${id}'
+            - id: interactions
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
 
             - id: scroll_snap
               template: featureExperienceTemplate
@@ -179,10 +179,10 @@
       - id: typography
         path: /typography
         blocks:
-            #- id: typography
-            #  template: pageIntroductionTemplate
-            #  variables:
-            #      pageId: '${id}'
+            - id: typography
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
 
             - id: web_fonts
               template: featureExperienceTemplate
@@ -199,11 +199,11 @@
             - id: initial_letter
               template: featureExperienceTemplate
 
-#- id: pre_post_processors
-#  path: /pre-post-processors
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.pre_post_processors}
+- id: pre_post_processors
+  path: /pre-post-processors
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.pre_post_processors}
 
 #- id: css_frameworks
 #  path: /css-frameworks
