@@ -892,7 +892,7 @@ translations:
       t: CSS Frameworks
     - key: page.css_frameworks_others
       t: Other CSS Frameworks
-    - key: page.methodologies
+    - key: page.css_methodologies
       t: Methodologies
     - key: page.css_in_js
       t: CSS-in-JS

@@ -323,18 +323,18 @@
         template: categoryOtherToolsPageTemplate
         variables:
             sectionId: ${sectionId}
-#
-#- id: css_methodologies
-#  path: /methodologies
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.css_methodologies}
-#
-#- id: css_in_js
-#  path: /css-in-js
-#  template: toolSectionTemplate
-#  variables:
-#      toolIds: ${toolsCategories.css_in_js}
+
+- id: css_methodologies
+  path: /methodologies
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.css_methodologies}
+
+- id: css_in_js
+  path: /css-in-js
+  template: toolSectionTemplate
+  variables:
+      toolIds: ${toolsCategories.css_in_js}
 
 #- id: other_tools
 #  path: /other-tools
