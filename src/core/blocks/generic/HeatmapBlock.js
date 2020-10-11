@@ -9,7 +9,7 @@ import ChartContainer from 'core/charts/ChartContainer'
 const keysByType = {
     salary: salaryArray,
     workExperience: workExperienceArray,
-    companySize: companySizeArray
+    companySize: companySizeArray,
 }
 
 const HeatmapBlock = ({ block, data }) => {
@@ -19,7 +19,7 @@ const HeatmapBlock = ({ block, data }) => {
     const description = translate(`block.description.${blockName}_heatmap`)
 
     return (
-        <Block data={data.buckets} block={{...block, title, description }}>
+        <Block data={data.buckets} block={{ ...block, title, description }}>
             <ChartContainer>
                 <HeatmapChart
                     keys={keysByType[block.variables.heatmapId]}
@@ -36,8 +36,8 @@ HeatmapBlock.propTypes = {
         id: PropTypes.string.isRequired,
         variables: PropTypes.shape({
             subject: PropTypes.oneOf(['tools', 'features']).isRequired,
-            heatmapId: PropTypes.oneOf(['workExperience', 'salary', 'companySize']).isRequired
-        }).isRequired
+            heatmapId: PropTypes.oneOf(['workExperience', 'salary', 'companySize']).isRequired,
+        }).isRequired,
     }).isRequired,
     data: PropTypes.shape({
         year: PropTypes.number.isRequired,
@@ -49,12 +49,12 @@ HeatmapBlock.propTypes = {
                     PropTypes.shape({
                         range: PropTypes.string.isRequired,
                         count: PropTypes.number.isRequired,
-                        percentage: PropTypes.number.isRequired
+                        percentage: PropTypes.number.isRequired,
                     })
-                ).isRequired
+                ).isRequired,
             })
-        ).isRequired
-    })
+        ).isRequired,
+    }),
 }
 
 export default memo(HeatmapBlock)

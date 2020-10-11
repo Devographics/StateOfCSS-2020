@@ -42,14 +42,14 @@ const ShareBlock = ({ block, section, className, toggleClass, title }) => {
     const context = usePageContext()
     const { translate } = useI18n()
 
-    const toggleOptions = e => {
+    const toggleOptions = (e) => {
         e.preventDefault()
         // toggle parent component's class
         toggleClass && toggleClass()
         setShowOptions(!showOptions)
         ReactGA.event({
             category: 'Clicks',
-            action: `${section} chart toggle`
+            action: `${section} chart toggle`,
         })
     }
 
@@ -58,14 +58,14 @@ const ShareBlock = ({ block, section, className, toggleClass, title }) => {
     return (
         <Container
             className={classNames('ShareBlock', className, {
-                '_is-visible': showOptions
+                '_is-visible': showOptions,
             })}
         >
             <ButtonWrapper>
                 <ShareButton
                     className="ShareButton"
                     size="small"
-                    onClick={e => {
+                    onClick={(e) => {
                         toggleOptions(e)
                     }}
                 >
@@ -90,8 +90,8 @@ const ShareBlock = ({ block, section, className, toggleClass, title }) => {
 
 ShareBlock.propTypes = {
     block: PropTypes.shape({
-        id: PropTypes.string.isRequired
-    }).isRequired
+        id: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 const Container = styled.div`
@@ -125,7 +125,7 @@ const Icon = styled.svg`
     stroke: ${({ theme }) => theme.colors.link};
     height: 16px;
     width: 16px;
-    
+
     ${ShareButton}:hover &,
     .ShareBlock._is-visible & {
         stroke: ${({ theme }) => theme.colors.contrast};

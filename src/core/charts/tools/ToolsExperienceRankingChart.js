@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 import { ResponsiveBump } from '@nivo/bump'
 
-const CustomPoint = props => {
+const CustomPoint = (props) => {
     const theme = useContext(ThemeContext)
     const { x, y, data, isInactive, size, borderColor, borderWidth } = props
 
@@ -39,24 +39,24 @@ const ToolsExperienceRankingChart = ({ data }) => {
             enableGridY={false}
             axisTop={{
                 tickSize: 0,
-                tickPadding: 9
+                tickPadding: 9,
             }}
             axisRight={null}
             axisBottom={{
                 tickSize: 0,
-                tickPadding: 9
+                tickPadding: 9,
             }}
             axisLeft={null}
-            startLabel={d => d.name}
+            startLabel={(d) => d.name}
             startLabelTextColor={{
                 from: 'color',
-                modifiers: [['brighter', 1]]
+                modifiers: [['brighter', 1]],
             }}
             startLabelPadding={20}
-            endLabel={d => d.name}
+            endLabel={(d) => d.name}
             endLabelTextColor={{
                 from: 'color',
-                modifiers: [['brighter', 1]]
+                modifiers: [['brighter', 1]],
             }}
             endLabelPadding={20}
             pointComponent={CustomPoint}
@@ -81,11 +81,11 @@ ToolsExperienceRankingChart.propTypes = {
                 PropTypes.shape({
                     x: PropTypes.number.isRequired,
                     y: PropTypes.number,
-                    percentage: PropTypes.number
+                    percentage: PropTypes.number,
                 })
-            ).isRequired
+            ).isRequired,
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default ToolsExperienceRankingChart

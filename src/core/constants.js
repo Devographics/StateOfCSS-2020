@@ -1,4 +1,4 @@
-const arrayToKeys = a => a.map(id => ({ id }))
+const arrayToKeys = (a) => a.map((id) => ({ id }))
 
 export let colors = {
     greyLight: '#e0e4e4',
@@ -55,16 +55,14 @@ export let colors = {
     navyLighter: '#484F73',
     navyLight: '#303652',
     navy: '#232840',
-    navyDark: '#1a1f35'
+    navyDark: '#1a1f35',
 }
 
 export const toolCategories = [
-    { id: 'javascript_flavors', color: colors.indigo },
-    { id: 'front_end_frameworks', color: colors.pink },
-    { id: 'data_layer', color: colors.red },
-    { id: 'back_end_frameworks', color: colors.purple },
-    { id: 'testing', color: colors.orange },
-    { id: 'mobile_desktop', color: colors.olive }
+    { id: 'pre_post_processors', color: colors.indigo },
+    { id: 'css_frameworks', color: colors.pink },
+    { id: 'css_methodologies', color: colors.red },
+    { id: 'css_in_js', color: colors.purple },
 ]
 
 export const featureCategories = [
@@ -72,11 +70,11 @@ export const featureCategories = [
     { id: 'language', color: colors.pink },
     { id: 'data_structures', color: colors.red },
     { id: 'browser_apis', color: colors.purple },
-    { id: 'other_features', color: colors.orange }
+    { id: 'other_features', color: colors.orange },
 ]
 
-export const getColor = id =>
-    [...toolCategories, ...featureCategories].find(color => color.id === id).color
+export const getColor = (id) =>
+    [...toolCategories, ...featureCategories].find((color) => color.id === id).color
 
 /*
 
@@ -90,7 +88,7 @@ export const salaryArray = [
     'range_30_50',
     'range_50_100',
     'range_100_200',
-    'range_more_than_200'
+    'range_more_than_200',
 ]
 
 export const companySizeArray = [
@@ -101,7 +99,7 @@ export const companySizeArray = [
     'range_20_50',
     'range_50_100',
     'range_100_1000',
-    'range_more_than_1000'
+    'range_more_than_1000',
 ]
 
 export const workExperienceArray = [
@@ -110,7 +108,7 @@ export const workExperienceArray = [
     'range_2_5',
     'range_5_10',
     'range_10_20',
-    'range_more_than_20'
+    'range_more_than_20',
 ]
 
 export const environmentUsageArray = ['never', 'occasionally', 'often', 'mainly']
@@ -119,7 +117,7 @@ export const jobTitleArray = [
     'front_end_developer_engineer',
     'full_stack_developer_engineer',
     'back_end_developer_engineer',
-    'web_developer'
+    'web_developer',
 ]
 
 export const zeroToFiveRange = [0, 1, 2, 3, 4]
@@ -131,53 +129,53 @@ export const opinions = [
     { id: 3, color: colors.redLight },
     { id: 2, color: colors.grey },
     { id: 1, color: colors.tealLight },
-    { id: 0, color: colors.teal }
+    { id: 0, color: colors.teal },
 ]
 
 export const featureExperience = [
     {
-        id: 'used_it'
+        id: 'used_it',
     },
     {
-        id: 'know_not_used'
+        id: 'know_not_used',
     },
     {
-        id: 'never_heard_not_sure'
-    }
+        id: 'never_heard_not_sure',
+    },
 ]
 
 const featureExperienceSimplified = [
     {
-        id: 'know_it'
+        id: 'know_it',
     },
     {
-        id: 'used_it'
-    }
+        id: 'used_it',
+    },
 ]
 
 export const toolExperience = [
     {
-        id: 'would_use'
+        id: 'would_use',
     },
     {
-        id: 'would_not_use'
+        id: 'would_not_use',
     },
     {
-        id: 'interested'
+        id: 'interested',
     },
     {
-        id: 'not_interested'
+        id: 'not_interested',
     },
     {
-        id: 'never_heard'
-    }
+        id: 'never_heard',
+    },
 ]
 
 export const gender = [
     { id: 'male' },
     { id: 'female' },
     { id: 'non_binary' },
-    { id: 'prefer_not_to_say' }
+    { id: 'prefer_not_to_say' },
 ]
 
 export const keys = {
@@ -193,7 +191,7 @@ export const keys = {
     toolExperience,
     featureExperience,
     featureExperienceSimplified,
-    toolCategories
+    toolCategories,
 }
 
 export const fontFamily = `'IBM Plex Mono', monospace`

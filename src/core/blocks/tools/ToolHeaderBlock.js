@@ -73,12 +73,12 @@ const ToolHeaderBlock = ({ block, data }) => {
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-bottom: ${props => props.theme.spacing * 2}px;
+        margin-bottom: ${(props) => props.theme.spacing * 2}px;
     }
 
     @media ${mq.mediumLarge} {
         display: flex;
-        margin-bottom: ${props => props.theme.spacing * 4}px;
+        margin-bottom: ${(props) => props.theme.spacing * 4}px;
     }
 `
 
@@ -89,13 +89,13 @@ const ElementWrapper = styled.div`
 
     @media ${mq.small} {
         max-width: 150px;
-        margin: 0 auto ${props => props.theme.spacing / 4}px auto;
+        margin: 0 auto ${(props) => props.theme.spacing / 4}px auto;
     }
 
     @media ${mq.mediumLarge} {
         flex-shrink: 1;
         flex-basis: 120px;
-        margin-right: ${props => props.theme.spacing}px;
+        margin-right: ${(props) => props.theme.spacing}px;
     }
 `
 
@@ -123,7 +123,7 @@ const Title = styled.h2`
 const Description = styled.div`
     @media ${mq.small} {
         text-align: center;
-        margin: ${props => props.theme.spacing}px 0;
+        margin: ${(props) => props.theme.spacing}px 0;
     }
 `
 
@@ -140,7 +140,7 @@ const Stars = styled.div`
 const Links = styled.div`
     display: flex;
     align-items: center;
-    margin-top: ${props => props.theme.spacing / 2}px;
+    margin-top: ${(props) => props.theme.spacing / 2}px;
 
     @media ${mq.small} {
         justify-content: center;
@@ -148,7 +148,7 @@ const Links = styled.div`
 `
 
 const Link = styled(Button)`
-    margin-right: ${props => props.theme.spacing / 2}px;
+    margin-right: ${(props) => props.theme.spacing / 2}px;
 `
 
 export default ToolHeaderBlock

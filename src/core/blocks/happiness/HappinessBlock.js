@@ -14,14 +14,14 @@ const HappinessBlock = ({ block, data }) => {
 HappinessBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        showDescription: PropTypes.bool.isRequired
+        showDescription: PropTypes.bool.isRequired,
     }).isRequired,
     data: PropTypes.arrayOf(
         PropTypes.shape({
             year: PropTypes.number.isRequired,
-            mean: PropTypes.number.isRequired
+            mean: PropTypes.number.isRequired,
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default HappinessBlock

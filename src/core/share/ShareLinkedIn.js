@@ -36,7 +36,7 @@ ShareLinkedIn.propTypes = {
     link: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     summary: PropTypes.string,
-    trackingId: PropTypes.string
+    trackingId: PropTypes.string,
 }
 
 export default ShareLinkedIn

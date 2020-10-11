@@ -13,9 +13,9 @@ const GenderBlock = ({ block, data }) => {
 
     const colorMapping = useMemo(
         () =>
-            gender.map(item => ({
+            gender.map((item) => ({
                 ...item,
-                color: theme.colors.ranges.gender[item.id]
+                color: theme.colors.ranges.gender[item.id],
             })),
         [theme]
     )
@@ -36,15 +36,15 @@ const GenderBlock = ({ block, data }) => {
 
 GenderBlock.propTypes = {
     block: PropTypes.shape({
-        id: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
     }).isRequired,
     data: PropTypes.shape({
         buckets: PropTypes.arrayOf(
             PropTypes.shape({
-                id: PropTypes.string.isRequired
+                id: PropTypes.string.isRequired,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 export default memo(GenderBlock)

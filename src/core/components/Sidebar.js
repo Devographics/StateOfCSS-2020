@@ -56,7 +56,7 @@ const Sidebar = ({ sidebarClassName, closeSidebar, rest }) => {
 }
 
 const Container = styled.nav`
-    border-right: ${props => props.theme.separationBorder};
+    border-right: ${(props) => props.theme.separationBorder};
 
     @media ${mq.smallMedium} {
         top: 0;
@@ -99,7 +99,7 @@ const SidebarCloseButton = styled.button`
     background: none;
     cursor: pointer;
     border: none;
-    
+
     &:focus {
         outline: 0;
     }

@@ -30,14 +30,14 @@ const SponsorsBlock = () => {
 }
 
 const Container = styled.div`
-    background: ${props => props.theme.colors.backgroundAlt};
-    padding: ${props => props.theme.spacing * 1.5}px;
-    margin-top: ${props => props.theme.spacing * 2}px;
+    background: ${(props) => props.theme.colors.backgroundAlt};
+    padding: ${(props) => props.theme.spacing * 1.5}px;
+    margin-top: ${(props) => props.theme.spacing * 2}px;
 `
 
 const Header = styled.h3`
     text-align: center;
-    margin-bottom: ${props => props.theme.spacing}px;
+    margin-bottom: ${(props) => props.theme.spacing}px;
 `
 
 const SponsorList = styled.div`

@@ -21,7 +21,7 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
 
     const theme = useContext(ThemeContext)
     const colors = useMemo(
-        () => toolExperience.map(item => theme.colors.ranges.toolExperience[item.id]),
+        () => toolExperience.map((item) => theme.colors.ranges.toolExperience[item.id]),
         [theme]
     )
 
@@ -41,7 +41,7 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
                 },
                 onMouseLeave: () => {
                     setCurrent(null)
-                }
+                },
             }}
             setCurrent={setCurrent}
         >
@@ -50,7 +50,7 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
                     colorScale={colors}
                     current={current}
                     data={chartData.length === 1 ? [chartData[0], chartData[0]] : chartData}
-                    keys={toolExperience.map(k => k.id)}
+                    keys={toolExperience.map((k) => k.id)}
                     units={units}
                     applyEmptyPatternTo="never_heard"
                     namespace="toolExperience"
@@ -63,8 +63,8 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
 ToolExperienceBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        dataPath: PropTypes.string.isRequired
-    }).isRequired
+        dataPath: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default ToolExperienceBlock

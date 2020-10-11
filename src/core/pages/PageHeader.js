@@ -23,7 +23,7 @@ const PageHeader = ({ title: _title, showIntro = true, introduction }) => {
 PageHeader.propTypes = {
     title: PropTypes.string,
     showIntro: PropTypes.bool,
-    introduction: PropTypes.node
+    introduction: PropTypes.node,
 }
 
 export default PageHeader

@@ -6,20 +6,20 @@ import PageLink from '../pages/PageLink'
 import PageLabel from '../pages/PageLabel'
 import LanguageSwitcher from '../i18n/LanguageSwitcher'
 
-const filteredNav = sitemap.filter(page => !page.is_hidden)
+const filteredNav = sitemap.filter((page) => !page.is_hidden)
 
 const StyledPageLink = styled(PageLink)`
     display: inline-block;
     white-space: nowrap;
-    margin: 0 0 ${props => props.theme.spacing / 3}px 0;
-    font-size: ${props => props.theme.typography.sizes.medium};
+    margin: 0 0 ${(props) => props.theme.spacing / 3}px 0;
+    font-size: ${(props) => props.theme.typography.sizes.medium};
 
     &,
     &:link,
     &:visited,
     &:active,
     &:focus {
-        color: ${props => {
+        color: ${(props) => {
             if (props.level === 0) {
                 return props.theme.colors.link
             }
@@ -29,8 +29,8 @@ const StyledPageLink = styled(PageLink)`
     }
 
     &._is-active {
-        font-weight: ${props => props.level === 0 ? undefined : 400};
-        color: ${props => {
+        font-weight: ${(props) => (props.level === 0 ? undefined : 400)};
+        color: ${(props) => {
             if (props.level !== 0) {
                 return props.theme.colors.linkActive
             }
@@ -62,7 +62,7 @@ const NavItem = ({ page, currentPath, closeSidebar, level = 0 }) => {
             </StyledPageLink>
             {hasChildren && (
                 <div className={`Nav__SubPages Nav__SubPages--lvl-${level}`}>
-                    {page.children.map(childPage => (
+                    {page.children.map((childPage) => (
                         <NavItem
                             key={childPage.id}
                             page={childPage}

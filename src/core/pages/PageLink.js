@@ -10,8 +10,8 @@ const PageLink = ({ page, children, ...rest }) => (
 
 PageLink.propTypes = {
     page: PropTypes.shape({
-        path: PropTypes.string.isRequired
-    }).isRequired
+        path: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default PageLink

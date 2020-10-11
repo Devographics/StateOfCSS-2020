@@ -18,7 +18,7 @@ const BlockLegends = ({
     onClick,
     data,
     legends,
-    units
+    units,
 }) => {
     const { id: blockId, bucketKeysName = blockId } = block
     const { translate } = useI18n()
@@ -42,7 +42,9 @@ const BlockLegends = ({
             id: `${bucketKeysName}.${keyId}`,
             label: translate(`${bucketKeysName}.${keyId}.long`),
             keyLabel: `${translate(`${bucketKeysName}.${keyId}.short`)}:`,
-            color: theme.colors.ranges[bucketKeysName] ? theme.colors.ranges[bucketKeysName][keyId] : undefined
+            color: theme.colors.ranges[bucketKeysName]
+                ? theme.colors.ranges[bucketKeysName][keyId]
+                : undefined,
         }))
 
     const rootStyle = { ...style }
@@ -62,7 +64,7 @@ const BlockLegends = ({
                     onMouseLeave={onMouseLeave}
                     onClick={onClick}
                     keyLabel={keyLabel}
-                    data={data && Array.isArray(data) && data.find(b => b.id === id)}
+                    data={data && Array.isArray(data) && data.find((b) => b.id === id)}
                     units={units}
                 />
             ))}
@@ -79,7 +81,7 @@ BlockLegends.propTypes = {
     chipStyle: PropTypes.object.isRequired,
     onMouseEnter: PropTypes.func,
     onMouseLeave: PropTypes.func,
-    onClick: PropTypes.func
+    onClick: PropTypes.func,
 }
 
 BlockLegends.defaultProps = {
@@ -88,12 +90,12 @@ BlockLegends.defaultProps = {
     style: {},
     itemStyle: {},
     chipStyle: {},
-    chipSize: 16
+    chipSize: 16,
 }
 
 const Container = styled.div`
-    font-size: ${props => props.theme.typography.sizes.small};
-    margin-top: ${props => props.theme.spacing}px;
+    font-size: ${(props) => props.theme.typography.sizes.small};
+    margin-top: ${(props) => props.theme.spacing}px;
 `
 
 export default BlockLegends

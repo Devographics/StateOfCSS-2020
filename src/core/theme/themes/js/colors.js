@@ -23,23 +23,23 @@ export default {
             would_not_use: colors.redLight,
             interested: colors.teal,
             not_interested: colors.tealLight,
-            never_heard: colors.greyMedium
+            never_heard: colors.greyMedium,
         },
         featureExperience: {
             used_it: colors.teal,
             know_not_used: colors.tealDarker,
-            never_heard_not_sure: colors.greyMedium
+            never_heard_not_sure: colors.greyMedium,
         },
         featureExperienceSimplified: {
             know_it: colors.tealDarker,
-            used_it: colors.teal
+            used_it: colors.teal,
         },
         gender: {
             male: colors.blue,
             female: colors.teal,
             non_binary: colors.red,
-            prefer_not_to_say: colors.greyMediumer
-        }
+            prefer_not_to_say: colors.greyMediumer,
+        },
     },
     distinct: [
         colors.indigo,
@@ -52,6 +52,6 @@ export default {
         colors.orange,
         colors.olive,
         colors.skyblue,
-        colors.purple
-    ]
+        colors.purple,
+    ],
 }

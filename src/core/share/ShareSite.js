@@ -13,7 +13,7 @@ const ShareSite = () => {
 
     const link = context.host
     const transOptions = {
-        values: { link }
+        values: { link },
     }
     const title = translate('share.site.title', transOptions)
     const twitterText = translate('share.site.twitter_text', transOptions)
@@ -31,7 +31,7 @@ const ShareSite = () => {
 }
 
 const Container = styled.div`
-    border-top: ${props => props.theme.separationBorder};
+    border-top: ${(props) => props.theme.separationBorder};
     display: flex;
     justify-content: space-evenly;
     position: relative;

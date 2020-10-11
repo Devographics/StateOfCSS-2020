@@ -8,5 +8,5 @@ export default {
     blockShadow: `0px 12px 16px rgba(0, 0, 0, 0.1), 0px 1px 3px rgba(0, 0, 0, 0.05)`,
     typography,
     colors,
-    charts
+    charts,
 }

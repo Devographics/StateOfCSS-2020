@@ -64,7 +64,7 @@ const BlockError = ({ message, data, block }) => (
     </Block>
 )
 
-const BlockSwitcherWithBoundary = props => (
+const BlockSwitcherWithBoundary = (props) => (
     <ErrorBoundary {...props}>
         <BlockSwitcher {...props} />
     </ErrorBoundary>
@@ -83,9 +83,9 @@ BlockSwitcher.propTypes = {
         // which mode to use for generic bar charts
         mode: PropTypes.oneOf(['absolute', 'relative']),
         // which unit to use for generic bar charts
-        units: PropTypes.oneOf(['percentage', 'count'])
+        units: PropTypes.oneOf(['percentage', 'count']),
     }),
-    pageData: PropTypes.any.isRequired
+    pageData: PropTypes.any.isRequired,
 }
 
 export default BlockSwitcherWithBoundary

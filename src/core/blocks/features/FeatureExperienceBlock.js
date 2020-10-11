@@ -9,7 +9,7 @@ import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import { usePageContext } from 'core/helpers/pageContext'
 
 // convert relative links into absolute MDN links
-const parseMDNLinks = content =>
+const parseMDNLinks = (content) =>
     content.replace(new RegExp(`href="/`, 'g'), `href="https://developer.mozilla.org/`)
 
 const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
@@ -22,12 +22,12 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
     const { name, mdn } = data
 
     // @todo: handle normalization directly in the survey
-    const buckets = data.experience.year.buckets.map(bucket => {
+    const buckets = data.experience.year.buckets.map((bucket) => {
         let id
         if (bucket.id === 'heard') {
             id = 'know_not_used'
         }
-        if (bucket.id === 'neverheard') {
+        if (bucket.id === 'never_heard') {
             id = 'never_heard_not_sure'
         }
         if (bucket.id === 'used') {
@@ -36,15 +36,15 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
 
         return {
             ...bucket,
-            id
+            id,
         }
     })
 
     const colorMapping = useMemo(
         () =>
-            featureExperience.map(item => ({
+            featureExperience.map((item) => ({
                 ...item,
-                color: theme.colors.ranges.featureExperience[item.id]
+                color: theme.colors.ranges.featureExperience[item.id],
             })),
         [theme]
     )
@@ -63,7 +63,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
             setUnits={setUnits}
             data={{
                 completion: data.experience.year.completion,
-                buckets
+                buckets,
             }}
             block={{ ...block, title: name, description }}
         >
@@ -87,7 +87,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
 FeatureExperienceBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        path: PropTypes.string.isRequired
+        path: PropTypes.string.isRequired,
     }).isRequired,
     data: PropTypes.shape({
         id: PropTypes.string.isRequired,
@@ -97,7 +97,7 @@ FeatureExperienceBlock.propTypes = {
                 year: PropTypes.number.isRequired,
                 completion: PropTypes.shape({
                     count: PropTypes.number.isRequired,
-                    percentage: PropTypes.number.isRequired
+                    percentage: PropTypes.number.isRequired,
                 }).isRequired,
                 buckets: PropTypes.arrayOf(
                     PropTypes.shape({
@@ -108,15 +108,15 @@ FeatureExperienceBlock.propTypes = {
                                 PropTypes.shape({
                                     id: PropTypes.string.isRequired,
                                     count: PropTypes.number.isRequired,
-                                    percentage: PropTypes.number.isRequired
+                                    percentage: PropTypes.number.isRequired,
                                 })
-                            ).isRequired
-                        })
+                            ).isRequired,
+                        }),
                     })
-                ).isRequired
-            }).isRequired
-        }).isRequired
-    }).isRequired
+                ).isRequired,
+            }).isRequired,
+        }).isRequired,
+    }).isRequired,
 }
 
 export default FeatureExperienceBlock

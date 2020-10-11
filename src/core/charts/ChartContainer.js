@@ -70,7 +70,7 @@ ChartContainer.propTypes = {
     height: PropTypes.number,
     fit: PropTypes.bool,
     className: PropTypes.string,
-    vscroll: PropTypes.bool
+    vscroll: PropTypes.bool,
 }
 
 const ChartContainerOuter = styled.div`

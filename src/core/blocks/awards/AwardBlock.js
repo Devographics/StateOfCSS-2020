@@ -64,7 +64,7 @@ const AwardBlock = ({ block }) => {
             <Comment className="Award__Comment">
                 <ReactMarkdown
                     source={translate(`award.${type}.comment`, {
-                        values: { items }
+                        values: { items },
                     })}
                 />
                 <ShareBlock
@@ -95,10 +95,10 @@ AwardBlock.propTypes = {
             PropTypes.shape({
                 id: PropTypes.string.isRequired,
                 name: PropTypes.string.isRequired,
-                value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).number
+                value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).number,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 const Container = styled.div`
@@ -134,12 +134,9 @@ const ElementContainer = styled.div`
     margin-bottom: ${({ theme }) => theme.spacing}px;
 `
 
-const getGlowColor = (color, alpha) =>
-    tinycolor(color)
-        .setAlpha(alpha)
-        .toRgbString()
+const getGlowColor = (color, alpha) => tinycolor(color).setAlpha(alpha).toRgbString()
 
-const glowSoft = theme => keyframes`
+const glowSoft = (theme) => keyframes`
     from {
         box-shadow: 0px 1px 1px 1px ${getGlowColor(theme.colors.link, 0.1)};
     }
@@ -151,7 +148,7 @@ const glowSoft = theme => keyframes`
     }
 `
 
-const glow = theme => keyframes`
+const glow = (theme) => keyframes`
     from {
         box-shadow: 0px 1px 2px 1px ${getGlowColor(theme.colors.link, 0.5)};
     }
@@ -163,7 +160,7 @@ const glow = theme => keyframes`
     }
 `
 
-const burst = theme => keyframes`
+const burst = (theme) => keyframes`
     from {
         box-shadow: 0px 0px 0px 0px ${getGlowColor(theme.colors.link, 0)};
     }

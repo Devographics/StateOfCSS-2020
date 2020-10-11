@@ -12,19 +12,19 @@ const labelPositions = {
         Svelte: [0, 10],
         Gatsby: [-70, 0],
         Cypress: [0, -10],
-        'Next.js': [0, -10]
+        'Next.js': [0, -10],
     },
     interest: {
         Jasmine: [-80, 0],
         PureScript: [0, -10],
         Sails: [-60, 0],
-        'Next.js': [-80, 0]
-    }
+        'Next.js': [-80, 0],
+    },
 }
 
 const margins = { top: 20, right: 90, bottom: 70, left: 90 }
 
-const Nodes = props => {
+const Nodes = (props) => {
     const { width, height, margin, nodes, current, metric } = props
     return (
         <g>
@@ -78,7 +78,7 @@ const Crosshair = ({ x, y, label, cutoffX = 0, cutoffY = 0 }) => {
         </g>
     )
 }
-const Node = props => {
+const Node = (props) => {
     const { id, data, style, x, y, height, margin, current, metric } = props
     const { name, formattedX, formattedY } = data
     const yInverted = height - margin.top - margin.bottom - y
@@ -136,7 +136,7 @@ const Node = props => {
 
 const quadrantLabels = {
     satisfaction: ['assess', 'adopt', 'avoid', 'analyze'],
-    interest: ['mainstream', 'next_big_thing', 'unknown', 'low_interest']
+    interest: ['mainstream', 'next_big_thing', 'unknown', 'low_interest'],
 }
 
 const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
@@ -149,26 +149,26 @@ const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
             x: 0,
             y: 0,
             color: colors.navyLight,
-            label: translate(`quadrants.${quadrantLabels[metric][0]}`)
+            label: translate(`quadrants.${quadrantLabels[metric][0]}`),
         },
         {
             x: qWidth,
             y: 0,
             color: colors.navyLighter,
-            label: translate(`quadrants.${quadrantLabels[metric][1]}`)
+            label: translate(`quadrants.${quadrantLabels[metric][1]}`),
         },
         {
             x: 0,
             y: qHeight,
             color: colors.navyDark,
-            label: translate(`quadrants.${quadrantLabels[metric][2]}`)
+            label: translate(`quadrants.${quadrantLabels[metric][2]}`),
         },
         {
             x: qWidth,
             y: qHeight,
             color: colors.navyLight,
-            label: translate(`quadrants.${quadrantLabels[metric][3]}`)
-        }
+            label: translate(`quadrants.${quadrantLabels[metric][3]}`),
+        },
     ]
 
     return (
@@ -198,13 +198,13 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
     const { translate } = useI18n()
 
     const quadrants = [
-        props => <Quadrants {...props} metric={metric} />,
+        (props) => <Quadrants {...props} metric={metric} />,
         'grid',
         'axes',
-        props => <Nodes {...props} current={current} metric={metric} />,
+        (props) => <Nodes {...props} current={current} metric={metric} />,
         /*'nodes', */ 'markers',
         'mesh',
-        'legends'
+        'legends',
     ]
 
     return (
@@ -226,7 +226,7 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
                     tickRotation: 0,
                     legend: translate('users_count'),
                     legendPosition: 'middle',
-                    legendOffset: 46
+                    legendOffset: 46,
                 }}
                 axisLeft={{
                     orient: 'left',
@@ -236,10 +236,10 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
                     legend: translate(`${metric}_percentage`),
                     legendPosition: 'middle',
                     legendOffset: -60,
-                    format: s => `${s}%`
+                    format: (s) => `${s}%`,
                 }}
                 layers={quadrants}
-                colors={dot => getColor(dot.serieId)}
+                colors={(dot) => getColor(dot.serieId)}
                 animate={false}
                 tooltip={({ node }) => {
                     const { data, x, y } = node
@@ -266,11 +266,11 @@ ToolsScatterplotChart.propTypes = {
                 PropTypes.shape({
                     id: PropTypes.string.isRequired,
                     x: PropTypes.number.isRequired,
-                    y: PropTypes.number.isRequired
+                    y: PropTypes.number.isRequired,
                 })
-            )
+            ),
         }).isRequired
-    )
+    ),
 }
 
 export default memo(ToolsScatterplotChart)

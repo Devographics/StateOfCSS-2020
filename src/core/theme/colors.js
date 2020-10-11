@@ -53,5 +53,5 @@ export default {
     navyLighter: '#484F73',
     navyLight: '#303652',
     navy: '#232840',
-    navyDark: '#1a1f35'
+    navyDark: '#1a1f35',
 }

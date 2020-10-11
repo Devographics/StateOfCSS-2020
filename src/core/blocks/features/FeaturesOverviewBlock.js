@@ -11,21 +11,21 @@ import variables from '../../../../config/variables.yml'
 const getChartData = (data, getName, translate) => {
     const categories = variables.featuresCategories
     const sectionIds = Object.keys(categories)
-    const sections = sectionIds.map(sectionId => {
+    const sections = sectionIds.map((sectionId) => {
         const sectionFeatures = categories[sectionId]
         const features = data
-            .filter(f => sectionFeatures.includes(f.id))
-            .map(feature => {
+            .filter((f) => sectionFeatures.includes(f.id))
+            .map((feature) => {
                 const buckets = get(feature, 'experience.year.buckets')
-                const usageBucket = buckets.find(b => b.id === 'used')
-                const knowNotUsedBucket = buckets.find(b => b.id === 'heard')
+                const usageBucket = buckets.find((b) => b.id === 'used')
+                const knowNotUsedBucket = buckets.find((b) => b.id === 'heard')
                 return {
                     id: feature.id,
                     awareness: usageBucket.count + knowNotUsedBucket.count,
                     usage: usageBucket.count,
                     unusedCount: knowNotUsedBucket.count,
                     name: feature.name,
-                    sectionId
+                    sectionId,
                 }
             })
 
@@ -34,14 +34,14 @@ const getChartData = (data, getName, translate) => {
                   id: sectionId,
                   isSection: true,
                   children: features,
-                  name: translate(`page.${sectionId}`)
+                  name: translate(`page.${sectionId}`),
               }
             : null
     })
 
     return {
         id: 'root',
-        children: compact(sections)
+        children: compact(sections),
     }
 }
 
@@ -52,7 +52,7 @@ const FeaturesOverviewBlock = ({ block, data }) => {
     const chartData = useMemo(() => getChartData(data, getName, translate), [
         data,
         getName,
-        translate
+        translate,
     ])
 
     return (

@@ -9,8 +9,8 @@ import ChartLabel from 'core/components/ChartLabel'
 
 // Custom labels using an extra `layer`,
 // this way, we can add an extra outline to bar labels
-const getLabels = units => ({ bars }) => {
-    return bars.map(bar => {
+const getLabels = (units) => ({ bars }) => {
+    return bars.map((bar) => {
         // skip legend for small bars
         if (bar.width < 60) return null
 
@@ -51,7 +51,7 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
     const { translate } = useI18n()
     const theme = useContext(ThemeContext)
 
-    const keys = useMemo(() => colorMapping.map(m => m.id), [colorMapping])
+    const keys = useMemo(() => colorMapping.map((m) => m.id), [colorMapping])
     const data = useMemo(
         () => [
             buckets.reduce((acc, bucket) => {
@@ -59,9 +59,9 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
                     ...acc,
                     [bucket.id]: bucket[units],
                     [`${bucket.id}_count`]: bucket.count,
-                    [`${bucket.id}_percentage`]: bucket.percentage
+                    [`${bucket.id}_percentage`]: bucket.percentage,
                 }
-            }, {})
+            }, {}),
         ],
         [buckets, units]
     )
@@ -70,20 +70,20 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
         const colorById = colorMapping.reduce(
             (acc, m) => ({
                 ...acc,
-                [m.id]: m.color
+                [m.id]: m.color,
             }),
             {}
         )
 
-        return bar => colorById[bar.id]
+        return (bar) => colorById[bar.id]
     }, [colorMapping])
     const labelsLayer = useMemo(() => getLabels(units), [units])
     const patternRules = useMemo(
         () => [
             {
                 id: 'empty',
-                match: { id: applyEmptyPatternTo }
-            }
+                match: { id: applyEmptyPatternTo },
+            },
         ],
         [applyEmptyPatternTo]
     )
@@ -98,7 +98,7 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
             enableLabel={false}
             labelTextColor={{
                 from: 'color',
-                modifiers: [['brighter', 1.4]]
+                modifiers: [['brighter', 1.4]],
             }}
             axisLeft={null}
             axisBottom={null}
@@ -109,7 +109,7 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
             layers={['bars', labelsLayer]}
             defs={[theme.charts.emptyPattern]}
             fill={patternRules}
-            tooltip={bar => (
+            tooltip={(bar) => (
                 <Tooltip
                     bar={bar}
                     translate={translate}
@@ -126,18 +126,18 @@ GaugeBarChart.propTypes = {
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             count: PropTypes.number.isRequired,
-            percentage: PropTypes.number.isRequired
+            percentage: PropTypes.number.isRequired,
         }).isRequired
     ).isRequired,
     colorMapping: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,
-            color: PropTypes.string.isRequired
+            color: PropTypes.string.isRequired,
         })
     ).isRequired,
     units: PropTypes.oneOf(['count', 'percentage']),
     applyEmptyPatternTo: PropTypes.string,
-    i18nNamespace: PropTypes.string.isRequired
+    i18nNamespace: PropTypes.string.isRequired,
 }
 
 export default GaugeBarChart

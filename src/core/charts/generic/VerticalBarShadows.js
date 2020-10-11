@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import { colors } from 'core/constants.js'
 
 const VerticalBarShadows = ({ bars }) => {
-    return bars.map(bar => {
+    return bars.map((bar) => {
         return (
             <rect
                 key={bar.key}

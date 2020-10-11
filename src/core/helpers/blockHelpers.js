@@ -1,15 +1,20 @@
 import removeMarkdown from 'remove-markdown'
 import { getTranslationValuesFromContext, getPageLabel } from '../helpers/pageHelpers'
 
-export const getBlockTitle = (block, context, translate, { format = 'short', values = {} } = {}) => {
+export const getBlockTitle = (
+    block,
+    context,
+    translate,
+    { format = 'short', values = {} } = {}
+) => {
     const { id, title, blockName } = block
     let blockTitle
 
     const titleValues = {
         values: {
             ...getTranslationValuesFromContext(context, translate),
-            ...values
-        }
+            ...values,
+        },
     }
 
     if (title) {
@@ -40,8 +45,8 @@ export const getBlockDescription = (
     const descriptionValues = {
         values: {
             ...getTranslationValuesFromContext(context, translate),
-            ...values
-        }
+            ...values,
+        },
     }
 
     if (description) {
@@ -75,16 +80,16 @@ export const getBlockMeta = (block, context, translate, title) => {
     const twitterText = translate('share.block.twitter_text', {
         values: {
             title,
-            link
-        }
+            link,
+        },
     })
 
     const emailSubject = translate('share.block.subject')
     const emailBody = translate('share.block.body', {
         values: {
             title,
-            link
-        }
+            link,
+        },
     })
 
     return {
@@ -94,6 +99,6 @@ export const getBlockMeta = (block, context, translate, title) => {
         twitterText,
         emailSubject,
         emailBody,
-        imageUrl
+        imageUrl,
     }
 }

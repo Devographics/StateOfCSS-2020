@@ -8,20 +8,20 @@ export const useBarChart = ({ buckets, total, mode, units, i18nNamespace, should
     const { translate } = useI18n()
 
     const formatTick = useMemo(() => {
-        if (shouldTranslate !== true) return v => v
-        return v => translate(`${i18nNamespace}.${v}.short`)
+        if (shouldTranslate !== true) return (v) => v
+        return (v) => translate(`${i18nNamespace}.${v}.short`)
     }, [translate, shouldTranslate, i18nNamespace])
 
-    const formatValue = useMemo(() => (units === 'percentage' ? v => `${v}%` : '.2s'), [units])
+    const formatValue = useMemo(() => (units === 'percentage' ? (v) => `${v}%` : '.2s'), [units])
 
     const maxValue = useMemo(() => {
         if (units === 'percentage') {
             if (mode === 'absolute') return 100
-            return ceil(Math.max(...buckets.map(b => b.percentage)), -1)
+            return ceil(Math.max(...buckets.map((b) => b.percentage)), -1)
         }
 
         if (mode === 'absolute') return ceil(total, -3)
-        return ceil(Math.max(...buckets.map(b => b.count)), -3)
+        return ceil(Math.max(...buckets.map((b) => b.count)), -3)
     }, [buckets, total, mode, units])
 
     // const tickCount = Math.min(

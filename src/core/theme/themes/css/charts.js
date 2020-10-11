@@ -7,28 +7,28 @@ export default defaultsDeep(
         axis: {
             ticks: {
                 line: {
-                    fill: colors.text
+                    fill: colors.text,
                 },
                 text: {
-                    fill: colors.text
-                }
+                    fill: colors.text,
+                },
             },
             legend: {
                 text: {
-                    fill: colors.text
-                }
-            }
+                    fill: colors.text,
+                },
+            },
         },
         streamTimelineAxis: {
             ticks: {
                 line: {
-                    stroke: colors.text
+                    stroke: colors.text,
                 },
                 text: {
-                    fill: colors.text
-                }
-            }
-        }
+                    fill: colors.text,
+                },
+            },
+        },
     },
     charts
 )

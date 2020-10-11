@@ -22,10 +22,10 @@ const toolsQuery = graphql`
 export const ToolsContextProvider = ({ children }) => {
     return (
         <StaticQuery query={toolsQuery}>
-            {data => {
+            {(data) => {
                 const tools = get(data, 'surveyApi.survey.tools')
                 const getToolName = ({ id }) => {
-                    const tool = tools.find(t => t.id === id)
+                    const tool = tools.find((t) => t.id === id)
                     return get(tool, 'entity.name')
                 }
                 return (

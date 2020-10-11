@@ -18,11 +18,7 @@ const BlockCompletionIndicator = ({ completion }) => {
                 <strong>{completion.percentage}%</strong> ({completion.count})
             </div>
             <Chart height="16" width="16" viewBox="0 0 20 20">
-                <ChartBackground
-                    r="10"
-                    cx="10"
-                    cy="10"
-                />
+                <ChartBackground r="10" cx="10" cy="10" />
                 <ChartForeground
                     r="5"
                     cx="10"
@@ -40,8 +36,8 @@ const BlockCompletionIndicator = ({ completion }) => {
 BlockCompletionIndicator.propTypes = {
     completion: PropTypes.shape({
         count: PropTypes.number.isRequired,
-        percentage: PropTypes.number.isRequired
-    }).isRequired
+        percentage: PropTypes.number.isRequired,
+    }).isRequired,
 }
 
 const Tooltip = styled.div`

@@ -8,13 +8,13 @@ import BlockLegends from 'core/blocks/block/BlockLegends'
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-bottom: ${props => props.theme.spacing * 2}px;
+        margin-bottom: ${(props) => props.theme.spacing * 2}px;
     }
-    
+
     @media ${mq.mediumLarge} {
-        margin-bottom: ${props => props.theme.spacing * 4}px;
+        margin-bottom: ${(props) => props.theme.spacing * 4}px;
     }
-    
+
     &:last-child {
         margin-bottom: 0;
     }
@@ -64,16 +64,16 @@ Block.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.node,
-        description: PropTypes.node
+        description: PropTypes.node,
     }).isRequired,
     showDescription: PropTypes.bool.isRequired,
     isShareable: PropTypes.bool.isRequired,
     className: PropTypes.string,
-    values: PropTypes.object
+    values: PropTypes.object,
 }
 Block.defaultProps = {
     showDescription: true,
-    isShareable: true
+    isShareable: true,
 }
 
 export default memo(Block)

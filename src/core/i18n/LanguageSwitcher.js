@@ -7,7 +7,7 @@ import Locales from './Locales'
 
 const svgs = {
     top: <polygon stroke="#000" points="0,50 100,50 50,0" />,
-    bottom: <polygon stroke="#000" points="0,0 100,0 50,50" />
+    bottom: <polygon stroke="#000" points="0,0 100,0 50,50" />,
 }
 
 const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
@@ -15,7 +15,7 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
 
     const context = usePageContext()
     const [isOpened, setIsOpened] = useState(false)
-    const toggle = useCallback(() => setIsOpened(flag => !flag), [])
+    const toggle = useCallback(() => setIsOpened((flag) => !flag), [])
 
     return (
         <Container
@@ -106,8 +106,8 @@ const LanguageSwitcherPopup = styled.div`
     width: 300px;
     left: 50%;
     padding: ${spacing(1)};
-    background: ${props => props.theme.colors.background};
-    border: ${props => props.theme.separationBorder};
+    background: ${(props) => props.theme.colors.background};
+    border: ${(props) => props.theme.separationBorder};
     transform: translateX(-50%);
     z-index: 10000;
     box-shadow: ${({ theme }) => theme.blockShadow};
@@ -118,11 +118,11 @@ const LanguageSwitcherPopup = styled.div`
         content: ' ';
         height: ${ARROW_SIZE}px;
         width: ${ARROW_SIZE}px;
-        background: ${props => props.theme.colors.background};
+        background: ${(props) => props.theme.colors.background};
         position: absolute;
         pointer-events: none;
         transform-origin: center center;
-        border: ${props => props.theme.separationBorder};
+        border: ${(props) => props.theme.separationBorder};
         top: 0;
         transform: translate(${ARROW_SIZE * -0.5}px, ${ARROW_SIZE * -0.5}px) rotate(-45deg);
         border-bottom: 0;
@@ -148,7 +148,7 @@ const LanguageSwitcherHelp = styled.div`
     font-size: ${fontSize('small')};
     padding-top: ${spacing(1)};
     margin-top: ${spacing(1)};
-    border-top: ${props => props.theme.separationBorder};
+    border-top: ${(props) => props.theme.separationBorder};
 `
 
 export default memo(LanguageSwitcher)

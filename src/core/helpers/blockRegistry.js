@@ -71,7 +71,7 @@ const blockRegistry = {
     HappinessBlock,
 
     // opinions
-    OpinionBlock
+    OpinionBlock,
 }
 
 export default blockRegistry

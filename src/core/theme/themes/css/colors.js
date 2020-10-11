@@ -20,23 +20,23 @@ export default {
             would_not_use: '#EC75CB',
             interested: '#59DF7F',
             not_interested: '#ACFFC3',
-            never_heard: '#59608a'
+            never_heard: '#59608a',
         },
         featureExperience: {
-            used_it: '#59DF7F',
-            know_not_used: '#ACFFC3',
-            never_heard_not_sure: '#59608a'
+            used_it: colors.blue,
+            know_not_used: '#9AC6C9',
+            never_heard_not_sure: colors.navyLighter,
         },
         featureExperienceSimplified: {
             know_it: '#ACFFC3',
-            used_it: '#59DF7F'
+            used_it: '#59DF7F',
         },
         gender: {
             male: colors.blue,
             female: colors.teal,
             non_binary: colors.red,
-            prefer_not_to_say: colors.greyMediumer
-        }
+            prefer_not_to_say: colors.greyMediumer,
+        },
     },
     distinct: [
         colors.indigo,
@@ -49,6 +49,6 @@ export default {
         colors.orange,
         colors.olive,
         colors.skyblue,
-        colors.purple
-    ]
+        colors.purple,
+    ],
 }

@@ -17,7 +17,7 @@ const VerticalBarBlock = ({ block, data }) => {
         mode = 'relative',
         units: defaultUnits = 'percentage',
         translateData,
-        bucketKeysName = id
+        bucketKeysName = id,
     } = block
 
     const context = usePageContext()
@@ -34,12 +34,12 @@ const VerticalBarBlock = ({ block, data }) => {
     const { buckets, total, completion } = data
 
     const sortedBuckets = bucketKeys.map(({ id: bucketKey }) => {
-        const bucket = buckets.find(b => b.id === bucketKey)
+        const bucket = buckets.find((b) => b.id === bucketKey)
         if (bucket === undefined) {
             return {
                 id: bucketKey,
                 count: 0,
-                percentage: 0
+                percentage: 0,
             }
             // throw new Error(`no bucket found for key: '${bucketKey}' in block: ${block.id}`)
         }
@@ -78,15 +78,15 @@ VerticalBarBlock.propTypes = {
         bucketKeysName: PropTypes.oneOf(Object.keys(keys)),
         showDescription: PropTypes.bool,
         mode: PropTypes.oneOf(['absolute', 'relative']),
-        units: PropTypes.oneOf(['percentage', 'count'])
+        units: PropTypes.oneOf(['percentage', 'count']),
     }).isRequired,
     data: PropTypes.shape({
         buckets: PropTypes.arrayOf(
             PropTypes.shape({
-                id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired
+                id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 export default memo(VerticalBarBlock)

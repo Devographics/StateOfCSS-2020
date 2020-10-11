@@ -1,7 +1,7 @@
 import React from 'react'
 import { useI18n } from 'core/i18n/i18nContext'
 
-const LinkTooltip = link => {
+const LinkTooltip = (link) => {
     const { translate } = useI18n()
 
     return (
@@ -13,7 +13,7 @@ const LinkTooltip = link => {
                     previousExperience: translate(`toolExperience.${link.source.experience}.short`),
                     nextYear: link.target.year,
                     nextExperience: translate(`toolExperience.${link.target.experience}.short`),
-                }
+                },
             })}
         </div>
     )

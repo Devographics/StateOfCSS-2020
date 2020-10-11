@@ -13,7 +13,7 @@ import './ToolsArrowsChart.scss'
 
 let toolToCategoryMap = {}
 map(toolsCategories, (tools, category) => {
-    tools.forEach(tool => {
+    tools.forEach((tool) => {
         toolToCategoryMap[tool] = category
     })
 })
@@ -27,10 +27,7 @@ map(toolsCategories, (tools, category) => {
         .range([color, '#303652'])
         .clamp(true)
 })
-const gradientLineWidthScale = scaleLinear()
-    .domain([0, 30])
-    .range([11, 9])
-    .clamp(true)
+const gradientLineWidthScale = scaleLinear().domain([0, 30]).range([11, 9]).clamp(true)
 
 const ToolsArrowsChart = ({ data, activeCategory }) => {
     const { translate } = useI18n()
@@ -50,41 +47,41 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
 
         return {
             width,
-            height
+            height,
         }
-    }, [/* windowWidth, */windowHeight])
+    }, [/* windowWidth, */ windowHeight])
 
     var isFirefox =
         typeof navigator !== 'undefined' &&
         navigator.userAgent.toLowerCase().indexOf('firefox') > -1
 
-    const tools = data.map(d => d.id)
+    const tools = data.map((d) => d.id)
     let toolNames = {}
-    data.forEach(tool => {
+    data.forEach((tool) => {
         toolNames[tool.id] = tool.entity.name
     })
 
     const points = useMemo(
         () =>
-            data.map(tool =>
+            data.map((tool) =>
                 tool.experience.allYears.map(({ buckets }) => {
                     const points = buckets.map(({ id, percentage }) =>
-                        conditionDiffs[id].map(d => d * percentage)
+                        conditionDiffs[id].map((d) => d * percentage)
                     )
-                    return [sum(points.map(d => d[0])), sum(points.map(d => d[1]))]
+                    return [sum(points.map((d) => d[0])), sum(points.map((d) => d[1]))]
                 })
             ),
         [data]
     )
 
     const scales = useMemo(() => {
-        const xExtent = extent(flatten(points).map(d => d[0]))
+        const xExtent = extent(flatten(points).map((d) => d[0]))
         const maxAbsX = max(xExtent.map(Math.abs))
         const xScale = scaleLinear()
             .domain([-maxAbsX, maxAbsX])
             .range([20, dms.width - 20])
 
-        const yExtent = extent(flatten(points).map(d => d[1]))
+        const yExtent = extent(flatten(points).map((d) => d[1]))
         const maxAbsY = max(yExtent.map(Math.abs))
         const yScale = scaleLinear()
             .domain([-maxAbsY, maxAbsY])
@@ -92,7 +89,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
 
         return {
             x: xScale,
-            y: yScale
+            y: yScale,
         }
     }, [points, dms])
 
@@ -119,7 +116,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                     x={dms.width}
                     y={dms.height / 2 - 10}
                     style={{
-                        textAnchor: 'end'
+                        textAnchor: 'end',
                     }}
                 >
                     {translate('toolExperience.positive_opinion.extrashort')}
@@ -129,7 +126,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                     x={dms.width / 2}
                     y={10}
                     style={{
-                        textAnchor: 'middle'
+                        textAnchor: 'middle',
                     }}
                 >
                     {translate('toolExperience.have_used.extrashort')}
@@ -139,7 +136,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                     x={dms.width / 2}
                     y={dms.height - 10}
                     style={{
-                        textAnchor: 'middle'
+                        textAnchor: 'middle',
                     }}
                 >
                     {translate('toolExperience.have_not_used.extrashort')}
@@ -165,9 +162,9 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                             const yScale = scaleLinear()
                                 .domain([0, numberOfPointsPerSegment])
                                 .range([y, nextPoint[1]])
-                            return range(0, numberOfPointsPerSegment + 1).map(i => [
+                            return range(0, numberOfPointsPerSegment + 1).map((i) => [
                                 scales.x(xScale(i)),
-                                scales.y(yScale(i))
+                                scales.y(yScale(i)),
                             ])
                         })
                     )
@@ -209,7 +206,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                                     style={{
                                         strokeWidth: gradientLineWidthScale(
                                             (circles.length - i) * (isFirefox ? 5 : 1)
-                                        )
+                                        ),
                                     }}
                                 />
                             ))}
@@ -220,7 +217,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                                 fill={color}
                                 r="6"
                                 style={{
-                                    fillOpacity: points.length < 2 ? 1 : 0.2
+                                    fillOpacity: points.length < 2 ? 1 : 0.2,
                                 }}
                             />
                         </g>
@@ -291,7 +288,7 @@ const ToolsArrowsChart = ({ data, activeCategory }) => {
                                                 style={{
                                                     textAnchor: isFirstLabelToTheRight
                                                         ? 'end'
-                                                        : 'start'
+                                                        : 'start',
                                                 }}
                                             >
                                                 {2019 - (points.length - 1 - i)}
@@ -327,7 +324,7 @@ const conditionDiffs = {
     not_interested: [-1, -1],
     interested: [1, -1],
     would_not_use: [-1, 1],
-    would_use: [1, 1]
+    would_use: [1, 1],
 }
 
 /*
@@ -381,5 +378,5 @@ const labelsToTheRight = [
     'electron',
     'nextjs',
     'vuejs',
-    'cypress'
+    'cypress',
 ]

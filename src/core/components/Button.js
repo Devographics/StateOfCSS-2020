@@ -3,7 +3,7 @@ import { mq, fontSize, fontWeight, spacing, color } from 'core/theme'
 
 const Button = styled.div.attrs(({ className, size = 'medium', ...props }) => {
     return {
-        className: `Button Button--${size}${className ? ` ${className}` : ''}`
+        className: `Button Button--${size}${className ? ` ${className}` : ''}`,
     }
 })`
     background: none;

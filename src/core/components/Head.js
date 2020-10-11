@@ -29,10 +29,10 @@ const Head = () => {
         // google check
         {
             name: 'google-site-verification',
-            content: 'hrTRsz9fkGmQlVbLBWA4wmhn0qsI6_M3NKemTGCkpps'
+            content: 'hrTRsz9fkGmQlVbLBWA4wmhn0qsI6_M3NKemTGCkpps',
         },
         // social
-        ...socialMeta
+        ...socialMeta,
     ]
 
     return (

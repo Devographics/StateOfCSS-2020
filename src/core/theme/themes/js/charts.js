@@ -8,54 +8,54 @@ export default defaultsDeep(
         axis: {
             ticks: {
                 line: {
-                    fill: colors.text
+                    fill: colors.text,
                 },
                 text: {
-                    fill: colors.text
-                }
+                    fill: colors.text,
+                },
             },
             legend: {
                 text: {
-                    fill: colors.text
-                }
-            }
+                    fill: colors.text,
+                },
+            },
         },
         streamTimelineAxis: {
             ticks: {
                 line: {
-                    stroke: baseColors.greyLight
+                    stroke: baseColors.greyLight,
                 },
                 text: {
-                    fill: baseColors.greyLight
-                }
-            }
+                    fill: baseColors.greyLight,
+                },
+            },
         },
         grid: {
             line: {
-                stroke: baseColors.greyMedium
-            }
+                stroke: baseColors.greyMedium,
+            },
         },
         legends: {
             text: {
-                fill: baseColors.greyLight
-            }
+                fill: baseColors.greyLight,
+            },
         },
         tooltip: {
             container: {
                 background: baseColors.greyLight,
-                color: baseColors.blueDark
-            }
+                color: baseColors.blueDark,
+            },
         },
         labels: {
             text: {
-                fill: baseColors.navyDark
-            }
+                fill: baseColors.navyDark,
+            },
         },
         dots: {
             text: {
-                fill: baseColors.greyDark
-            }
-        }
+                fill: baseColors.greyDark,
+            },
+        },
     },
     charts
 )

@@ -42,7 +42,7 @@ const findEntity = (entities, key) =>
         const lowerCaseKey = key.toLowerCase()
         const idMatch = id.toLowerCase() === lowerCaseKey
         const nameMatch = name.toLowerCase() === lowerCaseKey
-        const aliasMatch = aliases && aliases.some(a => a.toLowerCase() === lowerCaseKey)
+        const aliasMatch = aliases && aliases.some((a) => a.toLowerCase() === lowerCaseKey)
         return idMatch || nameMatch || aliasMatch
     })
 
@@ -50,11 +50,11 @@ export const EntitiesContextProvider = ({ children }) => {
     return (
         <StaticQuery query={entitiesQuery}>
             {({ entities: _entities, features: _features, resources: _resources }) => {
-                const entities = _entities.edges.map(t => t.node)
-                const features = _features.edges.map(t => t.node)
-                const resources = _resources.edges.map(t => t.node)
+                const entities = _entities.edges.map((t) => t.node)
+                const features = _features.edges.map((t) => t.node)
+                const resources = _resources.edges.map((t) => t.node)
 
-                const getName = id => {
+                const getName = (id) => {
                     const entity = findEntity(entities, id)
                     const feature = findEntity(features, id)
                     const resource = findEntity(resources, id)
@@ -66,7 +66,7 @@ export const EntitiesContextProvider = ({ children }) => {
                     )
                 }
 
-                const getUrl = id => {
+                const getUrl = (id) => {
                     const entity = findEntity(entities, id)
                     const resource = findEntity(resources, id)
                     return (entity && entity.homepage) || (resource && resource.homepage) || null

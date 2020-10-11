@@ -8,7 +8,7 @@ import Button from 'core/components/Button'
 const images = [
     'stateofjs2019tshirt1.jpg',
     'stateofjs2019tshirt2.jpg',
-    'stateofjs2019tshirt-illustration.png'
+    'stateofjs2019tshirt-illustration.png',
 ]
 
 const TshirtBlock = () => {
@@ -53,7 +53,7 @@ const TshirtBlock = () => {
 }
 
 const Container = styled.div`
-    border: ${props => props.theme.separationBorder};
+    border: ${(props) => props.theme.separationBorder};
 
     @media ${mq.mediumLarge} {
         display: grid;
@@ -67,10 +67,10 @@ const ImagesContainer = styled.div`
     grid-template-rows: auto auto;
 
     @media ${mq.small} {
-        border-bottom: ${props => props.theme.separationBorder};
+        border-bottom: ${(props) => props.theme.separationBorder};
     }
     @media ${mq.mediumLarge} {
-        border-right: ${props => props.theme.separationBorder};
+        border-right: ${(props) => props.theme.separationBorder};
     }
 
     img {
@@ -81,13 +81,13 @@ const ImagesContainer = styled.div`
 
 const Image = styled.div`
     &:nth-child(1) {
-        border-bottom: ${props => props.theme.separationBorder};
+        border-bottom: ${(props) => props.theme.separationBorder};
         grid-column-start: 1;
         grid-column-end: 3;
     }
 
     &:nth-child(2) {
-        border-right: ${props => props.theme.separationBorder};
+        border-right: ${(props) => props.theme.separationBorder};
     }
 `
 
@@ -99,7 +99,7 @@ const Description = styled.div`
         padding: ${spacing(2)};
     }
     h2 {
-        margin-bottom: ${spacing(.25)};
+        margin-bottom: ${spacing(0.25)};
     }
     h3 {
         font-size: ${fontSize('medium')};

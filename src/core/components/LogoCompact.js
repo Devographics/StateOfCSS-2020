@@ -19,7 +19,7 @@ const LogoCompact = () => {
 const Container = styled.span`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    border-bottom: ${props => props.theme.separationBorder};
+    border-bottom: ${(props) => props.theme.separationBorder};
 
     @media ${mq.smallMedium} {
         border-bottom: 0;

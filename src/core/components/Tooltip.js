@@ -16,7 +16,7 @@ const StarTotal = ({ value }) => {
 }
 
 StarTotal.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 }
 
 const Description = ({ text, showEmojis }) => {
@@ -37,13 +37,13 @@ const Description = ({ text, showEmojis }) => {
 
 Description.propTypes = {
     text: PropTypes.string.isRequired,
-    showEmojis: PropTypes.bool
+    showEmojis: PropTypes.bool,
 }
 
 const HtmlDescription = ({ html }) => <span dangerouslySetInnerHTML={{ __html: html }} />
 
 HtmlDescription.propTypes = {
-    html: PropTypes.string.isRequired
+    html: PropTypes.string.isRequired,
 }
 
 const Tooltip = ({ library, variant }) => {
@@ -110,7 +110,7 @@ const Tooltip = ({ library, variant }) => {
 
 Tooltip.propTypes = {
     library: PropTypes.object.isRequired,
-    variant: PropTypes.string
+    variant: PropTypes.string,
 }
 
 export default Tooltip

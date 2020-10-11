@@ -12,13 +12,11 @@ const Switcher = ({ setMetric, metric }) => {
 
     return (
         <ButtonGroup>
-            {['satisfaction', 'interest', 'awareness'].map(key => (
+            {['satisfaction', 'interest', 'awareness'].map((key) => (
                 <Button
                     key={key}
                     size="small"
-                    className={`Button--${
-                        metric === key ? 'selected' : 'unselected'
-                    }`}
+                    className={`Button--${metric === key ? 'selected' : 'unselected'}`}
                     onClick={() => setMetric(key)}
                 >
                     <span className="desktop">{translate(`opinions.legends.${key}_ratio`)}</span>
@@ -35,17 +33,17 @@ const ToolsExperienceRankingBlock = ({ block, data }) => {
     const description = translate(`block.description.toolExperienceRanking`)
     const chartData = useMemo(
         () =>
-            data.map(tool => {
+            data.map((tool) => {
                 return {
                     id: tool.id,
                     name: tool.entity.name,
-                    data: tool[metric].map(bucket => {
+                    data: tool[metric].map((bucket) => {
                         return {
                             x: bucket.year,
                             y: bucket.rank,
-                            percentage: bucket.percentage
+                            percentage: bucket.percentage,
                         }
-                    })
+                    }),
                 }
             }),
         [data, metric]
@@ -56,7 +54,7 @@ const ToolsExperienceRankingBlock = ({ block, data }) => {
             block={{
                 ...block,
                 title,
-                description
+                description,
             }}
             titleProps={{ switcher: <Switcher setMetric={setMetric} metric={metric} /> }}
             data={data}
@@ -70,7 +68,7 @@ const ToolsExperienceRankingBlock = ({ block, data }) => {
 
 ToolsExperienceRankingBlock.propTypes = {
     block: PropTypes.shape({
-        id: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
     }).isRequired,
     data: PropTypes.arrayOf(
         PropTypes.shape({
@@ -79,25 +77,25 @@ ToolsExperienceRankingBlock.propTypes = {
                 PropTypes.shape({
                     year: PropTypes.number.isRequired,
                     rank: PropTypes.number,
-                    percentage: PropTypes.number
+                    percentage: PropTypes.number,
                 })
             ).isRequired,
             interest: PropTypes.arrayOf(
                 PropTypes.shape({
                     year: PropTypes.number.isRequired,
                     rank: PropTypes.number,
-                    percentage: PropTypes.number
+                    percentage: PropTypes.number,
                 })
             ).isRequired,
             satisfaction: PropTypes.arrayOf(
                 PropTypes.shape({
                     year: PropTypes.number.isRequired,
                     rank: PropTypes.number,
-                    percentage: PropTypes.number
+                    percentage: PropTypes.number,
                 })
-            ).isRequired
+            ).isRequired,
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default ToolsExperienceRankingBlock

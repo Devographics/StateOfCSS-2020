@@ -6,7 +6,7 @@ import { ResponsiveBar } from '@nivo/bar'
 
 const margin = {
     top: 81,
-    bottom: 30
+    bottom: 30,
 }
 
 const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
@@ -14,22 +14,22 @@ const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
 
     const chartData = useMemo(
         () =>
-            data.map(tool => ({
+            data.map((tool) => ({
                 tool: tool.id,
                 ...tool.experience.year.buckets.reduce(
                     (acc, bucket) => ({
                         ...acc,
-                        [bucket.id]: bucket[units]
+                        [bucket.id]: bucket[units],
                     }),
                     {}
-                )
+                ),
             })),
         [data, units]
     )
 
-    let format = v => v
+    let format = (v) => v
     if (units === 'percentage') {
-        format = v => `${v}%`
+        format = (v) => `${v}%`
     }
 
     const getLayerColor = ({ id }) => {
@@ -41,8 +41,8 @@ const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
         return color
     }
 
-    const formatTick = id => {
-        const tool = data.find(t => t.id === id)
+    const formatTick = (id) => {
+        const tool = data.find((t) => t.id === id)
         return get(tool, 'entity.name', id)
     }
 
@@ -58,18 +58,18 @@ const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
             labelSkipHeight={20}
             padding={0.6}
             axisTop={{
-                format: formatTick
+                format: formatTick,
             }}
             axisRight={null}
             axisBottom={{
-                format: formatTick
+                format: formatTick,
             }}
             defs={[theme.charts.emptyPattern]}
             fill={[
                 {
                     id: 'empty',
-                    match: { id: 'never_heard' }
-                }
+                    match: { id: 'never_heard' },
+                },
             ]}
             axisLeft={null}
             enableGridY={false}
@@ -85,7 +85,7 @@ ToolsSectionOverviewChart.propTypes = {
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             entity: PropTypes.shape({
-                name: PropTypes.string.isRequired
+                name: PropTypes.string.isRequired,
             }).isRequired,
             experience: PropTypes.shape({
                 year: PropTypes.shape({
@@ -93,13 +93,13 @@ ToolsSectionOverviewChart.propTypes = {
                         PropTypes.shape({
                             id: PropTypes.string.isRequired,
                             count: PropTypes.number.isRequired,
-                            percentage: PropTypes.number.isRequired
+                            percentage: PropTypes.number.isRequired,
                         })
-                    ).isRequired
-                }).isRequired
-            })
+                    ).isRequired,
+                }).isRequired,
+            }),
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default ToolsSectionOverviewChart

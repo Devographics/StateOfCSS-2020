@@ -8,7 +8,7 @@ const Trans = ({ children }) => {
 }
 
 Trans.propTypes = {
-    children: PropTypes.func.isRequired
+    children: PropTypes.func.isRequired,
 }
 
 export default Trans

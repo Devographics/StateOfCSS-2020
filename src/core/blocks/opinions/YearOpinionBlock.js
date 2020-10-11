@@ -10,7 +10,7 @@ import {
     DisagreeIcon,
     NeutralIcon,
     AgreeIcon,
-    StronglyAgreeIcon
+    StronglyAgreeIcon,
 } from '../components/icons'
 
 const emojiIcons = [StronglyDisagreeIcon, DisagreeIcon, NeutralIcon, AgreeIcon, StronglyAgreeIcon]
@@ -33,14 +33,14 @@ const Emojis = ({ bars, size = 24 }) => (
     </>
 )
 
-const getChartData = buckets => {
-    const sortedBuckets = [0, 1, 2, 3, 4].map(step => {
-        const bucket = buckets.find(b => b.id === step)
+const getChartData = (buckets) => {
+    const sortedBuckets = [0, 1, 2, 3, 4].map((step) => {
+        const bucket = buckets.find((b) => b.id === step)
         if (bucket === undefined) {
             return {
                 id: step,
                 count: 0,
-                percentage: 0
+                percentage: 0,
             }
         }
 
@@ -50,7 +50,7 @@ const getChartData = buckets => {
     return sortedBuckets
 }
 
-const formatTick = translate => value => {
+const formatTick = (translate) => (value) => {
     return translate(`opinion_scale.${value}.long`)
 }
 
@@ -84,9 +84,9 @@ const YearOpinionBlock = ({ block, data }) => {
                     chartProps={{
                         axisBottom: {
                             format: getScaleTickLabel,
-                            tickRotation: width && width < 500 ? -45 : 0
+                            tickRotation: width && width < 500 ? -45 : 0,
                         },
-                        layers: ['grid', 'axes', 'bars', Emojis]
+                        layers: ['grid', 'axes', 'bars', Emojis],
                     }}
                     viewportWidth={width}
                 />
@@ -99,22 +99,22 @@ YearOpinionBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
         dataPath: PropTypes.string,
-        showDescription: PropTypes.bool
+        showDescription: PropTypes.bool,
     }).isRequired,
     data: PropTypes.shape({
         year: PropTypes.number.isRequired,
         completion: PropTypes.shape({
             count: PropTypes.number.isRequired,
-            percentage: PropTypes.number.isRequired
+            percentage: PropTypes.number.isRequired,
         }).isRequired,
         buckets: PropTypes.arrayOf(
             PropTypes.shape({
                 id: PropTypes.number.isRequired,
                 count: PropTypes.number.isRequired,
-                percentage: PropTypes.number
+                percentage: PropTypes.number,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 export default memo(YearOpinionBlock)

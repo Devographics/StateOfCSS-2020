@@ -34,11 +34,11 @@ const HeatmapChart = ({ keys, data, i18nNamespace }) => {
     return (
         <Container
             style={{
-                gridTemplateColumns: `auto ${'70px '.repeat(keys.length)}`
+                gridTemplateColumns: `auto ${'70px '.repeat(keys.length)}`,
             }}
         >
             <Legend>{translate(`${i18nNamespace}.axis_legend`)}</Legend>
-            {keys.map(key => (
+            {keys.map((key) => (
                 <Header key={key}>{translate(`${i18nNamespace}.${key}.shorter`)}</Header>
             ))}
             {data.map((bucket, i) => (
@@ -57,40 +57,40 @@ const HeatmapChart = ({ keys, data, i18nNamespace }) => {
             <ColorLegendLabel />
             <ColorLegend
                 style={{
-                    gridColumnEnd: keys.length + 1
+                    gridColumnEnd: keys.length + 1,
                 }}
             >
                 <ColorLegendCell
                     style={{
-                        borderColor: backgroundColorScale(0)
+                        borderColor: backgroundColorScale(0),
                     }}
                 >
                     0
                 </ColorLegendCell>
                 <ColorLegendCell
                     style={{
-                        borderColor: backgroundColorScale(10)
+                        borderColor: backgroundColorScale(10),
                     }}
                 >
                     10%
                 </ColorLegendCell>
                 <ColorLegendCell
                     style={{
-                        borderColor: backgroundColorScale(20)
+                        borderColor: backgroundColorScale(20),
                     }}
                 >
                     20%
                 </ColorLegendCell>
                 <ColorLegendCell
                     style={{
-                        borderColor: backgroundColorScale(20)
+                        borderColor: backgroundColorScale(20),
                     }}
                 >
                     30%
                 </ColorLegendCell>
                 <ColorLegendCell
                     style={{
-                        borderColor: backgroundColorScale(40)
+                        borderColor: backgroundColorScale(40),
                     }}
                 >
                     40%
@@ -109,12 +109,12 @@ HeatmapChart.propTypes = {
                 PropTypes.shape({
                     range: PropTypes.string.isRequired,
                     count: PropTypes.number.isRequired,
-                    percentage: PropTypes.number.isRequired
+                    percentage: PropTypes.number.isRequired,
                 })
-            ).isRequired
+            ).isRequired,
         })
     ).isRequired,
-    i18nNamespace: PropTypes.string.isRequired
+    i18nNamespace: PropTypes.string.isRequired,
 }
 
 const Container = styled.div`

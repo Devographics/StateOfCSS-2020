@@ -1,82 +1,70 @@
-surveyType: js
+surveyType: css
 
 currentYear: 2019
 
 featuresCategories:
-    syntax:
-        - destructuring
-        - spread_operator
-        - arrow_functions
-    language:
-        - proxies
-        - async_await
-        - promises
-        - decorators
-    data_structures:
-        - maps
-        - sets
-        - typed_arrays
-        - array_prototype_flat
-    browser_apis:
-        - fetch
-        - i18n
-        - local_storage
-        - service_workers
-        - web_animations
-        - web_audio
-        - web_components
-        - webgl
-        - webrtc
-        - websocket
-        - web_speech
-        - webvr
+    layout:
+        - grid
+        - flexbox
+        - multi_column
+        - writing_modes
+        - exclusions
+    shapes_and_graphics:
+        - shapes
+        - object_fit
+        - clip_path
+        - masks
+        - blend_modes
+        - filter_effects
+    interactions:
+        - scroll_snap
+        - overscroll_behavior
+        - overflow_anchor
+    typography:
+        - web_fonts
+        - variables_fonts
+        - line_breaking
+        - font_variant
+        - initial_letter
+    animations_and_transforms:
+        - transitions
+        - transforms
+        - animations
     other_features:
-        - pwa
-        - wasm
+        - variables
+        - feature_support_queries
+        - containment
+        - will_change
+        - calc
 
 toolsCategories:
-    javascript_flavors:
-        - typescript
-        - reason
-        - elm
-        - clojurescript
-        - purescript
-    front_end_frameworks:
-        - react
-        - vuejs
-        - angular
-        - preact
-        - ember
-        - svelte
-    data_layer:
-        - redux
-        - apollo
-        - graphql
-        - relay
-        - mobx
-    back_end_frameworks:
-        - express
-        - nextjs
-        - koa
-        - meteor
-        - sails
-        - feathers
-        - nuxt
-        - gatsby
-    testing:
-        - jest
-        - mocha
-        - storybook
-        - cypress
-        - enzyme
-        - ava
-        - jasmine
-        - puppeteer
-    mobile_desktop:
-        - electron
-        - reactnative
-        - nativeapps
-        - cordova
-        - ionic
-        - nwjs
-        - expo
+    pre_post_processors:
+        - sass
+        - less
+        - postcss
+        - stylus
+    css_frameworks:
+        - bootstrap
+        - materialize
+        - ant_design
+        - semanticui
+        - bulma
+        - foundation
+        - uikit
+        - tachyons
+        - primer
+        - tailwind
+        - purecss
+    css_methodologies:
+        - bem
+        - atomic_design
+        - css
+    css_in_js:
+        - styled_components
+        - glamor
+        - aphrodite
+        - jss
+        - styled_jsx
+        - radium
+        - emotion
+        - cssmodules

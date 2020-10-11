@@ -23,15 +23,15 @@ const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
                 },
                 onMouseLeave: () => {
                     setCurrent(null)
-                }
+                },
             }}
         >
             <ChartContainer height={300} fit={true}>
                 <StreamChart
-                    colorScale={bucketKeys.map(k => k.color)}
+                    colorScale={bucketKeys.map((k) => k.color)}
                     current={current}
                     data={data}
-                    keys={bucketKeys.map(key => key.id)}
+                    keys={bucketKeys.map((key) => key.id)}
                     units={units}
                     applyEmptyPatternTo={2}
                     namespace={bucketKeysName}
@@ -44,8 +44,8 @@ const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
 OpinionBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        dataPath: PropTypes.string.isRequired
-    }).isRequired
+        dataPath: PropTypes.string.isRequired,
+    }).isRequired,
     // data: PropTypes.shape({
     //     buckets: PropTypes.arrayOf(
     //         PropTypes.shape({

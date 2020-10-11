@@ -15,15 +15,15 @@ FeaturesCirclePackingChart.propTypes = {
                                 PropTypes.shape({
                                     id: PropTypes.string.isRequired,
                                     count: PropTypes.number.isRequired,
-                                    percentage: PropTypes.number.isRequired
+                                    percentage: PropTypes.number.isRequired,
                                 })
-                            ).isRequired
-                        }).isRequired
+                            ).isRequired,
+                        }).isRequired,
                     })
-                )
+                ),
             })
-        )
-    })
+        ),
+    }),
 }
 
 export default FeaturesCirclePackingChart

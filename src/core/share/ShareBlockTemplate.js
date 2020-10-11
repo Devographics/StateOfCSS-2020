@@ -19,19 +19,19 @@ export default class ShareBlockTemplate extends Component {
             <PageContextProvider value={context}>
                 <I18nContextProvider>
                     <Trans>
-                        {translate => {
+                        {(translate) => {
                             const overrides = {
                                 title: `${getBlockTitle(block, context, translate, {
-                                    format: 'full'
+                                    format: 'full',
                                 })} #StateOfJS`,
                                 description: getBlockDescription(
                                     context.block,
                                     context,
                                     translate,
                                     {
-                                        isMarkdownEnabled: false
+                                        isMarkdownEnabled: false,
                                     }
-                                )
+                                ),
                             }
 
                             return (

@@ -6,11 +6,11 @@ export default {
         medium: '1rem',
         large: '1.1rem',
         larger: '1.3rem',
-        largest: '2rem'
+        largest: '2rem',
     },
     weights: {
         light: 300,
         medium: 400,
         bold: 800,
-    }
+    },
 }

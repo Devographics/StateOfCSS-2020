@@ -12,7 +12,7 @@ const LogoCell = ({ index, text, color: textColor }) => (
 
 LogoCell.propTypes = {
     text: PropTypes.string.isRequired,
-    color: PropTypes.string.isRequired
+    color: PropTypes.string.isRequired,
 }
 
 const Container = styled.span`
@@ -23,7 +23,7 @@ const Container = styled.span`
     justify-content: center;
     font-size: 26px;
     position: relative;
-    border-left: ${props => props.theme.separationBorder};
+    border-left: ${(props) => props.theme.separationBorder};
     background: ${color('background')};
     text-decoration: none;
 
@@ -33,7 +33,7 @@ const Container = styled.span`
 
     @media ${mq.smallMedium} {
         &:last-child {
-            border-right: ${props => props.theme.separationBorder};
+            border-right: ${(props) => props.theme.separationBorder};
         }
     }
 

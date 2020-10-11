@@ -28,10 +28,10 @@ BarTooltip.propTypes = {
     indexValue: PropTypes.string.isRequired,
     data: PropTypes.shape({
         percentage: PropTypes.number.isRequired,
-        count: PropTypes.number.isRequired
+        count: PropTypes.number.isRequired,
     }).isRequired,
     i18nNamespace: PropTypes.string.isRequired,
-    shouldTranslate: PropTypes.bool.isRequired
+    shouldTranslate: PropTypes.bool.isRequired,
 }
 
 export default memo(BarTooltip)

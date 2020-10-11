@@ -17,8 +17,8 @@ export const getWording = (id, values, fallback = id) => {
     }
 }
 
-export const getToolName = toolId => {
-    const bestOfJsProject = bestOfJsData.projects.find(p => p.slug === toolId)
+export const getToolName = (toolId) => {
+    const bestOfJsProject = bestOfJsData.projects.find((p) => p.slug === toolId)
     if (bestOfJsProject !== undefined) {
         return bestOfJsProject.name
     }

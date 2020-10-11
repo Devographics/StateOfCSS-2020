@@ -27,8 +27,8 @@ export const getPageLabel = (
             `page.${page.type}.${isContextual === true ? 'contextual_label' : 'label'}`,
             {
                 values: {
-                    section: translate(`features.${page.data.section}`)
-                }
+                    section: translate(`features.${page.data.section}`),
+                },
             }
         )
     } else {
@@ -46,7 +46,7 @@ export const getPageLabel = (
  * example:
  *   http://2018.stateofjs.com/images/captures/front-end_overview.png
  */
-export const getPageImageUrl = context => {
+export const getPageImageUrl = (context) => {
     const baseUrl = `${context.host}/images/`
 
     let imageUrl
@@ -72,7 +72,7 @@ export const getPageMeta = (context, translate, overrides = {}) => {
         url,
         title: isRoot ? WEBSITE_TITLE : getPageLabel(context, translate, { includeWebsite: true }),
         imageUrl,
-        ...overrides
+        ...overrides,
     }
 
     return meta
@@ -92,7 +92,7 @@ export const getPageSocialMeta = (context, translate, overrides = {}) => {
         { name: 'twitter:card', content: 'summary_large_image' },
         { name: 'twitter:image:src', content: meta.imageUrl },
         { name: 'twitter:title', content: meta.title },
-        { name: 'twitter:description', content: meta.description }
+        { name: 'twitter:description', content: meta.description },
     ]
 
     return socialMeta.filter(({ content }) => content !== undefined)
@@ -118,6 +118,6 @@ export const mergePageContext = (pageContext, location, state) => {
         currentPath: location ? location.pathname : undefined,
         isCapturing,
         isDebugEnabled,
-        ...state
+        ...state,
     }
 }

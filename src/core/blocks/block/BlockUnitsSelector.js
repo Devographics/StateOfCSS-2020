@@ -11,9 +11,7 @@ const BlockUnitsSelector = ({ units, onChange }) => {
         <ButtonGroup>
             <Button
                 size="small"
-                className={`Button--${
-                    units === 'percentage' ? 'selected' : 'unselected'
-                }`}
+                className={`Button--${units === 'percentage' ? 'selected' : 'unselected'}`}
                 onClick={() => onChange('percentage')}
             >
                 <span className="desktop">{translate('chart_units.percentage')}</span>
@@ -21,9 +19,7 @@ const BlockUnitsSelector = ({ units, onChange }) => {
             </Button>
             <Button
                 size="small"
-                className={`Button--${
-                    units === 'count' ? 'selected' : 'unselected'
-                }`}
+                className={`Button--${units === 'count' ? 'selected' : 'unselected'}`}
                 onClick={() => onChange('count')}
             >
                 <span className="desktop">{translate('chart_units.count')}</span>
@@ -35,7 +31,7 @@ const BlockUnitsSelector = ({ units, onChange }) => {
 
 BlockUnitsSelector.propTypes = {
     units: PropTypes.oneOf(['percentage', 'count']).isRequired,
-    onChange: PropTypes.func.isRequired
+    onChange: PropTypes.func.isRequired,
 }
 
 export default memo(BlockUnitsSelector)

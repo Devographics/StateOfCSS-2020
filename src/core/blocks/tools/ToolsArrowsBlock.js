@@ -17,7 +17,7 @@ const ToolsArrowsBlock = ({ block, data }) => {
         id: `toolCategories.${keyId}`,
         label: translate(`page.${keyId}.short`),
         keyLabel: `${translate(`page.${keyId}.short`)}:`,
-        color
+        color,
     }))
 
     return (
@@ -31,7 +31,7 @@ const ToolsArrowsBlock = ({ block, data }) => {
                 },
                 onMouseLeave: () => {
                     setActiveCategory('all')
-                }
+                },
             }}
             blockFooter={
                 <BioBlock
@@ -58,8 +58,8 @@ const ToolsArrowsBlock = ({ block, data }) => {
 ToolsArrowsBlock.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        dataPath: PropTypes.string.isRequired
-    }).isRequired
+        dataPath: PropTypes.string.isRequired,
+    }).isRequired,
 }
 
 export default ToolsArrowsBlock

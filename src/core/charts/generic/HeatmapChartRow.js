@@ -11,7 +11,7 @@ const HeatmapChartRow = ({
     setCurrent,
     isActive,
     isInactive,
-    isEven
+    isEven,
 }) => {
     const onMouseEnter = useCallback(() => setCurrent(index), [setCurrent, index])
     const onMouseLeave = useCallback(() => setCurrent(null), [setCurrent])
@@ -27,8 +27,8 @@ const HeatmapChartRow = ({
             >
                 {get(item, 'entity.name', item.id)}
             </LabelCell>
-            {keys.map(keyId => {
-                const cell = item.ranges.find(r => r.range === keyId)
+            {keys.map((keyId) => {
+                const cell = item.ranges.find((r) => r.range === keyId)
 
                 return (
                     <ValueCell
@@ -36,7 +36,7 @@ const HeatmapChartRow = ({
                         isActive={isActive}
                         isInactive={isInactive}
                         style={{
-                            background: backgroundColorScale((cell && cell.percentage) || 0)
+                            background: backgroundColorScale((cell && cell.percentage) || 0),
                         }}
                         onMouseEnter={onMouseEnter}
                         onMouseLeave={onMouseLeave}
@@ -56,9 +56,9 @@ HeatmapChartRow.propTypes = {
             PropTypes.shape({
                 range: PropTypes.string.isRequired,
                 count: PropTypes.number.isRequired,
-                percentage: PropTypes.number.isRequired
+                percentage: PropTypes.number.isRequired,
             })
-        ).isRequired
+        ).isRequired,
     }).isRequired,
     keys: PropTypes.arrayOf(PropTypes.string).isRequired,
     index: PropTypes.number.isRequired,
@@ -66,7 +66,7 @@ HeatmapChartRow.propTypes = {
     setCurrent: PropTypes.func.isRequired,
     isActive: PropTypes.bool.isRequired,
     isInactive: PropTypes.bool.isRequired,
-    isEven: PropTypes.bool.isRequired
+    isEven: PropTypes.bool.isRequired,
 }
 
 const Cell = styled.div`

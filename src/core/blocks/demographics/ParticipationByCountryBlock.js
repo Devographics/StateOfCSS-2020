@@ -18,21 +18,21 @@ const ParticipationByCountryBlock = ({ block, data, units: defaultUnits = 'perce
 
 ParticipationByCountryBlock.propTypes = {
     block: PropTypes.shape({
-        id: PropTypes.string.isRequired
+        id: PropTypes.string.isRequired,
     }).isRequired,
     data: PropTypes.shape({
         completion: PropTypes.shape({
             count: PropTypes.number.isRequired,
-            percentage: PropTypes.number.isRequired
+            percentage: PropTypes.number.isRequired,
         }).isRequired,
         buckets: PropTypes.arrayOf(
             PropTypes.shape({
                 id: PropTypes.string.isRequired,
                 count: PropTypes.number.isRequired,
-                percentage: PropTypes.number.isRequired
+                percentage: PropTypes.number.isRequired,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 export default memo(ParticipationByCountryBlock)

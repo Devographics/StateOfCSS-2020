@@ -1,7 +1,7 @@
 import React from 'react'
 import colors from 'core/theme/themes/js/colors.js'
 
-const color = c => colors[c]
+const color = (c) => colors[c]
 
 const LogoMain = () => (
     <svg

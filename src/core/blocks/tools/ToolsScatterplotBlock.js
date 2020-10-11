@@ -17,13 +17,13 @@ Parse data and convert it into a format compatible with the Scatterplot chart
 
 */
 const getChartData = (data, translate, metric = 'satisfaction') => {
-    const allTools = Object.keys(toolsCategories).map(categoryId => {
+    const allTools = Object.keys(toolsCategories).map((categoryId) => {
         const toolsIds = toolsCategories[categoryId]
 
-        const categoryTools = data.filter(tool => toolsIds.includes(tool.id))
+        const categoryTools = data.filter((tool) => toolsIds.includes(tool.id))
         const categoryData =
             categoryTools &&
-            categoryTools.map(tool => {
+            categoryTools.map((tool) => {
                 const { id, entity, experience } = tool
                 const name = entity.name
                 const buckets = get(experience, 'year.buckets')
@@ -35,31 +35,31 @@ const getChartData = (data, translate, metric = 'satisfaction') => {
                 }
 
                 // get count for a given bucket
-                const getCount = id => {
-                    return buckets && buckets.find(b => b.id === id).count
+                const getCount = (id) => {
+                    return buckets && buckets.find((b) => b.id === id).count
                 }
 
                 const totals = {
                     satisfaction: getCount('would_use') + getCount('would_not_use'),
                     interest: getCount('interested') + getCount('not_interested'),
-                    awareness: total
+                    awareness: total,
                 }
 
-                const getPercentage = id => {
+                const getPercentage = (id) => {
                     return round((getCount(id) / totals[metric]) * 100, 2)
                 }
 
                 const percentages = {
                     satisfaction: getPercentage('would_use'),
                     interest: getPercentage('interested'),
-                    awareness: 100 - getPercentage('never_heard')
+                    awareness: 100 - getPercentage('never_heard'),
                 }
 
                 const node = {
                     id,
                     x: totals[metric],
                     y: percentages[metric],
-                    name
+                    name,
                 }
 
                 return node
@@ -69,7 +69,7 @@ const getChartData = (data, translate, metric = 'satisfaction') => {
                   id: categoryId,
                   name: translate(`page.${categoryId}`),
                   color: getColor(categoryId),
-                  data: compact(categoryData)
+                  data: compact(categoryData),
               }
             : null
     })
@@ -81,13 +81,11 @@ const Switcher = ({ setMetric, metric }) => {
 
     return (
         <ButtonGroup>
-            {['satisfaction', 'interest'].map(key => (
+            {['satisfaction', 'interest'].map((key) => (
                 <Button
                     key={key}
                     size="small"
-                    className={`Button--${
-                        metric === key ? 'selected' : 'unselected'
-                    }`}
+                    className={`Button--${metric === key ? 'selected' : 'unselected'}`}
                     onClick={() => setMetric(key)}
                 >
                     <span className="desktop">{translate(`opinions.legends.${key}_ratio`)}</span>
@@ -111,7 +109,7 @@ const ToolsOverviewBlock = ({ block, data }) => {
         id: `toolCategories.${keyId}`,
         label: translate(`page.${keyId}.short`),
         keyLabel: `${translate(`page.${keyId}.short`)}:`,
-        color
+        color,
     }))
 
     return (
@@ -127,7 +125,7 @@ const ToolsOverviewBlock = ({ block, data }) => {
                 },
                 onMouseLeave: () => {
                     setCurrent(null)
-                }
+                },
             }}
         >
             <ChartContainer vscroll={true}>

@@ -34,15 +34,15 @@ HorizontalBarBlock.propTypes = {
         showDescription: PropTypes.bool,
         translateData: PropTypes.bool,
         mode: PropTypes.oneOf(['absolute', 'relative']),
-        units: PropTypes.oneOf(['percentage', 'count'])
+        units: PropTypes.oneOf(['percentage', 'count']),
     }).isRequired,
     data: PropTypes.shape({
         buckets: PropTypes.arrayOf(
             PropTypes.shape({
-                id: PropTypes.string.isRequired
+                id: PropTypes.string.isRequired,
             })
-        ).isRequired
-    }).isRequired
+        ).isRequired,
+    }).isRequired,
 }
 
 export default memo(HorizontalBarBlock)

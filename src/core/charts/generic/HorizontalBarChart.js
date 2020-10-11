@@ -16,7 +16,7 @@ const margin = {
     top: 40,
     right: 20,
     bottom: 50,
-    left: 140
+    left: 140,
 }
 
 const Text = ({ hasLink = false, label }) => {
@@ -32,7 +32,7 @@ const Text = ({ hasLink = false, label }) => {
             style={{
                 fill: hasLink ? theme.colors.link : theme.colors.text,
                 fontSize: 14,
-                fontFamily
+                fontFamily,
             }}
         >
             <title>{label}</title>
@@ -41,7 +41,7 @@ const Text = ({ hasLink = false, label }) => {
     )
 }
 
-const TickItem = tick => {
+const TickItem = (tick) => {
     const { translate } = useI18n()
 
     const { x, y, value, shouldTranslate, i18nNamespace, entity } = tick
@@ -78,7 +78,7 @@ const HorizontalBarChart = ({
     translateData,
     mode,
     units,
-    chartProps
+    chartProps,
 }) => {
     const theme = useContext(ThemeContext)
     const { translate } = useI18n()
@@ -89,12 +89,12 @@ const HorizontalBarChart = ({
         i18nNamespace,
         shouldTranslate: translateData,
         mode,
-        units
+        units,
     })
     const data = useMemo(
         () =>
             sortBy(
-                buckets.map(bucket => ({ ...bucket })),
+                buckets.map((bucket) => ({ ...bucket })),
                 'count'
             ),
         [buckets]
@@ -112,7 +112,7 @@ const HorizontalBarChart = ({
                 enableGridX={true}
                 enableGridY={false}
                 enableLabel={true}
-                label={d => (units === 'percentage' ? `${round(d.value, 1)}%` : d.value)}
+                label={(d) => (units === 'percentage' ? `${round(d.value, 1)}%` : d.value)}
                 labelTextColor={{ theme: 'labels.text.fill' }}
                 labelSkipWidth={40}
                 colors={[theme.colors.barChartDefaultColor]}
@@ -120,29 +120,29 @@ const HorizontalBarChart = ({
                 borderRadius={1}
                 axisTop={{
                     tickValues: 5,
-                    format: formatValue
+                    format: formatValue,
                 }}
                 axisBottom={{
                     tickValues: 5,
                     format: formatValue,
                     legend: translate(`users_${units}`),
                     legendPosition: 'middle',
-                    legendOffset: 40
+                    legendOffset: 40,
                 }}
                 axisLeft={{
                     format: formatTick,
                     tickSize: 0,
                     tickPadding: 10,
-                    renderTick: tick => (
+                    renderTick: (tick) => (
                         <TickItem
                             i18nNamespace={i18nNamespace}
                             shouldTranslate={translateData}
-                            entity={buckets.find(b => b.id === tick.value).entity}
+                            entity={buckets.find((b) => b.id === tick.value).entity}
                             {...tick}
                         />
-                    )
+                    ),
                 }}
-                tooltip={barProps => (
+                tooltip={(barProps) => (
                     <BarTooltip
                         i18nNamespace={i18nNamespace}
                         shouldTranslate={translateData}
@@ -150,10 +150,10 @@ const HorizontalBarChart = ({
                     />
                 )}
                 layers={[
-                    layerProps => <HorizontalBarStripes {...layerProps} />,
+                    (layerProps) => <HorizontalBarStripes {...layerProps} />,
                     'grid',
                     'axes',
-                    'bars'
+                    'bars',
                 ]}
                 {...chartProps}
             />
@@ -167,16 +167,16 @@ HorizontalBarChart.propTypes = {
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             count: PropTypes.number.isRequired,
-            percentage: PropTypes.number
+            percentage: PropTypes.number,
         })
     ),
     i18nNamespace: PropTypes.string.isRequired,
     translateData: PropTypes.bool.isRequired,
     mode: PropTypes.oneOf(['absolute', 'relative']).isRequired,
-    units: PropTypes.oneOf(['count', 'percentage']).isRequired
+    units: PropTypes.oneOf(['count', 'percentage']).isRequired,
 }
 HorizontalBarChart.defaultProps = {
-    translateData: false
+    translateData: false,
 }
 
 export default memo(HorizontalBarChart)

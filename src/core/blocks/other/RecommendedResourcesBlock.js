@@ -13,7 +13,7 @@ const trackClick = (id, resource, label) => {
     ReactGA.event({
         category: 'Sponsor Clicks',
         action: `${id}: ${resource.name}`,
-        label
+        label,
     })
 }
 
@@ -35,7 +35,7 @@ const RecommendedResourcesBlock = ({ block, data }) => {
         return null
     }
     const { id } = block
-    const sectionResources = resources.filter(r => sponsors.includes(r.id))
+    const sectionResources = resources.filter((r) => sponsors.includes(r.id))
 
     if (!sectionResources.length) {
         return null
@@ -46,7 +46,7 @@ const RecommendedResourcesBlock = ({ block, data }) => {
             <div className="resources">
                 <BlockTitle block={{ ...block, showDescription: false }} isShareable={false} />
                 <List className="Resources__list">
-                    {sectionResources.map(resource => {
+                    {sectionResources.map((resource) => {
                         const url = resource.url.includes('utm_source')
                             ? resource.url
                             : `${resource.url}?utm_source=stateofjs&utm_medium=sponsor&utm_campaign=${id}`
@@ -59,10 +59,12 @@ const RecommendedResourcesBlock = ({ block, data }) => {
                                             onClick={() => trackClick(id, resource, 'text')}
                                             href={`${url}&utm_content=textlink`}
                                             style={{
-                                                backgroundImage: `url(${resource.image})`
+                                                backgroundImage: `url(${resource.image})`,
                                             }}
                                             title={resource.name}
-                                        >{resource.name}</a>
+                                        >
+                                            {resource.name}
+                                        </a>
                                     </div>
                                 </ResourceImage>
                                 <ResourceContent className="Resource__content">
@@ -92,7 +94,7 @@ const RecommendedResourcesBlock = ({ block, data }) => {
 }
 
 RecommendedResourcesBlock.propTypes = {
-    section: PropTypes.string
+    section: PropTypes.string,
 }
 
 const List = styled.div`
@@ -145,9 +147,9 @@ const ResourceImage = styled.div`
         height: 0;
         background-position: center center;
         background-size: cover;
-        line-height: 0; 
+        line-height: 0;
         font-size: 0;
-        color: transparent; 
+        color: transparent;
     }
 
     img,

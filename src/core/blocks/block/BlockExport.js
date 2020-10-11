@@ -55,7 +55,7 @@ const BlockExport = ({ data, block, title }) => {
 
     // try to remove entities data
     const cleanedData = isArray
-        ? data.map(row => {
+        ? data.map((row) => {
               const { entity, ...rest } = row
               return rest
           })
@@ -64,10 +64,7 @@ const BlockExport = ({ data, block, title }) => {
     const jsonExport = JSON.stringify(cleanedData, '', 2)
 
     // remove first and last lines of query to remove "surveyApi" field
-    const trimmedQuery = query
-        .split('\n')
-        .slice(1, -2)
-        .join('\n')
+    const trimmedQuery = query.split('\n').slice(1, -2).join('\n')
 
     const graphQLExport = `query ${camelCase(id)}Query {
 ${trimmedQuery}
@@ -75,7 +72,7 @@ ${trimmedQuery}
 
     const customStyles = {
         overlay: {
-            backgroundColor: `${theme.colors.backgroundInverted}bb`
+            backgroundColor: `${theme.colors.backgroundInverted}bb`,
         },
         content: {
             borderWidth: 0,
@@ -85,8 +82,8 @@ ${trimmedQuery}
             bottom: 'auto',
             marginRight: '-50%',
             transform: 'translate(-50%, -50%)',
-            padding: 0
-        }
+            padding: 0,
+        },
     }
 
     return (
@@ -141,7 +138,7 @@ const Text = ({ value }) => {
 }
 
 BlockExport.propTypes = {
-    id: PropTypes.string.isRequired
+    id: PropTypes.string.isRequired,
 }
 
 const ButtonWrapper = styled.div`

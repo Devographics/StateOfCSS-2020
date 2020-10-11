@@ -23,16 +23,16 @@ const ThemedLayout = ({
     showSidebar,
     toggleSidebar,
     closeSidebar,
-    props
+    props,
 }) => {
     const sidebarClassName = showSidebar ? 'Sidebar--shown' : 'Sidebar--hidden'
     const [themeId, setThemeId] = useState('css')
 
     const switchTheme = useCallback(
-        event => {
+        (event) => {
             if (event.code === 'KeyX') {
-                setThemeId(current => {
-                    const currentIndex = themeIds.findIndex(id => id === current)
+                setThemeId((current) => {
+                    const currentIndex = themeIds.findIndex((id) => id === current)
                     if (currentIndex < themeIds.length - 1) {
                         return themeIds[currentIndex + 1]
                     }
@@ -62,7 +62,7 @@ const ThemedLayout = ({
                             'PageLayout--sidebar': showSidebar,
                             'PageLayout--nosidebar': !showSidebar,
                             capture: context.isCapturing,
-                            nocapture: !context.isCapturing
+                            nocapture: !context.isCapturing,
                         })}
                     >
                         <Head />
@@ -92,17 +92,17 @@ const ThemedLayout = ({
 
 export default class Layout extends PureComponent {
     static propTypes = {
-        showPagination: propTypes.bool.isRequired
+        showPagination: propTypes.bool.isRequired,
     }
 
     static defaultProps = {
-        showPagination: true
+        showPagination: true,
     }
 
     constructor() {
         super()
         this.state = {
-            showSidebar: false
+            showSidebar: false,
         }
     }
 
@@ -121,13 +121,13 @@ export default class Layout extends PureComponent {
 
     toggleSidebar = () => {
         this.setState({
-            showSidebar: !this.state.showSidebar
+            showSidebar: !this.state.showSidebar,
         })
     }
 
     closeSidebar = () => {
         this.setState({
-            showSidebar: false
+            showSidebar: false,
         })
     }
 
@@ -155,8 +155,8 @@ export default class Layout extends PureComponent {
 
 const GlobalStyle = createGlobalStyle`
     body {
-        background: ${props => props.theme.colors.background};
-        color: ${props => props.theme.colors.text};
+        background: ${(props) => props.theme.colors.background};
+        color: ${(props) => props.theme.colors.text};
         padding: 0;
         font-feature-settings: 'liga' 0;
         line-height: 1.7;
@@ -180,12 +180,12 @@ const GlobalStyle = createGlobalStyle`
         &:visited,
         &:active,
         &:focus {
-            color: ${props => props.theme.colors.link};
+            color: ${(props) => props.theme.colors.link};
         }
         
         &:hover {
             text-decoration: underline;
-            color: ${props => props.theme.colors.linkHover};
+            color: ${(props) => props.theme.colors.linkHover};
         }
     }
     
@@ -197,8 +197,8 @@ const GlobalStyle = createGlobalStyle`
         @media ${mq.mediumLarge} {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: ${props => props.theme.spacing * 4}px;
-            row-gap: ${props => props.theme.spacing * 4}px;
+            column-gap: ${(props) => props.theme.spacing * 4}px;
+            row-gap: ${(props) => props.theme.spacing * 4}px;
             
             .Page__Introduction {
                 grid-column: 1 / 3;

@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown/with-html'
 
 const Content = styled.div`
     li {
-        margin-bottom: ${props => props.theme.spacing / 2}px;
+        margin-bottom: ${(props) => props.theme.spacing / 2}px;
     }
 `
 

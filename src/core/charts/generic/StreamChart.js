@@ -26,7 +26,7 @@ const Dot = ({ x, y, data, current, units }) => {
                 alignmentBaseline="middle"
                 style={{
                     fontSize: 11,
-                    fontWeight: 600
+                    fontWeight: 600,
                 }}
             >
                 {label}
@@ -39,16 +39,16 @@ const margin = {
     top: 40,
     right: 20,
     bottom: 40,
-    left: 20
+    left: 20,
 }
 
 const getChartData = (data, units) => {
-    return data.map(y => {
+    return data.map((y) => {
         const { year, buckets } = y
         const item = {
-            id: year
+            id: year,
         }
-        buckets.forEach(b => {
+        buckets.forEach((b) => {
             item[b.id] = b[units]
         })
         return item
@@ -63,7 +63,7 @@ const StreamChart = ({
     current,
     colorScale,
     namespace,
-    applyEmptyPatternTo
+    applyEmptyPatternTo,
 }) => {
     const { translate } = useI18n()
     const theme = useContext(ThemeContext)
@@ -71,14 +71,14 @@ const StreamChart = ({
     const horizontalAxis = {
         tickSize: 10,
         tickPadding: 6,
-        format: i => data[i].year
+        format: (i) => data[i].year,
     }
 
     const additionalClassName = className ? ` ${className}` : ``
 
     let tooltipFormat
     if (units === 'percents') {
-        tooltipFormat = d => `${d.value}%`
+        tooltipFormat = (d) => `${d.value}%`
     }
 
     const getLayerColor = ({ index }) => {
@@ -93,7 +93,7 @@ const StreamChart = ({
             <ResponsiveStream
                 theme={{
                     ...theme.charts,
-                    axis: theme.charts.streamTimelineAxis
+                    axis: theme.charts.streamTimelineAxis,
                 }}
                 offsetType="expand"
                 colors={getLayerColor}
@@ -107,19 +107,19 @@ const StreamChart = ({
                 axisTop={horizontalAxis}
                 axisBottom={horizontalAxis}
                 enableDots={true}
-                renderDot={d => <Dot {...d} current={current} units={units} />}
+                renderDot={(d) => <Dot {...d} current={current} units={units} />}
                 dotColor="inherit:brighter(0.6)"
                 animate={false}
-                tooltipLabel={d => translate(`${namespace}.${d.id}.short`)}
+                tooltipLabel={(d) => translate(`${namespace}.${d.id}.short`)}
                 tooltipFormat={tooltipFormat}
                 defs={[theme.charts.emptyPattern]}
                 fill={[
                     {
                         match: {
-                            id: applyEmptyPatternTo
+                            id: applyEmptyPatternTo,
                         },
-                        id: 'empty'
-                    }
+                        id: 'empty',
+                    },
                 ]}
             />
         </div>

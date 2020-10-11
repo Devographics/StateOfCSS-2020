@@ -6,13 +6,13 @@ import { fontFamily } from 'core/constants'
 
 const horizontalAxis = {
     tickSize: 10,
-    tickPadding: 6
+    tickPadding: 6,
 }
 
 const verticalAxis = {
     tickValues: [1, 5],
     tickPadding: 16,
-    renderTick: d => {
+    renderTick: (d) => {
         let text = ''
         if (d.value === 1) text = '☹️'
         if (d.value === 5) text = '🙂'
@@ -27,15 +27,15 @@ const verticalAxis = {
                 {text}
             </text>
         )
-    }
+    },
 }
 
 const HappinessChart = ({ data }) => {
     const theme = useContext(ThemeContext)
 
-    const xySerie = data.map(bucket => ({
+    const xySerie = data.map((bucket) => ({
         x: bucket.year,
-        y: bucket.mean
+        y: bucket.mean,
     }))
 
     return (
@@ -49,9 +49,9 @@ const HappinessChart = ({ data }) => {
                             fontFamily,
                             fontWeight: 600,
                             fontSize: 12,
-                            fill: theme.colors.text
-                        }
-                    }
+                            fill: theme.colors.text,
+                        },
+                    },
                 }}
                 colors={[theme.colors.lineChartDefaultColor]}
                 lineWidth={4}
@@ -59,18 +59,18 @@ const HappinessChart = ({ data }) => {
                     top: 40,
                     right: 60,
                     bottom: 40,
-                    left: 60
+                    left: 60,
                 }}
                 yScale={{
                     type: 'linear',
                     min: 1,
-                    max: 5
+                    max: 5,
                 }}
                 data={[
                     {
                         id: 'Happiness',
-                        data: xySerie
-                    }
+                        data: xySerie,
+                    },
                 ]}
                 gridYValues={[1, 3, 5]}
                 axisTop={horizontalAxis}
@@ -95,9 +95,9 @@ HappinessChart.propTypes = {
     data: PropTypes.arrayOf(
         PropTypes.shape({
             year: PropTypes.number.isRequired,
-            mean: PropTypes.number.isRequired
+            mean: PropTypes.number.isRequired,
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default HappinessChart

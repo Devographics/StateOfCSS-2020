@@ -38,22 +38,24 @@ const PageFooter = () => {
                 <span
                     dangerouslySetInnerHTML={{
                         __html: translate('footer.state_of_js_link', {
-                            values: { link: 'http://stateofjs.com/' }
-                        })
+                            values: { link: 'http://stateofjs.com/' },
+                        }),
                     }}
                 />{' '}
                 <span
                     dangerouslySetInnerHTML={{
                         __html: translate('footer.leave_an_issue', {
-                            values: { link: 'https://github.com/StateOfJS/State-of-JS-2019/issues' }
-                        })
+                            values: {
+                                link: 'https://github.com/StateOfJS/State-of-JS-2019/issues',
+                            },
+                        }),
                     }}
                 />{' '}
                 <span
                     dangerouslySetInnerHTML={{
                         __html: translate('footer.netlify', {
-                            values: { link: 'https://www.netlify.com' }
-                        })
+                            values: { link: 'https://www.netlify.com' },
+                        }),
                     }}
                 />
             </Notes>
@@ -63,10 +65,10 @@ const PageFooter = () => {
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-top: ${props => props.theme.spacing * 4}px;
+        margin-top: ${(props) => props.theme.spacing * 4}px;
     }
     @media ${mq.mediumLarge} {
-        margin-top: ${props => props.theme.spacing * 6}px;
+        margin-top: ${(props) => props.theme.spacing * 6}px;
     }
 `
 
@@ -79,14 +81,14 @@ const Nav = styled.div`
 `
 
 const Notes = styled.div`
-    font-size: ${props => props.theme.typography.sizes.smaller};
+    font-size: ${(props) => props.theme.typography.sizes.smaller};
     text-align: center;
 
     @media ${mq.small} {
-        margin-top: ${props => props.theme.spacing * 4}px;
+        margin-top: ${(props) => props.theme.spacing * 4}px;
     }
     @media ${mq.mediumLarge} {
-        margin-top: ${props => props.theme.spacing * 6}px;
+        margin-top: ${(props) => props.theme.spacing * 6}px;
     }
 `
 
@@ -104,7 +106,7 @@ const PreviousLink = styled(FooterLink)`
     @media ${mq.mediumLarge} {
         margin-right: ${({ theme }) => theme.spacing}px;
     }
-    
+
     &,
     &:link,
     &:visited {

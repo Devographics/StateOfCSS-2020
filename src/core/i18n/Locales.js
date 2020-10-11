@@ -8,34 +8,34 @@ import { Link } from 'gatsby'
 const Container = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: ${props => props.theme.spacing}px;
-    grid-row-gap: ${props => props.theme.spacing}px;
+    grid-column-gap: ${(props) => props.theme.spacing}px;
+    grid-row-gap: ${(props) => props.theme.spacing}px;
 `
 
 const Item = styled(Link)`
     text-align: center;
-    font-size: ${props => props.theme.typography.sizes.medium};
+    font-size: ${(props) => props.theme.typography.sizes.medium};
     
     @media ${mq.smallMedium} {
-        font-size: ${props => props.theme.typography.sizes.small};    
+        font-size: ${(props) => props.theme.typography.sizes.small};    
     }
     @media ${mq.large} {
-        font-size: ${props => props.theme.typography.sizes.medium};
+        font-size: ${(props) => props.theme.typography.sizes.medium};
     }
     
     &._is-current {
-        font-weight: ${props => props.theme.typography.weights.bold};
+        font-weight: ${(props) => props.theme.typography.weights.bold};
     }
 }
 `
 
 const Locales = () => {
     const context = usePageContext()
-    const links = locales.map(locale => {
+    const links = locales.map((locale) => {
         return {
             ...locale,
             link: `${locale.path === 'default' ? '' : `/${locale.path}`}${context.basePath}`,
-            isCurrent: locale.locale === context.locale
+            isCurrent: locale.locale === context.locale,
         }
     })
 

@@ -16,7 +16,7 @@ const ParticipationByCountryTooltip = ({ feature }) => {
 }
 
 ParticipationByCountryTooltip.propTypes = {
-    feature: PropTypes.object.isRequired
+    feature: PropTypes.object.isRequired,
 }
 
 export default memo(ParticipationByCountryTooltip)

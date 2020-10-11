@@ -8,7 +8,7 @@ import { colors, getColor } from 'core/constants'
 import ChartLabel from 'core/components/ChartLabel'
 import { useI18n } from 'core/i18n/i18nContext'
 
-const fontSizeByRadius = radius => {
+const fontSizeByRadius = (radius) => {
     if (radius < 25) return 8
     if (radius < 35) return 10
     if (radius < 45) return 12
@@ -28,10 +28,10 @@ const sectionLabelOffsets = {
     interactions: 150,
     'animations-and-transforms': 0,
     typography: 50,
-    'other-features': 300
+    'other-features': 300,
 }
 
-const Tooltip = props => {
+const Tooltip = (props) => {
     const { translate } = useI18n()
     const { data } = props
     const { name, awareness, usage } = data
@@ -78,8 +78,9 @@ const Node = ({ node, handlers }) => {
             <g transform={`translate(${node.x},${node.y})`}>
                 <defs>
                     <path
-                        d={`M-${radius},0a${radius},${radius} 0 1,0 ${radius *
-                            2},0a${radius},${radius} 0 1,0 -${radius * 2},0`}
+                        d={`M-${radius},0a${radius},${radius} 0 1,0 ${
+                            radius * 2
+                        },0a${radius},${radius} 0 1,0 -${radius * 2},0`}
                         id={`textcircle-${node.data.id}`}
                     />
                 </defs>
@@ -131,7 +132,7 @@ const FeaturesCirclePackingChart = ({ data, className }) => {
                     top: 2,
                     right: 2,
                     bottom: 2,
-                    left: 2
+                    left: 2,
                 }}
                 identity="name"
                 leavesOnly={false}
@@ -158,13 +159,13 @@ FeaturesCirclePackingChart.propTypes = {
                         PropTypes.shape({
                             id: PropTypes.string.isRequired,
                             count: PropTypes.number.isRequired,
-                            percentage: PropTypes.number.isRequired
+                            percentage: PropTypes.number.isRequired,
                         })
-                    ).isRequired
-                }).isRequired
+                    ).isRequired,
+                }).isRequired,
             })
-        )
-    })
+        ),
+    }),
 }
 
 const Chart = styled.div`

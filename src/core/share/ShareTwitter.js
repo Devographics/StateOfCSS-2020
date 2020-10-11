@@ -36,7 +36,7 @@ const ShareTwitter = ({ text, trackingId }) => {
 
 ShareTwitter.propTypes = {
     text: PropTypes.string.isRequired,
-    trackingId: PropTypes.string
+    trackingId: PropTypes.string,
 }
 
 export default ShareTwitter

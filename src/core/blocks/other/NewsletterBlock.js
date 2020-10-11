@@ -5,9 +5,9 @@ import { useI18n } from 'core/i18n/i18nContext'
 
 const Container = styled.div`
     // @include border2;
-    padding: ${props => props.theme.spacing * 1.5}px;
-    margin-bottom: ${props => props.theme.spacing * 2}px;
-    border: ${props => props.theme.separationBorder};
+    padding: ${(props) => props.theme.spacing * 1.5}px;
+    margin-bottom: ${(props) => props.theme.spacing * 2}px;
+    border: ${(props) => props.theme.separationBorder};
     max-width: 700px;
     margin-left: auto;
     margin-right: auto;

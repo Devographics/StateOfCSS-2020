@@ -10,27 +10,27 @@ const Container = styled.div``
 
 const Email = styled.input`
     display: block;
-    padding: ${props => props.theme.spacing / 2}px;
+    padding: ${(props) => props.theme.spacing / 2}px;
     border: none;
-    margin-right: ${props => props.theme.spacing / 2}px;
+    margin-right: ${(props) => props.theme.spacing / 2}px;
     flex-grow: 1;
     width: 100%;
     max-width: 300px;
 `
 
 const ErrorFeedback = styled.div`
-    padding: ${props => props.theme.spacing}px;
-    margin-bottom: ${props => props.theme.spacing}px;
+    padding: ${(props) => props.theme.spacing}px;
+    margin-bottom: ${(props) => props.theme.spacing}px;
 `
 
 const SuccessFeedback = styled.div`
-    border: ${props => props.theme.separationBorder};
-    padding: ${props => props.theme.spacing}px;
+    border: ${(props) => props.theme.separationBorder};
+    padding: ${(props) => props.theme.spacing}px;
 `
 
 export default class Newsletter extends Component {
     static propTypes = {
-        line: PropTypes.string
+        line: PropTypes.string,
     }
 
     state = {
@@ -38,17 +38,17 @@ export default class Newsletter extends Component {
         submitted: false,
         loading: false,
         error: null,
-        success: null
+        success: null,
     }
 
-    handleChange = e => {
+    handleChange = (e) => {
         const email = e.target.value
         this.setState({
-            email
+            email,
         })
     }
 
-    handleSubmit = async e => {
+    handleSubmit = async (e) => {
         const { email } = this.state
 
         this.setState({ loading: true })
@@ -56,15 +56,15 @@ export default class Newsletter extends Component {
         e.preventDefault()
         ReactGA.event({
             category: 'Subscribe',
-            action: `Newsletter subscribe`
+            action: `Newsletter subscribe`,
         })
         const response = await fetch(postUrl, {
             method: 'POST',
             body: `field_0=${encodeURIComponent(email)}`,
             headers: {
                 Accept: '*/*',
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
+                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            },
         })
         const result = await response.json()
         const { error, message } = result
@@ -83,7 +83,7 @@ export default class Newsletter extends Component {
 
         return (
             <Trans>
-                {translate => {
+                {(translate) => {
                     const { submitLabel = translate('general.notify_me') } = this.props
 
                     return (

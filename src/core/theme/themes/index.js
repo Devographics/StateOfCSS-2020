@@ -5,5 +5,5 @@ import test from './test'
 export default {
     js,
     css,
-    test
+    test,
 }

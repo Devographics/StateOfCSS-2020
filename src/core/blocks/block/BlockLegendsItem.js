@@ -13,12 +13,12 @@ export default class LegendsItem extends Component {
         chipStyle: PropTypes.object.isRequired,
         onMouseEnter: PropTypes.func,
         onMouseLeave: PropTypes.func,
-        onClick: PropTypes.func
+        onClick: PropTypes.func,
     }
 
     static defaultProps = {
         style: {},
-        chipStyle: {}
+        chipStyle: {},
     }
 
     handleMouseEnter = () => {
@@ -49,7 +49,7 @@ export default class LegendsItem extends Component {
             chipStyle,
             data,
             units,
-            onMouseEnter
+            onMouseEnter,
         } = this.props
 
         const isInteractive = typeof onMouseEnter !== 'undefined'
@@ -69,7 +69,7 @@ export default class LegendsItem extends Component {
                             width: chipSize,
                             height: chipSize,
                             background: color,
-                            ...chipStyle
+                            ...chipStyle,
                         }}
                     />
                 ) : keyLabel ? (
@@ -99,7 +99,7 @@ const Container = styled.div`
         margin-bottom: 0;
     }
 
-    ${props => {
+    ${(props) => {
         if (props.isInteractive) {
             return `
                 cursor: pointer;
@@ -113,15 +113,15 @@ const Container = styled.div`
 
 const Chip = styled.span`
     display: block;
-    margin-right: ${props => props.theme.spacing / 2}px;
+    margin-right: ${(props) => props.theme.spacing / 2}px;
     flex-shrink: 0;
 `
 
 const Label = styled.span`
-    padding-right: ${props => props.theme.spacing}px;
+    padding-right: ${(props) => props.theme.spacing}px;
 `
 
 const Value = styled.span`
     display: inline-block;
-    margin-left: ${props => props.theme.spacing / 2}px;
+    margin-left: ${(props) => props.theme.spacing / 2}px;
 `

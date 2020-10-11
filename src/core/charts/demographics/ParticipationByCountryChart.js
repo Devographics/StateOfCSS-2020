@@ -6,10 +6,10 @@ import countries from 'data/geo/world_countries'
 import { colors } from 'core/constants'
 import ParticipationByCountryTooltip from './ParticipationByCountryTooltip'
 
-const features = countries.features.map(feature => {
+const features = countries.features.map((feature) => {
     return {
         ...feature,
-        id: feature.id
+        id: feature.id,
     }
 })
 
@@ -20,7 +20,7 @@ const colorRange = [
     colors.redLighter,
     colors.red,
     colors.redDark,
-    colors.redDarker
+    colors.redDarker,
 ]
 
 const chartLegends = [
@@ -35,8 +35,8 @@ const chartLegends = [
         itemDirection: 'left-to-right',
         itemTextColor: colors.tealLight,
         symbolSize: 18,
-        justify: true
-    }
+        justify: true,
+    },
 ]
 
 const ParticipationByCountryChart = ({ units, data }) => {
@@ -44,12 +44,12 @@ const ParticipationByCountryChart = ({ units, data }) => {
 
     const mergedTheme = {
         ...theme.charts,
-        background: theme.colors.backgroundAlt
+        background: theme.colors.backgroundAlt,
     }
 
     const formatValue = useMemo(() => {
-        if (units === 'percentage') return v => `${v.toFixed(1)}%`
-        return v => Math.round(v)
+        if (units === 'percentage') return (v) => `${v.toFixed(1)}%`
+        return (v) => Math.round(v)
     }, [units])
 
     return (
@@ -80,9 +80,9 @@ ParticipationByCountryChart.propTypes = {
         PropTypes.shape({
             id: PropTypes.string.isRequired,
             count: PropTypes.number.isRequired,
-            percentage: PropTypes.number.isRequired
+            percentage: PropTypes.number.isRequired,
         })
-    ).isRequired
+    ).isRequired,
 }
 
 export default memo(ParticipationByCountryChart)

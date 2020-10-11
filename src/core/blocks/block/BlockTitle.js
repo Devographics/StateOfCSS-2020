@@ -22,7 +22,7 @@ const BlockTitle = ({
     setUnits,
     data,
     block,
-    switcher
+    switcher,
 }) => {
     const { id, blockName, showDescription = true } = block
     const completion = data && (Array.isArray(data) ? last(data).completion : data.completion)
@@ -108,19 +108,19 @@ BlockTitle.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.node,
-        description: PropTypes.node
+        description: PropTypes.node,
     }).isRequired,
     showDescription: PropTypes.bool.isRequired,
-    isShareable: PropTypes.bool.isRequired
+    isShareable: PropTypes.bool.isRequired,
 }
 
 BlockTitle.defaultProps = {
     showDescription: true,
-    isShareable: true
+    isShareable: true,
 }
 
 const StyledBlockTitle = styled.div`
-    border-bottom: ${props => props.theme.separationBorder};
+    border-bottom: ${(props) => props.theme.separationBorder};
     padding-bottom: ${spacing(0.5)};
     margin-bottom: ${spacing(1)};
     display: flex;
