@@ -33,7 +33,7 @@ const applyTemplate = (config, templateName, rawTemplates, parent) => {
         ...(templateObject.defaultVariables || {}),
         ...globalVariables,
         id: config.id,
-        ...(config.variables || {})
+        ...(config.variables || {}),
     }
     if (parent) {
         variables.parentId = parent.id
@@ -43,7 +43,7 @@ const applyTemplate = (config, templateName, rawTemplates, parent) => {
 
     return {
         ...populatedTemplate,
-        ...config
+        ...config,
     }
 }
 
@@ -59,7 +59,7 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
         path: parent === undefined ? pagePath : `${parent.path.replace(/\/$/, '')}${pagePath}`,
         is_hidden: !!config.is_hidden,
         children: [],
-        pageIndex
+        pageIndex,
     }
     // if page has no defaultBlockType, get it from parent
     if (!page.defaultBlockType) {
@@ -71,14 +71,14 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
     }
 
     if (Array.isArray(page.blocks)) {
-        page.blocks = page.blocks.map(block => {
+        page.blocks = page.blocks.map((block) => {
             // if template has been provided, apply it
 
             // if block has variables, inject them based on current page and global variables
             if (block.variables) {
                 block.variables = injectVariables(block.variables, {
                     ...config,
-                    ...globalVariables
+                    ...globalVariables,
                 })
             }
 
@@ -93,7 +93,7 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
 
             return {
                 ...block,
-                path: `${page.path}${block.id}/`
+                path: `${page.path}${block.id}/`,
             }
         })
     }
@@ -104,7 +104,7 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
     stack.flat.push(page)
 
     if (Array.isArray(config.children)) {
-        config.children.forEach(child => {
+        config.children.forEach((child) => {
             page.children.push(exports.pageFromConfig(stack, child, page, pageIndex))
         })
     }
@@ -114,14 +114,14 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
 
 let computedSitemap = null
 
-exports.computeSitemap = async rawSitemap => {
+exports.computeSitemap = async (rawSitemap) => {
     if (computedSitemap !== null) {
         return computedSitemap
     }
 
     const stack = {
         flat: [],
-        hierarchy: []
+        hierarchy: [],
     }
 
     rawSitemap.forEach((item, pageIndex) => {
@@ -129,11 +129,11 @@ exports.computeSitemap = async rawSitemap => {
     })
 
     // assign prev/next page using flat pages
-    stack.flat.forEach(page => {
+    stack.flat.forEach((page) => {
         // if the page is hidden, do not generate pagination for it
         if (page.is_hidden) return
 
-        const index = findIndex(stack.flat, p => p.path === page.path)
+        const index = findIndex(stack.flat, (p) => p.path === page.path)
         const previous = stack.flat[index - 1]
 
         // we exclude hidden pages from pagination
@@ -141,7 +141,7 @@ exports.computeSitemap = async rawSitemap => {
             page.previous = omit(previous, ['is_hidden', 'previous', 'next', 'children', 'blocks'])
         }
 
-        const lastIndex = findLastIndex(stack.flat, p => p.path === page.path)
+        const lastIndex = findLastIndex(stack.flat, (p) => p.path === page.path)
         const next = stack.flat[lastIndex + 1]
 
         // we exclude hidden pages from pagination
@@ -159,7 +159,7 @@ exports.computeSitemap = async rawSitemap => {
         `# please edit \`raw_sitemap.yaml\` instead.`,
         `# generated on: ${now.toISOString()}`,
         `###################################################################`,
-        yaml.dump(stack.hierarchy, { noRefs: true })
+        yaml.dump(stack.hierarchy, { noRefs: true }),
     ].join('\n')
     await fs.writeFileSync('./config/sitemap.yml', sitemapContent)
 
