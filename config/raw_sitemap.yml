@@ -244,18 +244,18 @@
   template: toolSectionTemplate
   variables:
       toolIds: ${toolsCategories.pre_post_processors}
-#  children:
-#      - id: sass
-#        template: toolPageTemplate
-#
-#      - id: less
-#        template: toolPageTemplate
-#
-#      - id: postcss
-#        template: toolPageTemplate
-#
-#      - id: stylus
-#        template: toolPageTemplate
+  children:
+      - id: sass
+        template: toolPageTemplate
+
+      - id: less
+        template: toolPageTemplate
+
+      - id: postcss
+        template: toolPageTemplate
+
+      - id: stylus
+        template: toolPageTemplate
 
 #      - id: pre_post_processors_others
 #        sectionId: pre_post_processors
