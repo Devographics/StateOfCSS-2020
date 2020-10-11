@@ -4,8 +4,8 @@ import styled from 'styled-components'
 import ShareSite from 'core/share/ShareSite'
 import { useI18n } from 'core/i18n/i18nContext'
 import Nav from 'core/components/Nav'
-import LogoCompact from 'core/components/LogoCompact'
 import { mq, color, spacing } from 'core/theme'
+import LogoSidebar from './LogoSidebar'
 
 const CloseIcon = () => (
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
@@ -28,7 +28,7 @@ const Sidebar = ({ sidebarClassName, closeSidebar, rest }) => {
                         <div />
                         <div className="Sidebar__Logo__Inner">
                             <SidebarLogoLink className="SidebarLogoLink" to="/">
-                                <LogoCompact />
+                                <LogoSidebar />
                                 <span className="sr-only">
                                     {translate('general.back_to_intro')}
                                 </span>
@@ -41,7 +41,7 @@ const Sidebar = ({ sidebarClassName, closeSidebar, rest }) => {
                     </SidebarMobileLogo>
                     <div className="Sidebar__Logo--desktop Logo--desktop">
                         <SidebarLogoLink className="SidebarLogoLink" to="/">
-                            <LogoCompact />
+                            <LogoSidebar />
                             <span className="sr-only">{translate('general.back_to_intro')}</span>
                         </SidebarLogoLink>
                     </div>

@@ -48,6 +48,8 @@
     @include small-medium {
         display: none;
     }
+    border-bottom: 1px dashed $border-color;
+    padding: 5px 48px;
 }
 
 .Sidebar__Logo--mobile {
