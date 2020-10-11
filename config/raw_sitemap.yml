@@ -512,51 +512,51 @@
 #        mode: relative
 #        units: count
 #
-#- id: resources
-#  path: /resources
-#  blocks:
-#      - id: resources_introduction
-#        template: pageIntroductionTemplate
-#        variables:
-#            pageId: '${id}'
-#
-#      - id: blogs_news_magazines
-#        template: resourcesTemplate
-#
+- id: resources
+  path: /resources
+  blocks:
+      - id: resources_introduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
+      - id: blogs_news_magazines
+        template: resourcesTemplate
+
 #      - id: blogs_news_magazines_others
 #        template: resourcesTemplate
 #        mode: relative
 #        units: count
-#
-#      - id: sites_courses
-#        template: resourcesTemplate
-#
+
+      - id: sites_courses
+        template: resourcesTemplate
+
 #      - id: sites_courses_others
 #        template: resourcesTemplate
 #        mode: relative
 #        units: count
-#
-#      - id: podcasts
-#        template: resourcesTemplate
-#
+
+      - id: podcasts
+        template: resourcesTemplate
+
 #      - id: podcasts_others
 #        template: resourcesTemplate
 #        mode: relative
 #        units: count
-#
+
 #      # - id: resources-sponsors
 #      #   blockType: RecommendedResourcesBlock
 #      #   sponsors:
 #      #       - storybook1
-#
+
 - id: opinions
   path: /opinions
   blocks:
-      #      - id: opinions-introduction
-      #        template: pageIntroductionTemplate
-      #        variables:
-      #            pageId: '${id}'
-      #
+      - id: opinions-introduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
       - id: css_easy_to_learn
         template: opinionTemplate
         bucketKeysName: opinions
