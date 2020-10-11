@@ -30,7 +30,7 @@ const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
                 <StreamChart
                     colorScale={bucketKeys.map((k) => k.color)}
                     current={current}
-                    data={data}
+                    data={data.length === 1 ? [data[0], data[0]] : data}
                     keys={bucketKeys.map((key) => key.id)}
                     units={units}
                     applyEmptyPatternTo={2}

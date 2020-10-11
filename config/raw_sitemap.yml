@@ -523,18 +523,18 @@
       - id: blogs_news_magazines
         template: resourcesTemplate
 
-#      - id: blogs_news_magazines_others
-#        template: resourcesTemplate
-#        mode: relative
-#        units: count
+      #      - id: blogs_news_magazines_others
+      #        template: resourcesTemplate
+      #        mode: relative
+      #        units: count
 
       - id: sites_courses
         template: resourcesTemplate
 
-#      - id: sites_courses_others
-#        template: resourcesTemplate
-#        mode: relative
-#        units: count
+      #      - id: sites_courses_others
+      #        template: resourcesTemplate
+      #        mode: relative
+      #        units: count
 
       - id: podcasts
         template: resourcesTemplate
