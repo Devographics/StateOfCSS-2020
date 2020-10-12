@@ -41,32 +41,39 @@ toolsCategories:
     pre_post_processors:
         - sass
         - less
-        - postcss
+        - post_css
         - stylus
     css_frameworks:
         - bootstrap
-        - materialize
+        - materialize_css
         - ant_design
-        - semanticui
+        - semantic_ui
         - bulma
         - foundation
-        - uikit
+        - ui_kit
         - tachyons
         - primer
-        - tailwind
-        - purecss
+        - tailwind_css
+        - pure_css
         - skeleton
         - spectre
     css_methodologies:
         - bem
-        - atomic_design
-        - css
+        - atomic_css
+        - oocss
+        - smacss
+        - it_css
+        - cube_css
     css_in_js:
         - styled_components
-        - glamor
-        - aphrodite
         - jss
         - styled_jsx
         - radium
         - emotion
-        - cssmodules
+        - css_modules
+        - styled_system
+        - stitches
+        - styletron
+        - fela
+        - linaria
+        - astroturf

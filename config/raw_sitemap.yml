@@ -259,7 +259,7 @@
       - id: less
         template: toolPageTemplate
 
-      - id: postcss
+      - id: post_css
         template: toolPageTemplate
 
       - id: stylus
@@ -281,13 +281,13 @@
       - id: bootstrap
         template: toolPageTemplate
 
-      - id: materialize
+      - id: materialize_css
         template: toolPageTemplate
 
       - id: ant_design
         template: toolPageTemplate
 
-      - id: semanticui
+      - id: semantic_ui
         template: toolPageTemplate
 
       - id: bulma
@@ -296,7 +296,7 @@
       - id: foundation
         template: toolPageTemplate
 
-      - id: uikit
+      - id: ui_kit
         template: toolPageTemplate
 
       - id: tachyons
@@ -305,17 +305,17 @@
       - id: primer
         template: toolPageTemplate
 
-      - id: tailwind
+      - id: tailwind_css
         template: toolPageTemplate
 
-      - id: purecss
+      - id: pure_css
         template: toolPageTemplate
 
-      #    - id: skeleton
-      #      template: toolPageTemplate
+      - id: skeleton
+        template: toolPageTemplate
 
-      #    - id: spectre
-      #      template: toolPageTemplate
+      - id: spectre
+        template: toolPageTemplate
 
       - id: css_frameworks_others
         sectionId: css_frameworks
@@ -329,12 +329,73 @@
   template: toolSectionTemplate
   variables:
       toolIds: ${toolsCategories.css_methodologies}
+  children:
+    - id: bem
+      template: toolPageTemplate
+
+    - id: atomic_css
+      template: toolPageTemplate
+
+    - id: oocss
+      template: toolPageTemplate
+
+    - id: smacss
+      template: toolPageTemplate
+
+    - id: it_css
+      template: toolPageTemplate
+
+    - id: cube_css
+      template: toolPageTemplate
+
+    - id: css_methodologies_others
+      sectionId: css_methodologies
+      path: /other-tools
+      template: categoryOtherToolsPageTemplate
+      variables:
+        sectionId: ${sectionId}
 
 - id: css_in_js
   path: /css-in-js
   template: toolSectionTemplate
   variables:
       toolIds: ${toolsCategories.css_in_js}
+  children:
+    - id: styled_components
+      template: toolPageTemplate
+
+    - id: jss
+      template: toolPageTemplate
+
+    - id: styled_jsx
+      template: toolPageTemplate
+
+    - id: radium
+      template: toolPageTemplate
+
+    - id: emotion
+      template: toolPageTemplate
+
+    - id: css_modules
+      template: toolPageTemplate
+
+    - id: styled_system
+      template: toolPageTemplate
+
+    - id: stitches
+      template: toolPageTemplate
+
+    - id: styletron
+      template: toolPageTemplate
+
+    - id: fela
+      template: toolPageTemplate
+
+    - id: linaria
+      template: toolPageTemplate
+
+    - id: astroturf
+      template: toolPageTemplate
 
 #- id: other_tools
 #  path: /other-tools
