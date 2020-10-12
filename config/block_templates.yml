@@ -273,7 +273,7 @@ featureExperienceTemplate:
 otherFeaturesTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
-    mode: absolute
+    mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {
