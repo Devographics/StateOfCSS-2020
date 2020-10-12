@@ -1,6 +1,6 @@
-# State of JavaScript 2019
+# State of CSS 2020 report
 
-The repo for the [2019 State of JavaScript survey](https://2019.stateofjs.com/) site. Powered by [Gatsby](https://www.gatsbyjs.org/).
+The repo for the [2020 State of CSS survey](https://2020.stateofcss.com/) site. Powered by [Gatsby](https://www.gatsbyjs.org/).
 
 ## Setup
 
