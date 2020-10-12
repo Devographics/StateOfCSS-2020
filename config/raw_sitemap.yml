@@ -209,7 +209,7 @@
             - id: web_fonts
               template: featureExperienceTemplate
 
-            - id: variables_fonts
+            - id: variable_fonts
               template: featureExperienceTemplate
 
             - id: line_breaking
@@ -259,19 +259,19 @@
       - id: media_queries
         path: /media-queries
         blocks:
-          - id: media_queries
-            template: pageIntroductionTemplate
-            variables:
-              pageId: '${id}'
+            - id: media_queries
+              template: pageIntroductionTemplate
+              variables:
+                  pageId: '${id}'
 
-          - id: prefers_reduced_motion
-            template: featureExperienceTemplate
+            - id: prefers_reduced_motion
+              template: featureExperienceTemplate
 
-          - id: prefers_color_scheme
-            template: featureExperienceTemplate
+            - id: prefers_color_scheme
+              template: featureExperienceTemplate
 
-          - id: color_gamut
-            template: featureExperienceTemplate
+            - id: color_gamut
+              template: featureExperienceTemplate
 
       - id: other_features
         path: /other-features
@@ -393,30 +393,30 @@
   variables:
       toolIds: ${toolsCategories.css_methodologies}
   children:
-    - id: bem
-      template: toolPageTemplate
+      - id: bem
+        template: toolPageTemplate
 
-    - id: atomic_css
-      template: toolPageTemplate
+      - id: atomic_css
+        template: toolPageTemplate
 
-    - id: oocss
-      template: toolPageTemplate
+      - id: oocss
+        template: toolPageTemplate
 
-    - id: smacss
-      template: toolPageTemplate
+      - id: smacss
+        template: toolPageTemplate
 
-    - id: it_css
-      template: toolPageTemplate
+      - id: it_css
+        template: toolPageTemplate
 
-    - id: cube_css
-      template: toolPageTemplate
+      - id: cube_css
+        template: toolPageTemplate
 
-    - id: css_methodologies_others
-      sectionId: css_methodologies
-      path: /other-tools
-      template: categoryOtherToolsPageTemplate
-      variables:
-        sectionId: ${sectionId}
+      - id: css_methodologies_others
+        sectionId: css_methodologies
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
 
 - id: css_in_js
   path: /css-in-js
@@ -424,41 +424,41 @@
   variables:
       toolIds: ${toolsCategories.css_in_js}
   children:
-    - id: styled_components
-      template: toolPageTemplate
+      - id: styled_components
+        template: toolPageTemplate
 
-    - id: jss
-      template: toolPageTemplate
+      - id: jss
+        template: toolPageTemplate
 
-    - id: styled_jsx
-      template: toolPageTemplate
+      - id: styled_jsx
+        template: toolPageTemplate
 
-    - id: radium
-      template: toolPageTemplate
+      - id: radium
+        template: toolPageTemplate
 
-    - id: emotion
-      template: toolPageTemplate
+      - id: emotion
+        template: toolPageTemplate
 
-    - id: css_modules
-      template: toolPageTemplate
+      - id: css_modules
+        template: toolPageTemplate
 
-    - id: styled_system
-      template: toolPageTemplate
+      - id: styled_system
+        template: toolPageTemplate
 
-    - id: stitches
-      template: toolPageTemplate
+      - id: stitches
+        template: toolPageTemplate
 
-    - id: styletron
-      template: toolPageTemplate
+      - id: styletron
+        template: toolPageTemplate
 
-    - id: fela
-      template: toolPageTemplate
+      - id: fela
+        template: toolPageTemplate
 
-    - id: linaria
-      template: toolPageTemplate
+      - id: linaria
+        template: toolPageTemplate
 
-    - id: astroturf
-      template: toolPageTemplate
+      - id: astroturf
+        template: toolPageTemplate
 
 #- id: other_tools
 #  path: /other-tools

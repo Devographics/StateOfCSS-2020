@@ -72,11 +72,11 @@ toolSectionTemplate:
         #       sectionId: ${id}
         #       toolIds: ${toolIds}
 
-        # - id: '${id}_happiness'
-        #   blockName: happiness
-        #   template: happinessTemplate
-        #   variables:
-        #       sectionId: '${id}'
+        - id: '${id}_happiness'
+          blockName: happiness
+          template: happinessTemplate
+          variables:
+              sectionId: '${id}'
 
         - id: '${id}_recommended_resources'
           template: recommendedResourcesTemplate
