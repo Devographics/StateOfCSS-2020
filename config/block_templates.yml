@@ -270,6 +270,34 @@ featureExperienceTemplate:
             }
         }
 
+otherFeaturesTemplate:
+    blockType: HorizontalBarBlock
+    showDescription: true
+    mode: absolute
+    dataPath: 'surveyApi.survey.${id}.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: featuresOthers(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets{
+                            id
+                            name
+                            count
+                            percentage
+                        }
+                    }
+                }
+            }
+        }
+
 ###############################################################################
 #
 # TOOLS

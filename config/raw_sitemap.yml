@@ -310,6 +310,30 @@
         variables:
             pageId: '${id}'
 
+      - id: units
+        template: otherFeaturesTemplate
+
+      - id: pseudo_elements
+        template: otherFeaturesTemplate
+
+      - id: combinators
+        template: otherFeaturesTemplate
+
+      - id: tree_document_structure
+        template: otherFeaturesTemplate
+
+      - id: attributes
+        template: otherFeaturesTemplate
+
+      - id: links_urls
+        template: otherFeaturesTemplate
+
+      - id: interaction
+        template: otherFeaturesTemplate
+
+      - id: form_controls
+        template: otherFeaturesTemplate
+
 - id: pre_post_processors
   path: /pre-post-processors
   template: toolSectionTemplate
