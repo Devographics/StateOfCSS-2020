@@ -116,6 +116,12 @@
             - id: grid
               template: featureExperienceTemplate
 
+            - id: subgrid
+              template: featureExperienceTemplate
+
+            - id: regions
+              template: featureExperienceTemplate
+
             - id: flexbox
               template: featureExperienceTemplate
 
@@ -128,10 +134,17 @@
             - id: exclusions
               template: featureExperienceTemplate
 
-            - id: language_recommended_resources
-              template: recommendedResourcesTemplate
-              sponsors:
-                  - wesbos-es6
+            - id: position_sticky
+              template: featureExperienceTemplate
+
+            - id: logical_properties
+              template: featureExperienceTemplate
+
+            - id: aspect_ratio
+              template: featureExperienceTemplate
+
+            - id: content_visibility
+              template: featureExperienceTemplate
 
       - id: shapes_and_graphics
         path: /shapes-and-graphics
@@ -159,6 +172,9 @@
             - id: filter_effects
               template: featureExperienceTemplate
 
+            - id: backdrop_filter
+              template: featureExperienceTemplate
+
       - id: interactions
         path: /interactions
         blocks:
@@ -174,6 +190,12 @@
               template: featureExperienceTemplate
 
             - id: overflow_anchor
+              template: featureExperienceTemplate
+
+            - id: touch_action
+              template: featureExperienceTemplate
+
+            - id: pointer_events
               template: featureExperienceTemplate
 
       - id: typography
@@ -199,6 +221,21 @@
             - id: initial_letter
               template: featureExperienceTemplate
 
+            - id: font_variant_numeric
+              template: featureExperienceTemplate
+
+            - id: font_display
+              template: featureExperienceTemplate
+
+            - id: line_clamp
+              template: featureExperienceTemplate
+
+            - id: leading_trim
+              template: featureExperienceTemplate
+
+            - id: direction
+              template: featureExperienceTemplate
+
       - id: animations_and_transforms
         path: /animations-and-transforms
         blocks:
@@ -215,6 +252,26 @@
 
             - id: animations
               template: featureExperienceTemplate
+
+            - id: perspective
+              template: featureExperienceTemplate
+
+      - id: media_queries
+        path: /media-queries
+        blocks:
+          - id: media_queries
+            template: pageIntroductionTemplate
+            variables:
+              pageId: '${id}'
+
+          - id: prefers_reduced_motion
+            template: featureExperienceTemplate
+
+          - id: prefers_color_scheme
+            template: featureExperienceTemplate
+
+          - id: color_gamut
+            template: featureExperienceTemplate
 
       - id: other_features
         path: /other-features
@@ -237,6 +294,12 @@
               template: featureExperienceTemplate
 
             - id: calc
+              template: featureExperienceTemplate
+
+            - id: houdini
+              template: featureExperienceTemplate
+
+            - id: comparison_functions
               template: featureExperienceTemplate
 
 - id: units_and_selectors
