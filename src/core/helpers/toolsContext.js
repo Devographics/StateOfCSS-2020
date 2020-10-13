@@ -7,7 +7,7 @@ export const ToolsContext = createContext()
 const toolsQuery = graphql`
     query {
         surveyApi {
-            survey(survey: js) {
+            survey(survey: state_of_css) {
                 tools {
                     id
                     entity {
