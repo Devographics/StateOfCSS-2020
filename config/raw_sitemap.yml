@@ -484,13 +484,14 @@
       - id: astroturf
         template: toolPageTemplate
 
-#- id: other_tools
-#  path: /other-tools
-#  blocks:
-#      - id: other_tools_intro
-#        template: pageIntroductionTemplate
-#        variables:
-#            pageId: ${id}
+- id: other_tools
+  path: /other-tools
+  blocks:
+      - id: other_tools_intro
+        template: pageIntroductionTemplate
+        variables:
+            pageId: ${id}
+
 #      - id: utilities
 #        template: otherToolsTemplate
 #
@@ -498,39 +499,15 @@
 #        template: otherToolsTemplate
 #        mode: relative
 #        units: count
-#
-#      - id: text_editors
-#        template: otherToolsTemplate
-#
-#      - id: text_editors_others
-#        template: otherToolsTemplate
-#        mode: relative
-#        units: count
-#
-#      - id: browsers
-#        template: otherToolsTemplate
-#
-#      - id: browsers_others
-#        template: otherToolsTemplate
-#        mode: relative
-#        units: count
-#
-#      - id: build_tools
-#        template: otherToolsTemplate
-#
-#      - id: build_tools_others
-#        template: otherToolsTemplate
-#        mode: relative
-#        units: count
-#
-#      - id: non_js_languages
-#        template: otherToolsTemplate
-#
-#      - id: non_js_languages_others
-#        template: otherToolsTemplate
-#        mode: relative
-#        units: count
-#
+
+- id: environments
+  path: /environments
+  blocks:
+      - id: environments_introduction
+        template: pageIntroductionTemplate
+        variables:
+            pageId: '${id}'
+
 - id: resources
   path: /resources
   blocks:

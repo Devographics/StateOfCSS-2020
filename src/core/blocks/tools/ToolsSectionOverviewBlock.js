@@ -9,6 +9,18 @@ const ToolsSectionOverviewBlock = ({ block, data, units: defaultUnits = 'percent
     const [current, setCurrent] = useState(null)
     const { id, bucketKeysName = id } = block
 
+    // exclude tools having no aggregations available,
+    // typically happens for previous years when new tools
+    // were added.
+    const filteredData = data.filter((datum) => {
+        if (datum.experience.year === null) {
+            console.info(`[ToolsSectionOverviewBlock] no data available for tool: ${datum.id}`)
+            return false
+        }
+
+        return true
+    })
+
     return (
         <Block
             units={units}
@@ -26,7 +38,7 @@ const ToolsSectionOverviewBlock = ({ block, data, units: defaultUnits = 'percent
         >
             <ChartContainer height={400}>
                 <ToolsSectionOverviewChart
-                    data={data}
+                    data={filteredData}
                     units={units}
                     current={current}
                     namespace={bucketKeysName}

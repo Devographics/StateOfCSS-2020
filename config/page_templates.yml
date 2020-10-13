@@ -10,6 +10,7 @@ featuresPageTemplate:
           template: pageIntroductionTemplate
           variables:
               pageId: '${id}'
+
         - id: ${id}_featuresOverview
           template: featuresOverviewTemplate
           blockName: featuresOverview
