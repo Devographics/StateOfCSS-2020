@@ -737,3 +737,64 @@ resourcesTemplate:
                 }
             }
         }
+
+###############################################################################
+#
+# ENVIRONMENTS
+#
+###############################################################################
+
+environmentTemplate:
+    blockType: HorizontalBarBlock
+    showDescription: true
+    mode: relative
+    dataPath: 'surveyApi.survey.${id}.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: environments(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets {
+                            id
+                            count
+                            percentage
+                        }
+                    }
+                }
+            }
+        }
+
+environmentRatingTemplate:
+    blockType: VerticalBarBlock
+    showDescription: true
+    showLegend: true
+    mode: relative
+    dataPath: 'surveyApi.survey.${id}.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: environmentsRatings(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets {
+                            id
+                            count
+                            percentage
+                        }
+                    }
+                }
+            }
+        }

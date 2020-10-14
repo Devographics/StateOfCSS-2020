@@ -522,6 +522,18 @@
         variables:
             pageId: '${id}'
 
+      - id: browsers
+        template: environmentTemplate
+
+      - id: form_factors
+        template: environmentTemplate
+
+      - id: css_for_print
+        template: environmentRatingTemplate
+
+      - id: css_for_email
+        template: environmentRatingTemplate
+
 - id: resources
   path: /resources
   blocks:

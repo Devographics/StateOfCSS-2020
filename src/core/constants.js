@@ -120,6 +120,9 @@ export const jobTitleArray = [
     'web_developer',
 ]
 
+export const cssForPrintArray = [0, 1, 2, 3]
+export const cssForEmailArray = [0, 1, 2, 3]
+
 export const cssProficiencyArray = [0, 1, 2, 3, 4]
 export const javascriptProficiencyArray = [0, 1, 2, 3, 4]
 export const backendProficiencyArray = [0, 1, 2, 3]
@@ -193,6 +196,8 @@ export const keys = {
     featureExperience,
     featureExperienceSimplified,
     toolCategories,
+    css_for_print: arrayToKeys(cssForPrintArray),
+    css_for_email: arrayToKeys(cssForEmailArray),
 }
 
 export const fontFamily = `'IBM Plex Mono', monospace`
