@@ -22,7 +22,7 @@ translations:
 
     # salary ranges
     - key: salary.range_work_for_free.long
-      t: I werk vrijwillig
+      t: Ik werk vrijwillig
     - key: salary.range_work_for_free.short
       t: vrijwilligerswerk
     - key: salary.range_work_for_free.shorter
