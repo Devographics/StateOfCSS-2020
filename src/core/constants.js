@@ -114,9 +114,12 @@ export const workExperienceArray = [
 export const environmentUsageArray = ['never', 'occasionally', 'often', 'mainly']
 
 export const jobTitleArray = [
-    'front_end_developer_engineer',
-    'full_stack_developer_engineer',
-    'back_end_developer_engineer',
+    'full_stack_developer',
+    'front_end_developer',
+    'back_end_developer',
+    'web_designer',
+    'ui_designer',
+    'ux_designer',
     'web_developer',
 ]
 
