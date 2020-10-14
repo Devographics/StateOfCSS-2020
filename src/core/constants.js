@@ -120,10 +120,10 @@ export const jobTitleArray = [
     'web_developer',
 ]
 
-export const zeroToFiveRange = [0, 1, 2, 3, 4]
+export const cssProficiencyArray = [0, 1, 2, 3, 4]
+export const javascriptProficiencyArray = [0, 1, 2, 3, 4]
+export const backendProficiencyArray = [0, 1, 2, 3]
 
-export const cssProficiencyArray = zeroToFiveRange
-export const backendProficiencyArray = zeroToFiveRange
 export const opinions = [
     { id: 4, color: colors.red },
     { id: 3, color: colors.redLight },
@@ -185,8 +185,9 @@ export const keys = {
     gender,
     environmentUsage: arrayToKeys(environmentUsageArray),
     jobTitle: arrayToKeys(jobTitleArray),
-    cssProficiency: arrayToKeys(cssProficiencyArray),
-    backendProficiency: arrayToKeys(backendProficiencyArray),
+    css_proficiency: arrayToKeys(cssProficiencyArray),
+    javascript_proficiency: arrayToKeys(cssProficiencyArray),
+    backend_proficiency: arrayToKeys(backendProficiencyArray),
     opinions,
     toolExperience,
     featureExperience,

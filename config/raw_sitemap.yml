@@ -54,32 +54,46 @@
         template: pageIntroductionTemplate
         variables:
             pageId: ${id}
+
       - id: country
         template: demographicsTemplate
         blockType: ParticipationByCountryBlock
+
       - id: salary
         template: demographicsTemplate
+
       - id: workExperience
         template: demographicsTemplate
+
       - id: companySize
         template: demographicsTemplate
+
       - id: source
         template: sourceTemplate
         blockType: HorizontalBarBlock
+
       - id: gender
         template: demographicsTemplate
         showLegend: true
         blockType: GenderBlock
+
       - id: jobTitle
         template: demographicsTemplate
         blockType: HorizontalBarBlock
         translateData: true
-      - id: cssProficiency
+
+      - id: css_proficiency
         showLegend: true
-        template: demographicsTemplate
-      - id: backendProficiency
+        template: proficiencyTemplate
+
+      - id: javascript_proficiency
         showLegend: true
-        template: demographicsTemplate
+        template: proficiencyTemplate
+
+      - id: backend_proficiency
+        showLegend: true
+        template: proficiencyTemplate
+
       - id: resources-sponsors
         blockType: RecommendedResourcesBlock
         items:
