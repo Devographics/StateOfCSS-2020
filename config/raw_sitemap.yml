@@ -506,13 +506,21 @@
         variables:
             pageId: ${id}
 
-#      - id: utilities
-#        template: otherToolsTemplate
-#
-#      - id: utilities_others
-#        template: otherToolsTemplate
-#        mode: relative
-#        units: count
+      - id: text_editors
+        template: otherToolsTemplate
+
+      - id: text_editors_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
+      - id: browsers
+        template: otherToolsTemplate
+
+      - id: browsers_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
 
 - id: environments
   path: /environments
@@ -545,31 +553,26 @@
       - id: blogs_news_magazines
         template: resourcesTemplate
 
-      #      - id: blogs_news_magazines_others
-      #        template: resourcesTemplate
-      #        mode: relative
-      #        units: count
+      - id: blogs_news_magazines_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
 
       - id: sites_courses
         template: resourcesTemplate
 
-      #      - id: sites_courses_others
-      #        template: resourcesTemplate
-      #        mode: relative
-      #        units: count
+      - id: sites_courses_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
 
       - id: podcasts
         template: resourcesTemplate
 
-#      - id: podcasts_others
-#        template: resourcesTemplate
-#        mode: relative
-#        units: count
-
-#      # - id: resources-sponsors
-#      #   blockType: RecommendedResourcesBlock
-#      #   sponsors:
-#      #       - storybook1
+      - id: podcasts_others
+        template: resourcesTemplate
+        mode: relative
+        units: count
 
 - id: opinions
   path: /opinions
