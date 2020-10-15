@@ -2,8 +2,8 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import Link from 'core/components/LocaleLink'
 
-const PageLink = ({ page, children, ...rest }) => (
-    <Link {...rest} to={page.path}>
+const PageLink = ({ page, children, className, activeClassName, onClick }) => (
+    <Link to={page.path} className={className} activeClassName={activeClassName} onClick={onClick}>
         <span>{children}</span>
     </Link>
 )

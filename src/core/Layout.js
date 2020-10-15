@@ -4,7 +4,7 @@ import classNames from 'classnames'
 import { ThemeProvider, createGlobalStyle } from 'styled-components'
 import '../stylesheets/screen.scss'
 import Pagination from './pages/Pagination'
-import Sidebar from './components/Sidebar'
+import { Sidebar } from './components/sidebar'
 import Head from './components/Head'
 import { PageContextProvider } from './helpers/pageContext'
 import { mergePageContext } from './helpers/pageHelpers'
@@ -25,7 +25,6 @@ const ThemedLayout = ({
     closeSidebar,
     props,
 }) => {
-    const sidebarClassName = showSidebar ? 'Sidebar--shown' : 'Sidebar--hidden'
     const [themeId, setThemeId] = useState('css')
 
     const switchTheme = useCallback(
@@ -67,12 +66,13 @@ const ThemedLayout = ({
                     >
                         <Head />
                         <div className="pagelayout__inner">
-                            <Sidebar
-                                {...props}
-                                sidebarClassName={sidebarClassName}
-                                showSidebar={showSidebar}
-                                closeSidebar={closeSidebar}
-                            />
+                            <div>
+                                <Sidebar
+                                    {...props}
+                                    showSidebar={showSidebar}
+                                    closeSidebar={closeSidebar}
+                                />
+                            </div>
                             <main className="pagelayout__content">
                                 {showPagination && (
                                     <Pagination toggleSidebar={toggleSidebar} position="top" />

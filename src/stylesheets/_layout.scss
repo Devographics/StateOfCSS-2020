@@ -1,5 +1,10 @@
 $sidebar_width: 270px;
 
+.PageLayout--sidebar {
+    overflow: hidden;
+    height: 100vh;
+}
+
 .pagelayout__inner {
     min-height: 100vh;
     @include large {

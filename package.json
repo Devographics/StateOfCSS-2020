@@ -61,6 +61,7 @@
     "node-fetch": "^2.6.1",
     "node-sass": "^4.14.1",
     "object-assign": "^4.1.1",
+    "polished": "^4.0.2",
     "prop-types": "^15.7.2",
     "react": "16.13.1",
     "react-confetti": "^6.0.0",
