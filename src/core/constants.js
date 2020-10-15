@@ -66,15 +66,17 @@ export const toolCategories = [
 ]
 
 export const featureCategories = [
-    { id: 'syntax', color: colors.indigo },
-    { id: 'language', color: colors.pink },
-    { id: 'data_structures', color: colors.red },
-    { id: 'browser_apis', color: colors.purple },
-    { id: 'other_features', color: colors.orange },
+    { id: 'layout', color: colors.indigo },
+    { id: 'shapes_and_graphics', color: colors.pink },
+    { id: 'interactions', color: colors.red },
+    { id: 'typography', color: colors.purple },
+    { id: 'animations_and_transforms', color: colors.orange },
+    { id: 'other_features', color: colors.skyblue },
 ]
 
-export const getColor = (id) =>
-    [...toolCategories, ...featureCategories].find((color) => color.id === id).color
+export const getColor = (id) => {
+    return [...toolCategories, ...featureCategories].find((color) => color.id === id).color
+}
 
 /*
 

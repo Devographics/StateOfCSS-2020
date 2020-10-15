@@ -2,6 +2,40 @@ surveyType: state_of_css
 
 currentYear: 2019
 
+allFeatures:
+    - grid
+    - flexbox
+    - multi_column
+    - writing_modes
+    - exclusions
+
+    - shapes
+    - object_fit
+    - clip_path
+    - masks
+    - blend_modes
+    - filter_effects
+
+    - scroll_snap
+    - overscroll_behavior
+    - overflow_anchor
+
+    - web_fonts
+    - variable_fonts
+    - line_breaking
+    - font_variant
+    - initial_letter
+
+    - transitions
+    - transforms
+    - animations
+
+    - variables
+    - feature_support_queries
+    - containment
+    - will_change
+    - calc
+
 featuresCategories:
     layout:
         - grid
@@ -22,7 +56,7 @@ featuresCategories:
         - overflow_anchor
     typography:
         - web_fonts
-        - variables_fonts
+        - variable_fonts
         - line_breaking
         - font_variant
         - initial_letter
