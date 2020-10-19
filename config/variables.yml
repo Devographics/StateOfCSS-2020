@@ -1,13 +1,18 @@
 surveyType: state_of_css
 
-currentYear: 2019
+currentYear: 2020
 
 allFeatures:
     - grid
+    - subgrid
     - flexbox
     - multi_column
     - writing_modes
     - exclusions
+    - position_sticky
+    - logical_properties
+    - aspect_ratio
+    - content_visibility
 
     - shapes
     - object_fit
@@ -15,34 +20,53 @@ allFeatures:
     - masks
     - blend_modes
     - filter_effects
+    - backdrop_filter
 
     - scroll_snap
     - overscroll_behavior
     - overflow_anchor
+    - touch_action
+    - pointer_events
 
     - web_fonts
-    - variable_fonts
+    # - variables_fonts
     - line_breaking
     - font_variant
     - initial_letter
+    - font_variant_numeric
+    - font_display
+    - line_clamp
+    - direction
 
     - transitions
     - transforms
     - animations
+    - perspective
+
+    - prefers_reduced_motion
+    - prefers_color_scheme
+    - color_gamut
 
     - variables
     - feature_support_queries
     - containment
     - will_change
     - calc
+    - houdini
+    - comparison_functions
 
 featuresCategories:
     layout:
         - grid
+        - subgrid
         - flexbox
         - multi_column
         - writing_modes
         - exclusions
+        - position_sticky
+        - logical_properties
+        - aspect_ratio
+        - content_visibility
     shapes_and_graphics:
         - shapes
         - object_fit
@@ -50,26 +74,40 @@ featuresCategories:
         - masks
         - blend_modes
         - filter_effects
+        - backdrop_filter
     interactions:
         - scroll_snap
         - overscroll_behavior
         - overflow_anchor
+        - touch_action
+        - pointer_events
     typography:
         - web_fonts
-        - variable_fonts
+        # - variables_fonts
         - line_breaking
         - font_variant
         - initial_letter
+        - font_variant_numeric
+        - font_display
+        - line_clamp
+        - direction
     animations_and_transforms:
         - transitions
         - transforms
         - animations
+        - perspective
+    media_queries:
+        - prefers_reduced_motion
+        - prefers_color_scheme
+        - color_gamut
     other_features:
         - variables
         - feature_support_queries
         - containment
         - will_change
         - calc
+        - houdini
+        - comparison_functions
 
 toolsCategories:
     pre_post_processors:

@@ -133,9 +133,6 @@
             - id: subgrid
               template: featureExperienceTemplate
 
-            - id: regions
-              template: featureExperienceTemplate
-
             - id: flexbox
               template: featureExperienceTemplate
 
@@ -223,8 +220,8 @@
             - id: web_fonts
               template: featureExperienceTemplate
 
-            - id: variable_fonts
-              template: featureExperienceTemplate
+            # - id: variable_fonts
+            #   template: featureExperienceTemplate
 
             - id: line_breaking
               template: featureExperienceTemplate
@@ -242,9 +239,6 @@
               template: featureExperienceTemplate
 
             - id: line_clamp
-              template: featureExperienceTemplate
-
-            - id: leading_trim
               template: featureExperienceTemplate
 
             - id: direction

@@ -344,7 +344,7 @@ toolsSectionOverviewTemplate:
                         name
                     }
                     experience {
-                        year(year: 2019) {
+                        year(year: 2020) {
                             buckets {
                                 id
                                 count
@@ -597,7 +597,7 @@ categoryOtherToolsTemplate:
             survey(survey: ${surveyType}) {
                 category(id:${sectionId}) {
                     otherTools{
-                        year(year:2019) {
+                        year(year: 2020) {
                             year
                             total
                             completion {

@@ -17,8 +17,17 @@ const getChartData = (data, getName, translate) => {
             .filter((f) => sectionFeatures.includes(f.id))
             .map((feature) => {
                 const buckets = get(feature, 'experience.year.buckets')
-                const usageBucket = buckets.find((b) => b.id === 'used')
-                const knowNotUsedBucket = buckets.find((b) => b.id === 'heard')
+
+                let usageBucket = buckets.find((b) => b.id === 'used')
+                if (!usageBucket) {
+                    usageBucket = { count: 0 }
+                }
+
+                let knowNotUsedBucket = buckets.find((b) => b.id === 'heard')
+                if (!knowNotUsedBucket) {
+                    knowNotUsedBucket = { count: 0 }
+                }
+
                 return {
                     id: feature.id,
                     awareness: usageBucket.count + knowNotUsedBucket.count,

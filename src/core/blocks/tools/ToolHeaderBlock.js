@@ -3,9 +3,7 @@ import { format } from 'd3-format'
 import get from 'lodash/get'
 import styled from 'styled-components'
 import mq from 'core/theme/mq'
-import ToolPeriodicElement from 'core/blocks/tools/ToolPeriodicElement'
 import { useI18n } from 'core/i18n/i18nContext'
-import periodicTableData from '../../../../config/periodic_table.yml'
 import Button from 'core/components/Button'
 
 const starsFormatter = format('.2s')
@@ -13,7 +11,7 @@ const starsFormatter = format('.2s')
 const ToolHeaderBlock = ({ block, data }) => {
     const { translate } = useI18n()
 
-    const toolId = get(block, 'variables.toolId')
+    // const toolId = get(block, 'variables.toolId')
     const toolName = get(data, 'entity.name')
     const homepageLink = get(data, 'entity.homepage')
     const description = get(data, 'entity.description')
@@ -23,13 +21,6 @@ const ToolHeaderBlock = ({ block, data }) => {
 
     return (
         <Container className="ToolHeader">
-            <ElementWrapper className="ToolHeader__Element">
-                <ToolPeriodicElement
-                    tool={toolId}
-                    name={toolName}
-                    symbol={periodicTableData.tools[toolId] || '??'}
-                />
-            </ElementWrapper>
             <Content className="ToolHeader__Content">
                 <Header className="ToolHeader__Header">
                     <Title className="ToolHeader__Title">{toolName}</Title>
@@ -79,23 +70,6 @@ const Container = styled.div`
     @media ${mq.mediumLarge} {
         display: flex;
         margin-bottom: ${(props) => props.theme.spacing * 4}px;
-    }
-`
-
-const ElementWrapper = styled.div`
-    svg {
-        display: block;
-    }
-
-    @media ${mq.small} {
-        max-width: 150px;
-        margin: 0 auto ${(props) => props.theme.spacing / 4}px auto;
-    }
-
-    @media ${mq.mediumLarge} {
-        flex-shrink: 1;
-        flex-basis: 120px;
-        margin-right: ${(props) => props.theme.spacing}px;
     }
 `
 

@@ -71,6 +71,7 @@ export const featureCategories = [
     { id: 'interactions', color: colors.red },
     { id: 'typography', color: colors.purple },
     { id: 'animations_and_transforms', color: colors.orange },
+    { id: 'media_queries', color: colors.green },
     { id: 'other_features', color: colors.skyblue },
 ]
 
