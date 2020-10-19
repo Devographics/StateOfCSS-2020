@@ -1,5 +1,6 @@
 import defaultsDeep from 'lodash/defaultsDeep'
 import charts from '../../charts'
+import baseColors from '../../colors'
 import colors from './colors'
 
 export default defaultsDeep(
@@ -27,6 +28,15 @@ export default defaultsDeep(
                 text: {
                     fill: colors.text,
                 },
+            },
+        },
+        tooltip: {
+            container: {
+                fontSize: 14,
+                background: baseColors.greyLight,
+                color: baseColors.blueDark,
+                borderRadius: 0,
+                boxShadow: `9px 9px 0 rgba(0, 0, 0, 0.15)`,
             },
         },
     },
