@@ -12,7 +12,7 @@ const BarTooltip = ({ indexValue, data, i18nNamespace, shouldTranslate }) => {
     const { getName } = useEntities()
     const { translate } = useI18n()
     const label = shouldTranslate
-        ? translate(`${i18nNamespace}.${indexValue}.long`)
+        ? translate(`options.${i18nNamespace}.${indexValue}`)
         : getName(indexValue)
 
     return (

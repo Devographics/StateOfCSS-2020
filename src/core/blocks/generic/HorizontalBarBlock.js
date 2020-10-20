@@ -5,7 +5,13 @@ import ChartContainer from 'core/charts/ChartContainer'
 import HorizontalBarChart from 'core/charts/generic/HorizontalBarChart'
 
 const HorizontalBarBlock = ({ block, data }) => {
-    const { id, mode = 'relative', units: defaultUnits = 'percentage', translateData } = block
+    const {
+        id,
+        mode = 'relative',
+        units: defaultUnits = 'percentage',
+        translateData,
+        i18nNamespace,
+    } = block
 
     const [units, setUnits] = useState(defaultUnits)
 
@@ -17,7 +23,7 @@ const HorizontalBarBlock = ({ block, data }) => {
                 <HorizontalBarChart
                     total={total}
                     buckets={buckets}
-                    i18nNamespace={id}
+                    i18nNamespace={i18nNamespace || id}
                     translateData={translateData}
                     mode={mode}
                     units={units}

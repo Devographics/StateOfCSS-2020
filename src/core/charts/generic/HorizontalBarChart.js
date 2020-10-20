@@ -48,7 +48,7 @@ const TickItem = (tick) => {
 
     let label, link
 
-    label = shouldTranslate ? translate(`${i18nNamespace}.${value}.short`) : value
+    label = shouldTranslate ? translate(`options.${i18nNamespace}.${value}`) : value
 
     if (entity) {
         const { name, homepage, github } = entity
@@ -80,6 +80,15 @@ const HorizontalBarChart = ({
     units,
     chartProps,
 }) => {
+    console.log({
+        buckets,
+        total,
+        i18nNamespace,
+        translateData,
+        mode,
+        units,
+        chartProps,
+    })
     const theme = useContext(ThemeContext)
     const { translate } = useI18n()
 

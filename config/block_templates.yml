@@ -295,6 +295,7 @@ otherFeaturesTemplate:
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
+    translateData: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
