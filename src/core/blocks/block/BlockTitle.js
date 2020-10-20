@@ -32,7 +32,7 @@ const BlockTitle = ({
 
     let blockTitle
     if (block.title) {
-        blockTitle = block.title
+        blockTitle = translate(block.title)
     } else if (blockName) {
         blockTitle = translate(`block.title.${blockName}`)
     } else {
@@ -41,7 +41,7 @@ const BlockTitle = ({
 
     let blockDescription
     if (block.description) {
-        blockDescription = block.description
+        blockDescription = translate(block.description)
     } else if (blockName) {
         blockDescription = translate(`block.description.${blockName}`)
     } else {

@@ -11,7 +11,6 @@ const starsFormatter = format('.2s')
 const ToolHeaderBlock = ({ block, data }) => {
     const { translate } = useI18n()
 
-    // const toolId = get(block, 'variables.toolId')
     const toolName = get(data, 'entity.name')
     const homepageLink = get(data, 'entity.homepage')
     const description = get(data, 'entity.description')

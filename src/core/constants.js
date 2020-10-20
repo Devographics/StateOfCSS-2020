@@ -67,10 +67,10 @@ export const toolCategories = [
 
 export const featureCategories = [
     { id: 'layout', color: colors.indigo },
-    { id: 'shapes_and_graphics', color: colors.pink },
+    { id: 'shapes_graphics', color: colors.pink },
     { id: 'interactions', color: colors.red },
     { id: 'typography', color: colors.purple },
-    { id: 'animations_and_transforms', color: colors.orange },
+    { id: 'animations_transforms', color: colors.orange },
     { id: 'media_queries', color: colors.green },
     { id: 'other_features', color: colors.skyblue },
 ]
@@ -131,7 +131,7 @@ export const cssForEmailArray = [0, 1, 2, 3]
 
 export const cssProficiencyArray = [0, 1, 2, 3, 4]
 export const javascriptProficiencyArray = [0, 1, 2, 3, 4]
-export const backendProficiencyArray = [0, 1, 2, 3]
+export const backendProficiencyArray = [0, 1, 2, 3, 4]
 
 export const opinions = [
     { id: 4, color: colors.red },
@@ -188,9 +188,9 @@ export const gender = [
 ]
 
 export const keys = {
-    salary: arrayToKeys(salaryArray),
-    companySize: arrayToKeys(companySizeArray),
-    workExperience: arrayToKeys(workExperienceArray),
+    yearly_salary: arrayToKeys(salaryArray),
+    company_size: arrayToKeys(companySizeArray),
+    years_of_experience: arrayToKeys(workExperienceArray),
     gender,
     environmentUsage: arrayToKeys(environmentUsageArray),
     jobTitle: arrayToKeys(jobTitleArray),

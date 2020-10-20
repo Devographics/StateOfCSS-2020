@@ -27,7 +27,6 @@ import ToolExperienceGraphBlock from 'core/blocks/tools/ToolExperienceGraphBlock
 import ToolsSectionOverviewBlock from 'core/blocks/tools/ToolsSectionOverviewBlock'
 import ToolsExperienceRankingBlock from 'core/blocks/tools/ToolsExperienceRankingBlock'
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
-import ToolsArrowsBlock from 'core/blocks/tools/ToolsArrowsBlock'
 
 // happiness
 import HappinessBlock from 'core/blocks/happiness/HappinessBlock'
@@ -65,7 +64,6 @@ const blockRegistry = {
     ToolsSectionOverviewBlock,
     ToolsExperienceRankingBlock,
     ToolsScatterplotBlock,
-    ToolsArrowsBlock,
 
     // happiness
     HappinessBlock,

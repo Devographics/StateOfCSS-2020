@@ -21,13 +21,6 @@ module.exports = {
             }
         },
         {
-            resolve: 'gatsby-source-filesystem',
-            options: {
-                name: `translations`,
-                path: `${__dirname}/src/translations/`
-            }
-        },
-        {
             resolve: 'gatsby-source-graphql',
             options: {
                 typeName: 'SurveyApi',
@@ -35,7 +28,6 @@ module.exports = {
                 url: process.env.API_URL
             }
         },
-        'gatsby-transformer-remark',
         'gatsby-plugin-react-helmet',
         'gatsby-plugin-sass',
         'gatsby-plugin-netlify',

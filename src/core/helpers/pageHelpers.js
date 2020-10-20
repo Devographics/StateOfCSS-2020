@@ -32,7 +32,7 @@ export const getPageLabel = (
             }
         )
     } else {
-        label = translate(`page.${page.id}`)
+        label = translate(`sections.${page.id}.title`)
     }
 
     if (includeWebsite === true) {

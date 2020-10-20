@@ -6,18 +6,6 @@
 
 pageIntroductionTemplate:
     blockType: PageIntroductionBlock
-    dataPath: '${pageId}_introduction.html'
-    queryVariables: '$locale: String'
-    query: >
-        ${pageId}_introduction: markdownRemark(
-            frontmatter: {
-                type:   { eq: "introduction" }
-                page:   { eq: "${pageId}" }
-                locale: { eq: $locale }
-            }
-        ) {
-            html
-        }
 
 recommendedResourcesTemplate:
     blockName: recommendedResources
@@ -50,6 +38,8 @@ recommendedResourcesTemplate:
 demographicsTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year'
+    title: 'user_info.${id}'
+    description: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -77,6 +67,8 @@ demographicsTemplate:
 proficiencyTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
+    title: 'user_info.${id}'
+    description: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -263,6 +255,7 @@ featuresCategoryOverviewTemplate:
 featureExperienceTemplate:
     blockType: FeatureExperienceBlock
     dataPath: 'surveyApi.survey.${id}'
+    title:
     showDescription: true
     bucketKeysName: featureExperience
     showLegend: true
@@ -633,6 +626,7 @@ categoryOtherToolsTemplate:
 # {id} refers to the current subject
 opinionTemplate:
     blockType: OpinionBlock
+    title: 'opinions.${id}'
     dataPath: 'surveyApi.survey.${id}.allYears'
     showDescription: true
     query: >

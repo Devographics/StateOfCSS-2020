@@ -5,7 +5,7 @@ import Layout from 'core/Layout'
 ReactGA.initialize('UA-83022212-8')
 
 // eslint-disable-next-line no-unused-vars
-const ascii = `STATE OF JS`
+const ascii = `STATE OF CSS`
 
 export const onClientEntry = () => {
     // console.log(ascii)

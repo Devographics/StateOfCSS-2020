@@ -1,9 +1,10 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeContext } from 'styled-components'
-import BlockLegendsItem from './BlockLegendsItem'
+import { mq, dimensions } from 'core/theme'
 import { useI18n } from 'core/i18n/i18nContext'
 import { keys } from 'core/constants'
+import BlockLegendsItem from './BlockLegendsItem'
 
 const BlockLegends = ({
     block,
@@ -31,17 +32,12 @@ const BlockLegends = ({
         )
     }
 
-    const classNames = ['Legends', `Legends--${layout}`]
-    if (withFrame === true) {
-        classNames.push('Legends--withFrame')
-    }
-
     const blockLegends =
         legends ||
         blockKeys.map(({ id: keyId }) => ({
             id: `${bucketKeysName}.${keyId}`,
-            label: translate(`${bucketKeysName}.${keyId}.long`),
-            keyLabel: `${translate(`${bucketKeysName}.${keyId}.short`)}:`,
+            label: translate(`options.${bucketKeysName}.${keyId}`),
+            keyLabel: `${translate(`options.${bucketKeysName}.${keyId}.short`)}:`,
             color: theme.colors.ranges[bucketKeysName]
                 ? theme.colors.ranges[bucketKeysName][keyId]
                 : undefined,
@@ -50,7 +46,7 @@ const BlockLegends = ({
     const rootStyle = { ...style }
 
     return (
-        <Container className={classNames.join(' ')} style={rootStyle}>
+        <Container style={rootStyle} layout={layout} withFrame={withFrame}>
             {blockLegends.map(({ id, label, color, keyLabel }) => (
                 <BlockLegendsItem
                     key={id}
@@ -96,6 +92,54 @@ BlockLegends.defaultProps = {
 const Container = styled.div`
     font-size: ${(props) => props.theme.typography.sizes.small};
     margin-top: ${(props) => props.theme.spacing}px;
+    
+    ${(props) => {
+        if (props.layout === 'horizontal') {
+            return `
+                @media ${mq.mediumLarge} {
+                    display: grid;
+                }
+                
+                @media ${mq.medium} {
+                    grid-template-columns: 1fr 1fr;
+                }
+                
+                @media ${mq.large} {
+                    // fit in as many columns as possible as long as they're wider than 150px
+                    grid-template-columns: repeat(auto-fit, minmax(120px, auto));
+                }
+            `
+        }
+
+        if (props.layout === 'vertical') {
+            return `
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                
+                @media ${mq.small} {
+                    margin-top: ${dimensions.spacing}px;
+                    border: 1px solid ${props.theme.colors.border};
+                }
+            `
+        }
+    }}
+    
+    ${(props) =>
+        props.withFrame &&
+        `
+        border: 1px solid ${props.theme.colors.border};
+        padding: ${dimensions.spacing}px;
+        
+        @media ${mq.small} {
+            padding: ${dimensions.spacing / 2}px;
+        }
+        
+        @media ${mq.mediumLarge} {
+            padding: ${dimensions.spacing}px ${dimensions.spacing * 1.5}px;
+        }
+    `}
+}
 `
 
 export default BlockLegends

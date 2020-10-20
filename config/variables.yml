@@ -67,7 +67,7 @@ featuresCategories:
         - logical_properties
         - aspect_ratio
         - content_visibility
-    shapes_and_graphics:
+    shapes_graphics:
         - shapes
         - object_fit
         - clip_path
@@ -91,7 +91,7 @@ featuresCategories:
         - font_display
         - line_clamp
         - direction
-    animations_and_transforms:
+    animations_transforms:
         - transitions
         - transforms
         - animations

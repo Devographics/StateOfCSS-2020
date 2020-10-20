@@ -12,9 +12,6 @@ const PageTemplate = ({ data = {}, pageContext = {} }) => {
     return (
         <>
             {showTitle && <PageHeader />}
-            {/* <div className="page-query">
-                <textarea value={pageContext.pageQuery} readOnly />
-            </div> */}
             {data.introduction && <TextBlock text={data.introduction.html} />}
             <main className={`Page__Contents Page__Contents--${id}`}>
                 {context.blocks &&

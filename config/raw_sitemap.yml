@@ -59,13 +59,13 @@
         template: demographicsTemplate
         blockType: ParticipationByCountryBlock
 
-      - id: salary
+      - id: yearly_salary
         template: demographicsTemplate
 
-      - id: workExperience
+      - id: years_of_experience
         template: demographicsTemplate
 
-      - id: companySize
+      - id: company_size
         template: demographicsTemplate
 
       - id: source
@@ -77,7 +77,7 @@
         showLegend: true
         blockType: GenderBlock
 
-      - id: jobTitle
+      - id: job_title
         template: demographicsTemplate
         blockType: HorizontalBarBlock
         translateData: true
@@ -93,11 +93,6 @@
       - id: backend_proficiency
         showLegend: true
         template: proficiencyTemplate
-
-      - id: resources-sponsors
-        blockType: RecommendedResourcesBlock
-        items:
-            - frontendmasters-design
 
 #- id: overview
 #  path: /overview
@@ -157,10 +152,10 @@
             - id: content_visibility
               template: featureExperienceTemplate
 
-      - id: shapes_and_graphics
+      - id: shapes_graphics
         path: /shapes-and-graphics
         blocks:
-            - id: shapes_and_graphics
+            - id: shapes_graphics
               template: pageIntroductionTemplate
               variables:
                   pageId: '${id}'
@@ -244,10 +239,10 @@
             - id: direction
               template: featureExperienceTemplate
 
-      - id: animations_and_transforms
+      - id: animations_transforms
         path: /animations-and-transforms
         blocks:
-            - id: animations_and_transforms
+            - id: animations_transforms
               template: pageIntroductionTemplate
               variables:
                   pageId: '${id}'
@@ -531,9 +526,13 @@
         template: environmentTemplate
 
       - id: css_for_print
+        title: environments.css_for_print
+        description: environments.css_for_print.description
         template: environmentRatingTemplate
 
       - id: css_for_email
+        title: environments.css_for_email
+        description: environments.css_for_email.description
         template: environmentRatingTemplate
 
 - id: resources
@@ -545,25 +544,37 @@
             pageId: '${id}'
 
       - id: blogs_news_magazines
+        title: resources.blogs_news_magazines
+        description: resources.blogs_news_magazines.description
         template: resourcesTemplate
 
       - id: blogs_news_magazines_others
+        title: resources.blogs_news_magazines.others
+        description: resources.blogs_news_magazines.others.description
         template: resourcesTemplate
         mode: relative
         units: count
 
       - id: sites_courses
+        title: resources.sites_courses
+        description: resources.sites_courses.description
         template: resourcesTemplate
 
       - id: sites_courses_others
+        title: resources.sites_courses.others
+        description: resources.sites_courses.others.description
         template: resourcesTemplate
         mode: relative
         units: count
 
       - id: podcasts
+        title: resources.podcasts
+        description: resources.podcasts.description
         template: resourcesTemplate
 
       - id: podcasts_others
+        title: resources.podcasts.others
+        description: resources.podcasts.others.description
         template: resourcesTemplate
         mode: relative
         units: count
