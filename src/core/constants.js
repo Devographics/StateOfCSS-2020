@@ -143,13 +143,13 @@ export const opinions = [
 
 export const featureExperience = [
     {
-        id: 'used_it',
+        id: 'used',
     },
     {
-        id: 'know_not_used',
+        id: 'heard',
     },
     {
-        id: 'never_heard_not_sure',
+        id: 'never_heard',
     },
 ]
 
@@ -200,6 +200,7 @@ export const keys = {
     opinions,
     toolExperience,
     featureExperience,
+    features: featureExperience,
     featureExperienceSimplified,
     toolCategories,
     css_for_print: arrayToKeys(cssForPrintArray),

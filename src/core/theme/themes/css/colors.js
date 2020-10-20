@@ -23,9 +23,9 @@ export default {
             never_heard: '#59608a',
         },
         featureExperience: {
-            used_it: colors.blue,
-            know_not_used: '#9AC6C9',
-            never_heard_not_sure: colors.navyLighter,
+            used: colors.blue,
+            heard: '#9AC6C9',
+            never_heard: colors.navyLighter,
         },
         featureExperienceSimplified: {
             know_it: '#ACFFC3',

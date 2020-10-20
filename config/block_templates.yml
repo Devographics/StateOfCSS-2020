@@ -257,7 +257,7 @@ featureExperienceTemplate:
     dataPath: 'surveyApi.survey.${id}'
     title:
     showDescription: true
-    bucketKeysName: featureExperience
+    bucketKeysName: features
     showLegend: true
     query: >
         surveyApi {

@@ -21,24 +21,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
     const { translate } = useI18n()
     const { name, mdn } = data
 
-    // @todo: handle normalization directly in the survey
-    const buckets = data.experience.year.buckets.map((bucket) => {
-        let id
-        if (bucket.id === 'heard') {
-            id = 'know_not_used'
-        }
-        if (bucket.id === 'never_heard') {
-            id = 'never_heard_not_sure'
-        }
-        if (bucket.id === 'used') {
-            id = 'used_it'
-        }
-
-        return {
-            ...bucket,
-            id,
-        }
-    })
+    const buckets = data.experience.year.buckets
 
     const colorMapping = useMemo(
         () =>
@@ -67,19 +50,15 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
             }}
             block={{ ...block, title: name, description }}
         >
-            <div className="Feature FTBlock">
-                <div className="Feature__Chart FTBlock__Chart">
-                    <ChartContainer height={40} fit={true} className="FeatureChart">
-                        <GaugeBarChart
-                            buckets={buckets}
-                            colorMapping={colorMapping}
-                            units={units}
-                            applyEmptyPatternTo="never_heard_not_sure"
-                            i18nNamespace="featureExperience"
-                        />
-                    </ChartContainer>
-                </div>
-            </div>
+            <ChartContainer height={40} fit={true} className="FeatureChart">
+                <GaugeBarChart
+                    buckets={buckets}
+                    colorMapping={colorMapping}
+                    units={units}
+                    applyEmptyPatternTo="never_heard"
+                    i18nNamespace="options.features"
+                />
+            </ChartContainer>
         </Block>
     )
 }
