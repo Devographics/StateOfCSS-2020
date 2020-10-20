@@ -404,7 +404,7 @@
       - id: skeleton
         template: toolPageTemplate
 
-      - id: spectre
+      - id: spectre_css
         template: toolPageTemplate
 
       - id: css_frameworks_others

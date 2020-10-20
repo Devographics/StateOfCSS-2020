@@ -17,7 +17,7 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
     const name = get(data, 'entity.name')
     const title = translate(`block.title.${blockName}`, { values: { name } })
     const description = translate(`block.description.${blockName}`, { values: { name } })
-    const chartData = get(data, 'experience.allYears')
+    const chartData = get(data, 'experience.all_years')
 
     const theme = useContext(ThemeContext)
     const colors = useMemo(

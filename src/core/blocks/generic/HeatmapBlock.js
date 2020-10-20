@@ -7,9 +7,9 @@ import { useI18n } from 'core/i18n/i18nContext'
 import ChartContainer from 'core/charts/ChartContainer'
 
 const keysByType = {
-    salary: salaryArray,
-    workExperience: workExperienceArray,
-    companySize: companySizeArray,
+    yearly_salary: salaryArray,
+    years_of_experience: workExperienceArray,
+    company_size: companySizeArray,
 }
 
 const HeatmapBlock = ({ block, data }) => {
@@ -36,7 +36,7 @@ HeatmapBlock.propTypes = {
         id: PropTypes.string.isRequired,
         variables: PropTypes.shape({
             subject: PropTypes.oneOf(['tools', 'features']).isRequired,
-            heatmapId: PropTypes.oneOf(['workExperience', 'salary', 'companySize']).isRequired,
+            heatmapId: PropTypes.oneOf(Object.keys(keysByType)).isRequired,
         }).isRequired,
     }).isRequired,
     data: PropTypes.shape({

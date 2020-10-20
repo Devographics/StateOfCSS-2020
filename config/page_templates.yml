@@ -47,7 +47,7 @@ toolSectionTemplate:
           template: heatmapTemplate
           variables:
               subject: tools
-              heatmapId: workExperience
+              heatmapId: years_of_experience
               toolIds: ${toolIds}
 
         - id: '${id}_salary_heatmap'
@@ -55,7 +55,7 @@ toolSectionTemplate:
           template: heatmapTemplate
           variables:
               subject: tools
-              heatmapId: salary
+              heatmapId: yearly_salary
               toolIds: ${toolIds}
 
         - id: '${id}_company_size_heatmap'
@@ -63,7 +63,7 @@ toolSectionTemplate:
           template: heatmapTemplate
           variables:
               subject: tools
-              heatmapId: companySize
+              heatmapId: company_size
               toolIds: ${toolIds}
 
         # - id: '${id}-scatterplot'

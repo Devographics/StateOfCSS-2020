@@ -176,7 +176,7 @@ toolsArrowsTemplate:
                         id
                     }
                     experience {
-                        allYears {
+                        all_years {
                             buckets {
                                 percentage
                                 id
@@ -297,7 +297,7 @@ otherFeaturesTemplate:
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${id}: featuresOthers(id: ${id}) {
+                ${id}: features_others(id: ${id}) {
                     id
                     year(year: ${currentYear}) {
                         year
@@ -413,7 +413,7 @@ toolExperienceTemplate:
                         }
                     }
                     experience {
-                        allYears{
+                        all_years {
                             year
                             total
                             completion {
@@ -470,11 +470,11 @@ toolExperienceGraphTemplate:
 
 toolsExperienceRankingTemplate:
     blockType: ToolsExperienceRankingBlock
-    dataPath: 'surveyApi.survey.toolsRankings.experience'
+    dataPath: 'surveyApi.survey.tools_rankings.experience'
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                toolsRankings(ids: [${toolsCategories[sectionId]}]) {
+                tools_rankings(ids: [${toolsCategories[sectionId]}]) {
                     ids
                     experience {
                         id
@@ -565,14 +565,14 @@ scatterplotTemplate:
 
 happinessTemplate:
     blockType: HappinessBlock
-    dataPath: 'surveyApi.survey.category.happiness.allYears'
+    dataPath: 'surveyApi.survey.category.happiness.all_years'
     showDescription: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
                 category(id: ${sectionId}) {
                     happiness {
-                        allYears {
+                        all_years {
                             year
                             mean
                         }
@@ -583,13 +583,13 @@ happinessTemplate:
 
 categoryOtherToolsTemplate:
     blockType: HorizontalBarBlock
-    dataPath: 'surveyApi.survey.category.otherTools.year'
+    dataPath: 'surveyApi.survey.category.tools_others.year'
     showDescription: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
                 category(id:${sectionId}) {
-                    otherTools{
+                    tools_others {
                         year(year: 2020) {
                             year
                             total
@@ -627,14 +627,14 @@ categoryOtherToolsTemplate:
 opinionTemplate:
     blockType: OpinionBlock
     title: 'opinions.${id}'
-    dataPath: 'surveyApi.survey.${id}.allYears'
+    dataPath: 'surveyApi.survey.${id}.all_years'
     showDescription: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
                 ${id}: opinion(id: ${id}) {
                     id
-                    allYears {
+                    all_years {
                         year
                         total
                         completion {
@@ -665,7 +665,7 @@ otherToolsTemplate:
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${id}: otherTools(id: ${id}) {
+                ${id}: tools_others(id: ${id}) {
                     id
                     year(year: ${currentYear}) {
                         year
@@ -774,7 +774,7 @@ environmentRatingTemplate:
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${id}: environmentsRatings(id: ${id}) {
+                ${id}: environments_ratings(id: ${id}) {
                     id
                     year(year: ${currentYear}) {
                         year

@@ -128,7 +128,7 @@ toolsCategories:
         - tailwind_css
         - pure_css
         - skeleton
-        - spectre
+        - spectre_css
     css_methodologies:
         - bem
         - atomic_css
