@@ -13,7 +13,7 @@ import { ToolsContextProvider } from './helpers/toolsContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
 import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
-import { mq, dimensions } from './theme'
+import { mq, dimensions, secondaryFontMixin, primaryFontMixin, typography } from './theme'
 
 const themeIds = ['js', 'css', 'test']
 
@@ -187,6 +187,16 @@ const GlobalStyle = createGlobalStyle`
         padding: 0;
         font-feature-settings: 'liga' 0;
         line-height: 1.7;
+        ${primaryFontMixin};
+        
+        @media ${mq.small} {
+            font-size: ${typography.rootSize.mobile};
+        }
+        
+        @media ${mq.large} {
+            font-size: ${typography.rootSize.desktop};
+            min-height: 100vh;
+        }
     }
     
     html {
@@ -199,8 +209,19 @@ const GlobalStyle = createGlobalStyle`
         box-sizing: inherit;
     }
     
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        ${secondaryFontMixin}
+        margin: 0 0 ${dimensions.spacing}px 0;
+    }
+    
     a {
         text-decoration: none;
+        font-weight: ${typography.weight.bold};
         
         &,
         &:link,
@@ -216,11 +237,46 @@ const GlobalStyle = createGlobalStyle`
         }
     }
     
+    p,
+    ul,
+    ol {
+        margin: 0 0 ${dimensions.spacing}px 0;
+        
+        @media ${mq.small} {
+            line-height: 1.6;
+        }
+        
+        @media ${mq.mediumLarge} {
+            line-height: 1.8;
+        }
+    }
+    
+    pre,
+    code {
+        ${secondaryFontMixin}
+    }
+    
+    .desktop {
+        @media ${mq.small} {
+            display: none;
+        }
+    }
+    
+    .mobile {
+        @media ${mq.mediumLarge} {
+            display: none;
+        }
+    }
+    
+    iframe {
+        display: none;
+    }
+    
     .ReactModal__Overlay {
         z-index: 1000;
     }
     
-    .Page__Contents--awards {
+    .Page--awards {
         @media ${mq.mediumLarge} {
             display: grid;
             grid-template-columns: 1fr 1fr;

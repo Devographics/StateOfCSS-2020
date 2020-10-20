@@ -1,4 +1,10 @@
+import { css } from 'styled-components'
+
 export const typography = {
+    rootSize: {
+        mobile: '13px',
+        desktop: '17px',
+    },
     size: {
         smaller: '0.7rem',
         small: '0.8rem',
@@ -15,10 +21,17 @@ export const typography = {
     },
 }
 
-/*
-$root-size-mobile: 13px;
-$root-size: 17px;
+export const primaryFontMixin = css`
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: ${typography.weight.medium};
+`
 
+export const secondaryFontMixin = css`
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: ${typography.weight.bold};
+`
+
+/*
 @mixin font-light {
     font-weight: $light;
 }
@@ -29,20 +42,6 @@ $root-size: 17px;
 
 @mixin font-bold {
     font-weight: $bold;
-}
-
-@mixin primary-font {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: $medium;
-}
-@mixin secondary-font {
-    font-family: 'IBM Plex Mono', monospace;
-    font-weight: $bold;
-}
-
-pre,
-code {
-    @include secondary-font;
 }
 
 strong {

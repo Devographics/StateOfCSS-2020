@@ -13,7 +13,7 @@ const PageTemplate = ({ data = {}, pageContext = {} }) => {
         <>
             {showTitle && <PageHeader />}
             {data.introduction && <TextBlock text={data.introduction.html} />}
-            <main className={`Page__Contents Page__Contents--${id}`}>
+            <main className={`Page--${id}`}>
                 {context.blocks &&
                     context.blocks.map((block, i) => (
                         <BlockSwitcher key={block.id} block={block} pageData={pageData} index={i} />

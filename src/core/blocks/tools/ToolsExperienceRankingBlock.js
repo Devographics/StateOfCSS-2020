@@ -30,6 +30,7 @@ const Switcher = ({ setMetric, metric }) => {
         </ButtonGroup>
     )
 }
+
 const ToolsExperienceRankingBlock = ({ block, data }) => {
     const { translate } = useI18n()
     const [metric, setMetric] = useState('satisfaction')
