@@ -80,19 +80,10 @@ const HorizontalBarChart = ({
     units,
     chartProps,
 }) => {
-    console.log({
-        buckets,
-        total,
-        i18nNamespace,
-        translateData,
-        mode,
-        units,
-        chartProps,
-    })
     const theme = useContext(ThemeContext)
     const { translate } = useI18n()
 
-    const { formatTick, formatValue, maxValue /*, ticks, tickCount*/ } = useBarChart({
+    const { formatTick, formatValue, maxValue } = useBarChart({
         buckets,
         total,
         i18nNamespace,
@@ -122,7 +113,7 @@ const HorizontalBarChart = ({
                 enableGridY={false}
                 enableLabel={true}
                 label={(d) => (units === 'percentage' ? `${round(d.value, 1)}%` : d.value)}
-                labelTextColor={{ theme: 'labels.text.fill' }}
+                labelTextColor={theme.colors.text}
                 labelSkipWidth={40}
                 colors={[theme.colors.barChartDefaultColor]}
                 padding={0.4}
