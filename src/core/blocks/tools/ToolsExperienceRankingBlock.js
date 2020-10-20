@@ -19,8 +19,12 @@ const Switcher = ({ setMetric, metric }) => {
                     className={`Button--${metric === key ? 'selected' : 'unselected'}`}
                     onClick={() => setMetric(key)}
                 >
-                    <span className="desktop">{translate(`opinions.legends.${key}_ratio`)}</span>
-                    <span className="mobile">{translate(`opinions.legends.${key}_ratio`)[0]}</span>
+                    <span className="desktop">
+                        {translate(`options.experience_ranking.${key}`)}
+                    </span>
+                    <span className="mobile">
+                        {translate(`options.experience_ranking.${key}`)[0]}
+                    </span>
                 </Button>
             ))}
         </ButtonGroup>
