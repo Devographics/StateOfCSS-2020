@@ -32,7 +32,9 @@ const BlockTitle = ({
 
     let blockTitle
     if (block.title) {
-        blockTitle = translate(block.title)
+        blockTitle = block.title
+    } else if (block.titleId) {
+        blockTitle = translate(block.titleId)
     } else if (blockName) {
         blockTitle = translate(`block.title.${blockName}`)
     } else {
@@ -41,7 +43,9 @@ const BlockTitle = ({
 
     let blockDescription
     if (block.description) {
-        blockDescription = translate(block.description)
+        blockDescription = block.description
+    } else if (block.descriptionId) {
+        blockDescription = translate(block.descriptionId)
     } else if (blockName) {
         blockDescription = translate(`block.description.${blockName}`)
     } else {
@@ -108,7 +112,9 @@ BlockTitle.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
         title: PropTypes.node,
+        titleId: PropTypes.string,
         description: PropTypes.node,
+        descriptionId: PropTypes.string,
     }).isRequired,
     showDescription: PropTypes.bool.isRequired,
     isShareable: PropTypes.bool.isRequired,

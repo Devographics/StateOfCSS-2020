@@ -38,8 +38,8 @@ recommendedResourcesTemplate:
 demographicsTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year'
-    title: 'user_info.${id}'
-    description: 'user_info.${id}.description'
+    titleId: 'user_info.${id}'
+    descriptionId: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -67,8 +67,8 @@ demographicsTemplate:
 proficiencyTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
-    title: 'user_info.${id}'
-    description: 'user_info.${id}.description'
+    titleId: 'user_info.${id}'
+    descriptionId: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -255,7 +255,6 @@ featuresCategoryOverviewTemplate:
 featureExperienceTemplate:
     blockType: FeatureExperienceBlock
     dataPath: 'surveyApi.survey.${id}'
-    title:
     showDescription: true
     bucketKeysName: features
     showLegend: true
@@ -291,6 +290,8 @@ featureExperienceTemplate:
 
 otherFeaturesTemplate:
     blockType: HorizontalBarBlock
+    titleId: 'features_others.${id}'
+    descriptionId: 'features_others.${id}.description'
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
@@ -626,7 +627,7 @@ categoryOtherToolsTemplate:
 # {id} refers to the current subject
 opinionTemplate:
     blockType: OpinionBlock
-    title: 'opinions.${id}'
+    titleId: 'opinions.${id}'
     dataPath: 'surveyApi.survey.${id}.all_years'
     showDescription: true
     query: >

@@ -305,10 +305,10 @@
             - id: comparison_functions
               template: featureExperienceTemplate
 
-- id: units_and_selectors
+- id: units_selectors
   path: /units-and-selectors
   blocks:
-      - id: units_and_selectors
+      - id: units_selectors
         template: pageIntroductionTemplate
         variables:
             pageId: '${id}'
