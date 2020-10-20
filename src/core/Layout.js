@@ -1,7 +1,7 @@
 import React, { PureComponent, useCallback, useEffect, useState } from 'react'
 import propTypes from 'prop-types'
 import classNames from 'classnames'
-import { ThemeProvider, createGlobalStyle } from 'styled-components'
+import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
 import '../stylesheets/screen.scss'
 import Pagination from './pages/Pagination'
 import { Sidebar } from './components/sidebar'
@@ -13,7 +13,7 @@ import { ToolsContextProvider } from './helpers/toolsContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
 import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
-import mq from './theme/mq'
+import { mq, dimensions } from './theme'
 
 const themeIds = ['js', 'css', 'test']
 
@@ -65,7 +65,7 @@ const ThemedLayout = ({
                         })}
                     >
                         <Head />
-                        <div className="pagelayout__inner">
+                        <InnerPageLayout>
                             <div>
                                 <Sidebar
                                     {...props}
@@ -73,22 +73,49 @@ const ThemedLayout = ({
                                     closeSidebar={closeSidebar}
                                 />
                             </div>
-                            <main className="pagelayout__content">
+                            <PageContent>
                                 {showPagination && (
                                     <Pagination toggleSidebar={toggleSidebar} position="top" />
                                 )}
-                                <div className="pagelayout__main">
+                                <PageMain>
                                     <PageMetaDebug />
                                     {props.children}
-                                </div>
-                            </main>
-                        </div>
+                                </PageMain>
+                            </PageContent>
+                        </InnerPageLayout>
                     </div>
                 </EntitiesContextProvider>
             </ToolsContextProvider>
         </ThemeProvider>
     )
 }
+
+const InnerPageLayout = styled.div`
+    min-height: 100vh;
+
+    @media ${mq.large} {
+        display: grid;
+        grid-template-columns: ${dimensions.sidebar.width}px 1fr;
+    }
+`
+
+const PageContent = styled.main`
+    display: flex;
+    flex-direction: column;
+`
+
+const PageMain = styled.main`
+    overflow-x: hidden;
+    flex-grow: 1;
+
+    @media ${mq.smallMedium} {
+        padding: ${dimensions.spacing}px;
+    }
+
+    @media ${mq.large} {
+        padding: ${dimensions.spacing * 3}px;
+    }
+`
 
 export default class Layout extends PureComponent {
     static propTypes = {
@@ -163,7 +190,7 @@ const GlobalStyle = createGlobalStyle`
     }
     
     html {
-    box-sizing: border-box;
+        box-sizing: border-box;
     }
     
     *,
