@@ -13,11 +13,6 @@
     font-size: $small-font;
 }
 
-.Hamburger {
-    fill: $white;
-    stroke: $white;
-}
-
 /*
 
 Page-specific styles
@@ -35,9 +30,4 @@ Page-specific styles
             }
         }
     }
-}
-
-.PageLayout--sidebar {
-    overflow: hidden;
-    height: 100vh;
 }

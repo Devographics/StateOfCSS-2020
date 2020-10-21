@@ -87,7 +87,6 @@ const SidebarToggle = styled.button`
         display: block;
         width: 100%;
         height: auto;
-        stroke: ${({ theme }) => theme.colors.link};
     }
 
     @media ${mq.large} {

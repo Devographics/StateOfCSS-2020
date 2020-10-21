@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components'
 import { mq, fontSize, fontWeight, spacing, color } from 'core/theme'
+import ButtonGroup from './ButtonGroup'
 
 const Button = styled.div.attrs(({ className, size = 'medium', variant = 'default', ...props }) => {
     return {
@@ -90,7 +91,7 @@ const Button = styled.div.attrs(({ className, size = 'medium', variant = 'defaul
         border-style: solid;
     }
 
-    .ButtonGroup & {
+    ${ButtonGroup} & {
         border-left-width: 0;
         &:first-child {
             border-left-width: 1px;
@@ -109,7 +110,7 @@ const Button = styled.div.attrs(({ className, size = 'medium', variant = 'defaul
         }
     }
 
-    .ButtonGroup {
+    ${ButtonGroup} {
         & {
             &--active {
                 cursor: default;

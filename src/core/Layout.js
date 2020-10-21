@@ -1,7 +1,7 @@
 import React, { PureComponent, useCallback, useEffect, useState } from 'react'
 import propTypes from 'prop-types'
 import classNames from 'classnames'
-import styled, { ThemeProvider, createGlobalStyle } from 'styled-components'
+import styled, { ThemeProvider, css } from 'styled-components'
 import '../stylesheets/screen.scss'
 import Pagination from './pages/Pagination'
 import { Sidebar } from './components/sidebar'
@@ -13,7 +13,7 @@ import { ToolsContextProvider } from './helpers/toolsContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
 import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
-import { mq, secondaryFontMixin, primaryFontMixin, typography, spacing } from './theme'
+import { GlobalStyle, mq, spacing } from './theme'
 
 const themeIds = ['js', 'css', 'test']
 
@@ -56,57 +56,61 @@ const ThemedLayout = ({
             <ToolsContextProvider>
                 <EntitiesContextProvider>
                     <GlobalStyle />
-                    <div
-                        className={classNames('pageLayout', `PageLayout--${context.id}`, {
-                            'PageLayout--sidebar': showSidebar,
-                            'PageLayout--nosidebar': !showSidebar,
+                    <Head />
+                    <Page
+                        showSidebar={showSidebar}
+                        className={classNames(`Page--${context.id}`, {
                             capture: context.isCapturing,
                             nocapture: !context.isCapturing,
                         })}
                     >
-                        <Head />
-                        <InnerPageLayout>
-                            <div>
-                                <Sidebar
-                                    {...props}
-                                    showSidebar={showSidebar}
-                                    closeSidebar={closeSidebar}
-                                />
-                            </div>
-                            <PageContent>
-                                {showPagination && (
-                                    <Pagination toggleSidebar={toggleSidebar} position="top" />
-                                )}
-                                <PageMain>
-                                    <PageMetaDebug />
-                                    {props.children}
-                                </PageMain>
-                            </PageContent>
-                        </InnerPageLayout>
-                    </div>
+                        <Sidebar {...props} showSidebar={showSidebar} closeSidebar={closeSidebar} />
+                        <PageContent>
+                            {showPagination && (
+                                <Pagination toggleSidebar={toggleSidebar} position="top" />
+                            )}
+                            <PageMain>
+                                <PageMetaDebug />
+                                {props.children}
+                            </PageMain>
+                        </PageContent>
+                    </Page>
                 </EntitiesContextProvider>
             </ToolsContextProvider>
         </ThemeProvider>
     )
 }
 
-const InnerPageLayout = styled.div`
-    min-height: 100vh;
-
-    @media ${mq.large} {
-        display: grid;
-        grid-template-columns: ${({ theme }) => theme.dimensions.sidebar.width}px 1fr;
-    }
-`
-
 const PageContent = styled.main`
     display: flex;
     flex-direction: column;
 `
 
+const Page = styled.div`
+    min-height: 100vh;
+
+    ${PageContent} {
+        @media ${mq.large} {
+            margin-left: ${({ theme }) => theme.dimensions.sidebar.width}px;
+        }
+
+        @media ${mq.smallMedium} {
+            ${(props) => {
+                if (props.showSidebar) {
+                    return css`
+                        overflow: hidden;
+                        height: 100vh;
+                    `
+                }
+            }}
+        }
+    }
+`
+
 const PageMain = styled.main`
-    overflow-x: hidden;
     flex-grow: 1;
+    overflow-x: hidden;
+    overflow-y: visible;
 
     @media ${mq.smallMedium} {
         padding: ${spacing()};
@@ -179,113 +183,3 @@ export default class Layout extends PureComponent {
         )
     }
 }
-
-const GlobalStyle = createGlobalStyle`
-    body {
-        background: ${(props) => props.theme.colors.background};
-        color: ${(props) => props.theme.colors.text};
-        padding: 0;
-        font-feature-settings: 'liga' 0;
-        line-height: 1.7;
-        ${primaryFontMixin};
-        
-        @media ${mq.small} {
-            font-size: ${typography.rootSize.mobile};
-        }
-        
-        @media ${mq.large} {
-            font-size: ${typography.rootSize.desktop};
-            min-height: 100vh;
-        }
-    }
-    
-    html {
-        box-sizing: border-box;
-    }
-    
-    *,
-    *:before,
-    *:after {
-        box-sizing: inherit;
-    }
-    
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6 {
-        ${secondaryFontMixin}
-        margin: 0 0 ${spacing()} 0;
-    }
-    
-    a {
-        text-decoration: none;
-        font-weight: ${typography.weight.bold};
-        
-        &,
-        &:link,
-        &:visited,
-        &:active,
-        &:focus {
-            color: ${(props) => props.theme.colors.link};
-        }
-        
-        &:hover {
-            text-decoration: underline;
-            color: ${(props) => props.theme.colors.linkHover};
-        }
-    }
-    
-    p,
-    ul,
-    ol {
-        margin: 0 0 ${spacing()} 0;
-        
-        @media ${mq.small} {
-            line-height: 1.6;
-        }
-        
-        @media ${mq.mediumLarge} {
-            line-height: 1.8;
-        }
-    }
-    
-    pre,
-    code {
-        ${secondaryFontMixin}
-    }
-    
-    .desktop {
-        @media ${mq.small} {
-            display: none;
-        }
-    }
-    
-    .mobile {
-        @media ${mq.mediumLarge} {
-            display: none;
-        }
-    }
-    
-    iframe {
-        display: none;
-    }
-    
-    .ReactModal__Overlay {
-        z-index: 1000;
-    }
-    
-    .Page--awards {
-        @media ${mq.mediumLarge} {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: ${spacing(4)};
-            row-gap: ${spacing(4)};
-            
-            .Page__Introduction {
-                grid-column: 1 / 3;
-            }
-        }
-    }
-`
