@@ -48,6 +48,7 @@ const VerticalBarChart = ({
     viewportWidth,
     className,
     buckets,
+    bucketKeys,
     total,
     i18nNamespace,
     translateData,
@@ -58,7 +59,7 @@ const VerticalBarChart = ({
     const theme = useContext(ThemeContext)
     const { translate } = useI18n()
 
-    const { formatTick, formatValue, maxValue, ticks } = useBarChart({
+    const { formatValue, maxValue, ticks } = useBarChart({
         buckets,
         total,
         i18nNamespace,
@@ -93,13 +94,13 @@ const VerticalBarChart = ({
                 axisRight={{
                     format: formatValue,
                     tickValues: ticks,
-                    legend: translate(`users_${units}`),
+                    legend: translate(`charts.axis_legends.users_${units}`),
                     legendPosition: 'middle',
                     legendOffset: 52,
                 }}
                 axisBottom={{
-                    format: formatTick,
-                    legend: translate(`${i18nNamespace}.axis_legend`),
+                    format: (v) => bucketKeys.find((key) => key.id === v).shortLabel,
+                    legend: translate(`charts.axis_legends.${i18nNamespace}`),
                     legendPosition: 'middle',
                     legendOffset: viewportWidth < breakpoint ? 90 : 50,
                     tickRotation: viewportWidth < breakpoint ? -45 : 0,

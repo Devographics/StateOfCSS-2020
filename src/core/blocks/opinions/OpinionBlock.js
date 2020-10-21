@@ -3,19 +3,23 @@ import PropTypes from 'prop-types'
 import Block from 'core/blocks/block/Block'
 import ChartContainer from 'core/charts/ChartContainer'
 import StreamChart from 'core/charts/generic/StreamChart'
-import { keys } from 'core/constants'
+import { useBucketKeys } from 'core/helpers/useBucketKeys'
 
 const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
     const { id, bucketKeysName = id } = block
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
-    const bucketKeys = keys[bucketKeysName]
+    const bucketKeys = useBucketKeys('opinions')
 
     return (
         <Block
             units={units}
             setUnits={setUnits}
-            block={{ ...block, showLegend: true }}
+            block={{
+                ...block,
+                showLegend: true,
+                bucketKeysName: 'opinions',
+            }}
             data={data}
             legendProps={{
                 onMouseEnter: ({ id }) => {
@@ -30,7 +34,10 @@ const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
                 <StreamChart
                     colorScale={bucketKeys.map((k) => k.color)}
                     current={current}
+                    // for opinions only having one year of data, we duplicate the year's data
+                    // to be able to use the stream chart.
                     data={data.length === 1 ? [data[0], data[0]] : data}
+                    bucketKeys={bucketKeys}
                     keys={bucketKeys.map((key) => key.id)}
                     units={units}
                     applyEmptyPatternTo={2}

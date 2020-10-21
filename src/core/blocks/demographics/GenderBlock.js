@@ -1,7 +1,7 @@
 import React, { memo, useState, useMemo, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
-import { gender } from 'core/constants'
+import { keys } from 'core/constants'
 import Block from 'core/blocks/block/Block'
 import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import ChartContainer from 'core/charts/ChartContainer'
@@ -13,7 +13,7 @@ const GenderBlock = ({ block, data }) => {
 
     const colorMapping = useMemo(
         () =>
-            gender.map((item) => ({
+            keys.gender.keys.map((item) => ({
                 ...item,
                 color: theme.colors.ranges.gender[item.id],
             })),

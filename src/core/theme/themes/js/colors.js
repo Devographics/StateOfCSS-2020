@@ -18,14 +18,14 @@ export default {
     barChartDefaultColor: colors.red,
     stroke: colors.greyMediumest,
     ranges: {
-        toolExperience: {
+        tools: {
             would_use: colors.red,
             would_not_use: colors.redLight,
             interested: colors.teal,
             not_interested: colors.tealLight,
             never_heard: colors.greyMedium,
         },
-        featureExperience: {
+        features: {
             used_it: colors.teal,
             know_not_used: colors.tealDarker,
             never_heard_not_sure: colors.greyMedium,

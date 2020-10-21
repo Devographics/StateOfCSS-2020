@@ -34,8 +34,9 @@ const Switcher = ({ setMetric, metric }) => {
 const ToolsExperienceRankingBlock = ({ block, data }) => {
     const { translate } = useI18n()
     const [metric, setMetric] = useState('satisfaction')
-    const title = translate(`block.title.toolExperienceRanking`)
-    const description = translate(`block.description.toolExperienceRanking`)
+    const title = translate(`blocks.tools_experience_ranking.title`)
+    const description = translate(`blocks.tools_experience_ranking.description`)
+
     const chartData = useMemo(
         () =>
             data.map((tool) => {

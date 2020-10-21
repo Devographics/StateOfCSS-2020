@@ -9,7 +9,7 @@ export const useBarChart = ({ buckets, total, mode, units, i18nNamespace, should
 
     const formatTick = useMemo(() => {
         if (shouldTranslate !== true) return (v) => v
-        return (v) => translate(`${i18nNamespace}.${v}.short`)
+        return (v) => translate(`options.${i18nNamespace}.${v}.short`)
     }, [translate, shouldTranslate, i18nNamespace])
 
     const formatValue = useMemo(() => (units === 'percentage' ? (v) => `${v}%` : '.2s'), [units])

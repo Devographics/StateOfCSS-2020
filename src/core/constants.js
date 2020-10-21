@@ -1,6 +1,4 @@
-const arrayToKeys = (a) => a.map((id) => ({ id }))
-
-export let colors = {
+export const colors = {
     greyLight: '#e0e4e4',
     grey: '#d9dedf',
     greyMedium: '#cecdcc',
@@ -84,74 +82,8 @@ export const getColor = (id) => {
 Keys
 
 */
-export const salaryArray = [
-    'range_work_for_free',
-    'range_0_10',
-    'range_10_30',
-    'range_30_50',
-    'range_50_100',
-    'range_100_200',
-    'range_more_than_200',
-]
-
-export const companySizeArray = [
-    'range_1',
-    'range_1_5',
-    'range_5_10',
-    'range_10_20',
-    'range_20_50',
-    'range_50_100',
-    'range_100_1000',
-    'range_more_than_1000',
-]
-
-export const workExperienceArray = [
-    'range_less_than_1',
-    'range_1_2',
-    'range_2_5',
-    'range_5_10',
-    'range_10_20',
-    'range_more_than_20',
-]
-
-export const environmentUsageArray = ['never', 'occasionally', 'often', 'mainly']
-
-export const jobTitleArray = [
-    'full_stack_developer',
-    'front_end_developer',
-    'back_end_developer',
-    'web_designer',
-    'ui_designer',
-    'ux_designer',
-    'web_developer',
-]
-
 export const cssForPrintArray = [0, 1, 2, 3]
 export const cssForEmailArray = [0, 1, 2, 3]
-
-export const cssProficiencyArray = [0, 1, 2, 3, 4]
-export const javascriptProficiencyArray = [0, 1, 2, 3, 4]
-export const backendProficiencyArray = [0, 1, 2, 3, 4]
-
-export const opinions = [
-    { id: 4, color: colors.red },
-    { id: 3, color: colors.redLight },
-    { id: 2, color: colors.grey },
-    { id: 1, color: colors.tealLight },
-    { id: 0, color: colors.teal },
-]
-
-export const featureExperience = [
-    {
-        id: 'used',
-    },
-    {
-        id: 'heard',
-    },
-    {
-        id: 'never_heard',
-    },
-]
 
 const featureExperienceSimplified = [
     {
@@ -162,48 +94,185 @@ const featureExperienceSimplified = [
     },
 ]
 
-export const toolExperience = [
-    {
-        id: 'would_use',
-    },
-    {
-        id: 'would_not_use',
-    },
-    {
-        id: 'interested',
-    },
-    {
-        id: 'not_interested',
-    },
-    {
-        id: 'never_heard',
-    },
-]
+const generateProficiencyKeys = (proficiencyId) => ({
+    keys: [0, 1, 2, 3, 4].map((id) => ({
+        id,
+        label: `options.${proficiencyId}.${id}`,
+        shortLabel: `options.proficiency.${id}`,
+    })),
+})
 
-export const gender = [
-    { id: 'male' },
-    { id: 'female' },
-    { id: 'non_binary' },
-    { id: 'prefer_not_to_say' },
-]
+const generateEnvironmentRatingKeys = (environmentId) => ({
+    keys: [0, 1, 2, 3].map((id) => ({
+        id,
+        label: `options.${environmentId}.${id}`,
+        shortLabel: `options.${environmentId}.${id}.short`,
+    })),
+})
 
 export const keys = {
-    yearly_salary: arrayToKeys(salaryArray),
-    company_size: arrayToKeys(companySizeArray),
-    years_of_experience: arrayToKeys(workExperienceArray),
-    gender,
-    environmentUsage: arrayToKeys(environmentUsageArray),
-    jobTitle: arrayToKeys(jobTitleArray),
-    css_proficiency: arrayToKeys(cssProficiencyArray),
-    javascript_proficiency: arrayToKeys(cssProficiencyArray),
-    backend_proficiency: arrayToKeys(backendProficiencyArray),
-    opinions,
-    tools: toolExperience,
-    features: featureExperience,
+    yearly_salary: {
+        keys: [
+            'range_work_for_free',
+            'range_0_10',
+            'range_10_30',
+            'range_30_50',
+            'range_50_100',
+            'range_100_200',
+            'range_more_than_200',
+        ].map((id) => ({
+            id,
+            label: `options.yearly_salary.${id}`,
+            shortLabel: `options.yearly_salary.${id}.short`,
+        })),
+    },
+    company_size: {
+        keys: [
+            'range_1',
+            'range_1_5',
+            'range_5_10',
+            'range_10_20',
+            'range_20_50',
+            'range_50_100',
+            'range_100_1000',
+            'range_more_than_1000',
+        ].map((id) => ({
+            id,
+            label: `options.company_size.${id}`,
+            shortLabel: `options.company_size.${id}.short`,
+        })),
+    },
+    years_of_experience: {
+        keys: [
+            'range_less_than_1',
+            'range_1_2',
+            'range_2_5',
+            'range_5_10',
+            'range_10_20',
+            'range_more_than_20',
+        ].map((id) => ({
+            id,
+            label: `options.years_of_experience.${id}`,
+            shortLabel: `options.years_of_experience.${id}.short`,
+        })),
+    },
+    gender: {
+        colorRange: 'gender',
+        keys: [
+            {
+                id: 'male',
+                label: 'options.gender.male',
+            },
+            {
+                id: 'female',
+                label: 'options.gender.male',
+            },
+            {
+                id: 'non_binary',
+                label: 'options.gender.male',
+            },
+            {
+                id: 'prefer_not_to_say',
+                label: 'options.gender.male',
+            },
+        ],
+    },
+    environmentUsage: {
+        keys: [{ id: 'never' }, { id: 'occasionally' }, { id: 'often' }, { id: 'mainly' }],
+    },
+    jobTitle: {
+        keys: [
+            { id: 'full_stack_developer' },
+            { id: 'front_end_developer' },
+            { id: 'back_end_developer' },
+            { id: 'web_designer' },
+            { id: 'ui_designer' },
+            { id: 'ux_designer' },
+            { id: 'web_developer' },
+        ],
+    },
+    css_proficiency: generateProficiencyKeys('css_proficiency'),
+    javascript_proficiency: generateProficiencyKeys('javascript_proficiency'),
+    backend_proficiency: generateProficiencyKeys('backend_proficiency'),
+    opinions: {
+        colorRange: 'opinions',
+        keys: [
+            {
+                id: 4,
+                label: 'options.opinions.4',
+            },
+            {
+                id: 3,
+                label: 'options.opinions.3',
+            },
+            {
+                id: 2,
+                label: 'options.opinions.2',
+            },
+            {
+                id: 1,
+                label: 'options.opinions.1',
+            },
+            {
+                id: 0,
+                label: 'options.opinions.0',
+            },
+        ],
+    },
+    tools: {
+        colorRange: 'tools',
+        keys: [
+            {
+                id: 'would_use',
+                label: 'options.tools.would_use.legend',
+                shortLabel: 'options.tools.would_use.short',
+            },
+            {
+                id: 'would_not_use',
+                label: 'options.tools.would_not_use.legend',
+                shortLabel: 'options.tools.would_not_use.short',
+            },
+            {
+                id: 'interested',
+                label: 'options.tools.interested.legend',
+                shortLabel: 'options.tools.interested.short',
+            },
+            {
+                id: 'not_interested',
+                label: 'options.tools.not_interested.legend',
+                shortLabel: 'options.tools.not_interested.short',
+            },
+            {
+                id: 'never_heard',
+                label: 'options.tools.never_heard.legend',
+                shortLabel: 'options.tools.never_heard.short',
+            },
+        ],
+    },
+    features: {
+        colorRange: 'features',
+        keys: [
+            {
+                id: 'used',
+                label: 'options.features.used.label',
+                shortLabel: 'options.features.used.short',
+            },
+            {
+                id: 'heard',
+                label: 'options.features.heard.label',
+                shortLabel: 'options.features.heard.short',
+            },
+            {
+                id: 'never_heard',
+                label: 'options.features.never_heard.label',
+                shortLabel: 'options.features.never_heard.short',
+            },
+        ],
+    },
     featureExperienceSimplified,
     toolCategories,
-    css_for_print: arrayToKeys(cssForPrintArray),
-    css_for_email: arrayToKeys(cssForEmailArray),
+    css_for_print: generateEnvironmentRatingKeys('css_for_print'),
+    css_for_email: generateEnvironmentRatingKeys('css_for_email'),
 }
 
 export const fontFamily = `'IBM Plex Mono', monospace`

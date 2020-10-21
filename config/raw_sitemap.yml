@@ -487,6 +487,13 @@
       - id: astroturf
         template: toolPageTemplate
 
+      - id: css_in_js_others
+        sectionId: css_in_js
+        path: /other-tools
+        template: categoryOtherToolsPageTemplate
+        variables:
+            sectionId: ${sectionId}
+
 - id: other_tools
   path: /other-tools
   blocks:
@@ -526,13 +533,13 @@
         template: environmentTemplate
 
       - id: css_for_print
-        title: environments.css_for_print
-        description: environments.css_for_print.description
+        titleId: environments.css_for_print
+        descriptionId: environments.css_for_print.description
         template: environmentRatingTemplate
 
       - id: css_for_email
-        title: environments.css_for_email
-        description: environments.css_for_email.description
+        titleId: environments.css_for_email
+        descriptionId: environments.css_for_email.description
         template: environmentRatingTemplate
 
 - id: resources
@@ -544,37 +551,37 @@
             pageId: '${id}'
 
       - id: blogs_news_magazines
-        title: resources.blogs_news_magazines
-        description: resources.blogs_news_magazines.description
+        titleId: resources.blogs_news_magazines
+        descriptionId: resources.blogs_news_magazines.description
         template: resourcesTemplate
 
       - id: blogs_news_magazines_others
-        title: resources.blogs_news_magazines.others
-        description: resources.blogs_news_magazines.others.description
+        titleId: resources.blogs_news_magazines.others
+        descriptionId: resources.blogs_news_magazines.others.description
         template: resourcesTemplate
         mode: relative
         units: count
 
       - id: sites_courses
-        title: resources.sites_courses
-        description: resources.sites_courses.description
+        titleId: resources.sites_courses
+        descriptionId: resources.sites_courses.description
         template: resourcesTemplate
 
       - id: sites_courses_others
-        title: resources.sites_courses.others
-        description: resources.sites_courses.others.description
+        titleId: resources.sites_courses.others
+        descriptionId: resources.sites_courses.others.description
         template: resourcesTemplate
         mode: relative
         units: count
 
       - id: podcasts
-        title: resources.podcasts
-        description: resources.podcasts.description
+        titleId: resources.podcasts
+        descriptionId: resources.podcasts.description
         template: resourcesTemplate
 
       - id: podcasts_others
-        title: resources.podcasts.others
-        description: resources.podcasts.others.description
+        titleId: resources.podcasts.others
+        descriptionId: resources.podcasts.others.description
         template: resourcesTemplate
         mode: relative
         units: count
@@ -589,27 +596,21 @@
 
       - id: css_easy_to_learn
         template: opinionTemplate
-        bucketKeysName: opinions
 
       - id: css_evolving_slowly
         template: opinionTemplate
-        bucketKeysName: opinions
 
       - id: utility_classes_to_be_avoided
         template: opinionTemplate
-        bucketKeysName: opinions
 
       - id: selector_nesting_to_be_avoided
         template: opinionTemplate
-        bucketKeysName: opinions
 
       - id: css_is_programming_language
         template: opinionTemplate
-        bucketKeysName: opinions
 
       - id: enjoy_writing_css
         template: opinionTemplate
-        bucketKeysName: opinions
 #
 #      # - id: missing-features
 #      #   blockType: HorizontalBarBlock

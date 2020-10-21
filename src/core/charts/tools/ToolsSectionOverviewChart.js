@@ -33,7 +33,7 @@ const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
     }
 
     const getLayerColor = ({ id }) => {
-        const color = theme.colors.ranges.toolExperience[id]
+        const color = theme.colors.ranges.tools[id]
         if (current !== null && current !== `${namespace}.${id}`) {
             return `${color}33`
         }

@@ -473,6 +473,7 @@ toolExperienceGraphTemplate:
 
 toolsExperienceRankingTemplate:
     blockType: ToolsExperienceRankingBlock
+    blockName: tools_experience_ranking
     dataPath: 'surveyApi.survey.tools_rankings.experience'
     query: >
         surveyApi {
@@ -773,6 +774,7 @@ environmentRatingTemplate:
     showDescription: true
     showLegend: true
     mode: relative
+    i18nNamespace: options
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {

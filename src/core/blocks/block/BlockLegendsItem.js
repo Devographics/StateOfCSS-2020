@@ -7,8 +7,8 @@ export default class LegendsItem extends Component {
     static propTypes = {
         id: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
         label: PropTypes.string.isRequired,
+        shortLabel: PropTypes.string,
         color: PropTypes.string,
-        keyLabel: PropTypes.string,
         style: PropTypes.object.isRequired,
         chipSize: PropTypes.number.isRequired,
         chipStyle: PropTypes.object.isRequired,
@@ -44,7 +44,7 @@ export default class LegendsItem extends Component {
         const {
             color,
             label,
-            keyLabel,
+            shortLabel,
             chipSize,
             style,
             chipStyle,
@@ -57,14 +57,14 @@ export default class LegendsItem extends Component {
 
         return (
             <Container
-                className={`Legends__Item ${keyLabel ? 'Legends__Item--withKeyLabel' : ''}`}
+                className={`Legends__Item ${shortLabel ? 'Legends__Item--withKeyLabel' : ''}`}
                 style={style}
                 isInteractive={isInteractive}
                 onMouseEnter={this.handleMouseEnter}
                 onMouseLeave={this.handleMouseLeave}
                 onClick={this.handleClick}
             >
-                {color ? (
+                {color && (
                     <Chip
                         style={{
                             width: chipSize,
@@ -73,9 +73,10 @@ export default class LegendsItem extends Component {
                             ...chipStyle,
                         }}
                     />
-                ) : keyLabel ? (
-                    <span className="Legends__Item__KeyLabel">{keyLabel} </span>
-                ) : null}
+                )}
+                {!color && shortLabel && (
+                    <span className="Legends__Item__KeyLabel">{shortLabel} </span>
+                )}
                 <Label
                     className="Legends__Item__Label"
                     dangerouslySetInnerHTML={{ __html: label }}

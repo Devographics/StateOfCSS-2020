@@ -30,20 +30,17 @@ toolSectionTemplate:
               pageId: '${id}'
 
         - id: '${id}_experience_ranking'
-          blockName: toolsExperienceRanking
           template: toolsExperienceRankingTemplate
           variables:
               sectionId: '${id}'
 
         - id: '${id}_section_overview'
-          blockName: toolsSectionOverview
           template: toolsSectionOverviewTemplate
           variables:
               category: '${id}'
               toolIds: ${toolIds}
 
         - id: '${id}_experience_heatmap'
-          blockName: workExperience
           template: heatmapTemplate
           variables:
               subject: tools
@@ -51,7 +48,6 @@ toolSectionTemplate:
               toolIds: ${toolIds}
 
         - id: '${id}_salary_heatmap'
-          blockName: salary
           template: heatmapTemplate
           variables:
               subject: tools
@@ -59,7 +55,6 @@ toolSectionTemplate:
               toolIds: ${toolIds}
 
         - id: '${id}_company_size_heatmap'
-          blockName: companySize
           template: heatmapTemplate
           variables:
               subject: tools
@@ -123,10 +118,11 @@ categoryOtherToolsPageTemplate:
         sponsors: []
     blocks:
         - id: ${id}_other_tools
-          blockName: category-other-tools
+          blockName: category_other_tools
           template: categoryOtherToolsTemplate
           variables:
               sectionId: ${sectionId}
+
         - id: '${id}_recommended_resources'
           template: recommendedResourcesTemplate
           variables:

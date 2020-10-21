@@ -13,15 +13,15 @@ const PageFooter = () => {
     const { translate } = useI18n()
 
     return (
-        <Container className="PageFooter">
-            <Nav className="PageFooter__Nav">
+        <Container>
+            <Nav>
                 {context.previous && !isEmpty(context.previous) && (
                     <PreviousLink
                         as={Link}
                         className="PageFooter__Link PageFooter__Link--previous"
                         to={`${context.localePath}${context.previous.path}`}
                     >
-                        « {translate('general.previous')} <PageLabel page={context.previous} />
+                        « {translate('page.previous')} <PageLabel page={context.previous} />
                     </PreviousLink>
                 )}
                 {context.next && !isEmpty(context.next) && (
@@ -30,7 +30,7 @@ const PageFooter = () => {
                         className="PageFooter__Link PageFooter__Link--next Button"
                         to={`${context.localePath}${context.next.path}`}
                     >
-                        {translate('general.next')} <PageLabel page={context.next} /> »
+                        {translate('page.next')} <PageLabel page={context.next} /> »
                     </NextLink>
                 )}
             </Nav>

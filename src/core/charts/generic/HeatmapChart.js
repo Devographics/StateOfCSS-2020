@@ -19,7 +19,7 @@ const getAlphaScale = (color, alphaSteps, startOffset) => {
     })
 }
 
-const HeatmapChart = ({ keys, data, i18nNamespace }) => {
+const HeatmapChart = ({ bucketKeys, data, i18nNamespace }) => {
     const { translate } = useI18n()
     const theme = useContext(ThemeContext)
     const [currentIndex, setCurrentIndex] = useState(null)
@@ -35,18 +35,18 @@ const HeatmapChart = ({ keys, data, i18nNamespace }) => {
     return (
         <Container
             style={{
-                gridTemplateColumns: `auto ${'70px '.repeat(keys.length)}`,
+                gridTemplateColumns: `auto ${'70px '.repeat(bucketKeys.length)}`,
             }}
         >
-            <Legend>{translate(`${i18nNamespace}.axis_legend`)}</Legend>
-            {keys.map((key) => (
-                <Header key={key}>{translate(`${i18nNamespace}.${key}.shorter`)}</Header>
+            <Legend>{translate(`charts.axis_legends.${i18nNamespace}`)}</Legend>
+            {bucketKeys.map((key) => (
+                <Header key={key.id}>{key.shortLabel}</Header>
             ))}
             {data.map((bucket, i) => (
                 <HeatmapChartRow
                     key={bucket.id}
                     item={bucket}
-                    keys={keys}
+                    keys={bucketKeys.map((key) => key.id)}
                     index={i}
                     backgroundColorScale={backgroundColorScale}
                     setCurrent={setCurrentIndex}
@@ -58,7 +58,7 @@ const HeatmapChart = ({ keys, data, i18nNamespace }) => {
             <ColorLegendLabel />
             <ColorLegend
                 style={{
-                    gridColumnEnd: keys.length + 1,
+                    gridColumnEnd: bucketKeys.length + 1,
                 }}
             >
                 <ColorLegendCell
@@ -102,7 +102,7 @@ const HeatmapChart = ({ keys, data, i18nNamespace }) => {
 }
 
 HeatmapChart.propTypes = {
-    keys: PropTypes.arrayOf(PropTypes.string).isRequired,
+    bucketKeys: PropTypes.arrayOf(PropTypes.object).isRequired,
     data: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.string.isRequired,

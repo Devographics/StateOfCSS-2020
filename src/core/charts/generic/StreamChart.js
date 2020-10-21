@@ -1,7 +1,6 @@
 import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { ResponsiveStream } from '@nivo/stream'
-import { useI18n } from 'core/i18n/i18nContext'
 
 const Dot = ({ x, y, data, current, units }) => {
     if (current !== null && data.key !== current) {
@@ -58,14 +57,13 @@ const getChartData = (data, units) => {
 const StreamChart = ({
     data,
     keys,
+    bucketKeys,
     units,
     className,
     current,
     colorScale,
-    namespace,
     applyEmptyPatternTo,
 }) => {
-    const { translate } = useI18n()
     const theme = useContext(ThemeContext)
 
     const horizontalAxis = {
@@ -82,7 +80,7 @@ const StreamChart = ({
     }
 
     const getLayerColor = ({ index }) => {
-        if (current !== null && current !== `${namespace}.${keys[index]}`) {
+        if (current !== null && current !== keys[index]) {
             return `${colorScale[index]}33`
         }
         return colorScale[index]
@@ -110,7 +108,7 @@ const StreamChart = ({
                 renderDot={(d) => <Dot {...d} current={current} units={units} />}
                 dotColor="inherit:brighter(0.6)"
                 animate={false}
-                tooltipLabel={(d) => translate(`${namespace}.${d.id}.short`)}
+                tooltipLabel={(d) => bucketKeys.find((key) => key.id === d.id).label}
                 tooltipFormat={tooltipFormat}
                 defs={[theme.charts.emptyPattern]}
                 fill={[

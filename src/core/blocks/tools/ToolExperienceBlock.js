@@ -1,13 +1,12 @@
-import React, { useState, useContext, useMemo } from 'react'
+import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
 import get from 'lodash/get'
 import isEmpty from 'lodash/isEmpty'
 import Block from 'core/blocks/block/Block'
 import ChartContainer from 'core/charts/ChartContainer'
 import StreamChart from 'core/charts/generic/StreamChart'
 import { useI18n } from 'core/i18n/i18nContext'
-import { toolExperience } from 'core/constants'
+import { useBucketKeys } from 'core/helpers/useBucketKeys'
 
 const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
     const { blockName } = block
@@ -20,17 +19,12 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
     const description = translate(`blocks.${blockName}.description`, { values: { name } })
     const chartData = get(data, 'experience.all_years')
 
-    const theme = useContext(ThemeContext)
-    const colors = useMemo(
-        () => toolExperience.map((item) => theme.colors.ranges.toolExperience[item.id]),
-        [theme]
-    )
+    const bucketKeys = useBucketKeys('tools')
+    const colors = useMemo(() => bucketKeys.map((key) => key.color), [bucketKeys])
 
     if (!chartData || isEmpty(chartData)) {
         return <div>no data</div>
     }
-
-    console.log(block)
 
     return (
         <Block
@@ -52,8 +46,11 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
                 <StreamChart
                     colorScale={colors}
                     current={current}
+                    // for tools only having one year of data, we duplicate the year's data
+                    // to be able to use the stream chart.
                     data={chartData.length === 1 ? [chartData[0], chartData[0]] : chartData}
-                    keys={toolExperience.map((k) => k.id)}
+                    keys={bucketKeys.map((k) => k.id)}
+                    bucketKeys={bucketKeys}
                     units={units}
                     applyEmptyPatternTo="never_heard"
                     namespace="options.tools"

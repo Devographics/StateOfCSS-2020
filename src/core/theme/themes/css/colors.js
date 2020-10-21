@@ -11,18 +11,18 @@ export default {
     linkActive: colors.greenDark,
     contrast: '#0bdf67',
     border: '#9ac6c9',
-    heatmap: '#EC75CB',
+    heatmap: colors.pinkLight,
     lineChartDefaultColor: '#59DF7F',
     barChartDefaultColor: colors.blue,
     ranges: {
-        toolExperience: {
-            would_use: '#F649A7',
-            would_not_use: '#EC75CB',
+        tools: {
+            would_use: colors.pink,
+            would_not_use: colors.pinkLight,
             interested: '#59DF7F',
             not_interested: '#ACFFC3',
             never_heard: '#59608a',
         },
-        featureExperience: {
+        features: {
             used: colors.blue,
             heard: '#9AC6C9',
             never_heard: colors.navyLighter,
@@ -36,6 +36,13 @@ export default {
             female: colors.teal,
             non_binary: colors.red,
             prefer_not_to_say: colors.greyMediumer,
+        },
+        opinions: {
+            4: colors.pink,
+            3: colors.pinkLight,
+            2: '#59608a',
+            1: colors.blueLight,
+            0: colors.blue,
         },
     },
     distinct: [

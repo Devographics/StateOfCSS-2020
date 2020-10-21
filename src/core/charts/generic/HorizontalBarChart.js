@@ -125,7 +125,7 @@ const HorizontalBarChart = ({
                 axisBottom={{
                     tickValues: 5,
                     format: formatValue,
-                    legend: translate(`users_${units}`),
+                    legend: translate(`charts.axis_legends.users_${units}`),
                     legendPosition: 'middle',
                     legendOffset: 40,
                 }}

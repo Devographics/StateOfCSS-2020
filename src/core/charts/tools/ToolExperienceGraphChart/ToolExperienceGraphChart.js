@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import { ResponsiveSankey } from '@nivo/sankey'
 import { ThemeContext } from 'styled-components'
-import { toolExperience } from 'core/constants'
+import { keys } from 'core/constants'
 import YearsLayer from './YearsLayer'
 import NodeTooltip from './NodeTooltip'
 import LinkTooltip from './LinkTooltip'
@@ -17,7 +17,7 @@ const sortedExperienceKeys = [
 const getColor = (d) => {
     // it's a node
     if (d.id) {
-        return toolExperience.find((xp) => xp.id === d.experience).color
+        return keys.tools.keys.find((xp) => xp.id === d.experience).color
     }
 
     // otherwise it's a link

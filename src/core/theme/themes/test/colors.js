@@ -15,14 +15,14 @@ export default {
     lineChartDefaultColor: '#3076f6',
     barChartDefaultColor: '#3076f6',
     ranges: {
-        toolExperience: {
+        tools: {
             would_use: '#436eec',
             would_not_use: '#6d9aff',
             interested: '#b83eff',
             not_interested: '#ca7eff',
             never_heard: '#dae0ec',
         },
-        featureExperience: {
+        features: {
             used_it: '#1952b8',
             know_not_used: '#4c84ff',
             never_heard_not_sure: '#dae0ec',

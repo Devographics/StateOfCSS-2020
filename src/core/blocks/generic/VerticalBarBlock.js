@@ -5,6 +5,7 @@ import Block from 'core/blocks/block/Block'
 import ChartContainer from 'core/charts/ChartContainer'
 import VerticalBarChart from 'core/charts/generic/VerticalBarChart'
 import { usePageContext } from 'core/helpers/pageContext'
+import { useBucketKeys } from 'core/helpers/useBucketKeys'
 
 const VerticalBarBlock = ({ block, data }) => {
     if (!data) {
@@ -25,12 +26,7 @@ const VerticalBarBlock = ({ block, data }) => {
 
     const [units, setUnits] = useState(defaultUnits)
 
-    const bucketKeys = keys[bucketKeysName]
-
-    if (!bucketKeys) {
-        throw new Error(`Could not find bucket keys for "${bucketKeysName}"`)
-    }
-
+    const bucketKeys = useBucketKeys(bucketKeysName)
     const { buckets, total, completion } = data
 
     const sortedBuckets = bucketKeys.map(({ id: bucketKey }) => {
@@ -57,7 +53,7 @@ const VerticalBarBlock = ({ block, data }) => {
         >
             <ChartContainer fit={true}>
                 <VerticalBarChart
-                    keys={bucketKeys}
+                    bucketKeys={bucketKeys}
                     total={total}
                     buckets={sortedBuckets}
                     i18nNamespace={block.id}
