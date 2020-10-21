@@ -25,7 +25,7 @@ const BarTooltip = ({ indexValue, data, i18nNamespace, shouldTranslate }) => {
 }
 
 BarTooltip.propTypes = {
-    indexValue: PropTypes.string.isRequired,
+    indexValue: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     data: PropTypes.shape({
         percentage: PropTypes.number.isRequired,
         count: PropTypes.number.isRequired,
