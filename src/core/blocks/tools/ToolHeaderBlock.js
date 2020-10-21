@@ -2,7 +2,7 @@ import React from 'react'
 import { format } from 'd3-format'
 import get from 'lodash/get'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
+import { mq, spacing } from 'core/theme'
 import { useI18n } from 'core/i18n/i18nContext'
 import Button from 'core/components/Button'
 
@@ -25,7 +25,7 @@ const ToolHeaderBlock = ({ block, data }) => {
                     <Title className="ToolHeader__Title">{toolName}</Title>
                     {stars && (
                         <Stars className="ToolHeader__Stars">
-                            {starsFormatter(stars)} {translate('block.tool.github_stars')}
+                            {starsFormatter(stars)} {translate('blocks.entity.github_stars')}
                         </Stars>
                     )}
                 </Header>
@@ -40,7 +40,7 @@ const ToolHeaderBlock = ({ block, data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            {translate('block.tool.homepage_link')}
+                            {translate('blocks.entity.homepage_link')}
                         </Link>
                     )}
                     {githubLink && (
@@ -52,7 +52,7 @@ const ToolHeaderBlock = ({ block, data }) => {
                             target="_blank"
                             rel="noopener noreferrer"
                         >
-                            GitHub
+                            {translate('blocks.entity.github_link')}
                         </Link>
                     )}
                 </Links>
@@ -63,12 +63,12 @@ const ToolHeaderBlock = ({ block, data }) => {
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-bottom: ${(props) => props.theme.spacing * 2}px;
+        margin-bottom: ${spacing(2)};
     }
 
     @media ${mq.mediumLarge} {
         display: flex;
-        margin-bottom: ${(props) => props.theme.spacing * 4}px;
+        margin-bottom: ${spacing(4)};
     }
 `
 
@@ -96,7 +96,7 @@ const Title = styled.h2`
 const Description = styled.div`
     @media ${mq.small} {
         text-align: center;
-        margin: ${(props) => props.theme.spacing}px 0;
+        margin: ${spacing()} 0;
     }
 `
 
@@ -113,7 +113,7 @@ const Stars = styled.div`
 const Links = styled.div`
     display: flex;
     align-items: center;
-    margin-top: ${(props) => props.theme.spacing / 2}px;
+    margin-top: ${spacing(0.5)};
 
     @media ${mq.small} {
         justify-content: center;
@@ -121,7 +121,7 @@ const Links = styled.div`
 `
 
 const Link = styled(Button)`
-    margin-right: ${(props) => props.theme.spacing / 2}px;
+    margin-right: ${spacing(0.5)};
 `
 
 export default ToolHeaderBlock

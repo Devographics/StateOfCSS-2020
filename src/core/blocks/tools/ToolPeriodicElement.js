@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { navigate } from 'gatsby'
+import { fontWeight } from 'core/theme'
 
 const PeriodicElement = ({ className, name, symbol, number, size, path, x, y }) => {
     return (
@@ -63,7 +64,7 @@ const NumberNode = styled.text`
 `
 
 const Symbol = styled.text`
-    font-weight: ${({ theme }) => theme.typography.weights.bold};
+    font-weight: ${fontWeight('bold')};
     pointer-events: none;
     fill: ${({ theme }) => theme.colors.link};
 `

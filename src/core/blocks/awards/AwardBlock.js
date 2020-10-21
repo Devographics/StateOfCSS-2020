@@ -7,7 +7,7 @@ import tinycolor from 'tinycolor2'
 import ShareBlock from 'core/share/ShareBlock'
 import { useI18n } from 'core/i18n/i18nContext'
 import PeriodicElement from 'core/blocks/tools/ToolPeriodicElement'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize } from 'core/theme'
 import periodicTableData from '../../../../config/periodic_table.yml'
 import AwardIcon from './AwardIcon'
 
@@ -108,22 +108,22 @@ const Container = styled.div`
     align-items: center;
 
     @media ${mq.smallMedium} {
-        margin-bottom: ${({ theme }) => theme.spacing * 3}px;
+        margin-bottom: ${spacing(3)};
     }
 
     .Award__Share {
-        margin-bottom: ${({ theme }) => theme.spacing}px;
+        margin-bottom: ${spacing()};
     }
 `
 
 const Heading = styled.h3`
-    margin-bottom: ${({ theme }) => theme.spacing / 4}px;
+    margin-bottom: ${spacing(0.25)};
     font-size: 1.5rem;
 `
 
 const Description = styled.div`
-    margin-bottom: ${({ theme }) => theme.spacing}px;
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    margin-bottom: ${spacing()};
+    font-size: ${fontSize('smallish')};
 `
 
 const ElementContainer = styled.div`
@@ -131,7 +131,7 @@ const ElementContainer = styled.div`
     height: 150px;
     width: 150px;
     perspective: 800px;
-    margin-bottom: ${({ theme }) => theme.spacing}px;
+    margin-bottom: ${spacing()};
 `
 
 const getGlowColor = (color, alpha) => tinycolor(color).setAlpha(alpha).toRgbString()
@@ -180,7 +180,7 @@ const Element = styled.div`
     transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform: rotateY(0deg) scale(0.75);
     cursor: pointer;
-    margin-bottom: ${({ theme }) => theme.spacing}px;
+    margin-bottom: ${spacing()};
 
     svg {
         display: block;
@@ -221,7 +221,7 @@ const Side = styled.div`
 
 const FrontSide = styled(Side)`
     background: ${({ theme }) => theme.colors.backgroundAlt};
-    padding: ${({ theme }) => theme.spacing / 2}px;
+    padding: ${spacing(0.5)};
 
     svg {
         .bg {
@@ -248,7 +248,7 @@ const FrontSide = styled(Side)`
 const BackSide = styled(Side)`
     background: ${({ theme }) => theme.colors.background};
     transform: rotateY(180deg);
-    font-size: ${({ theme }) => theme.typography.sizes.largest};
+    font-size: ${fontSize('largest')};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -261,7 +261,7 @@ const Comment = styled.div`
     align-items: center;
 
     p {
-        margin-bottom: ${({ theme }) => theme.spacing / 2}px;
+        margin-bottom: ${spacing(0.5)};
     }
 
     .Award--hide & {
@@ -286,7 +286,7 @@ const RunnerUpsHeading = styled.h4`
 
 const RunnerUpsItem = styled.div`
     opacity: 0;
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    font-size: ${fontSize('smallish')};
 
     .Award--show &,
     .capture & {

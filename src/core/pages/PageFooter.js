@@ -1,7 +1,7 @@
 import React from 'react'
 import isEmpty from 'lodash/isEmpty'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import { useI18n } from 'core/i18n/i18nContext'
 import Link from 'core/components/LocaleLink'
@@ -65,10 +65,10 @@ const PageFooter = () => {
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-top: ${(props) => props.theme.spacing * 4}px;
+        margin-top: ${spacing(4)};
     }
     @media ${mq.mediumLarge} {
-        margin-top: ${(props) => props.theme.spacing * 6}px;
+        margin-top: ${spacing(6)};
     }
 `
 
@@ -81,14 +81,14 @@ const Nav = styled.div`
 `
 
 const Notes = styled.div`
-    font-size: ${(props) => props.theme.typography.sizes.smaller};
+    font-size: ${fontSize('smaller')};
     text-align: center;
 
     @media ${mq.small} {
-        margin-top: ${(props) => props.theme.spacing * 4}px;
+        margin-top: ${spacing(4)};
     }
     @media ${mq.mediumLarge} {
-        margin-top: ${(props) => props.theme.spacing * 6}px;
+        margin-top: ${spacing(6)};
     }
 `
 
@@ -101,10 +101,10 @@ const FooterLink = styled(Button)`
 
 const PreviousLink = styled(FooterLink)`
     @media ${mq.small} {
-        margin-bottom: ${({ theme }) => theme.spacing}px;
+        margin-bottom: ${spacing()};
     }
     @media ${mq.mediumLarge} {
-        margin-right: ${({ theme }) => theme.spacing}px;
+        margin-right: ${spacing()};
     }
 
     &,

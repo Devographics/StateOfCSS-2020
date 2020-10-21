@@ -2,6 +2,7 @@ import React, { memo, useCallback } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import get from 'lodash/get'
+import { spacing, fontSize } from 'core/theme'
 
 const HeatmapChartRow = ({
     item,
@@ -78,10 +79,10 @@ const Cell = styled.div`
 `
 
 const LabelCell = styled(Cell)`
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    font-size: ${fontSize('smallish')};
     overflow: hidden;
     text-overflow: ellipsis;
-    padding: 0 ${({ theme }) => theme.spacing / 2}px;
+    padding: 0 ${spacing(0.5)};
     background: ${({ isEven, isActive, theme }) => {
         if (isEven || isActive) return theme.colors.backgroundAlt
         return undefined
@@ -91,7 +92,7 @@ const LabelCell = styled(Cell)`
 const ValueCell = styled(Cell)`
     font-weight: 600;
     color: ${({ theme }) => theme.colors.background};
-    font-size: ${({ theme }) => theme.typography.sizes.smaller};
+    font-size: ${fontSize('smaller')};
     justify-content: center;
 `
 

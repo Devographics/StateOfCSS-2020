@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import PropTypes from 'prop-types'
 import styled, { ThemeContext } from 'styled-components'
-import { mq, dimensions } from 'core/theme'
+import { mq, spacing, fontSize } from 'core/theme'
 import { useI18n } from 'core/i18n/i18nContext'
 import { keys } from 'core/constants'
 import BlockLegendsItem from './BlockLegendsItem'
@@ -42,6 +42,11 @@ const BlockLegends = ({
                 ? theme.colors.ranges[bucketKeysName][keyId]
                 : undefined,
         }))
+
+    console.log({
+        bucketKeysName,
+        blockLegends,
+    })
 
     const rootStyle = { ...style }
 
@@ -90,8 +95,8 @@ BlockLegends.defaultProps = {
 }
 
 const Container = styled.div`
-    font-size: ${(props) => props.theme.typography.sizes.small};
-    margin-top: ${(props) => props.theme.spacing}px;
+    font-size: ${fontSize('small')};
+    margin-top: ${spacing()};
     
     ${(props) => {
         if (props.layout === 'horizontal') {
@@ -118,7 +123,7 @@ const Container = styled.div`
                 justify-content: space-between;
                 
                 @media ${mq.small} {
-                    margin-top: ${dimensions.spacing}px;
+                    margin-top: ${spacing()};
                     border: 1px solid ${props.theme.colors.border};
                 }
             `
@@ -129,14 +134,14 @@ const Container = styled.div`
         props.withFrame &&
         `
         border: 1px solid ${props.theme.colors.border};
-        padding: ${dimensions.spacing}px;
+        padding: ${spacing()};
         
         @media ${mq.small} {
-            padding: ${dimensions.spacing / 2}px;
+            padding: ${spacing(0.5)};
         }
         
         @media ${mq.mediumLarge} {
-            padding: ${dimensions.spacing}px ${dimensions.spacing * 1.5}px;
+            padding: ${spacing()} ${spacing(1.5)};
         }
     `}
 }

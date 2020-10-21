@@ -74,3 +74,22 @@ export const fancyLinkMixin = ({ color, activeClassName = '_is-active', activeCo
         }
     }
 `
+
+export const antsMixin = (background, foreground) => css`
+    /*
+        // via https://codepen.io/danichk/pen/PPRxrR
+@keyframes ants {
+    to {
+        background-position: 100% 100%;
+    }
+}
+
+        */
+    /*
+       border: 1px solid transparent;
+    background: linear-gradient($antsBg, $antsBg) padding-box,
+        repeating-linear-gradient(-45deg, $antsFg 0, $antsFg 25%, transparent 0, transparent 50%) 0 /
+            0.6em 0.6em;
+    animation: ants 12s linear infinite;
+    */
+`

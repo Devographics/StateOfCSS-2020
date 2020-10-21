@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import sitemap from '../../../../config/sitemap.yml'
-import { mq, dimensions, fancyLinkMixin } from 'core/theme'
+import { mq, fancyLinkMixin, spacing } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import PageLink from 'core/pages/PageLink'
 import PageLabel from 'core/pages/PageLabel'
@@ -12,16 +12,16 @@ const filteredNav = sitemap.filter((page) => !page.is_hidden)
 const StyledPageLink = styled(PageLink)`
     display: inline-block;
     white-space: nowrap;
-    margin: 0 0 ${(props) => props.theme.spacing / 3}px 0;
+    margin: 0 0 ${spacing(0.33)} 0;
     font-size: ${(props) =>
         props.depth > 0
-            ? props.theme.typography.sizes.smallish
-            : props.theme.typography.sizes.medium};
+            ? props.theme.typography.size.smallish
+            : props.theme.typography.size.medium};
     font-weight: ${(props) => (props.depth === 0 ? 800 : 400)};
 
     @media ${mq.large} {
         display: ${(props) => (props.isHidden ? 'none' : 'block')};
-        margin-left: ${(props) => (props.depth > 0 ? dimensions.spacing : 0)}px;
+        margin-left: ${(props) => (props.depth > 0 ? spacing() : 0)};
     }
 
     &._is-active {
@@ -101,7 +101,7 @@ const NavContainer = styled.div`
     flex-grow: 1;
     display: flex;
     flex-direction: column;
-    padding: ${dimensions.spacing * 1.5}px ${dimensions.spacing}px;
+    padding: ${spacing(1.5)} ${spacing()};
     overflow-y: auto;
 
     @media ${mq.smallMedium} {

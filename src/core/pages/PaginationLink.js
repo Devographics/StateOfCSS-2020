@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize } from 'core/theme'
 import PageLabel from './PageLabel'
 import PageLink from './PageLink'
 
@@ -12,13 +12,13 @@ const StyledLink = styled(PageLink)`
     overflow: hidden;
     text-overflow: ellipsis;
     justify-content: ${(props) => (props.type === 'previous' ? 'flex-start' : 'flex-end')};
-    padding: ${(props) => props.theme.spacing}px;
+    padding: ${spacing()};
 
     @media ${mq.smallMedium} {
-        font-size: ${(props) => props.theme.typography.sizes.smaller};
+        font-size: ${fontSize('smaller')};
     }
     @media ${mq.large} {
-        font-size: ${(props) => props.theme.typography.sizes.medium};
+        font-size: ${fontSize('medium')};
     }
 
     &:hover {

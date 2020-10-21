@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import { spacing } from 'core/theme'
 
 export default class LegendsItem extends Component {
     static propTypes = {
@@ -113,15 +114,15 @@ const Container = styled.div`
 
 const Chip = styled.span`
     display: block;
-    margin-right: ${(props) => props.theme.spacing / 2}px;
+    margin-right: ${spacing(0.5)};
     flex-shrink: 0;
 `
 
 const Label = styled.span`
-    padding-right: ${(props) => props.theme.spacing}px;
+    padding-right: ${spacing()};
 `
 
 const Value = styled.span`
     display: inline-block;
-    margin-left: ${(props) => props.theme.spacing / 2}px;
+    margin-left: ${spacing(0.5)};
 `

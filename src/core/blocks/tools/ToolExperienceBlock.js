@@ -14,9 +14,10 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
     const { translate } = useI18n()
+
     const name = get(data, 'entity.name')
-    const title = translate(`block.title.${blockName}`, { values: { name } })
-    const description = translate(`block.description.${blockName}`, { values: { name } })
+    const title = translate(`blocks.${blockName}.title`, { values: { name } })
+    const description = translate(`blocks.${blockName}.description`, { values: { name } })
     const chartData = get(data, 'experience.all_years')
 
     const theme = useContext(ThemeContext)
@@ -28,6 +29,8 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
     if (!chartData || isEmpty(chartData)) {
         return <div>no data</div>
     }
+
+    console.log(block)
 
     return (
         <Block
@@ -53,7 +56,7 @@ const ToolExperienceBlock = ({ block, data, units: defaultUnits = 'percentage' }
                     keys={toolExperience.map((k) => k.id)}
                     units={units}
                     applyEmptyPatternTo="never_heard"
-                    namespace="toolExperience"
+                    namespace="options.tools"
                 />
             </ChartContainer>
         </Block>

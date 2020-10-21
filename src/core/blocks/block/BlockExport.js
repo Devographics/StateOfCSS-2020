@@ -5,7 +5,7 @@ import styled, { ThemeContext } from 'styled-components'
 import Modal from 'react-modal'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize } from 'core/theme'
 import Button from 'core/components/Button'
 import { useI18n } from 'core/i18n/i18nContext'
 
@@ -148,7 +148,7 @@ const ButtonWrapper = styled.div`
 `
 
 const ExportButton = styled(Button)`
-    margin-left: ${({ theme }) => theme.spacing / 2}px;
+    margin-left: ${spacing(0.5)};
 
     @media ${mq.small} {
         width: 30px;
@@ -174,7 +174,7 @@ const Icon = styled.svg`
 `
 
 const Content = styled.div`
-    padding: ${({ theme }) => theme.spacing}px;
+    padding: ${spacing()};
     background: ${({ theme }) => theme.colors.background};
 
     .react-tabs__tab {
@@ -197,25 +197,25 @@ const Content = styled.div`
 
     .react-tabs__tab-panel {
         background: ${({ theme }) => theme.colors.backgroundInverted};
-        padding: ${({ theme }) => theme.spacing / 2}px;
+        padding: ${spacing(0.5)};
         color: ${({ theme }) => theme.colors.textInverted};
     }
 
     p {
-        padding: ${({ theme }) => theme.spacing / 2}px;
+        padding: ${spacing(0.5)};
         margin: 0;
     }
 `
 
 const Message = styled.div`
     max-width: 600px;
-    font-size: ${({ theme }) => theme.typography.sizes.small};
+    font-size: ${fontSize('small')};
 `
 
 const TextArea = styled.textarea`
     width: 100%;
-    font-size: ${({ theme }) => theme.typography.sizes.small};
-    padding: ${({ theme }) => theme.spacing / 2}px;
+    font-size: ${fontSize('small')};
+    padding: ${spacing(0.5)};
     border: 0;
     border-radius: 2px;
     background: ${({ theme }) => theme.colors.backgroundAlt};

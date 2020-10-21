@@ -13,7 +13,7 @@ import { ToolsContextProvider } from './helpers/toolsContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
 import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
-import { mq, dimensions, secondaryFontMixin, primaryFontMixin, typography } from './theme'
+import { mq, secondaryFontMixin, primaryFontMixin, typography, spacing } from './theme'
 
 const themeIds = ['js', 'css', 'test']
 
@@ -95,7 +95,7 @@ const InnerPageLayout = styled.div`
 
     @media ${mq.large} {
         display: grid;
-        grid-template-columns: ${dimensions.sidebar.width}px 1fr;
+        grid-template-columns: ${({ theme }) => theme.dimensions.sidebar.width}px 1fr;
     }
 `
 
@@ -109,11 +109,11 @@ const PageMain = styled.main`
     flex-grow: 1;
 
     @media ${mq.smallMedium} {
-        padding: ${dimensions.spacing}px;
+        padding: ${spacing()};
     }
 
     @media ${mq.large} {
-        padding: ${dimensions.spacing * 3}px;
+        padding: ${spacing(3)};
     }
 `
 
@@ -216,7 +216,7 @@ const GlobalStyle = createGlobalStyle`
     h5,
     h6 {
         ${secondaryFontMixin}
-        margin: 0 0 ${dimensions.spacing}px 0;
+        margin: 0 0 ${spacing()} 0;
     }
     
     a {
@@ -240,7 +240,7 @@ const GlobalStyle = createGlobalStyle`
     p,
     ul,
     ol {
-        margin: 0 0 ${dimensions.spacing}px 0;
+        margin: 0 0 ${spacing()} 0;
         
         @media ${mq.small} {
             line-height: 1.6;
@@ -280,8 +280,8 @@ const GlobalStyle = createGlobalStyle`
         @media ${mq.mediumLarge} {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: ${(props) => props.theme.spacing * 4}px;
-            row-gap: ${(props) => props.theme.spacing * 4}px;
+            column-gap: ${spacing(4)};
+            row-gap: ${spacing(4)};
             
             .Page__Introduction {
                 grid-column: 1 / 3;

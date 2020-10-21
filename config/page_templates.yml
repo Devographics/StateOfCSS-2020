@@ -94,9 +94,7 @@ toolPageTemplate:
               toolId: '${id}'
 
         - id: '${id}_experience'
-          blockName: toolExperience
           template: toolExperienceTemplate
-          bucketKeysName: toolExperience
           variables:
               toolId: '${id}'
 

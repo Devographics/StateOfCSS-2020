@@ -1,18 +1,18 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
+import { mq, spacing } from 'core/theme'
 import BlockTitle from 'core/blocks/block/BlockTitle'
 import ShareBlockDebug from 'core/share/ShareBlockDebug'
 import BlockLegends from 'core/blocks/block/BlockLegends'
 
 const Container = styled.div`
     @media ${mq.small} {
-        margin-bottom: ${(props) => props.theme.spacing * 2}px;
+        margin-bottom: ${spacing(2)};
     }
 
     @media ${mq.mediumLarge} {
-        margin-bottom: ${(props) => props.theme.spacing * 4}px;
+        margin-bottom: ${spacing(4)};
     }
 
     &:last-child {

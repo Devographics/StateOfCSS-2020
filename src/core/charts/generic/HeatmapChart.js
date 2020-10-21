@@ -5,6 +5,7 @@ import { scaleLinear } from 'd3-scale'
 import { useI18n } from 'core/i18n/i18nContext'
 import HeatmapChartRow from 'core/charts/generic/HeatmapChartRow'
 import tinycolor from 'tinycolor2'
+import { spacing, fontSize } from 'core/theme'
 
 // accepts either a number of steps and an offset for regular steps,
 // or a specified array of alpha steps
@@ -123,27 +124,27 @@ const Container = styled.div`
 `
 
 const Legend = styled.div`
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    font-size: ${fontSize('smallish')};
     font-weight: 600;
-    padding: ${({ theme }) => theme.spacing / 2}px 0;
+    padding: ${spacing(0.5)} 0;
     align-self: end;
 `
 
 const Header = styled.div`
-    font-size: ${({ theme }) => theme.typography.sizes.small};
+    font-size: ${fontSize('small')};
     font-weight: 600;
-    padding: ${({ theme }) => theme.spacing / 2}px 0;
+    padding: ${spacing(0.5)} 0;
     text-align: center;
     overflow: hidden;
 `
 
 const ColorLegendLabel = styled.div`
-    margin-top: ${({ theme }) => theme.spacing * 1.5}px;
+    margin-top: ${spacing(1.5)};
     text-align: right;
     grid-column-start: 1;
     grid-column-end: 3;
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
-    padding-right: ${({ theme }) => theme.spacing}px;
+    font-size: ${fontSize('smallish')};
+    padding-right: ${spacing()};
     align-self: start;
 `
 
@@ -152,11 +153,11 @@ const ColorLegend = styled.div`
     grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
     align-items: start;
     grid-column-start: 3;
-    margin-top: ${({ theme }) => theme.spacing * 1.5}px;
+    margin-top: ${spacing(1.5)};
 `
 
 const ColorLegendCell = styled.span`
-    font-size: ${({ theme }) => theme.typography.sizes.small};
+    font-size: ${fontSize('small')};
     text-align: center;
     border-bottom: 6px solid;
     padding: 2px 0 8px;

@@ -7,7 +7,7 @@ import resources from 'data/recommended_resources.yml'
 import BlockTitle from 'core/blocks/block/BlockTitle'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize, fontWeight } from 'core/theme'
 
 const trackClick = (id, resource, label) => {
     ReactGA.event({
@@ -101,7 +101,7 @@ const List = styled.div`
     @media ${mq.large} {
         display: grid;
         grid-template-columns: auto auto;
-        grid-gap: ${({ theme }) => theme.spacing * 2}px;
+        grid-gap: ${spacing(2)};
     }
 `
 
@@ -110,11 +110,11 @@ const Title = styled.h4`
 `
 
 const Description = styled.div`
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    font-size: ${fontSize('smallish')};
 `
 
 const Resource = styled.div`
-    margin-bottom: ${({ theme }) => theme.spacing}px;
+    margin-bottom: ${spacing()};
 
     @media ${mq.mediumLarge} {
         display: flex;
@@ -125,12 +125,12 @@ const ResourceImage = styled.div`
     @media ${mq.small} {
         width: 60px;
         float: right;
-        margin: 0 0 ${({ theme }) => theme.spacing}px ${({ theme }) => theme.spacing}px;
+        margin: 0 0 ${spacing()} ${spacing()};
     }
 
     @media ${mq.mediumLarge} {
         width: 160px;
-        margin-right: ${({ theme }) => theme.spacing}px;
+        margin-right: ${spacing()};
     }
 
     div {
@@ -165,8 +165,8 @@ const ResourceContent = styled.div`
 `
 
 const Sponsoring = styled.div`
-    font-weight: ${({ theme }) => theme.typography.weights.bold};
-    font-size: ${({ theme }) => theme.typography.sizes.smaller};
+    font-weight: ${fontWeight('bold')};
+    font-size: ${fontSize('smaller')};
     text-align: center;
 `
 

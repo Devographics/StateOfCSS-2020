@@ -1,30 +1,30 @@
 import React from 'react'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
 import locales from '../../../config/locales.yml'
 import { usePageContext } from 'core/helpers/pageContext'
 import { Link } from 'gatsby'
+import { mq, spacing, fontSize, fontWeight } from 'core/theme'
 
 const Container = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: ${(props) => props.theme.spacing}px;
-    grid-row-gap: ${(props) => props.theme.spacing}px;
+    grid-column-gap: ${spacing()};
+    grid-row-gap: ${spacing()};
 `
 
 const Item = styled(Link)`
     text-align: center;
-    font-size: ${(props) => props.theme.typography.sizes.medium};
+    font-size: ${fontSize('medium')};
     
     @media ${mq.smallMedium} {
-        font-size: ${(props) => props.theme.typography.sizes.small};    
+        font-size: ${fontSize('small')};    
     }
     @media ${mq.large} {
-        font-size: ${(props) => props.theme.typography.sizes.medium};
+        font-size: ${fontSize('medium')};
     }
     
     &._is-current {
-        font-weight: ${(props) => props.theme.typography.weights.bold};
+        font-weight: ${fontWeight('bold')};
     }
 }
 `

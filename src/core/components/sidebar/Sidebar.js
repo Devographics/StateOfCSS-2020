@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'core/components/LocaleLink'
 import ShareSite from 'core/share/ShareSite'
 import { useI18n } from 'core/i18n/i18nContext'
-import { mq, color, screenReadersOnlyMixin, dimensions } from 'core/theme'
+import { mq, color, screenReadersOnlyMixin } from 'core/theme'
 import { SidebarLogo } from './SidebarLogo'
 import { Nav } from './Nav'
 
@@ -46,7 +46,7 @@ const SidebarContainer = styled.nav`
     position: fixed;
 
     @media ${mq.large} {
-        width: ${dimensions.sidebar.width}px;
+        width: ${({ theme }) => theme.dimensions.sidebar.width}px;
     }
 
     @media ${mq.smallMedium} {

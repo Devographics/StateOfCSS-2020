@@ -4,29 +4,9 @@ import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import Trans from 'core/i18n/Trans'
 import { emailOctopusUrl, emailOctopusCode, emailOctopusSiteKey } from 'core/constants'
+import { mq, spacing } from 'core/theme'
+import Button from 'core/components/Button'
 const postUrl = emailOctopusUrl
-
-const Container = styled.div``
-
-const Email = styled.input`
-    display: block;
-    padding: ${(props) => props.theme.spacing / 2}px;
-    border: none;
-    margin-right: ${(props) => props.theme.spacing / 2}px;
-    flex-grow: 1;
-    width: 100%;
-    max-width: 300px;
-`
-
-const ErrorFeedback = styled.div`
-    padding: ${(props) => props.theme.spacing}px;
-    margin-bottom: ${(props) => props.theme.spacing}px;
-`
-
-const SuccessFeedback = styled.div`
-    border: ${(props) => props.theme.separationBorder};
-    padding: ${(props) => props.theme.spacing}px;
-`
 
 export default class Newsletter extends Component {
     static propTypes = {
@@ -52,6 +32,8 @@ export default class Newsletter extends Component {
         const { email } = this.state
 
         this.setState({ loading: true })
+
+        console.log('SUBMITTING')
 
         e.preventDefault()
         ReactGA.event({
@@ -87,7 +69,7 @@ export default class Newsletter extends Component {
                     const { submitLabel = translate('general.notify_me') } = this.props
 
                     return (
-                        <Container className={`Newsletter Newsletter--${loading ? 'loading' : ''}`}>
+                        <>
                             {error && (
                                 <ErrorFeedback className="Newsletter__Error">
                                     {error.message}
@@ -96,14 +78,13 @@ export default class Newsletter extends Component {
                             {success ? (
                                 <SuccessFeedback>{success.message}</SuccessFeedback>
                             ) : (
-                                <form
+                                <Form
                                     method="post"
                                     action={postUrl}
                                     datasitekey={emailOctopusSiteKey}
                                     onSubmit={this.handleSubmit}
                                 >
                                     <Email
-                                        className="Newsletter__Email"
                                         id="field_0"
                                         name="field_0"
                                         type="email"
@@ -111,27 +92,83 @@ export default class Newsletter extends Component {
                                         onChange={this.handleChange}
                                         value={email}
                                         disabled={loading}
+                                        isLoading={loading}
                                     />
                                     <input
                                         type="text"
                                         name={emailOctopusCode}
                                         tabIndex="-1"
                                         autoComplete="nope"
-                                        className="Newsletter__Hidden"
+                                        style={{ display: 'none' }}
                                     />
-                                    <button
-                                        type="submit"
-                                        name="subscribe"
-                                        className="Newsletter__Button Button"
-                                    >
+                                    <SubmitButton as="button" type="submit" name="subscribe">
                                         {submitLabel}
-                                    </button>
-                                </form>
+                                    </SubmitButton>
+                                </Form>
                             )}
-                        </Container>
+                        </>
                     )
                 }}
             </Trans>
         )
     }
 }
+
+const Form = styled.form`
+    margin: 0;
+
+    @media ${mq.mediumLarge} {
+        display: flex;
+    }
+`
+
+const Email = styled.input`
+    display: block;
+    padding: ${spacing(0.5)};
+    border: none;
+    margin-right: ${spacing(0.5)};
+    flex-grow: 1;
+    width: 100%;
+    max-width: 300px;
+    background: ${(props) => (props.isLoading ? 'red' : undefined)};
+    /*
+    @include small {
+        margin-bottom: $spacing/2;
+    }
+    @include font-regular;
+    &:focus {
+        outline: none;
+        border-color: $hover-color;
+    }
+    .Newsletter--loading & {
+        background: $grey;
+    }
+    */
+`
+
+const SubmitButton = styled(Button)`
+    min-width: 140px;
+    display: block;
+    /*
+    @include small {
+        width: 100%;
+    }
+    &:hover{
+        @include ants;
+    }
+    */
+`
+
+const ErrorFeedback = styled.div`
+    padding: ${spacing()};
+    margin-bottom: ${spacing()};
+    /*
+    border: 1px solid $red;
+    color: $red;
+    */
+`
+
+const SuccessFeedback = styled.div`
+    border: ${(props) => props.theme.separationBorder};
+    padding: ${spacing()};
+`

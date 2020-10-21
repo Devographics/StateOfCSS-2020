@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import mq from 'core/theme/mq'
+import { mq, spacing } from 'core/theme'
 
 const Link = styled.a`
     display: block;
@@ -109,7 +109,7 @@ const Link = styled.a`
         transition: none;
         flex-grow: 1;
         text-align: center;
-        padding: ${({ theme }) => theme.spacing}px ${({ theme }) => theme.spacing / 3}px;
+        padding: ${spacing()} ${spacing(0.33)};
         border-right: ${({ theme }) => theme.separationBorder};
 
         &:hover {

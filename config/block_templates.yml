@@ -328,7 +328,7 @@ otherFeaturesTemplate:
 toolsSectionOverviewTemplate:
     blockType: ToolsSectionOverviewBlock
     dataPath: 'surveyApi.survey.tools'
-    bucketKeysName: toolExperience
+    bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {
@@ -354,7 +354,7 @@ toolsSectionOverviewTemplate:
 toolsMovementTemplate:
     blockType: ToolsMovementBlock
     dataPath: 'surveyApi.survey.category.tools.experience.tools'
-    bucketKeysName: toolExperience
+    bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {
@@ -399,8 +399,9 @@ toolHeaderTemplate:
 
 toolExperienceTemplate:
     blockType: ToolExperienceBlock
+    blockName: tool_experience
     dataPath: surveyApi.survey.tool
-    bucketKeysName: toolExperience
+    bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {

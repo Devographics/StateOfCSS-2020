@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Link from 'core/components/LocaleLink'
 import sponsors from 'data/sponsors.yml'
 import { useI18n } from 'core/i18n/i18nContext'
-import mq from 'core/theme/mq'
+import { mq, spacing, fontSize } from 'core/theme'
 
 const SponsorsBlock = () => {
     const { translate } = useI18n()
@@ -31,13 +31,13 @@ const SponsorsBlock = () => {
 
 const Container = styled.div`
     background: ${(props) => props.theme.colors.backgroundAlt};
-    padding: ${(props) => props.theme.spacing * 1.5}px;
-    margin-top: ${(props) => props.theme.spacing * 2}px;
+    padding: ${spacing(1.5)};
+    margin-top: ${spacing(2)};
 `
 
 const Header = styled.h3`
     text-align: center;
-    margin-bottom: ${(props) => props.theme.spacing}px;
+    margin-bottom: ${spacing()};
 `
 
 const SponsorList = styled.div`
@@ -54,11 +54,11 @@ const Sponsor = styled.div`
     width: 150px;
 
     @media ${mq.smallMedium} {
-        margin-bottom: ${({ theme }) => theme.spacing}px;
+        margin-bottom: ${spacing()};
     }
 
     @media ${mq.large} {
-        margin-right: ${({ theme }) => theme.spacing * 3}px;
+        margin-right: ${spacing(3)};
     }
 
     &:last-child {
@@ -78,8 +78,8 @@ const Sponsor = styled.div`
 
 const Support = styled.div`
     text-align: center;
-    margin-top: ${({ theme }) => theme.spacing / 2}px;
-    font-size: ${({ theme }) => theme.typography.sizes.smallish};
+    margin-top: ${spacing(0.5)};
+    font-size: ${fontSize('smallish')};
 `
 
 export default SponsorsBlock
