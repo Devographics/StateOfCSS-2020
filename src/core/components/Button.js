@@ -1,55 +1,85 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { mq, fontSize, fontWeight, spacing, color } from 'core/theme'
 
-const Button = styled.div.attrs(({ className, size = 'medium', ...props }) => {
+const Button = styled.div.attrs(({ className, size = 'medium', variant = 'default', ...props }) => {
     return {
-        className: `Button Button--${size}${className ? ` ${className}` : ''}`,
+        className: `Button${className ? ` ${className}` : ''}`,
     }
 })`
     background: none;
-    padding: ${spacing(0.5)} ${spacing(1)};
     cursor: pointer;
     display: block;
     text-align: center;
     white-space: nowrap;
     font-weight: ${fontWeight('bold')};
-    border: 1px solid ${color('text')};
-
-    @media ${mq.small} {
-        font-size: ${fontSize('small')};
-    }
-    @media ${mq.mediumLarge} {
-        font-size: ${fontSize('medium')};
-    }
+    border: 1px dashed;
+    box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+    transition: all 300ms ease-out;
 
     &,
     &:link,
     &:visited {
-        color: ${color('text')};
         text-decoration: none;
     }
 
-    &.Button--small {
-        font-size: ${fontSize('small')};
-        padding: ${spacing(0.2)} ${spacing(0.5)};
-    }
+    // sizing
+    ${(props) => {
+        if (props.size === 'small') {
+            return css`
+                font-size: ${fontSize('small')};
+                padding: ${spacing(0.2)} ${spacing(0.5)};
+            `
+        }
 
-    &.Button--large {
-        @media ${mq.small} {
-            font-size: ${fontSize('large')};
-            padding: ${spacing(0.75)};
+        if (props.size === 'large') {
+            return css`
+                @media ${mq.small} {
+                    font-size: ${fontSize('large')};
+                    padding: ${spacing(0.75)};
+                }
+
+                @media ${mq.mediumLarge} {
+                    font-size: ${fontSize('larger')};
+                    padding: ${spacing(1)};
+                }
+            `
         }
-        @media ${mq.mediumLarge} {
-            font-size: ${fontSize('larger')};
-            padding: ${spacing(1)};
-        }
-    }
+
+        return css`
+            padding: ${spacing(0.5)} ${spacing(1)};
+
+            @media ${mq.small} {
+                font-size: ${fontSize('small')};
+            }
+
+            @media ${mq.mediumLarge} {
+                font-size: ${fontSize('medium')};
+            }
+        `
+    }}
+
+    // variants
+    ${(props) => {
+        // default
+        return css`
+            &,
+            &:link,
+            &:visited {
+                border-color: ${color('text')};
+                color: ${color('text')};
+            }
+
+            &:hover {
+                border-style: solid;
+                border-color: ${color('link')};
+                color: ${color('link')};
+            }
+        `
+    }}
 
     &:hover {
-        color: ${color('contrast')};
-        border-color: ${color('contrast')};
-        border-style: solid;
         text-decoration: none;
+        box-shadow: 0 3px 0 rgba(0, 0, 0, 0.3);
         background: ${color('backgroundAlt')};
     }
 

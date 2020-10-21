@@ -1,5 +1,5 @@
 export default {
-    spacing: 40,
+    spacing: 16,
     sidebar: {
         width: 270,
     },

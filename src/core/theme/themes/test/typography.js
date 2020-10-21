@@ -1,7 +1,7 @@
 export default {
     rootSize: {
         mobile: '13px',
-        desktop: '17px',
+        desktop: '15px',
     },
     size: {
         smaller: '0.7rem',
