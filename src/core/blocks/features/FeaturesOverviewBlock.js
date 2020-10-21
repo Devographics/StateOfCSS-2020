@@ -43,7 +43,7 @@ const getChartData = (data, getName, translate) => {
                   id: sectionId,
                   isSection: true,
                   children: features,
-                  name: translate(`page.${sectionId}`),
+                  name: translate(`sections.${sectionId}.title`),
               }
             : null
     })
@@ -66,7 +66,13 @@ const FeaturesOverviewBlock = ({ block, data }) => {
 
     return (
         <Block
-            block={block}
+            block={{
+                ...block,
+                showLegend: true,
+                bucketKeysName: 'features_simplified',
+                title: translate('blocks.features_overview.title'),
+                description: translate('blocks.features_overview.description'),
+            }}
             data={chartData}
             className="FeaturesOverviewBlock"
             showDescription={true}

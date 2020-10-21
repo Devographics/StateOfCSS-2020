@@ -27,7 +27,7 @@ export default {
             heard: '#9AC6C9',
             never_heard: colors.navyLighter,
         },
-        featureExperienceSimplified: {
+        features_simplified: {
             know_it: '#ACFFC3',
             used_it: '#59DF7F',
         },

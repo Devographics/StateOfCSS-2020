@@ -30,7 +30,7 @@ export default {
             know_not_used: colors.tealDarker,
             never_heard_not_sure: colors.greyMedium,
         },
-        featureExperienceSimplified: {
+        features_simplified: {
             know_it: colors.tealDarker,
             used_it: colors.teal,
         },

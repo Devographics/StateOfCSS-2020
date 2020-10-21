@@ -27,7 +27,7 @@ export default {
             know_not_used: '#4c84ff',
             never_heard_not_sure: '#dae0ec',
         },
-        featureExperienceSimplified: {
+        features_simplified: {
             know_it: '#4c84ff',
             used_it: '#1952b8',
         },

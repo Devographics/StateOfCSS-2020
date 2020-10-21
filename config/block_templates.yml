@@ -196,8 +196,6 @@ toolsArrowsTemplate:
 featuresOverviewTemplate:
     blockType: FeaturesOverviewBlock
     dataPath: 'surveyApi.survey.features'
-    bucketKeysName: featureExperienceSimplified
-    showLegend: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {

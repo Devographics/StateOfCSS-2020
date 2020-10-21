@@ -9,8 +9,8 @@ const NewsletterBlock = () => {
 
     return (
         <Container>
-            <Heading>{translate('general.stay_tuned')}</Heading>
-            <Description>{translate('general.leave_your_email')}</Description>
+            <Heading>{translate('blocks.newsletter.title')}</Heading>
+            <Description>{translate('blocks.newsletter.description')}</Description>
             <Newsletter />
         </Container>
     )

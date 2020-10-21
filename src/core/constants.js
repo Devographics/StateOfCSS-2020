@@ -82,18 +82,6 @@ export const getColor = (id) => {
 Keys
 
 */
-export const cssForPrintArray = [0, 1, 2, 3]
-export const cssForEmailArray = [0, 1, 2, 3]
-
-const featureExperienceSimplified = [
-    {
-        id: 'know_it',
-    },
-    {
-        id: 'used_it',
-    },
-]
-
 const generateProficiencyKeys = (proficiencyId) => ({
     keys: [0, 1, 2, 3, 4].map((id) => ({
         id,
@@ -269,7 +257,19 @@ export const keys = {
             },
         ],
     },
-    featureExperienceSimplified,
+    features_simplified: {
+        colorRange: 'features_simplified',
+        keys: [
+            {
+                id: 'know_it',
+                label: 'options.features_simplified.know_it',
+            },
+            {
+                id: 'used_it',
+                label: 'options.features_simplified.used_it',
+            },
+        ],
+    },
     toolCategories,
     css_for_print: generateEnvironmentRatingKeys('css_for_print'),
     css_for_email: generateEnvironmentRatingKeys('css_for_email'),

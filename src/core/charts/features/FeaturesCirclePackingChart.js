@@ -1,12 +1,10 @@
 import React, { memo, useContext } from 'react'
 import styled, { ThemeContext } from 'styled-components'
-import round from 'lodash/round'
 import PropTypes from 'prop-types'
 import { ResponsiveBubble } from '@nivo/circle-packing'
-import { useTheme } from '@nivo/core'
-import { colors, getColor } from 'core/constants'
+import { getColor } from 'core/constants'
 import ChartLabel from 'core/components/ChartLabel'
-import { useI18n } from 'core/i18n/i18nContext'
+import { FeaturesCirclePackingChartTooltip } from './FeaturesCirclePackingChartTooltip'
 
 const fontSizeByRadius = (radius) => {
     if (radius < 25) return 8
@@ -15,65 +13,27 @@ const fontSizeByRadius = (radius) => {
     return 14
 }
 
-const Chip = ({ color, color2 }) => (
-    <span className={`Chip Tooltip__Chip ${color2 && 'Chip--split'}`}>
-        <span style={{ background: color }} className="Chip__Inner" />
-        {color2 && <span style={{ background: color2 }} className="Chip__Inner" />}
-    </span>
-)
-
 const sectionLabelOffsets = {
-    'shapes-and-graphics': 50,
-    layout: 300,
-    interactions: 150,
-    'animations-and-transforms': 0,
-    typography: 50,
-    'other-features': 300,
-}
-
-const Tooltip = (props) => {
-    const { translate } = useI18n()
-    const { data } = props
-    const { name, awareness, usage } = data
-    const theme = useTheme()
-
-    return (
-        <div style={theme.tooltip.basic}>
-            <div>
-                <h4 className="Tooltip__Heading">{name}</h4>
-                <div className="Tooltip__Item">
-                    <Chip color={`${getColor(data.sectionId)}50`} />
-                    {translate('featureExperienceSimplified.know_it.long')}:{' '}
-                    <strong className="Tooltip__Value">{awareness}</strong>
-                </div>
-                <div className="Tooltip__Item">
-                    <Chip color={getColor(data.sectionId)} />
-                    {translate('featureExperienceSimplified.used_it.long')}:{' '}
-                    <strong className="Tooltip__Value">{usage}</strong>
-                </div>
-                <div className="Tooltip__Item">
-                    <Chip
-                        color={`${getColor(data.sectionId)}50`}
-                        color2={getColor(data.sectionId)}
-                    />
-                    {translate('features.usage.ratio')}:{' '}
-                    <strong className="Tooltip__Value">
-                        {round((usage / awareness) * 100, 1)}%
-                    </strong>
-                </div>
-            </div>
-        </div>
-    )
+    layout: 75,
+    shapes_graphics: 320,
+    interactions: 100,
+    typography: 320,
+    animations_transforms: 50,
+    media_queries: 0,
+    other_features: 135,
 }
 
 const Node = ({ node, handlers }) => {
     const radius = node.r
+    const theme = useContext(ThemeContext)
 
     if (node.depth === 0) {
         return null
     }
 
     if (node.depth === 1 && node.data.isSection) {
+        console.log(node.data.id)
+
         return (
             <g transform={`translate(${node.x},${node.y})`}>
                 <defs>
@@ -88,6 +48,11 @@ const Node = ({ node, handlers }) => {
                     <textPath
                         xlinkHref={`#textcircle-${node.data.id}`}
                         side="right"
+                        fill={getColor(node.data.id)}
+                        style={{
+                            fontWeight: '600',
+                            fontSize: '0.9rem',
+                        }}
                         startOffset={sectionLabelOffsets[node.data.id]}
                     >
                         {node.id}
@@ -95,8 +60,9 @@ const Node = ({ node, handlers }) => {
                 </CirclePackingNodeCategoryLabel>
                 <circle
                     r={node.r}
-                    fill="rgba(255,255,255,0.1)"
-                    stroke={colors.teal}
+                    fill={theme.colors.backgroundAlt}
+                    fillOpacity={0.4}
+                    stroke={getColor(node.data.id)}
                     strokeWidth={1}
                     strokeLinecap="round"
                     strokeDasharray="2 3"
@@ -115,7 +81,7 @@ const Node = ({ node, handlers }) => {
             onMouseLeave={handlers.onMouseLeave}
         >
             <circle r={node.r} fill={`${getColor(node.data.sectionId)}50`} />
-            <circle r={usageRadius} fill={`${getColor(node.data.sectionId)}`} />
+            <circle r={usageRadius} fill={getColor(node.data.sectionId)} />
             <ChartLabel label={node.label} fontSize={fontSizeByRadius(node.r)} />
         </CirclePackingNode>
     )
@@ -142,7 +108,7 @@ const FeaturesCirclePackingChart = ({ data, className }) => {
                 value="awareness"
                 nodeComponent={Node}
                 animate={false}
-                tooltip={Tooltip}
+                tooltip={FeaturesCirclePackingChartTooltip}
             />
         </Chart>
     )

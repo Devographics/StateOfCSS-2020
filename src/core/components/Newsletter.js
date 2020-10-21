@@ -66,8 +66,6 @@ export default class Newsletter extends Component {
         return (
             <Trans>
                 {(translate) => {
-                    const { submitLabel = translate('general.notify_me') } = this.props
-
                     return (
                         <>
                             {error && (
@@ -88,7 +86,7 @@ export default class Newsletter extends Component {
                                         id="field_0"
                                         name="field_0"
                                         type="email"
-                                        placeholder={translate('general.your_email')}
+                                        placeholder={translate('blocks.newsletter.email')}
                                         onChange={this.handleChange}
                                         value={email}
                                         disabled={loading}
@@ -102,7 +100,7 @@ export default class Newsletter extends Component {
                                         style={{ display: 'none' }}
                                     />
                                     <SubmitButton as="button" type="submit" name="subscribe">
-                                        {submitLabel}
+                                        {translate('blocks.newsletter.submit')}
                                     </SubmitButton>
                                 </Form>
                             )}
