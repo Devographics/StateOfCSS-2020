@@ -153,15 +153,15 @@ export const keys = {
             },
             {
                 id: 'female',
-                label: 'options.gender.male',
+                label: 'options.gender.female',
             },
             {
                 id: 'non_binary',
-                label: 'options.gender.male',
+                label: 'options.gender.non_binary',
             },
             {
                 id: 'prefer_not_to_say',
-                label: 'options.gender.male',
+                label: 'options.gender.prefer_not_to_say',
             },
         ],
     },

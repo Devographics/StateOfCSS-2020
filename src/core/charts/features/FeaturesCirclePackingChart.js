@@ -32,8 +32,6 @@ const Node = ({ node, handlers }) => {
     }
 
     if (node.depth === 1 && node.data.isSection) {
-        console.log(node.data.id)
-
         return (
             <g transform={`translate(${node.x},${node.y})`}>
                 <defs>

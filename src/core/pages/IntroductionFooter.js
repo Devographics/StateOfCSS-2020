@@ -18,7 +18,7 @@ const IntroductionFooter = () => {
                 className="IntroductionFooter__Link--start"
                 to={`${context.localePath}${context.next.path}`}
             >
-                {translate('general.start')} »
+                {translate('results.start')} »
             </Button>
         </Container>
     )

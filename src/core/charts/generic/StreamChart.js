@@ -2,15 +2,15 @@ import React, { useContext } from 'react'
 import { ThemeContext } from 'styled-components'
 import { ResponsiveStream } from '@nivo/stream'
 
-const Dot = ({ x, y, data, current, units }) => {
-    if (current !== null && data.key !== current) {
+const Dot = ({ x, y, datum, current, units }) => {
+    if (current !== null && datum.key !== current) {
         return null
     }
 
-    const availableHeight = data.y1 - data.y2
+    const availableHeight = datum.y1 - datum.y2
     if (availableHeight < 8 && current === null) return null
 
-    let label = data.value
+    let label = datum.value
     if (units === 'percentage') {
         label = `${label}%`
     }
@@ -72,8 +72,6 @@ const StreamChart = ({
         format: (i) => data[i].year,
     }
 
-    const additionalClassName = className ? ` ${className}` : ``
-
     let tooltipFormat
     if (units === 'percents') {
         tooltipFormat = (d) => `${d.value}%`
@@ -87,7 +85,7 @@ const StreamChart = ({
     }
 
     return (
-        <div style={{ height: 260 }} className={`StreamChart${additionalClassName}`}>
+        <div style={{ height: 260 }}>
             <ResponsiveStream
                 theme={{
                     ...theme.charts,
@@ -105,7 +103,7 @@ const StreamChart = ({
                 axisTop={horizontalAxis}
                 axisBottom={horizontalAxis}
                 enableDots={true}
-                renderDot={(d) => <Dot {...d} current={current} units={units} />}
+                dotComponent={(d) => <Dot {...d} current={current} units={units} />}
                 dotColor="inherit:brighter(0.6)"
                 animate={false}
                 tooltipLabel={(d) => bucketKeys.find((key) => key.id === d.id).label}
