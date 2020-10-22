@@ -104,10 +104,10 @@ const ToolsOverviewBlock = ({ block, data }) => {
     const { translate } = useI18n()
     const [metric, setMetric] = useState('satisfaction')
     const chartData = getChartData(data, translate, metric)
-    const { id, blockName = id } = block
     const [current, setCurrent] = useState(null)
 
-    const description = translate(`block.description.${blockName}.${metric}`)
+    const title = translate(`blocks.tools_quadrant.title`)
+    const description = translate(`blocks.tools_quadrant.${metric}.description`)
 
     const legends = keys.toolCategories.map(({ id: keyId, color }) => ({
         id: `toolCategories.${keyId}`,
@@ -120,7 +120,7 @@ const ToolsOverviewBlock = ({ block, data }) => {
         <Block
             className="ToolsScatterplotBlock"
             data={chartData}
-            block={{ ...block, description, showLegend: false, legends }}
+            block={{ ...block, title, description, showLegend: false, legends }}
             titleProps={{ switcher: <Switcher setMetric={setMetric} metric={metric} /> }}
             legendProps={{
                 legends,
