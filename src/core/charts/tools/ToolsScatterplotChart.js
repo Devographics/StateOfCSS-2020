@@ -149,25 +149,25 @@ const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
             x: 0,
             y: 0,
             color: colors.navyLight,
-            label: translate(`quadrants.${quadrantLabels[metric][0]}`),
+            label: translate(`options.quadrant.${quadrantLabels[metric][0]}`),
         },
         {
             x: qWidth,
             y: 0,
             color: colors.navyLighter,
-            label: translate(`quadrants.${quadrantLabels[metric][1]}`),
+            label: translate(`options.quadrant.${quadrantLabels[metric][1]}`),
         },
         {
             x: 0,
             y: qHeight,
             color: colors.navyDark,
-            label: translate(`quadrants.${quadrantLabels[metric][2]}`),
+            label: translate(`options.quadrant.${quadrantLabels[metric][2]}`),
         },
         {
             x: qWidth,
             y: qHeight,
             color: colors.navyLight,
-            label: translate(`quadrants.${quadrantLabels[metric][3]}`),
+            label: translate(`options.quadrant.${quadrantLabels[metric][3]}`),
         },
     ]
 
@@ -224,7 +224,7 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: translate('users_count'),
+                    legend: translate('charts.axis_legends.users_count'),
                     legendPosition: 'middle',
                     legendOffset: 46,
                 }}
@@ -233,7 +233,7 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
                     tickSize: 5,
                     tickPadding: 5,
                     tickRotation: 0,
-                    legend: translate(`${metric}_percentage`),
+                    legend: translate(`charts.axis_legends.${metric}_percentage`),
                     legendPosition: 'middle',
                     legendOffset: -60,
                     format: (s) => `${s}%`,

@@ -109,6 +109,50 @@ featuresCategories:
         - houdini
         - comparison_functions
 
+allTools:
+    # pre_post_processors
+    - sass
+    - less
+    - post_css
+    - stylus
+
+    # css_frameworks
+    - bootstrap
+    - materialize_css
+    - ant_design
+    - semantic_ui
+    - bulma
+    - foundation
+    - ui_kit
+    - tachyons
+    - primer
+    - tailwind_css
+    - pure_css
+    - skeleton
+    - spectre_css
+
+    # css_methodologies
+    - bem
+    - atomic_css
+    - oocss
+    - smacss
+    - it_css
+    - cube_css
+
+    # css_in_js
+    - styled_components
+    - jss
+    - styled_jsx
+    - radium
+    - emotion
+    - css_modules
+    - styled_system
+    - stitches
+    - styletron
+    - fela
+    - linaria
+    - astroturf
+
 toolsCategories:
     pre_post_processors:
         - sass

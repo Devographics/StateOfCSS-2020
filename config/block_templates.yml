@@ -138,7 +138,7 @@ scatterplotOverviewTemplate:
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                 tools {
+                 tools(ids: [${allTools}]) {
                     id
                     entity {
                         homepage
