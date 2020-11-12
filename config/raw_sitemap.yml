@@ -59,6 +59,10 @@
         template: demographicsTemplate
         blockType: ParticipationByCountryBlock
 
+      - id: locale
+        template: demographicsTemplate
+        blockType: HorizontalBarBlock
+
       - id: yearly_salary
         template: demographicsTemplate
 
@@ -513,6 +517,14 @@
         variables:
             pageId: ${id}
 
+      - id: utilities
+        template: otherToolsTemplate
+
+      - id: utilities_others
+        template: otherToolsTemplate
+        mode: relative
+        units: count
+
       - id: text_editors
         template: otherToolsTemplate
 
@@ -622,10 +634,10 @@
 
       - id: enjoy_writing_css
         template: opinionTemplate
-#
-#      # - id: missing-features
-#      #   blockType: HorizontalBarBlock
-#      #   dataKey: features
+
+      - id: missing-features
+        blockType: HorizontalBarBlock
+        dataKey: features
 #
 #- id: awards
 #  path: /awards

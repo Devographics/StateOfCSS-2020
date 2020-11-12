@@ -583,41 +583,6 @@ happinessTemplate:
             }
         }
 
-categoryOtherToolsTemplate:
-    blockType: HorizontalBarBlock
-    dataPath: 'surveyApi.survey.category.tools_others.year'
-    showDescription: true
-    query: >
-        surveyApi {
-            survey(survey: ${surveyType}) {
-                category(id:${sectionId}) {
-                    tools_others {
-                        year(year: 2020) {
-                            year
-                            total
-                            completion {
-                                count
-                                percentage
-                            }
-                            buckets {
-                                id
-                                count
-                                percentage
-                                entity {
-                                    id
-                                    homepage
-                                    name
-                                    github {
-                                        url
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 ###############################################################################
 #
 # OPINIONS

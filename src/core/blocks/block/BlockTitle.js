@@ -65,7 +65,7 @@ const BlockTitle = ({
                         {blockTitle}
                     </BlockTitleText>
                     {completion && <BlockCompletionIndicator completion={completion} />}
-                    {isExportable && data && block && (
+                    {isExportable && block && (
                         <BlockExport
                             id={id}
                             data={data}

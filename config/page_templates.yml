@@ -119,9 +119,9 @@ categoryOtherToolsPageTemplate:
     blocks:
         - id: ${id}_other_tools
           blockName: category_other_tools
-          template: categoryOtherToolsTemplate
+          template: otherToolsTemplate
           variables:
-              sectionId: ${sectionId}
+              id: ${id}
 
         - id: '${id}_recommended_resources'
           template: recommendedResourcesTemplate
