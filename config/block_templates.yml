@@ -64,6 +64,30 @@ demographicsTemplate:
             }
         }
 
+knowledgeScoreTemplate:
+    blockType: VerticalBarBlock
+    dataPath: 'surveyApi.survey.demographics.knowledge_score.year'
+    titleId: 'user_info.knowledge_score'
+    descriptionId: 'user_info.knowledge_score.description'
+    showDescription: true
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                demographics {
+                    knowledge_score {
+                        year(year: ${currentYear}) {
+                            year
+                            buckets {
+                                id
+                                count
+                                percentage
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 proficiencyTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'

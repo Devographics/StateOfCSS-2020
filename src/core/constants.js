@@ -1,3 +1,5 @@
+import range from 'lodash/range'
+
 export const colors = {
     greyLight: '#e0e4e4',
     grey: '#d9dedf',
@@ -203,6 +205,9 @@ export const keys = {
             { id: 3 },
             { id: 4 },
         ]
+    },
+    knowledge_score: {
+        keys: range(1, 100).map(n => ({ id: n}))
     },
     opinions: {
         colorRange: 'opinions',

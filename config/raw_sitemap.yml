@@ -102,6 +102,9 @@
         showLegend: true
         template: proficiencyTemplate
 
+      - id: knowledge_score
+        template: knowledgeScoreTemplate
+
 #- id: overview
 #  path: /overview
 #  blocks:
