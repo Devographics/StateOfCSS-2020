@@ -81,6 +81,10 @@
         showLegend: true
         blockType: GenderBlock
 
+      - id: race_ethnicity
+        template: demographicsTemplate
+        blockType: HorizontalBarBlock
+
       - id: job_title
         template: demographicsTemplate
         blockType: HorizontalBarBlock
@@ -635,9 +639,16 @@
       - id: enjoy_writing_css
         template: opinionTemplate
 
-      - id: missing-features
-        blockType: HorizontalBarBlock
-        dataKey: features
+      - id: state_of_the_web
+        template: happinessTemplate
+        bucketKeysName: happiness
+
+      - id: state_of_css
+        template: happinessTemplate
+        bucketKeysName: happiness
+
+      - id: currently_missing_from_css
+        template: opinionsOthersTemplate
 #
 #- id: awards
 #  path: /awards

@@ -64,7 +64,7 @@ const BlockExport = ({ data, block, title }) => {
     const jsonExport = JSON.stringify(cleanedData, '', 2)
 
     // remove first and last lines of query to remove "surveyApi" field
-    const trimmedQuery = query.split('\n').slice(1, -2).join('\n')
+    const trimmedQuery = query && query.split('\n').slice(1, -2).join('\n')
 
     const graphQLExport = `query ${camelCase(id)}Query {
 ${trimmedQuery}

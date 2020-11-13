@@ -165,6 +165,19 @@ export const keys = {
             },
         ],
     },
+    race_ethnicity: {
+        keys: [
+            { id: 'biracial' },
+            { id: 'black_african' },
+            { id: 'east_asian' },
+            { id: 'hispanic_latin' },
+            { id: 'middle_eastern' },
+            { id: 'multiracial' },
+            { id: 'native_american_islander_australian' },
+            { id: 'south_asian' },
+            { id: 'white_european' },
+        ],
+    },
     environmentUsage: {
         keys: [{ id: 'never' }, { id: 'occasionally' }, { id: 'often' }, { id: 'mainly' }],
     },
@@ -182,6 +195,15 @@ export const keys = {
     css_proficiency: generateProficiencyKeys('css_proficiency'),
     javascript_proficiency: generateProficiencyKeys('javascript_proficiency'),
     backend_proficiency: generateProficiencyKeys('backend_proficiency'),
+    happiness: {
+        keys: [
+            { id: 0 },
+            { id: 1 },
+            { id: 2 },
+            { id: 3 },
+            { id: 4 },
+        ]
+    },
     opinions: {
         colorRange: 'opinions',
         keys: [

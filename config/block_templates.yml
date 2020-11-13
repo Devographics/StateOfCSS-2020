@@ -385,30 +385,6 @@ toolsSectionStreamsTemplate:
             }
         }
 
-toolsMovementTemplate:
-    blockType: ToolsMovementBlock
-    dataPath: 'surveyApi.survey.category.tools.experience.tools'
-    bucketKeysName: tools
-    showLegend: true
-    query: >
-        surveyApi {
-            survey(survey: ${surveyType}) {
-                tools {
-                    experience {
-                        year
-                        tools {
-                            id
-                            buckets {
-                                id
-                                count
-                                percentage
-                            }
-                        }
-                    }
-                }
-            }
-        }
-
 toolHeaderTemplate:
     blockType: ToolHeaderBlock
     dataPath: surveyApi.survey.headerData
@@ -601,18 +577,28 @@ scatterplotTemplate:
             }
         }
 
+###############################################################################
+#
+# Happiness
+#
+###############################################################################
+
 happinessTemplate:
-    blockType: HappinessBlock
-    dataPath: 'surveyApi.survey.category.happiness.all_years'
+    # blockType: HappinessBlock
+    blockType: VerticalBarBlock
+    dataPath: 'surveyApi.survey.${id}_happiness.year'
     showDescription: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                category(id: ${sectionId}) {
-                    happiness {
-                        all_years {
-                            year
-                            mean
+                ${id}_happiness: happiness(id: ${id}) {
+                    year(year: ${currentYear}) {
+                        year
+                        mean
+                        buckets {
+                            count
+                            id
+                            percentage
                         }
                     }
                 }
@@ -638,6 +624,34 @@ opinionTemplate:
                 ${id}: opinion(id: ${id}) {
                     id
                     all_years {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets {
+                            id
+                            count
+                            percentage
+                        }
+                    }
+                }
+            }
+        }
+
+opinionsOthersTemplate:
+    blockType: HorizontalBarBlock
+    dataPath: 'surveyApi.survey.${id}.year'
+    titleId: 'opinions_others.${id}'
+    descriptionId: 'opinions_others.${id}.description'
+    showDescription: true
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: opinions_others(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
                         year
                         total
                         completion {

@@ -83,8 +83,9 @@ toolSectionTemplate:
         - id: '${id}_happiness'
           blockName: happiness
           template: happinessTemplate
+          bucketKeysName: happiness
           variables:
-              sectionId: '${id}'
+              id: ${id}
 
         - id: '${id}_recommended_resources'
           template: recommendedResourcesTemplate
