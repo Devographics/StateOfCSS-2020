@@ -33,7 +33,7 @@ const Block = ({
     titleProps,
     blockFooter = null,
 }) => {
-    const { id, showLegend } = block
+    const { id, showLegend, legendPosition = 'bottom' } = block
 
     return (
         <Container
@@ -49,11 +49,14 @@ const Block = ({
                 {...titleProps}
             />
             {isShareable && <ShareBlockDebug block={block} />}
+            {showLegend && legendPosition === 'top' && (
+                <BlockLegends block={block} data={data} units={units} position={legendPosition} {...legendProps} />
+            )}
             <div className="Block__Contents">
                 {error ? <div className="error">{error}</div> : children}
             </div>
-            {showLegend && (
-                <BlockLegends block={block} data={data} units={units} {...legendProps} />
+            {showLegend && legendPosition === 'bottom' && (
+                <BlockLegends block={block} data={data} units={units} position={legendPosition} {...legendProps} />
             )}
             {blockFooter}
         </Container>

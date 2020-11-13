@@ -18,6 +18,7 @@ const BlockLegends = ({
     onClick,
     data,
     units,
+    position,
 }) => {
     const { id: blockId, bucketKeysName = blockId } = block
 
@@ -26,7 +27,7 @@ const BlockLegends = ({
     const rootStyle = { ...style }
 
     return (
-        <Container style={rootStyle} layout={layout} withFrame={withFrame}>
+        <Container style={rootStyle} layout={layout} withFrame={withFrame} position={position}>
             {blockLegends.map(({ id, label, shortLabel, color }) => (
                 <BlockLegendsItem
                     key={id}
@@ -71,9 +72,12 @@ BlockLegends.defaultProps = {
 
 const Container = styled.div`
     font-size: ${fontSize('small')};
-    margin-top: ${spacing()};
+    /* margin-top: ${spacing()}; */
+    margin-top: ${({ position }) =>  position === 'bottom' ? spacing() : 0};
+    margin-bottom: ${({ position }) =>  position === 'top' ? spacing() : 0};
 
     ${(props) => {
+        
         if (props.layout === 'horizontal') {
             return css`
                 @media ${mq.mediumLarge} {

@@ -34,6 +34,12 @@ toolSectionTemplate:
           variables:
               sectionId: '${id}'
 
+        - id: '${id}_section_steams'
+          template: toolsSectionStreamsTemplate
+          variables:
+              category: '${id}'
+              toolIds: ${toolIds}
+
         - id: '${id}_section_overview'
           template: toolsSectionOverviewTemplate
           variables:
@@ -67,6 +73,12 @@ toolSectionTemplate:
         #   variables:
         #       sectionId: ${id}
         #       toolIds: ${toolIds}
+
+        - id: '${id}_other_tools'
+          blockName: category_other_tools
+          template: otherToolsTemplate
+          variables:
+              id: ${id}_others
 
         - id: '${id}_happiness'
           blockName: happiness
@@ -113,17 +125,17 @@ toolPageTemplate:
               sponsors: ${sponsors}
 
 # Other Tools (/front-end/others, /data-layer/others, etc.)
-categoryOtherToolsPageTemplate:
-    defaultVariables:
-        sponsors: []
-    blocks:
-        - id: ${id}_other_tools
-          blockName: category_other_tools
-          template: otherToolsTemplate
-          variables:
-              id: ${id}
+# categoryOtherToolsPageTemplate:
+#     defaultVariables:
+#         sponsors: []
+#     blocks:
+#         - id: ${id}_other_tools
+#           blockName: category_other_tools
+#           template: otherToolsTemplate
+#           variables:
+#               id: ${id}
 
-        - id: '${id}_recommended_resources'
-          template: recommendedResourcesTemplate
-          variables:
-              sponsors: ${sponsors}
+#         - id: '${id}_recommended_resources'
+#           template: recommendedResourcesTemplate
+#           variables:
+#               sponsors: ${sponsors}

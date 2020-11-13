@@ -13,16 +13,6 @@ const features = countries.features.map((feature) => {
     }
 })
 
-const colorRange = [
-    colors.teal,
-    colors.tealLight,
-    colors.tealLighter,
-    colors.redLighter,
-    colors.red,
-    colors.redDark,
-    colors.redDarker,
-]
-
 const chartLegends = [
     {
         anchor: 'bottom-left',
@@ -46,6 +36,8 @@ const ParticipationByCountryChart = ({ units, data }) => {
         ...theme.charts,
         background: theme.colors.backgroundAlt,
     }
+
+    const colorRange = theme.colors.countries
 
     const formatValue = useMemo(() => {
         if (units === 'percentage') return (v) => `${v.toFixed(1)}%`

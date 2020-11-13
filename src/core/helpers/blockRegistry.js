@@ -25,6 +25,7 @@ import ToolHeaderBlock from 'core/blocks/tools/ToolHeaderBlock'
 import ToolExperienceBlock from 'core/blocks/tools/ToolExperienceBlock'
 import ToolExperienceGraphBlock from 'core/blocks/tools/ToolExperienceGraphBlock'
 import ToolsSectionOverviewBlock from 'core/blocks/tools/ToolsSectionOverviewBlock'
+import ToolsSectionStreamsBlock from 'core/blocks/tools/ToolsSectionStreamsBlock'
 import ToolsExperienceRankingBlock from 'core/blocks/tools/ToolsExperienceRankingBlock'
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
 
@@ -62,6 +63,7 @@ const blockRegistry = {
     ToolExperienceBlock,
     ToolExperienceGraphBlock,
     ToolsSectionOverviewBlock,
+    ToolsSectionStreamsBlock,
     ToolsExperienceRankingBlock,
     ToolsScatterplotBlock,
 

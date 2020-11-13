@@ -58,4 +58,13 @@ export default {
         colors.skyblue,
         colors.purple,
     ],
+    countries: [
+        colors.blue,
+        colors.blueLight,
+        colors.blueLighter,
+        colors.pinkLightest,
+        colors.pinkLighter,
+        colors.pinkLight,
+        colors.pink,
+    ],
 }
