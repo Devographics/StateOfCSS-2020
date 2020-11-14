@@ -36,7 +36,6 @@ allFeatures:
     - font_variant_numeric
     - font_display
     - line_clamp
-    - direction
 
     - transitions
     - transforms

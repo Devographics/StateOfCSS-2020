@@ -13,30 +13,32 @@ const getChartData = (data, getName, translate) => {
     const sectionIds = Object.keys(categories)
     const sections = sectionIds.map((sectionId) => {
         const sectionFeatures = categories[sectionId]
-        const features = data
-            .filter((f) => sectionFeatures.includes(f.id))
-            .map((feature) => {
-                const buckets = get(feature, 'experience.year.buckets')
+        let features = data.filter((f) => sectionFeatures.includes(f.id))
+        features = features.map((feature) => {
+            const buckets = get(feature, 'experience.year.buckets')
+            if (!buckets) {
+                throw new Error(`Feature “${feature.id}” does not have any data associated.`)
+            }
 
-                let usageBucket = buckets.find((b) => b.id === 'used')
-                if (!usageBucket) {
-                    usageBucket = { count: 0 }
-                }
+            let usageBucket = buckets.find((b) => b.id === 'used')
+            if (!usageBucket) {
+                usageBucket = { count: 0 }
+            }
 
-                let knowNotUsedBucket = buckets.find((b) => b.id === 'heard')
-                if (!knowNotUsedBucket) {
-                    knowNotUsedBucket = { count: 0 }
-                }
+            let knowNotUsedBucket = buckets.find((b) => b.id === 'heard')
+            if (!knowNotUsedBucket) {
+                knowNotUsedBucket = { count: 0 }
+            }
 
-                return {
-                    id: feature.id,
-                    awareness: usageBucket.count + knowNotUsedBucket.count,
-                    usage: usageBucket.count,
-                    unusedCount: knowNotUsedBucket.count,
-                    name: feature.name,
-                    sectionId,
-                }
-            })
+            return {
+                id: feature.id,
+                awareness: usageBucket.count + knowNotUsedBucket.count,
+                usage: usageBucket.count,
+                unusedCount: knowNotUsedBucket.count,
+                name: feature.name,
+                sectionId,
+            }
+        })
 
         return features.length
             ? {

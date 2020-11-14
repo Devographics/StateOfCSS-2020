@@ -4,16 +4,19 @@
 #
 ###############################################################################
 
-featuresPageTemplate:
-    blocks:
-        - id: features_introduction
-          template: pageIntroductionTemplate
-          variables:
-              pageId: '${id}'
+# featuresPageTemplate:
+#     blocks:
+#         - id: features_introduction
+#           template: pageIntroductionTemplate
+#           variables:
+#               pageId: '${id}'
 
-        - id: ${id}_featuresOverview
-          template: featuresOverviewTemplate
-          blockName: featuresOverview
+#         - id: ${id}_featuresOverview
+#           template: featuresOverviewTemplate
+#           blockName: featuresOverview
+
+#         - id: knowledge_score
+#           template: knowledgeScoreTemplate
 
 ###############################################################################
 #
@@ -91,39 +94,39 @@ toolSectionTemplate:
           template: recommendedResourcesTemplate
 
 # Tool (/front-end/react, /front-end/angular, etc.)
-toolPageTemplate:
-    showTitle: false
-    defaultVariables:
-        sponsors: []
-    blocks:
-        - id: ${id}_header
-          template: toolHeaderTemplate
-          variables:
-              toolId: '${id}'
+# toolPageTemplate:
+#     showTitle: false
+#     defaultVariables:
+#         sponsors: []
+#     blocks:
+#         - id: ${id}_header
+#           template: toolHeaderTemplate
+#           variables:
+#               toolId: '${id}'
 
-        - id: '${id}_experience'
-          template: toolExperienceTemplate
-          variables:
-              toolId: '${id}'
+#         - id: '${id}_experience'
+#           template: toolExperienceTemplate
+#           variables:
+#               toolId: '${id}'
 
-        # - id: '${id}_experience_graph'
-        #   blockName: toolExperienceGraph
-        #   template: toolExperienceGraphTemplate
-        #   variables:
-        #       toolId: '${id}'
+#         # - id: '${id}_experience_graph'
+#         #   blockName: toolExperienceGraph
+#         #   template: toolExperienceGraphTemplate
+#         #   variables:
+#         #       toolId: '${id}'
 
-        # - id: '${id}-related-tools-heatmap'
-        #   blockName: relatedTools
-        #   template: heatmapTemplate
-        #   variables:
-        #       heatmapId: 'relatedTools'
-        #       pageId: '${id}'
-        #       toolIds: ${toolIds}
+#         # - id: '${id}-related-tools-heatmap'
+#         #   blockName: relatedTools
+#         #   template: heatmapTemplate
+#         #   variables:
+#         #       heatmapId: 'relatedTools'
+#         #       pageId: '${id}'
+#         #       toolIds: ${toolIds}
 
-        - id: '${id}_recommended_resources'
-          template: recommendedResourcesTemplate
-          variables:
-              sponsors: ${sponsors}
+#         - id: '${id}_recommended_resources'
+#           template: recommendedResourcesTemplate
+#           variables:
+#               sponsors: ${sponsors}
 
 # Other Tools (/front-end/others, /data-layer/others, etc.)
 # categoryOtherToolsPageTemplate:
