@@ -31,9 +31,9 @@
   showTitle: false
   blocks:
       - id: survey_intro
-        variables:
-            pageId: ${id}
-        template: pageIntroductionTemplate
+        # variables:
+        #     pageId: ${id}
+        # template: pageIntroductionTemplate
         blockType: SurveyIntroBlock
 
 - id: tshirt
@@ -41,19 +41,19 @@
   path: /tshirt
   blocks:
       - id: tshirt_intro
-        template: pageIntroductionTemplate
-        variables:
-            pageId: ${id}
+        # template: pageIntroductionTemplate
+        # variables:
+        #     pageId: ${id}
       - id: tshirt_block
         blockType: TshirtBlock
 
-- id: demographics
+- id: user_info
+  titleId: demographics
   path: /demographics
   blocks:
       - id: demographics_intro
         template: pageIntroductionTemplate
-        variables:
-            pageId: ${id}
+        pageId: demographics
 
       - id: country
         template: demographicsTemplate
@@ -62,6 +62,7 @@
       - id: locale
         template: demographicsTemplate
         blockType: HorizontalBarBlock
+        translateData: true
 
       - id: yearly_salary
         template: demographicsTemplate
@@ -84,6 +85,7 @@
       - id: race_ethnicity
         template: demographicsTemplate
         blockType: HorizontalBarBlock
+        translateData: true
 
       - id: job_title
         template: demographicsTemplate
@@ -123,8 +125,8 @@
   blocks:
       - id: features_introduction
         template: pageIntroductionTemplate
-        variables:
-            pageId: features
+        # variables:
+        #     pageId: features
 
       - id: ${id}_featuresOverview
         template: featuresOverviewTemplate
@@ -139,8 +141,8 @@
         blocks:
             - id: layout
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: grid
               template: featureExperienceTemplate
@@ -177,8 +179,8 @@
         blocks:
             - id: shapes_graphics
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: shapes
               template: featureExperienceTemplate
@@ -206,8 +208,8 @@
         blocks:
             - id: interactions
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: scroll_snap
               template: featureExperienceTemplate
@@ -229,8 +231,8 @@
         blocks:
             - id: typography
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: web_fonts
               template: featureExperienceTemplate
@@ -264,8 +266,8 @@
         blocks:
             - id: animations_transforms
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: transitions
               template: featureExperienceTemplate
@@ -284,8 +286,8 @@
         blocks:
             - id: media_queries
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: prefers_reduced_motion
               template: featureExperienceTemplate
@@ -301,8 +303,8 @@
         blocks:
             - id: other_features
               template: pageIntroductionTemplate
-              variables:
-                  pageId: '${id}'
+              # variables:
+              #     pageId: '${id}'
 
             - id: variables
               template: featureExperienceTemplate
@@ -330,8 +332,8 @@
   blocks:
       - id: units_selectors
         template: pageIntroductionTemplate
-        variables:
-            pageId: '${id}'
+        # variables:
+        #     pageId: '${id}'
 
       - id: units
         template: otherFeaturesTemplate
@@ -362,8 +364,8 @@
   blocks:
       - id: technologiesIntroduction
         template: pageIntroductionTemplate
-        variables:
-            pageId: '${id}'
+        # variables:
+        #     pageId: '${id}'
 
       - id: scatterplotOverview
         template: scatterplotOverviewTemplate
@@ -525,45 +527,39 @@
         #       variables:
         #           sectionId: ${sectionId}
 
-- id: other_tools
+- id: tools_others
   path: /other-tools
   blocks:
-      - id: other_tools_intro
+      - id: tools_others_intro
         template: pageIntroductionTemplate
-        variables:
-            pageId: ${id}
+        # variables:
+        #     pageId: ${id}
 
       - id: utilities
         template: otherToolsTemplate
 
       - id: utilities_others
-        template: otherToolsTemplate
-        mode: relative
-        units: count
+        template: otherToolsFreeFormTemplate
 
       - id: text_editors
         template: otherToolsTemplate
 
       - id: text_editors_others
-        template: otherToolsTemplate
-        mode: relative
-        units: count
+        template: otherToolsFreeFormTemplate
 
       - id: browsers
         template: otherToolsTemplate
 
       - id: browsers_others
-        template: otherToolsTemplate
-        mode: relative
-        units: count
+        template: otherToolsFreeFormTemplate
 
 - id: environments
   path: /environments
   blocks:
       - id: environments_introduction
         template: pageIntroductionTemplate
-        variables:
-            pageId: '${id}'
+        # variables:
+        #     pageId: '${id}'
 
       - id: browsers
         template: environmentTemplate
@@ -572,13 +568,13 @@
         template: environmentTemplate
 
       - id: css_for_print
-        titleId: environments.css_for_print
-        descriptionId: environments.css_for_print.description
+        # titleId: environments.css_for_print
+        # descriptionId: environments.css_for_print.description
         template: environmentRatingTemplate
 
       - id: css_for_email
-        titleId: environments.css_for_email
-        descriptionId: environments.css_for_email.description
+        # titleId: environments.css_for_email
+        # descriptionId: environments.css_for_email.description
         template: environmentRatingTemplate
 
 - id: resources
@@ -586,52 +582,46 @@
   blocks:
       - id: resources_introduction
         template: pageIntroductionTemplate
-        variables:
-            pageId: '${id}'
+        # variables:
+        #     pageId: '${id}'
 
       - id: blogs_news_magazines
-        titleId: resources.blogs_news_magazines
-        descriptionId: resources.blogs_news_magazines.description
+        # titleId: resources.blogs_news_magazines
+        # descriptionId: resources.blogs_news_magazines.description
         template: resourcesTemplate
 
       - id: blogs_news_magazines_others
-        titleId: resources.blogs_news_magazines.others
-        descriptionId: resources.blogs_news_magazines.others.description
-        template: resourcesTemplate
-        mode: relative
-        units: count
+        # titleId: resources.blogs_news_magazines.others
+        # descriptionId: resources.blogs_news_magazines.others.description
+        template: resourcesFreeFormTemplate
 
       - id: sites_courses
-        titleId: resources.sites_courses
-        descriptionId: resources.sites_courses.description
+        # titleId: resources.sites_courses
+        # descriptionId: resources.sites_courses.description
         template: resourcesTemplate
 
       - id: sites_courses_others
-        titleId: resources.sites_courses.others
-        descriptionId: resources.sites_courses.others.description
-        template: resourcesTemplate
-        mode: relative
-        units: count
+        # titleId: resources.sites_courses.others
+        # descriptionId: resources.sites_courses.others.description
+        template: resourcesFreeFormTemplate
 
       - id: podcasts
-        titleId: resources.podcasts
-        descriptionId: resources.podcasts.description
+        # titleId: resources.podcasts
+        # descriptionId: resources.podcasts.description
         template: resourcesTemplate
 
       - id: podcasts_others
-        titleId: resources.podcasts.others
-        descriptionId: resources.podcasts.others.description
-        template: resourcesTemplate
-        mode: relative
-        units: count
+        # titleId: resources.podcasts.others
+        # descriptionId: resources.podcasts.others.description
+        template: resourcesFreeFormTemplate
 
 - id: opinions
   path: /opinions
   blocks:
       - id: opinions-introduction
         template: pageIntroductionTemplate
-        variables:
-            pageId: '${id}'
+        # variables:
+        #     pageId: '${id}'
 
       - id: css_easy_to_learn
         template: opinionTemplate
@@ -652,14 +642,17 @@
         template: opinionTemplate
 
       - id: state_of_the_web
+        titleId: 'happiness.state_of_the_web'
         template: happinessTemplate
         bucketKeysName: happiness
 
       - id: state_of_css
+        titleId: 'happiness.state_of_css'
         template: happinessTemplate
         bucketKeysName: happiness
 
       - id: currently_missing_from_css
+        titleId: 'opinions_other.currently_missing_from_css.others'
         template: opinionsOthersTemplate
 
 - id: awards
@@ -667,8 +660,8 @@
   blocks:
       - id: awards_intro
         template: pageIntroductionTemplate
-        variables:
-            pageId: ${id}
+        # variables:
+        #     pageId: ${id}
 
       - id: feature_adoption_award
         blockType: AwardBlock
@@ -749,9 +742,9 @@
   path: /conclusion
   blocks:
       - id: conclusion
-        variables:
-            pageId: ${id}
-        template: pageIntroductionTemplate
+        # variables:
+        #     pageId: ${id}
+        # template: pageIntroductionTemplate
         blockType: ConclusionBlock
 
 # note: other pages need to be included in the sitemap too so they can get the proper
@@ -762,8 +755,8 @@
   is_hidden: true
   blocks:
       - id: support
-        variables:
-            pageId: ${id}
+        # variables:
+        #     pageId: ${id}
         template: pageIntroductionTemplate
 
 - id: notfound

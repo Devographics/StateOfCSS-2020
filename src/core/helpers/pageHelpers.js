@@ -22,18 +22,20 @@ export const getPageLabel = (
 ) => {
     let label
 
-    if (['features_intro', 'features_results', 'features_conclusion'].includes(page.type)) {
-        label = translate(
-            `page.${page.type}.${isContextual === true ? 'contextual_label' : 'label'}`,
-            {
-                values: {
-                    section: translate(`features.${page.data.section}`),
-                },
-            }
-        )
-    } else {
-        label = translate(`sections.${page.id}.title`)
-    }
+    label = translate(`sections.${page.titleId || page.id}.title`)
+    
+    // if (['features_intro', 'features_results', 'features_conclusion'].includes(page.type)) {
+    //     label = translate(
+    //         `page.${page.type}.${isContextual === true ? 'contextual_label' : 'label'}`,
+    //         {
+    //             values: {
+    //                 section: translate(`features.${page.data.section}`),
+    //             },
+    //         }
+    //     )
+    // } else {
+    //     label = translate(`sections.${page.id}.title`)
+    // }
 
     if (includeWebsite === true) {
         label = `${WEBSITE_TITLE}: ${label}`

@@ -198,16 +198,14 @@ export const keys = {
     javascript_proficiency: generateProficiencyKeys('javascript_proficiency'),
     backend_proficiency: generateProficiencyKeys('backend_proficiency'),
     happiness: {
-        keys: [
-            { id: 0 },
-            { id: 1 },
-            { id: 2 },
-            { id: 3 },
-            { id: 4 },
-        ]
+        keys: [0, 1, 2, 3, 4].map((id) => ({
+            id,
+            label: `options.happiness.${id}`,
+            shortLabel: `options.happiness.${id}.short`,
+        })),
     },
     knowledge_score: {
-        keys: range(1, 100).map(n => ({ id: n}))
+        keys: range(1, 100).map((n) => ({ id: n })),
     },
     opinions: {
         colorRange: 'opinions',

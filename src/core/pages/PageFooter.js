@@ -37,8 +37,8 @@ const PageFooter = () => {
             <Notes>
                 <span
                     dangerouslySetInnerHTML={{
-                        __html: translate('footer.state_of_js_link', {
-                            values: { link: 'http://stateofjs.com/' },
+                        __html: translate('footer.state_of_css_link', {
+                            values: { link: 'http://stateofcss.com/' },
                         }),
                     }}
                 />{' '}
@@ -46,7 +46,7 @@ const PageFooter = () => {
                     dangerouslySetInnerHTML={{
                         __html: translate('footer.leave_an_issue', {
                             values: {
-                                link: 'https://github.com/StateOfJS/State-of-JS-2019/issues',
+                                link: 'https://github.com/StateOfJS/StateOfCSS-2020',
                             },
                         }),
                     }}
@@ -105,23 +105,6 @@ const PreviousLink = styled(FooterLink)`
     }
     @media ${mq.mediumLarge} {
         margin-right: ${spacing()};
-    }
-
-    &,
-    &:link,
-    &:visited {
-        color: ${({ theme }) => theme.colors.link};
-    }
-
-    &,
-    &:hover {
-        background: ${({ theme }) => theme.colors.background};
-        border-color: ${({ theme }) => theme.colors.background};
-    }
-
-    &:hover {
-        color: ${({ theme }) => theme.colors.contrast};
-        text-decoration: underline;
     }
 `
 

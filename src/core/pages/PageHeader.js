@@ -9,15 +9,10 @@ import { typography } from 'core/theme'
 const PageHeader = ({ title: _title, showIntro = true, introduction }) => {
     const context = usePageContext()
     const { translate } = useI18n()
-
-    const title = _title || getPageLabel(context, translate)
-
+    const page = context
     return (
         <>
-            <PageTitle>{title}</PageTitle>
-            {showIntro && introduction && (
-                <div dangerouslySetInnerHTML={{ __html: introduction }} />
-            )}
+            <PageTitle>{getPageLabel(page, translate)}</PageTitle>
         </>
     )
 }

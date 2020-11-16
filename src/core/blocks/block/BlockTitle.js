@@ -8,7 +8,7 @@ import ShareBlock from 'core/share/ShareBlock'
 import BlockExport from 'core/blocks/block/BlockExport'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
-import { getBlockTitle, getBlockDescription } from 'core/helpers/blockHelpers'
+// import { getBlockTitle, getBlockDescription } from 'core/helpers/blockHelpers'
 import { getBlockMeta } from 'core/helpers/blockHelpers'
 import SharePermalink from 'core/share/SharePermalink'
 import BlockUnitsSelector from 'core/blocks/block/BlockUnitsSelector'
@@ -38,7 +38,10 @@ const BlockTitle = ({
     } else if (blockName) {
         blockTitle = translate(`blocks.${blockName}.title`)
     } else {
-        blockTitle = getBlockTitle(block, context, translate, { values })
+        // blockTitle = getBlockTitle(block, context, translate, { values })
+        // for _others blocks (freeform answers), replace suffix with ".others"
+        const id = block.id.replace('_others', '.others')
+        blockTitle = translate(`${block.pageId}.${id}`)
     }
 
     let blockDescription
@@ -49,7 +52,10 @@ const BlockTitle = ({
     } else if (blockName) {
         blockDescription = translate(`blocks.${blockName}.description`)
     } else {
-        blockDescription = getBlockDescription(block, context, translate, { values })
+        // blockDescription = getBlockDescription(block, context, translate, { values })
+        // for _others blocks (freeform answers), replace suffix with ".others"
+        const id = block.id.replace('_others', '.others')
+        blockDescription = translate(`${block.pageId}.${id}.description`, {}, null)
     }
 
     const meta = getBlockMeta(block, context, translate)

@@ -4,8 +4,9 @@ import sitemap from '../../../../config/sitemap.yml'
 import { mq, fancyLinkMixin, spacing } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import PageLink from 'core/pages/PageLink'
-import PageLabel from 'core/pages/PageLabel'
 import LanguageSwitcher from 'core/i18n/LanguageSwitcher'
+import { useI18n } from 'core/i18n/i18nContext'
+import { getPageLabel } from 'core/helpers/pageHelpers'
 
 const filteredNav = sitemap.filter((page) => !page.is_hidden)
 
@@ -47,6 +48,7 @@ const NavItem = ({ page, currentPath, closeSidebar, isHidden = false, depth = 0 
     const isActive = currentPath.indexOf(page.path) !== -1
     const hasChildren = page.children && page.children.length > 0
     const displayChildren = hasChildren > 0 && isActive
+    const { translate } = useI18n()
 
     return (
         <>
@@ -58,7 +60,7 @@ const NavItem = ({ page, currentPath, closeSidebar, isHidden = false, depth = 0 
                 isHidden={isHidden}
             >
                 <span>
-                    <PageLabel page={page} />
+                    {getPageLabel(page, translate)}
                 </span>
             </StyledPageLink>
             {hasChildren && (

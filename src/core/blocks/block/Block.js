@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { mq, spacing } from 'core/theme'
 import BlockTitle from 'core/blocks/block/BlockTitle'
+import BlockNote from 'core/blocks/block/BlockNote'
 import ShareBlockDebug from 'core/share/ShareBlockDebug'
 import BlockLegends from 'core/blocks/block/BlockLegends'
 
@@ -58,6 +59,9 @@ const Block = ({
             {showLegend && legendPosition === 'bottom' && (
                 <BlockLegends block={block} data={data} units={units} position={legendPosition} {...legendProps} />
             )}
+            <BlockNote
+                block={block}
+            />
             {blockFooter}
         </Container>
     )

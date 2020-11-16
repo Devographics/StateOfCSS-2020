@@ -19,6 +19,7 @@ const VerticalBarBlock = ({ block, data }) => {
         units: defaultUnits = 'percentage',
         translateData,
         bucketKeysName = id,
+        i18nNamespace
     } = block
 
     const context = usePageContext()
@@ -56,7 +57,7 @@ const VerticalBarBlock = ({ block, data }) => {
                     bucketKeys={bucketKeys}
                     total={total}
                     buckets={sortedBuckets}
-                    i18nNamespace={block.id}
+                    i18nNamespace={i18nNamespace || id}
                     translateData={translateData}
                     mode={mode}
                     units={units}

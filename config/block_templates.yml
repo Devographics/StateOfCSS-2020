@@ -38,8 +38,8 @@ recommendedResourcesTemplate:
 demographicsTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year'
-    titleId: 'user_info.${id}'
-    descriptionId: 'user_info.${id}.description'
+    # titleId: 'user_info.${id}'
+    # descriptionId: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -67,8 +67,8 @@ demographicsTemplate:
 knowledgeScoreTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.knowledge_score.year'
-    titleId: 'user_info.knowledge_score'
-    descriptionId: 'user_info.knowledge_score.description'
+    # titleId: 'user_info.knowledge_score'
+    # descriptionId: 'user_info.knowledge_score.description'
     showDescription: true
     query: >
         surveyApi {
@@ -91,8 +91,8 @@ knowledgeScoreTemplate:
 proficiencyTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
-    titleId: 'user_info.${id}'
-    descriptionId: 'user_info.${id}.description'
+    # titleId: 'user_info.${id}'
+    # descriptionId: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -312,8 +312,8 @@ featureExperienceTemplate:
 
 otherFeaturesTemplate:
     blockType: HorizontalBarBlock
-    titleId: 'features_others.${id}'
-    descriptionId: 'features_others.${id}.description'
+    # titleId: 'features_others.${id}'
+    # descriptionId: 'features_others.${id}.description'
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
@@ -639,7 +639,7 @@ happinessTemplate:
 # {id} refers to the current subject
 opinionTemplate:
     blockType: OpinionBlock
-    titleId: 'opinions.${id}'
+    # titleId: 'opinions.${id}'
     dataPath: 'surveyApi.survey.${id}.all_years'
     showDescription: true
     query: >
@@ -667,8 +667,8 @@ opinionTemplate:
 opinionsOthersTemplate:
     blockType: HorizontalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
-    titleId: 'opinions_others.${id}'
-    descriptionId: 'opinions_others.${id}.description'
+    # titleId: 'opinions_others.${id}'
+    # descriptionId: 'opinions_others.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -733,6 +733,43 @@ otherToolsTemplate:
             }
         }
 
+
+otherToolsFreeFormTemplate:
+    blockType: HorizontalBarBlock
+    showDescription: true
+    mode: relative
+    units: count
+    dataPath: 'surveyApi.survey.${id}.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: tools_others(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets{
+                            id
+                            count
+                            percentage
+                            entity {
+                                id
+                                homepage
+                                name
+                                github {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 ###############################################################################
 #
 # RESOURCES
@@ -743,6 +780,42 @@ resourcesTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
     mode: absolute
+    dataPath: 'surveyApi.survey.${id}.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${id}: resources(id: ${id}) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets {
+                            id
+                            count
+                            percentage
+                            entity {
+                                homepage
+                                name
+                                github {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+
+resourcesFreeFormTemplate:
+    blockType: HorizontalBarBlock
+    showDescription: true
+    mode: relative
+    units: count
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {

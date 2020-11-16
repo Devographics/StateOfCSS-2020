@@ -29,8 +29,8 @@ toolSectionTemplate:
     blocks:
         - id: '${id}_introduction'
           template: pageIntroductionTemplate
-          variables:
-              pageId: '${id}'
+          # variables:
+          #     pageId: '${id}'
 
         - id: '${id}_experience_ranking'
           template: toolsExperienceRankingTemplate
@@ -84,6 +84,7 @@ toolSectionTemplate:
               id: ${id}_others
 
         - id: '${id}_happiness'
+          i18nNamespace: happiness
           blockName: happiness
           template: happinessTemplate
           bucketKeysName: happiness

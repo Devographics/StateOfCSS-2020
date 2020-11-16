@@ -33,6 +33,9 @@ const createBlockPages = (page, context, createPage) => {
     }
 
     blocks.forEach(block => {
+        if (!block.pageId) {
+            block.pageId = page.id
+        }
         locales.forEach(locale => {
             const blockPage = {
                 path: localizedPath(block.path, locale),

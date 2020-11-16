@@ -4,7 +4,7 @@ export const getTranslator = ({ locale, translations }) => (key, { values } = {}
     const translation = translations.find((t) => t.key === key)
 
     if (translation === undefined) {
-        return fallback || `[${locale}] ${key}`
+        return typeof fallback === 'undefined' ? `[${locale}] ${key}` : fallback
     }
 
     if (values === undefined) return translation.t
