@@ -6,15 +6,36 @@ const indentString = require('indent-string')
 const { computeSitemap } = require('./node_src/sitemap/index.js')
 const { omit } = require('lodash')
 
+const config = yaml.safeLoad(fs.readFileSync('./config/config.yml', 'utf8'))
+
 require('dotenv').config({
     path: `.env`
 })
 
+const localesQuery = `
+query {
+    surveyApi {
+        locales(contexts: [${config.translationContexts.join(', ')}]) {
+            completion
+            id
+            label
+            strings {
+                key
+                t
+                context
+                fallback
+            }
+            translators
+        }
+    }
+}
+`
+
 const rawSitemap = yaml.safeLoad(fs.readFileSync('./config/raw_sitemap.yml', 'utf8'))
-const locales = yaml.safeLoad(fs.readFileSync('./config/locales.yml', 'utf8'))
+// const locales = yaml.safeLoad(fs.readFileSync('./config/locales.yml', 'utf8'))
 
 const localizedPath = (path, locale) =>
-    locale.path === 'default' ? path : `/${locale.path}${path}`
+    locale.id === 'en-US' ? path : `/${locale.id}${path}`
 
 const getPageContext = page => {
     const context = omit(page, ['path', 'children'])
@@ -26,13 +47,14 @@ const getPageContext = page => {
     }
 }
 
-const createBlockPages = (page, context, createPage) => {
+const createBlockPages = (page, context, createPage, locales) => {
     const blocks = page.blocks
     if (!Array.isArray(blocks) || blocks.length === 0) {
         return
     }
 
     blocks.forEach(block => {
+        // allow for specifying explicit pageId in block definition
         if (!block.pageId) {
             block.pageId = page.id
         }
@@ -78,20 +100,23 @@ ${indentString(queries.join('\n'), 4)}
 
 exports.createPages = async ({ graphql, actions: { createPage } }) => {
     const { flat } = await computeSitemap(rawSitemap)
+
+    const localesResults = await graphql(`${localesQuery}`)
+    const locales = localesResults.data.surveyApi.locales
+
     for (const page of flat) {
         let pageData = {}
         const context = getPageContext(page)
 
-
+        // loop over locales
         for (let index = 0; index < locales.length; index++) {
             const locale = locales[index]
-
             // console.log('// pageQuery')
             const pageQuery = getPageQuery(page)
     
             try {
                 if (pageQuery) {
-                    const queryResults = await graphql(`${pageQuery}`, { id: page.id, locale: locale.locale })
+                    const queryResults = await graphql(`${pageQuery}`, { id: page.id, localeId: locale.id })
                     // console.log('// queryResults')
                     // console.log(JSON.stringify(queryResults.data, '', 2))
                     pageData = queryResults.data
@@ -102,21 +127,23 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 console.log(error)
             }
 
-            createPage({
+            const pageObject = {
                 path: localizedPath(page.path, locale),
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locale: locale.locale,
+                    locales,
+                    localeId: locale.id,
                     localeLabel: locale.label,
-                    localePath: locale.path === 'default' ? '' : `/${locale.path}`,
+                    localePath: locale.id === 'en-US' ? '' : `/${locale.id}`,
                     pageData,
                     pageQuery, // passed for debugging purposes
                 }
-            })
+            }
+            createPage(pageObject)
         }
 
-        createBlockPages(page, context, createPage)
+        createBlockPages(page, context, createPage, locales)
     }
 }
 
@@ -130,60 +157,64 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
  * Implement the Gatsby API “onCreatePage”.
  * This is called after every page is created.
  */
-exports.onCreatePage = async ({ page, actions }) => {
-    const { createPage, deletePage } = actions
+// exports.onCreatePage = async ({ page, graphql, actions }) => {
+//     const { createPage, deletePage } = actions
 
-    const { flat } = await computeSitemap(rawSitemap)
+//     const { flat } = await computeSitemap(rawSitemap)
 
-    // handle 404 page separately
-    const is404 = page.path.includes('404')
+//     const localesResults = await graphql(`${localesQuery}`)
+//     console.log(localesResults)
+//     const locales = localesResults.data.surveyApi.locales
 
-    const pagePath = page.path.toLowerCase()
-    const matchingPage = flat.find(p => p.path === (is404 ? '/404/' : pagePath))
+//     // handle 404 page separately
+//     const is404 = page.path.includes('404')
 
-    // if there's no matching page
-    // it means we're dealing with an internal page
-    // thus, we don't create one for each locale
-    if (matchingPage === undefined) {
-        if (pagePath !== page.path) {
-            deletePage(page)
-            createPage({
-                ...page,
-                path: pagePath
-            })
-        }
-        return
-    }
+//     const pagePath = page.path.toLowerCase()
+//     const matchingPage = flat.find(p => p.path === (is404 ? '/404/' : pagePath))
 
-    // add context, required for pagination
-    const context = {
-        ...page.context,
-        ...getPageContext(matchingPage)
-    }
-    const newPage = {
-        ...page,
-        path: pagePath,
-        context
-    }
+//     // if there's no matching page
+//     // it means we're dealing with an internal page
+//     // thus, we don't create one for each locale
+//     if (matchingPage === undefined) {
+//         if (pagePath !== page.path) {
+//             deletePage(page)
+//             createPage({
+//                 ...page,
+//                 path: pagePath
+//             })
+//         }
+//         return
+//     }
 
-    deletePage(page)
+//     // add context, required for pagination
+//     const context = {
+//         ...page.context,
+//         ...getPageContext(matchingPage)
+//     }
+//     const newPage = {
+//         ...page,
+//         path: pagePath,
+//         context
+//     }
 
-    // create page for each available locale
-    for (let locale of locales) {
-        createPage({
-            ...newPage,
-            path: localizedPath(newPage.path, locale),
-            context: {
-                ...newPage.context,
-                locale: locale.locale,
-                localeLabel: locale.label,
-                localePath: locale.path === 'default' ? '' : `/${locale.path}`
-            }
-        })
-    }
+//     deletePage(page)
 
-    createBlockPages(page, context, createPage)
-}
+//     // create page for each available locale
+//     for (let locale of locales) {
+//         createPage({
+//             ...newPage,
+//             path: localizedPath(newPage.path, locale),
+//             context: {
+//                 ...newPage.context,
+//                 locale: locale.locale,
+//                 localeLabel: locale.label,
+//                 localePath: locale.path === 'default' ? '' : `/${locale.path}`
+//             }
+//         })
+//     }
+
+//     createBlockPages(page, context, createPage)
+// }
 
 // Allow absolute imports and inject `ENV`
 exports.onCreateWebpackConfig = ({ stage, actions, plugins }) => {

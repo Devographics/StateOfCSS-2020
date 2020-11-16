@@ -1,18 +1,20 @@
 import React from 'react'
 import styled from 'styled-components'
-import locales from '../../../../config/locales.yml'
+// import locales from '../../../../config/locales.yml'
 import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing } from 'core/theme'
+import { usePageContext } from '../helpers/pageContext'
 
 const TranslatorsBlock = () => {
     const { translate } = useI18n()
+    const context = usePageContext()
 
     return (
         <>
             <Container>
                 <Header>{translate('general.translation_help')}</Header>
                 <Locales>
-                    {locales
+                    {context.locales
                         .filter(({ locale }) => locale !== 'en-US')
                         .map(({ label, translators }) => (
                             <Locale key={label}>

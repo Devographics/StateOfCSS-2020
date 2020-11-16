@@ -1,10 +1,10 @@
 import template from 'lodash/template'
 
-export const getTranslator = ({ locale, translations }) => (key, { values } = {}, fallback) => {
-    const translation = translations.find((t) => t.key === key)
-
+export const getTranslator = ({ id, strings }) => (key, { values } = {}, fallback) => {
+    const translation = strings.find((t) => t.key === key)
+    
     if (translation === undefined) {
-        return typeof fallback === 'undefined' ? `[${locale}] ${key}` : fallback
+        return typeof fallback === 'undefined' ? `[${id}] ${key}` : fallback
     }
 
     if (values === undefined) return translation.t
@@ -13,7 +13,7 @@ export const getTranslator = ({ locale, translations }) => (key, { values } = {}
         return template(translation.t)(values)
     } catch (error) {
         // console.error(error)
-        return `[${locale}][ERR] ${key}`
+        return `[${id}][ERR] ${key}`
     }
 }
 

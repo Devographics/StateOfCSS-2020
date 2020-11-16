@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import locales from '../../../config/locales.yml'
 import { usePageContext } from 'core/helpers/pageContext'
 import { Link } from 'gatsby'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
@@ -31,7 +30,7 @@ const Item = styled(Link)`
 
 const Locales = () => {
     const context = usePageContext()
-    const links = locales.map((locale) => {
+    const links = context.locales.map((locale) => {
         return {
             ...locale,
             link: `${locale.path === 'default' ? '' : `/${locale.path}`}${context.basePath}`,
@@ -41,9 +40,9 @@ const Locales = () => {
 
     return (
         <Container className="Locales">
-            {links.map(({ label, locale, link, isCurrent }) => (
+            {links.map(({ label, id, link, isCurrent }) => (
                 <Item
-                    key={locale}
+                    key={id}
                     className={`Locales__Item${isCurrent ? ' _is-current' : ''}`}
                     to={link}
                 >
