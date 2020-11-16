@@ -33,7 +33,7 @@ const Locales = () => {
     const links = context.locales.map((locale) => {
         return {
             ...locale,
-            link: `${locale.path === 'default' ? '' : `/${locale.path}`}${context.basePath}`,
+            link: locale.path + context.basePath,
             isCurrent: locale.locale === context.locale,
         }
     })

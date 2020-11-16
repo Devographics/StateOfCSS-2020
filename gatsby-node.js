@@ -103,6 +103,7 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
 
     const localesResults = await graphql(`${localesQuery}`)
     const locales = localesResults.data.surveyApi.locales
+    const localesWithPaths = locales.map(l => ({...l, path: l.id === 'en-US' ? '' : `/${l.id}`}))
 
     for (const page of flat) {
         let pageData = {}
@@ -132,10 +133,10 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locales,
+                    locales: localesWithPaths,
                     localeId: locale.id,
                     localeLabel: locale.label,
-                    localePath: locale.id === 'en-US' ? '' : `/${locale.id}`,
+                    localePath: locale.path,
                     pageData,
                     pageQuery, // passed for debugging purposes
                 }
