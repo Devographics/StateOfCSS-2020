@@ -686,6 +686,11 @@ opinionsOthersTemplate:
                             id
                             count
                             percentage
+                            entity {
+                                id
+                                homepage
+                                name
+                            }
                         }
                     }
                 }
