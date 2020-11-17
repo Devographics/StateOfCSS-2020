@@ -699,6 +699,7 @@
         template: environmentTemplate
 
       - id: form_factors
+        translateData: true
         template: environmentTemplate
 
       - id: css_for_print

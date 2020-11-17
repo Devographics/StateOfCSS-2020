@@ -873,6 +873,13 @@ environmentTemplate:
                             id
                             count
                             percentage
+                            entity {
+                                homepage
+                                name
+                                github {
+                                    url
+                                }
+                            }
                         }
                     }
                 }
@@ -884,7 +891,7 @@ environmentRatingTemplate:
     showDescription: true
     showLegend: true
     mode: relative
-    i18nNamespace: options
+    i18nNamespace: frequency
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {
