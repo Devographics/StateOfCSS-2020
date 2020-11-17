@@ -6,6 +6,7 @@ import ChartContainer from 'core/charts/ChartContainer'
 import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import { usePageContext } from 'core/helpers/pageContext'
 import { useBucketKeys } from 'core/helpers/useBucketKeys'
+import get from 'lodash/get'
 
 // convert relative links into absolute MDN links
 const parseMDNLinks = (content) =>
@@ -19,7 +20,8 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
     const { translate } = useI18n()
     const { name, mdn } = data
 
-    const buckets = data.experience.year.buckets
+    const buckets = get(data, 'experience.year.buckets', [])
+
     const bucketKeys = useBucketKeys('features')
 
     const mdnLink = mdn && `https://developer.mozilla.org${mdn.url}`
@@ -35,7 +37,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
             units={units}
             setUnits={setUnits}
             data={{
-                completion: data.experience.year.completion,
+                completion: get(data, 'experience.year.completion'),
                 buckets,
             }}
             block={{ ...block, title: name, description }}

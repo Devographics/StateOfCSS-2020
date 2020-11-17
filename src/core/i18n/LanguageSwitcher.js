@@ -4,6 +4,7 @@ import { mq, spacing, fontSize } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import { useI18n } from 'core/i18n/i18nContext'
 import Locales from './Locales'
+import get from 'lodash/get'
 
 const svgs = {
     top: <polygon stroke="#000" points="0,50 100,50 50,0" />,
@@ -25,7 +26,7 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
         >
             <LanguageSwitcherInner className="LanguageSwitcherInner">
                 <LanguageSwitcherToggle className="LanguageSwitcherToggle" onClick={toggle}>
-                    <span>{context.locale.label}</span>
+                    <span>{get(context, 'locale.label')}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                         {isOpened ? svgs[positionOpen] : svgs[position]}
                     </svg>

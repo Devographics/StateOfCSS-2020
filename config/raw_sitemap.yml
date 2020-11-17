@@ -923,6 +923,6 @@
         #     pageId: ${id}
         template: pageIntroductionTemplate
 
-- id: notfound
-  path: /404
-  is_hidden: true
+# - id: notfound
+#   path: /404
+#   is_hidden: true

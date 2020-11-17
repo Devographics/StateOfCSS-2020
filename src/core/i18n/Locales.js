@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { usePageContext } from 'core/helpers/pageContext'
 import { Link } from 'gatsby'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
+import get from 'lodash/get'
 
 const Container = styled.div`
     display: grid;
@@ -30,7 +31,7 @@ const Item = styled(Link)`
 
 const Locales = () => {
     const context = usePageContext()
-    const links = context.locales.map((locale) => {
+    const links = get(context, 'locales', []).map((locale) => {
         return {
             ...locale,
             link: locale.path + context.basePath,

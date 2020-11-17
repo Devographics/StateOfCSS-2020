@@ -89,7 +89,6 @@ featuresCategories:
         - font_variant_numeric
         - font_display
         - line_clamp
-        - direction
     animations_transforms:
         - transitions
         - transforms

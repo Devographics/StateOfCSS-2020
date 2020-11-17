@@ -9,7 +9,7 @@ const { omit } = require('lodash')
 const config = yaml.safeLoad(fs.readFileSync('./config/config.yml', 'utf8'))
 
 require('dotenv').config({
-    path: `.env`
+    path: `.env`,
 })
 
 const localesQuery = `
@@ -34,18 +34,18 @@ query {
 const rawSitemap = yaml.safeLoad(fs.readFileSync('./config/raw_sitemap.yml', 'utf8'))
 // const locales = yaml.safeLoad(fs.readFileSync('./config/locales.yml', 'utf8'))
 
-const getLocalizedPath = (path, locale) => locale ? `/${locale.id}${path}` : path
+const getLocalizedPath = (path, locale) => (locale ? `/${locale.id}${path}` : path)
 
 // locales without the strings, to avoid loading every locale's dictionnary in memory
-const getCleanLocales = locales => locales.map(l => omit(l, ['strings']))
+const getCleanLocales = (locales) => locales.map((l) => omit(l, ['strings']))
 
-const getPageContext = page => {
+const getPageContext = (page) => {
     const context = omit(page, ['path', 'children'])
     context.basePath = page.path
 
     return {
         ...context,
-        ...page.data
+        ...page.data,
     }
 }
 
@@ -55,12 +55,12 @@ const createBlockPages = (page, context, createPage, locales) => {
         return
     }
 
-    blocks.forEach(block => {
+    blocks.forEach((block) => {
         // allow for specifying explicit pageId in block definition
         if (!block.pageId) {
             block.pageId = page.id
         }
-        locales.forEach(locale => {
+        locales.forEach((locale) => {
             const blockPage = {
                 path: getLocalizedPath(block.path, locale),
                 component: path.resolve(`./src/core/share/ShareBlockTemplate.js`),
@@ -70,31 +70,33 @@ const createBlockPages = (page, context, createPage, locales) => {
                     block,
                     locales: getCleanLocales(locales),
                     locale,
-                }
+                },
             }
             createPage(blockPage)
         })
     })
 }
 
-const cleanIdString = id => id.replace(new RegExp('-', 'g'), '_')
+const cleanIdString = (id) => id.replace(new RegExp('-', 'g'), '_')
 
 /**
  * Loop over a page's blocks to assemble its page query
  *
  * Arguments: the page's $id
  */
-const getPageQuery = page => {
+const getPageQuery = (page) => {
     const { id, blocks } = page
     if (!blocks) {
         return
     }
-    const queries = _.compact(blocks.map(b => b.query))
+    const queries = _.compact(blocks.map((b) => b.query))
     if (queries.length === 0) {
         return
     }
-    const variables = _.compact(blocks.map(b => b.queryVariables))
-    const pageQuery = `query page${_.upperFirst(cleanIdString(id))}Query${variables.length > 0 ? `(${variables.join(', ')})` : ''} {
+    const variables = _.compact(blocks.map((b) => b.queryVariables))
+    const pageQuery = `query page${_.upperFirst(cleanIdString(id))}Query${
+        variables.length > 0 ? `(${variables.join(', ')})` : ''
+    } {
 ${indentString(queries.join('\n'), 4)}
 }`
     return pageQuery
@@ -103,7 +105,11 @@ ${indentString(queries.join('\n'), 4)}
 exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
     const { flat } = await computeSitemap(rawSitemap)
 
-    const localesResults = await graphql(`${localesQuery}`)
+    const localesResults = await graphql(
+        `
+            ${localesQuery}
+        `
+    )
     const locales = localesResults.data.surveyApi.locales
 
     for (const page of flat) {
@@ -114,13 +120,18 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
         for (let index = 0; index < locales.length; index++) {
             const locale = locales[index]
             locale.path = `/${locale.id}`
-            
+
             // console.log('// pageQuery')
             const pageQuery = getPageQuery(page)
-    
+
             try {
                 if (pageQuery) {
-                    const queryResults = await graphql(`${pageQuery}`, { id: page.id, localeId: locale.id })
+                    const queryResults = await graphql(
+                        `
+                            ${pageQuery}
+                        `,
+                        { id: page.id, localeId: locale.id }
+                    )
                     // console.log('// queryResults')
                     // console.log(JSON.stringify(queryResults.data, '', 2))
                     pageData = queryResults.data
@@ -140,17 +151,44 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
                     locale,
                     pageData,
                     pageQuery, // passed for debugging purposes
-                }
+                },
             }
             createPage(pageObject)
 
             // also redirect "naked" paths (whithout a locale) to en-US
             if (locale.id === 'en-US') {
-                createRedirect({ fromPath: getLocalizedPath(page.path, null), toPath: getLocalizedPath(page.path, locale), isPermanent: true })
+                createRedirect({
+                    fromPath: getLocalizedPath(page.path, null),
+                    toPath: getLocalizedPath(page.path, locale),
+                    isPermanent: true,
+                })
             }
         }
 
         createBlockPages(page, context, createPage, locales)
+    }
+}
+
+// handle 404 page separately
+exports.onCreatePage = async ({ page, graphql, actions }) => {
+    const { createPage, deletePage } = actions
+    
+    console.log(page.path)
+    
+    // Look for /404/ path
+    if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
+        const oldPage = { ...page }
+
+        // Add page context stubs to avoid throwing errors
+        page.context = {
+            locales: [],
+            locale: {}
+        }
+        console.log('//404')
+        console.log(page)
+        // Recreate the modified page
+        deletePage(oldPage)
+        createPage(page)
     }
 }
 
@@ -227,12 +265,12 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 exports.onCreateWebpackConfig = ({ stage, actions, plugins }) => {
     actions.setWebpackConfig({
         resolve: {
-            modules: [path.resolve(__dirname, 'src'), 'node_modules']
+            modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
         plugins: [
             plugins.define({
-                ENV: stage === `develop` || stage === `develop-html` ? 'development' : 'production'
-            })
-        ]
+                ENV: stage === `develop` || stage === `develop-html` ? 'development' : 'production',
+            }),
+        ],
     })
 }

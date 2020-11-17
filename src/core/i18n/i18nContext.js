@@ -6,11 +6,7 @@ export const I18nContext = createContext()
 
 const I18nContextProviderInner = ({ children }) => {
     const context = usePageContext()
-    const { locale } = context
-    if (!locale) {
-        throw new Error(`No locale defined in context`)
-    }
-
+    const { locale = {} } = context
     const translate = getTranslator(locale)
 
     const value = useMemo(

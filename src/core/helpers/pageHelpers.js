@@ -1,5 +1,6 @@
 import { getToolName } from 'core/helpers/tools'
 import { websiteTitle } from 'core/constants.js'
+import get from 'lodash/get'
 
 const WEBSITE_TITLE = websiteTitle
 
@@ -66,7 +67,7 @@ export const getPageImageUrl = (context) => {
 }
 
 export const getPageMeta = (context, translate, overrides = {}) => {
-    const url = `${context.host}${context.locale.path}${context.basePath}`
+    const url = `${context.host}${get(context, 'locale.path')}${context.basePath}`
     const imageUrl = getPageImageUrl(context)
     const isRoot = context.path === '/' || context.basePath === '/'
 

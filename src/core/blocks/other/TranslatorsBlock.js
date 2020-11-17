@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing } from 'core/theme'
 import { usePageContext } from '../helpers/pageContext'
+import get from 'lodash/get'
 
 const TranslatorsBlock = () => {
     const { translate } = useI18n()
@@ -14,7 +15,7 @@ const TranslatorsBlock = () => {
             <Container>
                 <Header>{translate('general.translation_help')}</Header>
                 <Locales>
-                    {context.locales
+                    {get(context, 'locales', [])
                         .filter(({ locale }) => locale !== 'en-US')
                         .map(({ label, translators }) => (
                             <Locale key={label}>
