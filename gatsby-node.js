@@ -36,6 +36,9 @@ const rawSitemap = yaml.safeLoad(fs.readFileSync('./config/raw_sitemap.yml', 'ut
 
 const getLocalizedPath = (path, locale) => locale ? `/${locale.id}${path}` : path
 
+// locales without the strings, to avoid loading every locale's dictionnary in memory
+const getCleanLocales = locales => locales.map(l => omit(l, ['strings']))
+
 const getPageContext = page => {
     const context = omit(page, ['path', 'children'])
     context.basePath = page.path
@@ -65,8 +68,8 @@ const createBlockPages = (page, context, createPage, locales) => {
                     ...context,
                     redirect: `${getLocalizedPath(page.path, locale)}#${block.id}`,
                     block,
-                    locale: locale.locale,
-                    localePath: locale.path === 'default' ? '' : `/${locale.path}`
+                    locales: getCleanLocales(locales),
+                    locale,
                 }
             }
             createPage(blockPage)
@@ -133,7 +136,7 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locales,
+                    locales: getCleanLocales(locales),
                     locale,
                     pageData,
                     pageQuery, // passed for debugging purposes

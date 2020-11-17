@@ -70,8 +70,8 @@ export const getBlockImage = (block, context, translate) => {
 
 export const getBlockMeta = (block, context, translate, title) => {
     const { id } = block
-    const link = `${context.host}${context.basePath}${id}`
-    const trackingId = `${context.basePath}${id}`.replace(/^\//, '')
+    const link = `${context.host}${context.currentPath}${id}`
+    const trackingId = `${context.currentPath}${id}`.replace(/^\//, '')
 
     title = title || getBlockTitle(block, context, translate)
 

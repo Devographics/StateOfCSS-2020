@@ -29,6 +29,7 @@ const BlockTitle = ({
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
     const { translate } = useI18n()
+    const page = context
 
     let blockTitle
     if (block.title) {
@@ -41,7 +42,7 @@ const BlockTitle = ({
         // blockTitle = getBlockTitle(block, context, translate, { values })
         // for _others blocks (freeform answers), replace suffix with ".others"
         const id = block.id.replace('_others', '.others')
-        blockTitle = translate(`${block.pageId}.${id}`)
+        blockTitle = translate(`${page.i18nNamespace || page.id}.${id}`)
     }
 
     let blockDescription
@@ -55,7 +56,7 @@ const BlockTitle = ({
         // blockDescription = getBlockDescription(block, context, translate, { values })
         // for _others blocks (freeform answers), replace suffix with ".others"
         const id = block.id.replace('_others', '.others')
-        blockDescription = translate(`${block.pageId}.${id}.description`, {}, null)
+        blockDescription = translate(`${page.i18nNamespace || page.id}.${id}.description`, {}, null)
     }
 
     const meta = getBlockMeta(block, context, translate)

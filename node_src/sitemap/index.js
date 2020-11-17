@@ -6,7 +6,7 @@ const rawPageTemplates = fs.readFileSync('./config/page_templates.yml', 'utf8')
 const rawBlockTemplates = fs.readFileSync('./config/block_templates.yml', 'utf8')
 const globalVariables = yaml.safeLoad(fs.readFileSync('./config/variables.yml', 'utf8'))
 
-const injectVariables = (yamlObject, variables) => {
+const injectVariables = (yamlObject, variables, templateName) => {
     try {
         // convert template object back to string for variables injection
         const templateString = yaml.dump(yamlObject)
@@ -17,7 +17,7 @@ const injectVariables = (yamlObject, variables) => {
 
         return populatedTemplate
     } catch (error) {
-        console.log('// injectVariables error')
+        console.log(`// injectVariables error in template "${templateName}"`)
         console.log(error)
     }
 }
@@ -44,7 +44,7 @@ const applyTemplate = (config, templateName, rawTemplates, parent) => {
         variables.parentId = parent.id
     }
 
-    const populatedTemplate = injectVariables(templateObject, variables)
+    const populatedTemplate = injectVariables(templateObject, variables, templateName)
 
     return {
         ...populatedTemplate,

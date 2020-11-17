@@ -6,29 +6,19 @@ export const I18nContext = createContext()
 
 const I18nContextProviderInner = ({ children }) => {
     const context = usePageContext()
-    const { locales, locale } = context
+    const { locale } = context
     if (!locale) {
         throw new Error(`No locale defined in context`)
     }
 
-    const catalogue = useMemo(() => locales.find((t) => t.id === locale.id), [locales, locale])
-
-    if (!catalogue) {
-        throw new Error(
-            `Could not find catalogue for locale ${
-                locale.id
-            }. Available locales: ${locales.map((t) => t.id).join(', ')}`
-        )
-    }
-
-    const translate = useMemo(() => getTranslator(catalogue), [catalogue])
+    const translate = getTranslator(locale)
 
     const value = useMemo(
         () => ({
-            catalogue,
+            locale,
             translate,
         }),
-        [catalogue, translate]
+        [locale, translate]
     )
 
     return <I18nContext.Provider value={value}>{children}</I18nContext.Provider>
