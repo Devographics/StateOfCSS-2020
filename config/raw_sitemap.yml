@@ -379,8 +379,6 @@
         blocks:
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: '${id}_experience_ranking'
               template: toolsExperienceRankingTemplate
@@ -389,34 +387,27 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: years_of_experience
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_salary_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: yearly_salary
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_company_size_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: company_size
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_other_tools'
               blockName: category_other_tools
@@ -462,34 +453,27 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: years_of_experience
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_salary_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: yearly_salary
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_company_size_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: company_size
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_other_tools'
               blockName: category_other_tools
@@ -553,34 +537,27 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: years_of_experience
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_salary_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: yearly_salary
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_company_size_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: company_size
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_other_tools'
               blockName: category_other_tools
@@ -630,34 +607,27 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
-              variables:
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: years_of_experience
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_salary_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: yearly_salary
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_company_size_heatmap'
               template: heatmapTemplate
               variables:
                   subject: tools
                   heatmapId: company_size
-                  toolIds: ${toolsCategories.pre_post_processors}
 
             - id: '${id}_other_tools'
               blockName: category_other_tools

@@ -39,6 +39,7 @@ const applyTemplate = (config, templateName, rawTemplates, parent) => {
         ...globalVariables,
         id: config.id,
         ...(config.variables || {}),
+        ...(config.pageVariables || {}),
     }
     if (parent) {
         variables.parentId = parent.id
@@ -83,6 +84,14 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
                 // if block has variables, inject them based on current page and global variables
                 if (block.variables) {
                     block.variables = injectVariables(block.variables, {
+                        ...config,
+                        ...globalVariables,
+                    })
+                }
+
+                // also pass page variables to block so it can inherit them
+                if (page.variables) {
+                    block.pageVariables = injectVariables(page.variables, {
                         ...config,
                         ...globalVariables,
                     })

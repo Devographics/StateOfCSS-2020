@@ -173,8 +173,6 @@ exports.createPages = async ({ graphql, actions: { createPage, createRedirect } 
 exports.onCreatePage = async ({ page, graphql, actions }) => {
     const { createPage, deletePage } = actions
     
-    console.log(page.path)
-    
     // Look for /404/ path
     if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
         const oldPage = { ...page }
