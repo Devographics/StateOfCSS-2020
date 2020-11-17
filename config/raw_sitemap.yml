@@ -423,9 +423,6 @@
               variables:
                   id: ${id}
 
-            - id: '${id}_recommended_resources'
-              template: recommendedResourcesTemplate
-
             - id: sass
               template: toolExperienceTemplate
             - id: less
@@ -434,6 +431,9 @@
               template: toolExperienceTemplate
             - id: stylus 
               template: toolExperienceTemplate
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
       - id: css_frameworks
         path: /css-frameworks
@@ -489,9 +489,6 @@
               variables:
                   id: ${id}
 
-            - id: '${id}_recommended_resources'
-              template: recommendedResourcesTemplate
-
             - id: bootstrap
               template: toolExperienceTemplate
             - id: materialize_css
@@ -518,6 +515,9 @@
               template: toolExperienceTemplate
             - id: spectre_css
               template: toolExperienceTemplate
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
       - id: css_methodologies
         path: /methodologies
@@ -573,9 +573,6 @@
               variables:
                   id: ${id}
 
-            - id: '${id}_recommended_resources'
-              template: recommendedResourcesTemplate
-
             - id: bem
               template: toolExperienceTemplate
             - id: atomic_css
@@ -588,6 +585,9 @@
               template: toolExperienceTemplate
             - id: cube_css
               template: toolExperienceTemplate    
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
       - id: css_in_js
         path: /css-in-js
@@ -643,9 +643,6 @@
               variables:
                   id: ${id}
 
-            - id: '${id}_recommended_resources'
-              template: recommendedResourcesTemplate
-
             - id: styled_components
               template: toolExperienceTemplate
             - id: jss
@@ -660,6 +657,9 @@
               template: toolExperienceTemplate
             - id: styled_system
               template: toolExperienceTemplate
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
 - id: tools_others
   path: /other-tools
@@ -778,11 +778,13 @@
 
       - id: state_of_the_web
         titleId: 'happiness.state_of_the_web'
+        i18nNamespace: happiness
         template: happinessTemplate
         bucketKeysName: happiness
 
       - id: state_of_css
         titleId: 'happiness.state_of_css'
+        i18nNamespace: happiness
         template: happinessTemplate
         bucketKeysName: happiness
 
