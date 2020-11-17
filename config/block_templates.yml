@@ -434,13 +434,13 @@ toolHeaderTemplate:
 toolExperienceTemplate:
     blockType: ToolExperienceBlock
     blockName: tool_experience
-    dataPath: surveyApi.survey.tool
+    dataPath: surveyApi.survey.${id}_experience
     bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                tool(id: ${toolId}) {
+                ${id}_experience: tool(id: ${id}) {
                     id
                     entity {
                         homepage

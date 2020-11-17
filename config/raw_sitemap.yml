@@ -373,160 +373,323 @@
   children:
       - id: pre_post_processors
         path: /pre-post-processors
-        template: toolSectionTemplate
+        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
-        # children:
-        #     - id: sass
-        #       template: toolPageTemplate
+        blocks:
+            - id: '${id}_introduction'
+              template: pageIntroductionTemplate
+              # variables:
+              #     pageId: '${id}'
 
-        #     - id: less
-        #       template: toolPageTemplate
+            - id: '${id}_experience_ranking'
+              template: toolsExperienceRankingTemplate
+              variables:
+                  sectionId: '${id}'
 
-        #     - id: post_css
-        #       template: toolPageTemplate
+            - id: '${id}_section_streams'
+              template: toolsSectionStreamsTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: stylus
-        #       template: toolPageTemplate
+            - id: '${id}_section_overview'
+              template: toolsSectionOverviewTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: pre_post_processors_others
-        #       sectionId: pre_post_processors
-        #       path: /other-tools
-        #       template: categoryOtherToolsPageTemplate
-        #       variables:
-        #           sectionId: ${sectionId}
+            - id: '${id}_experience_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: years_of_experience
+                  toolIds: ${toolsCategories.pre_post_processors}
+
+            - id: '${id}_salary_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: yearly_salary
+                  toolIds: ${toolsCategories.pre_post_processors}
+
+            - id: '${id}_company_size_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: company_size
+                  toolIds: ${toolsCategories.pre_post_processors}
+
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
+
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
+
+            - id: sass
+              template: toolExperienceTemplate
+            - id: less
+              template: toolExperienceTemplate
+            - id: post_css
+              template: toolExperienceTemplate
+            - id: stylus 
+              template: toolExperienceTemplate
 
       - id: css_frameworks
         path: /css-frameworks
-        template: toolSectionTemplate
+        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_frameworks}
-        # children:
-        #     - id: bootstrap
-        #       template: toolPageTemplate
+        blocks:
+            - id: '${id}_introduction'
+              template: pageIntroductionTemplate
+              # variables:
+              #     pageId: '${id}'
 
-        #     - id: materialize_css
-        #       template: toolPageTemplate
+            - id: '${id}_experience_ranking'
+              template: toolsExperienceRankingTemplate
+              variables:
+                  sectionId: '${id}'
 
-        #     - id: ant_design
-        #       template: toolPageTemplate
+            - id: '${id}_section_streams'
+              template: toolsSectionStreamsTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: semantic_ui
-        #       template: toolPageTemplate
+            - id: '${id}_section_overview'
+              template: toolsSectionOverviewTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: bulma
-        #       template: toolPageTemplate
+            - id: '${id}_experience_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: years_of_experience
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: foundation
-        #       template: toolPageTemplate
+            - id: '${id}_salary_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: yearly_salary
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: ui_kit
-        #       template: toolPageTemplate
+            - id: '${id}_company_size_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: company_size
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: tachyons
-        #       template: toolPageTemplate
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
 
-        #     - id: primer
-        #       template: toolPageTemplate
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
 
-        #     - id: tailwind_css
-        #       template: toolPageTemplate
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
-        #     - id: pure_css
-        #       template: toolPageTemplate
-
-        #     - id: skeleton
-        #       template: toolPageTemplate
-
-        #     - id: spectre_css
-        #       template: toolPageTemplate
-
-        #     - id: css_frameworks_others
-        #       sectionId: css_frameworks
-        #       path: /other-tools
-        #       template: categoryOtherToolsPageTemplate
-        #       variables:
-        #           sectionId: ${sectionId}
+            - id: bootstrap
+              template: toolExperienceTemplate
+            - id: materialize_css
+              template: toolExperienceTemplate
+            - id: ant_design
+              template: toolExperienceTemplate
+            - id: semantic_ui
+              template: toolExperienceTemplate
+            - id: bulma
+              template: toolExperienceTemplate
+            - id: foundation
+              template: toolExperienceTemplate
+            - id: ui_kit
+              template: toolExperienceTemplate
+            - id: tachyons
+              template: toolExperienceTemplate
+            - id: primer
+              template: toolExperienceTemplate
+            - id: tailwind_css
+              template: toolExperienceTemplate
+            - id: pure_css
+              template: toolExperienceTemplate
+            - id: skeleton
+              template: toolExperienceTemplate
+            - id: spectre_css
+              template: toolExperienceTemplate
 
       - id: css_methodologies
         path: /methodologies
-        template: toolSectionTemplate
+        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_methodologies}
-        # children:
-        #     - id: bem
-        #       template: toolPageTemplate
+        blocks:
+            - id: '${id}_introduction'
+              template: pageIntroductionTemplate
+              # variables:
+              #     pageId: '${id}'
 
-        #     - id: atomic_css
-        #       template: toolPageTemplate
+            - id: '${id}_experience_ranking'
+              template: toolsExperienceRankingTemplate
+              variables:
+                  sectionId: '${id}'
 
-        #     - id: oocss
-        #       template: toolPageTemplate
+            - id: '${id}_section_streams'
+              template: toolsSectionStreamsTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: smacss
-        #       template: toolPageTemplate
+            - id: '${id}_section_overview'
+              template: toolsSectionOverviewTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: it_css
-        #       template: toolPageTemplate
+            - id: '${id}_experience_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: years_of_experience
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: cube_css
-        #       template: toolPageTemplate
+            - id: '${id}_salary_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: yearly_salary
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: css_methodologies_others
-        #       sectionId: css_methodologies
-        #       path: /other-tools
-        #       template: categoryOtherToolsPageTemplate
-        #       variables:
-        #           sectionId: ${sectionId}
+            - id: '${id}_company_size_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: company_size
+                  toolIds: ${toolsCategories.pre_post_processors}
+
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
+
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
+
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
+
+            - id: bem
+              template: toolExperienceTemplate
+            - id: atomic_css
+              template: toolExperienceTemplate
+            - id: oocss
+              template: toolExperienceTemplate
+            - id: smacss
+              template: toolExperienceTemplate
+            - id: it_css
+              template: toolExperienceTemplate
+            - id: cube_css
+              template: toolExperienceTemplate    
 
       - id: css_in_js
         path: /css-in-js
-        template: toolSectionTemplate
+        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_in_js}
-        # children:
-        #     - id: styled_components
-        #       template: toolPageTemplate
+        blocks:
+            - id: '${id}_introduction'
+              template: pageIntroductionTemplate
+              # variables:
+              #     pageId: '${id}'
 
-        #     - id: jss
-        #       template: toolPageTemplate
+            - id: '${id}_experience_ranking'
+              template: toolsExperienceRankingTemplate
+              variables:
+                  sectionId: '${id}'
 
-        #     - id: styled_jsx
-        #       template: toolPageTemplate
+            - id: '${id}_section_streams'
+              template: toolsSectionStreamsTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: radium
-        #       template: toolPageTemplate
+            - id: '${id}_section_overview'
+              template: toolsSectionOverviewTemplate
+              variables:
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: emotion
-        #       template: toolPageTemplate
+            - id: '${id}_experience_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: years_of_experience
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: css_modules
-        #       template: toolPageTemplate
+            - id: '${id}_salary_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: yearly_salary
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: styled_system
-        #       template: toolPageTemplate
+            - id: '${id}_company_size_heatmap'
+              template: heatmapTemplate
+              variables:
+                  subject: tools
+                  heatmapId: company_size
+                  toolIds: ${toolsCategories.pre_post_processors}
 
-        #     - id: stitches
-        #       template: toolPageTemplate
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
 
-        #     - id: styletron
-        #       template: toolPageTemplate
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
 
-        #     - id: fela
-        #       template: toolPageTemplate
+            - id: '${id}_recommended_resources'
+              template: recommendedResourcesTemplate
 
-        #     - id: linaria
-        #       template: toolPageTemplate
-
-        #     - id: astroturf
-        #       template: toolPageTemplate
-
-        #     - id: css_in_js_others
-        #       sectionId: css_in_js
-        #       path: /other-tools
-        #       template: categoryOtherToolsPageTemplate
-        #       variables:
-        #           sectionId: ${sectionId}
+            - id: styled_components
+              template: toolExperienceTemplate
+            - id: jss
+              template: toolExperienceTemplate
+            - id: styled_jsx
+              template: toolExperienceTemplate
+            - id: radium
+              template: toolExperienceTemplate
+            - id: emotion
+              template: toolExperienceTemplate
+            - id: css_modules
+              template: toolExperienceTemplate
+            - id: styled_system
+              template: toolExperienceTemplate
 
 - id: tools_others
   path: /other-tools
