@@ -75,7 +75,7 @@ export default class LegendsItem extends Component {
                     />
                 )}
                 {!color && shortLabel && (
-                    <span className="Legends__Item__KeyLabel">{shortLabel} </span>
+                    <KeyLabel className="Legends__Item__KeyLabel">{shortLabel} </KeyLabel>
                 )}
                 <Label
                     className="Legends__Item__Label"
@@ -117,6 +117,11 @@ const Chip = styled.span`
     display: block;
     margin-right: ${spacing(0.5)};
     flex-shrink: 0;
+`
+
+const KeyLabel = styled.span`
+    width: 100px;
+    margin-right: ${spacing()};
 `
 
 const Label = styled.span`

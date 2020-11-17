@@ -4,8 +4,7 @@ import { usePageContext } from 'core/helpers/pageContext'
 
 const LocaleLink = ({ to, ...rest }) => {
     const context = usePageContext()
-
-    return <Link {...rest} to={`${context.localePath}${to}`} />
+    return <Link {...rest} to={`${context.locale.path}${to}`} />
 }
 
 export default LocaleLink

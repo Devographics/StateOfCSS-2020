@@ -34,8 +34,7 @@ query {
 const rawSitemap = yaml.safeLoad(fs.readFileSync('./config/raw_sitemap.yml', 'utf8'))
 // const locales = yaml.safeLoad(fs.readFileSync('./config/locales.yml', 'utf8'))
 
-const localizedPath = (path, locale) =>
-    locale.id === 'en-US' ? path : `/${locale.id}${path}`
+const getLocalizedPath = (path, locale) => locale ? `/${locale.id}${path}` : path
 
 const getPageContext = page => {
     const context = omit(page, ['path', 'children'])
@@ -60,11 +59,11 @@ const createBlockPages = (page, context, createPage, locales) => {
         }
         locales.forEach(locale => {
             const blockPage = {
-                path: localizedPath(block.path, locale),
+                path: getLocalizedPath(block.path, locale),
                 component: path.resolve(`./src/core/share/ShareBlockTemplate.js`),
                 context: {
                     ...context,
-                    redirect: `${localizedPath(page.path, locale)}#${block.id}`,
+                    redirect: `${getLocalizedPath(page.path, locale)}#${block.id}`,
                     block,
                     locale: locale.locale,
                     localePath: locale.path === 'default' ? '' : `/${locale.path}`
@@ -98,12 +97,11 @@ ${indentString(queries.join('\n'), 4)}
     return pageQuery
 }
 
-exports.createPages = async ({ graphql, actions: { createPage } }) => {
+exports.createPages = async ({ graphql, actions: { createPage, createRedirect } }) => {
     const { flat } = await computeSitemap(rawSitemap)
 
     const localesResults = await graphql(`${localesQuery}`)
     const locales = localesResults.data.surveyApi.locales
-    const localesWithPaths = locales.map(l => ({...l, path: l.id === 'en-US' ? '' : `/${l.id}`}))
 
     for (const page of flat) {
         let pageData = {}
@@ -112,6 +110,8 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
         // loop over locales
         for (let index = 0; index < locales.length; index++) {
             const locale = locales[index]
+            locale.path = `/${locale.id}`
+            
             // console.log('// pageQuery')
             const pageQuery = getPageQuery(page)
     
@@ -129,19 +129,22 @@ exports.createPages = async ({ graphql, actions: { createPage } }) => {
             }
 
             const pageObject = {
-                path: localizedPath(page.path, locale),
+                path: getLocalizedPath(page.path, locale),
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locales: localesWithPaths,
-                    localeId: locale.id,
-                    localeLabel: locale.label,
-                    localePath: locale.path,
+                    locales,
+                    locale,
                     pageData,
                     pageQuery, // passed for debugging purposes
                 }
             }
             createPage(pageObject)
+
+            // also redirect "naked" paths (whithout a locale) to en-US
+            if (locale.id === 'en-US') {
+                createRedirect({ fromPath: getLocalizedPath(page.path, null), toPath: getLocalizedPath(page.path, locale), isPermanent: true })
+            }
         }
 
         createBlockPages(page, context, createPage, locales)

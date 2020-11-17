@@ -19,7 +19,7 @@ const PageFooter = () => {
                     <PreviousLink
                         as={Link}
                         className="PageFooter__Link PageFooter__Link--previous"
-                        to={`${context.localePath}${context.previous.path}`}
+                        to={context.previous.path}
                     >
                         « {translate('page.previous')} <PageLabel page={context.previous} />
                     </PreviousLink>
@@ -28,7 +28,7 @@ const PageFooter = () => {
                     <NextLink
                         as={Link}
                         className="PageFooter__Link PageFooter__Link--next Button"
-                        to={`${context.localePath}${context.next.path}`}
+                        to={context.next.path}
                     >
                         {translate('page.next')} <PageLabel page={context.next} /> »
                     </NextLink>
@@ -37,14 +37,7 @@ const PageFooter = () => {
             <Notes>
                 <span
                     dangerouslySetInnerHTML={{
-                        __html: translate('footer.state_of_css_link', {
-                            values: { link: 'http://stateofcss.com/' },
-                        }),
-                    }}
-                />{' '}
-                <span
-                    dangerouslySetInnerHTML={{
-                        __html: translate('footer.leave_an_issue', {
+                        __html: translate('general.leave_issue', {
                             values: {
                                 link: 'https://github.com/StateOfJS/StateOfCSS-2020',
                             },
@@ -53,7 +46,7 @@ const PageFooter = () => {
                 />{' '}
                 <span
                     dangerouslySetInnerHTML={{
-                        __html: translate('footer.netlify', {
+                        __html: translate('general.netlify_link', {
                             values: { link: 'https://www.netlify.com' },
                         }),
                     }}

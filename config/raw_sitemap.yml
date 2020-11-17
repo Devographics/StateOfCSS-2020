@@ -329,6 +329,7 @@
 
 - id: units_selectors
   path: /units-and-selectors
+  i18nNamespace: features_others
   blocks:
       - id: units_selectors
         template: pageIntroductionTemplate

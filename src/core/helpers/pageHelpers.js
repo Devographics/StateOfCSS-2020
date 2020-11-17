@@ -66,7 +66,7 @@ export const getPageImageUrl = (context) => {
 }
 
 export const getPageMeta = (context, translate, overrides = {}) => {
-    const url = `${context.host}${context.localePath}${context.basePath}`
+    const url = `${context.host}${context.locale.path}${context.basePath}`
     const imageUrl = getPageImageUrl(context)
     const isRoot = context.path === '/' || context.basePath === '/'
 

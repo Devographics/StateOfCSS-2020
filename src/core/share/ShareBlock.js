@@ -128,7 +128,7 @@ const Icon = styled.svg`
 
     ${ShareButton}:hover &,
     .ShareBlock._is-visible & {
-        stroke: ${({ theme }) => theme.colors.contrast};
+        stroke: ${({ theme }) => theme.colors.link};
     }
 `
 

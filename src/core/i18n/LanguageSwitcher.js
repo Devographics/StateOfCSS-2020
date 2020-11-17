@@ -25,7 +25,7 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
         >
             <LanguageSwitcherInner className="LanguageSwitcherInner">
                 <LanguageSwitcherToggle className="LanguageSwitcherToggle" onClick={toggle}>
-                    <span>{context.localeLabel}</span>
+                    <span>{context.locale.label}</span>
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 50">
                         {isOpened ? svgs[positionOpen] : svgs[position]}
                     </svg>

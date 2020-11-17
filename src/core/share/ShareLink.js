@@ -23,7 +23,7 @@ const Link = styled.a`
     &:hover {
         svg path,
         svg circle {
-            fill: ${({ theme }) => theme.colors.contrast};
+            fill: ${({ theme }) => theme.colors.link};
         }
     }
 
