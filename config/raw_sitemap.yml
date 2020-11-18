@@ -38,6 +38,7 @@
 
 - id: tshirt
   path: /tshirt
+  showTitle: false
   blocks:
       - id: tshirt_intro
         template: pageIntroductionTemplate
