@@ -349,13 +349,13 @@ otherFeaturesTemplate:
 
 toolsSectionOverviewTemplate:
     blockType: ToolsSectionOverviewBlock
-    dataPath: 'surveyApi.survey.tools'
+    dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                tools(ids: [${toolIds}]) {
+                ${parentId}_tools: tools(ids: [${toolIds}]) {
                     id
                     entity {
                         name
@@ -375,13 +375,13 @@ toolsSectionOverviewTemplate:
 
 toolsSectionStreamsTemplate:
     blockType: ToolsSectionStreamsBlock
-    dataPath: 'surveyApi.survey.tools'
+    dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                tools(ids: [${toolIds}]) {
+                ${parentId}_tools: tools(ids: [${toolIds}]) {
                     id
                     entity {
                         name
@@ -411,11 +411,11 @@ toolsSectionStreamsTemplate:
 
 toolHeaderTemplate:
     blockType: ToolHeaderBlock
-    dataPath: surveyApi.survey.headerData
+    dataPath: surveyApi.survey.${parentId}_headerData
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                headerData: tool(id: ${toolId}) {
+                ${parentId}_headerData: tool(id: ${toolId}) {
                     id
                     entity {
                         name
@@ -508,11 +508,11 @@ toolExperienceGraphTemplate:
 toolsExperienceRankingTemplate:
     blockType: ToolsExperienceRankingBlock
     blockName: tools_experience_ranking
-    dataPath: 'surveyApi.survey.tools_rankings.experience'
+    dataPath: 'surveyApi.survey.${parentId}_rankings.experience'
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                tools_rankings(ids: [${toolsCategories[sectionId]}]) {
+                ${parentId}_rankings: tools_rankings(ids: [${toolsCategories[sectionId]}]) {
                     ids
                     experience {
                         id
@@ -541,12 +541,12 @@ toolsExperienceRankingTemplate:
 
 heatmapTemplate:
     blockType: HeatmapBlock
-    dataPath: 'surveyApi.survey.matrices.tools.${heatmapId}.year'
+    dataPath: 'surveyApi.survey.${parentId}_matrices.tools.${heatmapId}.year'
     showDescription: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                matrices {
+                ${parentId}_matrices: matrices {
                     tools(ids: [${toolIds}]) {
                         ${heatmapId}(experience: would_use) {
                             year(year: ${currentYear}) {
@@ -861,11 +861,11 @@ environmentTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
     mode: relative
-    dataPath: 'surveyApi.survey.${id}.year'
+    dataPath: 'surveyApi.survey.${id}_environments.year'
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${id}: environments(id: ${id}) {
+                ${id}_environments: environments(id: ${id}) {
                     id
                     year(year: ${currentYear}) {
                         year

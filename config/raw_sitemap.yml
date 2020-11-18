@@ -37,11 +37,10 @@
         blockType: SurveyIntroBlock
 
 - id: tshirt
-  showTitle: false
   path: /tshirt
   blocks:
       - id: tshirt_intro
-        # template: pageIntroductionTemplate
+        template: pageIntroductionTemplate
         # variables:
         #     pageId: ${id}
       - id: tshirt_block
