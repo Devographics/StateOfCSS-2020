@@ -309,7 +309,4 @@ export const emailOctopusSiteKey = '6LdYsmsUAAAAAPXVTt-ovRsPIJ_IVhvYBBhGvRV6'
 
 export const emailOctopusCode = 'hp463dc2a9-b2ff-11e8-a3c9-06b79b628af2'
 
-export const totalCount = 3611
-export const totalCountRounded = 3600 // used by scatterplot chart
-
 export const websiteTitle = 'The State of JavaScript 2019'

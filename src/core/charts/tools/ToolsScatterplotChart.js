@@ -2,23 +2,31 @@ import React, { memo, useContext } from 'react'
 import PropTypes from 'prop-types'
 import { ThemeContext } from 'styled-components'
 import { ResponsiveScatterPlot } from '@nivo/scatterplot'
-import { colors, getColor, totalCountRounded } from 'core/constants.js'
+import { colors, getColor } from 'core/constants.js'
 import { useI18n } from 'core/i18n/i18nContext'
+
+const totalCountRounded = 9000
 
 const labelPositions = {
     satisfaction: {
-        Feathers: [0, 5],
-        Puppeteer: [0, 5],
-        Svelte: [0, 10],
-        Gatsby: [-70, 0],
-        Cypress: [0, -10],
-        'Next.js': [0, -10],
+        Skeleton: [-30, -15],
+        Tachyons: [-80, 0],
+        'Spectre.css': [0, 5],
+        Primer: [0, 5],
+        'Ant Design': [0, 5],
+        JSS: [0, 10],
+        SMACSS: [0, -10],
+        'Styled System': [-50, -20],
+        'Tailwind CSS': [-50, -20],
+        'Styled Components': [0, 10],
     },
     interest: {
-        Jasmine: [-80, 0],
-        PureScript: [0, -10],
-        Sails: [-60, 0],
-        'Next.js': [-80, 0],
+        PureCSS: [-50,-20],
+        Less: [-55,0],
+        JSS: [0,10],
+        SMACSS: [-70,0],
+        Radium: [-70,0],
+        'Spectre.css': [-50,-20]
     },
 }
 

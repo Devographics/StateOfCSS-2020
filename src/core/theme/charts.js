@@ -37,7 +37,7 @@ export default {
                 strokeWidth: 2,
             },
             text: {
-                fontSize: 16,
+                fontSize: 12,
             },
         },
     },

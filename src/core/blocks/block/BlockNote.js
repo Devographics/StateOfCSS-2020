@@ -44,7 +44,7 @@ const Note = styled.div`
     padding: ${spacing()};
     margin-top: ${spacing(2)};
     font-size: ${props => props.theme.typography.size.small};
-    p {
+    p, ul, ol {
         &:last-child {
             margin: 0;
         }

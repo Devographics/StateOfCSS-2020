@@ -35,7 +35,7 @@ const Dot = ({ x, y, datum, current, units }) => {
 }
 
 const margin = {
-    top: 40,
+    top: 0,
     right: 20,
     bottom: 40,
     left: 20,
@@ -63,6 +63,9 @@ const StreamChart = ({
     current,
     colorScale,
     applyEmptyPatternTo,
+    showLabels = true,
+    showYears= true,
+    height = 260,
 }) => {
     const theme = useContext(ThemeContext)
 
@@ -73,8 +76,8 @@ const StreamChart = ({
     }
 
     let tooltipFormat
-    if (units === 'percents') {
-        tooltipFormat = (d) => `${d.value}%`
+    if (units === 'percentage') {
+        tooltipFormat = (d) => `${d}%`
     }
 
     const getLayerColor = ({ index }) => {
@@ -85,7 +88,7 @@ const StreamChart = ({
     }
 
     return (
-        <div style={{ height: 260 }}>
+        <div style={{ height }}>
             <ResponsiveStream
                 theme={{
                     ...theme.charts,
@@ -102,11 +105,11 @@ const StreamChart = ({
                 axisLeft={undefined}
                 axisTop={horizontalAxis}
                 axisBottom={horizontalAxis}
-                enableDots={true}
+                enableDots={showLabels}
                 dotComponent={(d) => <Dot {...d} current={current} units={units} />}
                 dotColor="inherit:brighter(0.6)"
                 animate={false}
-                tooltipLabel={(d) => bucketKeys.find((key) => key.id === d.id).label}
+                tooltipLabel={(d) => bucketKeys.find((key) => key.id === d.id).shortLabel}
                 tooltipFormat={tooltipFormat}
                 defs={[theme.charts.emptyPattern]}
                 fill={[
