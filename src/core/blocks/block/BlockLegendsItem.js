@@ -80,7 +80,9 @@ export default class LegendsItem extends Component {
                 )}
                 <Label
                     className="Legends__Item__Label"
-                    dangerouslySetInnerHTML={{ __html: useShortLabels ? shortLabel : label }}
+                    dangerouslySetInnerHTML={{
+                        __html: useShortLabels ? shortLabel || label : label,
+                    }}
                 />
                 {data && (
                     <Value className="Legends__Item__Value">

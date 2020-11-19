@@ -1,8 +1,6 @@
 import { getToolName } from 'core/helpers/tools'
-import { websiteTitle } from 'core/constants.js'
 import get from 'lodash/get'
-
-const WEBSITE_TITLE = websiteTitle
+import config from '../../../config/config.yml'
 
 export const getTranslationValuesFromContext = (context, translate) => {
     const values = {}
@@ -39,7 +37,7 @@ export const getPageLabel = (
     // }
 
     if (includeWebsite === true) {
-        label = `${WEBSITE_TITLE}: ${label}`
+        label = `${config.siteTitle}: ${label}`
     }
 
     return label
@@ -60,7 +58,7 @@ export const getPageImageUrl = (context) => {
         //     .replace(/\/$/, '')
         //     .replace(/\//g, '_')}_${context.block.id}.png`
     } else {
-        imageUrl = `${baseUrl}stateofjs-socialmedia.png`
+        imageUrl = `${baseUrl}${config.socialMediaImage}`
     }
 
     return imageUrl
@@ -73,7 +71,7 @@ export const getPageMeta = (context, translate, overrides = {}) => {
 
     const meta = {
         url,
-        title: isRoot ? WEBSITE_TITLE : getPageLabel(context, translate, { includeWebsite: true }),
+        title: isRoot ? config.siteTitle : getPageLabel(context, translate, { includeWebsite: true }),
         imageUrl,
         ...overrides,
     }
@@ -83,7 +81,7 @@ export const getPageMeta = (context, translate, overrides = {}) => {
 
 export const getPageSocialMeta = (context, translate, overrides = {}) => {
     const meta = getPageMeta(context, translate, overrides)
-
+    console.log(meta)
     const socialMeta = [
         // facebook
         { property: 'og:type', content: 'article' },
