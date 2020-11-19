@@ -51,6 +51,7 @@ export default class LegendsItem extends Component {
             data,
             units,
             onMouseEnter,
+            useShortLabels,
         } = this.props
 
         const isInteractive = typeof onMouseEnter !== 'undefined'
@@ -79,7 +80,7 @@ export default class LegendsItem extends Component {
                 )}
                 <Label
                     className="Legends__Item__Label"
-                    dangerouslySetInnerHTML={{ __html: label }}
+                    dangerouslySetInnerHTML={{ __html: useShortLabels ? shortLabel : label }}
                 />
                 {data && (
                     <Value className="Legends__Item__Value">

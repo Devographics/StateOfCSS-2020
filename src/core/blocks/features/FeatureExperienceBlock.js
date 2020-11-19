@@ -27,9 +27,9 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
     const mdnLink = mdn && `https://developer.mozilla.org${mdn.url}`
     // only show descriptions for english version
     const description =
-        locale === 'en-US' &&
+        locale.id === 'en-US' &&
         mdn &&
-        `${parseMDNLinks(mdn.summary)} <a href="${mdnLink}">${translate('feature.mdn_link')}</a>`
+        parseMDNLinks(mdn.summary)
 
     return (
         <Block
@@ -40,7 +40,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
                 completion: get(data, 'experience.year.completion'),
                 buckets,
             }}
-            block={{ ...block, title: name, description }}
+            block={{ ...block, title: name, titleLink: mdnLink, description }}
         >
             <ChartContainer height={40} fit={true} className="FeatureChart">
                 <GaugeBarChart

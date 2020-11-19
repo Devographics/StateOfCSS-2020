@@ -444,6 +444,7 @@ toolExperienceTemplate:
                     id
                     entity {
                         homepage
+                        description
                         name
                         github {
                             url

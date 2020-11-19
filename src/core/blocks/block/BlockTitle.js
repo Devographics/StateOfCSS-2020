@@ -24,7 +24,7 @@ const BlockTitle = ({
     block,
     switcher,
 }) => {
-    const { id, blockName, showDescription = true } = block
+    const { id, blockName, titleLink, showDescription = true } = block
     const completion = data && (Array.isArray(data) ? last(data).completion : data.completion)
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
@@ -69,7 +69,7 @@ const BlockTitle = ({
                 <LeftPart>
                     <BlockTitleText className="BlockTitleText">
                         <SharePermalink url={meta.link} />
-                        {blockTitle}
+                        {titleLink ? <a href={titleLink}>{blockTitle}</a>: blockTitle}
                     </BlockTitleText>
                     {completion && <BlockCompletionIndicator completion={completion} />}
                     {isExportable && block && (
