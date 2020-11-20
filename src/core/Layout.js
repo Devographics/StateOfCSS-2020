@@ -84,7 +84,6 @@ const ThemedLayout = ({
 const PageContent = styled.main`
     display: flex;
     flex-direction: column;
-    width: 100%;
 `
 
 const Page = styled.div`

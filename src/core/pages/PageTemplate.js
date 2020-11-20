@@ -11,13 +11,12 @@ const PageTemplate = ({ data = {}, pageContext = {} }) => {
     return (
         <>
             {showTitle && <PageHeader />}
-            {data.introduction && <TextBlock text={data.introduction.html} />}
-            <main className={`Page--${id}`}>
+            <div className="Page__Contents">
                 {context.blocks &&
                     context.blocks.map((block, i) => (
                         <BlockSwitcher key={block.id} block={block} pageData={pageData} index={i} />
                     ))}
-            </main>
+            </div>
             {!is_hidden && <PageFooter />}
         </>
     )

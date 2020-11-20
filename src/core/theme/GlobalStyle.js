@@ -100,6 +100,7 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     .Page--awards {
+        .Page__Contents{
         @media ${mq.mediumLarge} {
             width: 100%;
             display: grid;
@@ -111,5 +112,6 @@ export const GlobalStyle = createGlobalStyle`
                 grid-column: 1 / 3;
             }
         }
+    }
     }
 `

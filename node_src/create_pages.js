@@ -98,16 +98,15 @@ exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createR
             }
 
             createPage(pageObject)
-
-            // also redirect "naked" paths (whithout a locale) to en-US
-            if (locale.id === 'en-US') {
-                createRedirect({
-                    fromPath: getLocalizedPath(page.path, null),
-                    toPath: getLocalizedPath(page.path, locale),
-                    isPermanent: true,
-                })
-            }
         }
+
+        // also redirect "naked" paths (whithout a locale) to en-US
+        createRedirect({
+            fromPath: getLocalizedPath(page.path, null),
+            toPath: getLocalizedPath(page.path, { id: 'en-US' }),
+            isPermanent: true,
+        })
+
         createBlockPages(page, context, createPage, locales)
     }
 }
@@ -163,16 +162,14 @@ exports.createPagesTwoLoops = async ({ graphql, actions: { createPage, createRed
                 },
             }
             createPage(pageObject)
-
-            // also redirect "naked" paths (whithout a locale) to en-US
-            if (locale.id === 'en-US') {
-                createRedirect({
-                    fromPath: getLocalizedPath(page.path, null),
-                    toPath: getLocalizedPath(page.path, locale),
-                    isPermanent: true,
-                })
-            }
         }
+
+        // also redirect "naked" paths (whithout a locale) to en-US
+        createRedirect({
+            fromPath: getLocalizedPath(page.path, null),
+            toPath: getLocalizedPath(page.path, { id: 'en-US' }),
+            isPermanent: true,
+        })
 
         createBlockPages(page, context, createPage, locales)
     }
