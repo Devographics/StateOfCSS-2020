@@ -84,6 +84,7 @@ const ThemedLayout = ({
 const PageContent = styled.main`
     display: flex;
     flex-direction: column;
+    width: 100%;
 `
 
 const Page = styled.div`
@@ -166,7 +167,6 @@ export default class Layout extends PureComponent {
         const { showPagination, location, pageContext } = this.props
         const { showSidebar } = this.state
         const context = mergePageContext(pageContext, location, this.state)
-
         return (
             <PageContextProvider value={context}>
                 <I18nContextProvider>

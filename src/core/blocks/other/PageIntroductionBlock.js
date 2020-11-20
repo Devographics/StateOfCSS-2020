@@ -6,7 +6,7 @@ import { mq, typography, spacing } from 'core/theme'
 
 const PageIntroductionBlock = ({ block }) => {
     const { translate } = useI18n()
-    return <Introduction source={translate(`sections.${block.pageId}.description`)} />
+    return <Introduction className="Page__Introduction" source={translate(`sections.${block.pageId}.description`)} />
 }
 
 const Introduction = styled(ReactMarkdown)`

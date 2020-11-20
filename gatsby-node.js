@@ -8,25 +8,45 @@ require('dotenv').config({
 exports.createPages = createPagesSingleLoop
 
 // handle 404 page separately
-exports.onCreatePage = async ({ page, graphql, actions }) => {
-    const { createPage, deletePage } = actions
+// exports.onCreatePage = async ({ page, actions }) => {
+//     const { createPage, deletePage } = actions
 
-    // Look for /404/ path
-    if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
-        const oldPage = { ...page }
+//     // Look for /404/ path
+//     if (page.path.match(/^\/[a-z]{2}\/404\/$/)) {
+//         const oldPage = { ...page }
 
-        // Add page context stubs to avoid throwing errors
-        page.context = {
-            locales: [],
-            locale: {},
-        }
-        console.log('//404')
-        console.log(page)
-        // Recreate the modified page
-        deletePage(oldPage)
-        createPage(page)
-    }
-}
+//         // Add page context stubs to avoid throwing errors
+//         page.context = {
+//             locales: [],
+//             locale: {},
+//         }
+//         console.log('//404')
+//         console.log(page)
+//         // Recreate the modified page
+//         deletePage(oldPage)
+//         createPage(page)
+//     }
+// }
+
+// exports.onCreatePage = async ({ page, actions }) => {
+//     const { createPage, deletePage } = actions
+//     // Check if the page is a localized 404
+//     if (page.path.match(/404/)) {
+//       const oldPage = { ...page }
+//       // Get the language code from the path, and match all paths
+//       // starting with this code (apart from other valid paths)
+//       const langCode = page.path.split(`/`)[1]
+//       page.matchPath = `/${langCode}/*`
+
+//       console.log('//404')
+//       console.log(page)
+//       console.log(langCode)
+
+//       // Recreate the modified page
+//       deletePage(oldPage)
+//       createPage(page)
+//     }
+//   }
 
 /**
  * Fix case for pages path, it's not obvious on OSX which is case insensitive,

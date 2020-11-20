@@ -101,6 +101,7 @@ export const GlobalStyle = createGlobalStyle`
     
     .Page--awards {
         @media ${mq.mediumLarge} {
+            width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
             column-gap: ${spacing(4)};

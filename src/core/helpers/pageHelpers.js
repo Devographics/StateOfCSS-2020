@@ -21,7 +21,7 @@ export const getPageLabel = (
 ) => {
     let label
 
-    label = translate(`sections.${page.titleId || page.id}.title`)
+    label = translate(page.titleId || `sections.${page.id}.title`)
     
     // if (['features_intro', 'features_results', 'features_conclusion'].includes(page.type)) {
     //     label = translate(
@@ -81,7 +81,6 @@ export const getPageMeta = (context, translate, overrides = {}) => {
 
 export const getPageSocialMeta = (context, translate, overrides = {}) => {
     const meta = getPageMeta(context, translate, overrides)
-    console.log(meta)
     const socialMeta = [
         // facebook
         { property: 'og:type', content: 'article' },

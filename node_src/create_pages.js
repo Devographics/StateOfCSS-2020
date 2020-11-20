@@ -92,6 +92,11 @@ exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createR
                     pageQuery, // passed for debugging purposes
                 },
             }
+
+            if (page.id === 'notfound') {
+                pageObject.matchPath = `/${locale.id}/*`
+            }
+
             createPage(pageObject)
 
             // also redirect "naked" paths (whithout a locale) to en-US

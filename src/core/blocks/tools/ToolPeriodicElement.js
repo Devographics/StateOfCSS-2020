@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { navigate } from 'gatsby'
 import { fontWeight } from 'core/theme'
 
-const PeriodicElement = ({ className, name, symbol, number, size, path, x, y }) => {
+const PeriodicElement = ({ className, name = '', symbol, number, size, path, x, y }) => {
     return (
         <svg
             width={size || '100%'}

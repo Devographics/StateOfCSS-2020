@@ -27,7 +27,7 @@ const GenderBlock = ({ block, data }) => {
                     units={units}
                     buckets={data.buckets}
                     colorMapping={colorMapping}
-                    i18nNamespace={id}
+                    i18nNamespace="options.gender"
                 />
             </ChartContainer>
         </Block>
