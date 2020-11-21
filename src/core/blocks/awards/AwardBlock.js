@@ -54,7 +54,7 @@ const AwardBlock = ({ block }) => {
                         )}
                         <PeriodicElement
                             tool={winner.id}
-                            name={winner.name}
+                            name={winner.name || winner.id}
                             symbol={periodicTableData.tools[winner.id] || '??'}
                             number={`#1` || '?'}
                         />
@@ -79,7 +79,7 @@ const AwardBlock = ({ block }) => {
                 </RunnerUpsHeading>
                 {runnerUps.map((runnerUp, i) => (
                     <RunnerUpsItem key={runnerUp.id} className="Awards__RunnerUps__Item">
-                        {i + 2}. {runnerUp.name}
+                        {i + 2}. {runnerUp.name || runnerUp.id}
                         {runnerUp.value ? `: ${runnerUp.value}` : ''}
                     </RunnerUpsItem>
                 ))}

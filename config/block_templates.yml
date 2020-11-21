@@ -293,7 +293,7 @@ featureExperienceTemplate:
                         summary
                     }
                     experience {
-                        year(year: ${currentYear}) {
+                        all_years {
                             year
                             completion {
                                 count
@@ -302,7 +302,9 @@ featureExperienceTemplate:
                             buckets {
                                 id
                                 count
+                                countDelta
                                 percentage
+                                percentageDelta
                             }
                         }
                     }
@@ -466,7 +468,9 @@ toolExperienceTemplate:
                             buckets {
                                 id
                                 count
+                                countDelta
                                 percentage
+                                percentageDelta
                             }
                         }
                     }
@@ -707,7 +711,8 @@ opinionsOthersTemplate:
 otherToolsTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
-    mode: absolute
+    mode: relative
+    units: count
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {

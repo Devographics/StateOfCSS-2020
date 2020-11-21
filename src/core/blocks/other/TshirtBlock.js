@@ -6,9 +6,9 @@ import { mq, spacing, fontSize } from 'core/theme'
 import Button from 'core/components/Button'
 
 const images = [
-    'stateofjs2019tshirt1.jpg',
-    'stateofjs2019tshirt2.jpg',
-    'stateofjs2019tshirt-illustration.png',
+    'stateofcss/tshirt5.jpg',
+    'stateofcss/tshirt6.jpg',
+    'stateofcss/tshirt4.png',
 ]
 
 const TshirtBlock = () => {
@@ -40,7 +40,7 @@ const TshirtBlock = () => {
                 <TshirtButton
                     as="a"
                     className="TshirtButton gumroad-button"
-                    href="https://gumroad.com/l/stateofjs-tshirt"
+                    href="https://gumroad.com/l/stateofcss-tshirt"
                     target="_blank"
                     rel="noopener noreferrer"
                 >

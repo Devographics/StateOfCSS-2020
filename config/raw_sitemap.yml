@@ -31,9 +31,6 @@
   showTitle: false
   blocks:
       - id: survey_intro
-        # variables:
-        #     pageId: ${id}
-        # template: pageIntroductionTemplate
         blockType: SurveyIntroBlock
 
 - id: tshirt
@@ -42,8 +39,6 @@
   blocks:
       - id: tshirt_intro
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: ${id}
       - id: tshirt_block
         blockType: TshirtBlock
 
@@ -125,8 +120,6 @@
   blocks:
       - id: features_introduction
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: features
 
       - id: ${id}_featuresOverview
         template: featuresOverviewTemplate
@@ -141,8 +134,6 @@
         blocks:
             - id: layout
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: grid
               template: featureExperienceTemplate
@@ -179,8 +170,6 @@
         blocks:
             - id: shapes_graphics
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: shapes
               template: featureExperienceTemplate
@@ -208,8 +197,6 @@
         blocks:
             - id: interactions
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: scroll_snap
               template: featureExperienceTemplate
@@ -231,14 +218,9 @@
         blocks:
             - id: typography
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: web_fonts
               template: featureExperienceTemplate
-
-            # - id: variable_fonts
-            #   template: featureExperienceTemplate
 
             - id: line_breaking
               template: featureExperienceTemplate
@@ -266,8 +248,6 @@
         blocks:
             - id: animations_transforms
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: transitions
               template: featureExperienceTemplate
@@ -286,8 +266,6 @@
         blocks:
             - id: media_queries
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: prefers_reduced_motion
               template: featureExperienceTemplate
@@ -303,8 +281,6 @@
         blocks:
             - id: other_features
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: variables
               template: featureExperienceTemplate
@@ -333,8 +309,6 @@
   blocks:
       - id: units_selectors
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: '${id}'
 
       - id: units
         template: otherFeaturesTemplate
@@ -365,15 +339,12 @@
   blocks:
       - id: technologiesIntroduction
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: '${id}'
 
       - id: scatterplotOverview
         template: scatterplotOverviewTemplate
   children:
       - id: pre_post_processors
         path: /pre-post-processors
-        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
@@ -437,14 +408,11 @@
 
       - id: css_frameworks
         path: /css-frameworks
-        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_frameworks}
         blocks:
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: '${id}_experience_ranking'
               template: toolsExperienceRankingTemplate
@@ -521,14 +489,11 @@
 
       - id: css_methodologies
         path: /methodologies
-        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_methodologies}
         blocks:
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: '${id}_experience_ranking'
               template: toolsExperienceRankingTemplate
@@ -591,14 +556,11 @@
 
       - id: css_in_js
         path: /css-in-js
-        # template: toolSectionTemplate
         variables:
             toolIds: ${toolsCategories.css_in_js}
         blocks:
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
-              # variables:
-              #     pageId: '${id}'
 
             - id: '${id}_experience_ranking'
               template: toolsExperienceRankingTemplate
@@ -666,8 +628,6 @@
   blocks:
       - id: tools_others_intro
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: ${id}
 
       - id: utilities
         template: otherToolsTemplate
@@ -692,8 +652,6 @@
   blocks:
       - id: environments_introduction
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: '${id}'
 
       - id: browsers
         template: environmentTemplate
@@ -703,13 +661,9 @@
         template: environmentTemplate
 
       - id: css_for_print
-        # titleId: environments.css_for_print
-        # descriptionId: environments.css_for_print.description
         template: environmentRatingTemplate
 
       - id: css_for_email
-        # titleId: environments.css_for_email
-        # descriptionId: environments.css_for_email.description
         template: environmentRatingTemplate
 
 - id: resources
@@ -717,37 +671,23 @@
   blocks:
       - id: resources_introduction
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: '${id}'
 
       - id: blogs_news_magazines
-        # titleId: resources.blogs_news_magazines
-        # descriptionId: resources.blogs_news_magazines.description
         template: resourcesTemplate
 
       - id: blogs_news_magazines_others
-        # titleId: resources.blogs_news_magazines.others
-        # descriptionId: resources.blogs_news_magazines.others.description
         template: resourcesFreeFormTemplate
 
       - id: sites_courses
-        # titleId: resources.sites_courses
-        # descriptionId: resources.sites_courses.description
         template: resourcesTemplate
 
       - id: sites_courses_others
-        # titleId: resources.sites_courses.others
-        # descriptionId: resources.sites_courses.others.description
         template: resourcesFreeFormTemplate
 
       - id: podcasts
-        # titleId: resources.podcasts
-        # descriptionId: resources.podcasts.description
         template: resourcesTemplate
 
       - id: podcasts_others
-        # titleId: resources.podcasts.others
-        # descriptionId: resources.podcasts.others.description
         template: resourcesFreeFormTemplate
 
 - id: opinions
@@ -755,8 +695,6 @@
   blocks:
       - id: opinions-introduction
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: '${id}'
 
       - id: css_easy_to_learn
         template: opinionTemplate
@@ -797,65 +735,63 @@
   blocks:
       - id: awards_intro
         template: pageIntroductionTemplate
-        # variables:
-        #     pageId: ${id}
 
-      - id: feature_adoption_award
+      - id: feature_adoption_delta_award
         blockType: AwardBlock
         awards:
-            - id: arrow_functions
-              value: 97.8%
-            - id: promises
-              value: 94.8%
-            - id: spread_operator
-              value: 92.3%
+            - id: grid
+              value: +18.6%
+            - id: object_fit
+              value: +17.8%
+            - id: variables
+              value: +15.2%
 
-      - id: tool_usage_award
+      - id: tool_usage_delta_award
         blockType: AwardBlock
         awards:
-            - id: react
-              value: 16099
-            - id: express
-              value: 15374
-            - id: redux
-              value: 13441
+            - id: tailwind_css
+              value: +17.8%
+            - id: atomic_css
+              value: +10.8%
+            - id: css_modules
+              value: +10.1%
 
       - id: tool_satisfaction_award
         blockType: AwardBlock
         awards:
-            - id: jest
-              value: 96.4%
-            - id: graphql
-              value: 94.8%
-            - id: cypress
-              value: 93.2%
+            - id: post_css
+              value: 91.4%
+            - id: css_modules
+              value: 86.8%
+            - id: tailwind_css
+              value: 86.6%
 
       - id: tool_interest_award
         blockType: AwardBlock
         awards:
-            - id: graphql
-              value: 89.6%
-            - id: jest
-              value: 81.6%
-            - id: graphql
-              value: 78.8%
+            - id: css_modules
+              value: 75.1%
+            - id: tailwind_css
+              value: 62%
+            - id: styled_components
+              value: 60%
 
-      - id: resource_usage_award
+      - id: most_write_ins_award
         blockType: AwardBlock
         awards:
-            - id: stack_overflow
-              value: 17942
-            - id: mdn
-              value: 15531
-            - id: css_tricks
-              value: 12842
+            - id: phpstorm
+              value: 200
+            - id: udemy
+              value: 159
+            - id: frontendmasters
+              value: 112
 
-      - id: prediction_award
-        blockType: AwardBlock
-        awards:
-            - id: svelte
-            - id: nest
-            - id: stencil
+      # - id: prediction_award
+      #   blockType: AwardBlock
+      #   awards:
+      #       - id: svelte
+      #       - id: nest
+      #       - id: stencil
 
       # - id: best_blog_award
       #   blockType: AwardBlock
@@ -875,9 +811,6 @@
   path: /conclusion
   blocks:
       - id: conclusion
-        # variables:
-        #     pageId: ${id}
-        # template: pageIntroductionTemplate
         blockType: ConclusionBlock
 
 # note: other pages need to be included in the sitemap too so they can get the proper
@@ -888,8 +821,6 @@
   is_hidden: true
   blocks:
       - id: support
-        # variables:
-        #     pageId: ${id}
         template: pageIntroductionTemplate
 
 - id: notfound

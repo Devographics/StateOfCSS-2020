@@ -19,12 +19,21 @@ const getLabels = (units) => ({ bars }) => {
 
         if (units === 'percentage') value = `${value}%`
 
+        let delta = bar.data.data[`${bar.data.id}_${units}Delta`]
+        if (delta === null || typeof delta === 'undefined') {
+            delta = ''
+        } else {
+            delta = delta > 0 ? `+${delta}` : delta
+            if (units === 'percentage') delta = `${delta}%`
+            delta = `(${delta})`
+        }
+
         // `pointerEvents: none` is used to not
         // disturb mouse events
         return (
             <ChartLabel
                 key={bar.key}
-                label={value}
+                label={`${value} ${delta}`}
                 transform={`translate(${bar.x + bar.width / 2},${bar.y + bar.height / 2})`}
                 style={{ pointerEvents: 'none' }}
             />
@@ -60,6 +69,8 @@ const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18n
                     [bucket.id]: bucket[units],
                     [`${bucket.id}_count`]: bucket.count,
                     [`${bucket.id}_percentage`]: bucket.percentage,
+                    [`${bucket.id}_countDelta`]: bucket.countDelta,
+                    [`${bucket.id}_percentageDelta`]: bucket.percentageDelta,
                 }
             }, {}),
         ],
