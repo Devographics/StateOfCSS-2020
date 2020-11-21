@@ -10,8 +10,12 @@ import PeriodicElement from 'core/blocks/tools/ToolPeriodicElement'
 import { mq, spacing, fontSize } from 'core/theme'
 import periodicTableData from '../../../../config/periodic_table.yml'
 import AwardIcon from './AwardIcon'
+import { useEntities } from 'core/entities/entitiesContext'
+import get from 'lodash/get'
 
 const AwardBlock = ({ block }) => {
+    const { getEntity } = useEntities()
+
     const { id, awards } = block
     const type = id
     const { translate } = useI18n()
@@ -22,10 +26,12 @@ const AwardBlock = ({ block }) => {
         setIsRevealed(true)
     }, [setIsRevealed])
 
-    const winner = awards[0]
-    const runnerUps = awards.slice(1)
-    const items = awards
+    const awardsWithEntities = awards.map((a) => ({ ...a, entity: getEntity(a.id) }))
+    const winner = awardsWithEntities[0]
+    const runnerUps = awardsWithEntities.slice(1)
+    const items = awardsWithEntities
 
+    console.log(awardsWithEntities)
     return (
         <Container className={`Award Award--${isRevealed ? 'show' : 'hide'}`} id={type}>
             <Heading className="Award__Heading">{translate(`award.${type}.title`)}</Heading>
@@ -52,19 +58,23 @@ const AwardBlock = ({ block }) => {
                                 />
                             </ConfettiContainer>
                         )}
-                        <PeriodicElement
+                        {/* <PeriodicElement
                             tool={winner.id}
                             name={winner.name || winner.id}
                             symbol={periodicTableData.tools[winner.id] || '??'}
                             number={`#1` || '?'}
-                        />
+                        /> */}
+                        <Winner>
+                            <EntityItem entity={winner.entity} />
+                        </Winner>
                     </BackSide>
                 </Element>
             </ElementContainer>
             <Comment className="Award__Comment">
                 <ReactMarkdown
                     source={translate(`award.${type}.comment`, {
-                        values: { items },
+                        value: 100,
+                        values: { value: winner.value },
                     })}
                 />
                 <ShareBlock
@@ -79,13 +89,19 @@ const AwardBlock = ({ block }) => {
                 </RunnerUpsHeading>
                 {runnerUps.map((runnerUp, i) => (
                     <RunnerUpsItem key={runnerUp.id} className="Awards__RunnerUps__Item">
-                        {i + 2}. {runnerUp.name || runnerUp.id}
+                        {i + 2}. <EntityItem entity={runnerUp.entity} />
                         {runnerUp.value ? `: ${runnerUp.value}` : ''}
                     </RunnerUpsItem>
                 ))}
             </div>
         </Container>
     )
+}
+
+const EntityItem = ({ entity }) => {
+    const { name, homepage, mdn } = entity
+    const url = homepage || (mdn && `https://developer.mozilla.org${mdn.url}`)
+    return url ? <a href={url}>{name}</a> : <span>{name}</span>
 }
 
 AwardBlock.propTypes = {
@@ -310,5 +326,7 @@ const ConfettiContainer = styled.div`
         transform: translate(-50%, -50%);
     }
 `
+
+const Winner = styled.div``
 
 export default memo(AwardBlock)

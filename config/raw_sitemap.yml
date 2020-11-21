@@ -380,6 +380,15 @@
                   subject: tools
                   heatmapId: company_size
 
+            - id: sass
+              template: toolExperienceTemplate
+            - id: less
+              template: toolExperienceTemplate
+            - id: post_css
+              template: toolExperienceTemplate
+            - id: stylus 
+              template: toolExperienceTemplate
+
             - id: '${id}_other_tools'
               blockName: category_other_tools
               template: otherToolsTemplate
@@ -393,15 +402,6 @@
               bucketKeysName: happiness
               variables:
                   id: ${id}
-
-            - id: sass
-              template: toolExperienceTemplate
-            - id: less
-              template: toolExperienceTemplate
-            - id: post_css
-              template: toolExperienceTemplate
-            - id: stylus 
-              template: toolExperienceTemplate
 
             - id: '${id}_recommended_resources'
               template: recommendedResourcesTemplate
@@ -443,20 +443,6 @@
                   subject: tools
                   heatmapId: company_size
 
-            - id: '${id}_other_tools'
-              blockName: category_other_tools
-              template: otherToolsTemplate
-              variables:
-                  id: ${id}_others
-
-            - id: '${id}_happiness'
-              i18nNamespace: happiness
-              blockName: happiness
-              template: happinessTemplate
-              bucketKeysName: happiness
-              variables:
-                  id: ${id}
-
             - id: bootstrap
               template: toolExperienceTemplate
             - id: materialize_css
@@ -483,6 +469,20 @@
               template: toolExperienceTemplate
             - id: spectre_css
               template: toolExperienceTemplate
+
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
+
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
 
             - id: '${id}_recommended_resources'
               template: recommendedResourcesTemplate
@@ -524,6 +524,19 @@
                   subject: tools
                   heatmapId: company_size
 
+            - id: bem
+              template: toolExperienceTemplate
+            - id: atomic_css
+              template: toolExperienceTemplate
+            - id: oocss
+              template: toolExperienceTemplate
+            - id: smacss
+              template: toolExperienceTemplate
+            - id: it_css
+              template: toolExperienceTemplate
+            - id: cube_css
+              template: toolExperienceTemplate   
+
             - id: '${id}_other_tools'
               blockName: category_other_tools
               template: otherToolsTemplate
@@ -536,20 +549,7 @@
               template: happinessTemplate
               bucketKeysName: happiness
               variables:
-                  id: ${id}
-
-            - id: bem
-              template: toolExperienceTemplate
-            - id: atomic_css
-              template: toolExperienceTemplate
-            - id: oocss
-              template: toolExperienceTemplate
-            - id: smacss
-              template: toolExperienceTemplate
-            - id: it_css
-              template: toolExperienceTemplate
-            - id: cube_css
-              template: toolExperienceTemplate    
+                  id: ${id} 
 
             - id: '${id}_recommended_resources'
               template: recommendedResourcesTemplate
@@ -591,20 +591,6 @@
                   subject: tools
                   heatmapId: company_size
 
-            - id: '${id}_other_tools'
-              blockName: category_other_tools
-              template: otherToolsTemplate
-              variables:
-                  id: ${id}_others
-
-            - id: '${id}_happiness'
-              i18nNamespace: happiness
-              blockName: happiness
-              template: happinessTemplate
-              bucketKeysName: happiness
-              variables:
-                  id: ${id}
-
             - id: styled_components
               template: toolExperienceTemplate
             - id: jss
@@ -619,6 +605,20 @@
               template: toolExperienceTemplate
             - id: styled_system
               template: toolExperienceTemplate
+
+            - id: '${id}_other_tools'
+              blockName: category_other_tools
+              template: otherToolsTemplate
+              variables:
+                  id: ${id}_others
+
+            - id: '${id}_happiness'
+              i18nNamespace: happiness
+              blockName: happiness
+              template: happinessTemplate
+              bucketKeysName: happiness
+              variables:
+                  id: ${id}
 
             - id: '${id}_recommended_resources'
               template: recommendedResourcesTemplate

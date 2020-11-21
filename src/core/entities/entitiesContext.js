@@ -10,6 +10,9 @@ const entitiesQuery = graphql`
                 id
                 name
                 homepage
+                mdn{
+                    url
+                }
             }
         }
     }
@@ -25,6 +28,16 @@ const findEntity = (entities, key) =>
     })
 
 const EntitiesContextProviderInner = ({ children, entities }) => {
+    
+    const getEntity = useCallback(
+        (id) => {
+            const entity = findEntity(entities, id)
+
+            return entity
+        },
+        [entities]
+    )
+
     const getName = useCallback(
         (id) => {
             const entity = findEntity(entities, id)
@@ -45,10 +58,11 @@ const EntitiesContextProviderInner = ({ children, entities }) => {
 
     const value = useMemo(
         () => ({
+            getEntity,
             getName,
             getUrl,
         }),
-        [getName, getUrl]
+        [getName, getUrl, getEntity]
     )
 
     return <EntitiesContext.Provider value={value}>{children}</EntitiesContext.Provider>

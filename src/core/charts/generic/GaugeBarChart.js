@@ -11,6 +11,9 @@ import ChartLabel from 'core/components/ChartLabel'
 // this way, we can add an extra outline to bar labels
 const getLabels = (units) => ({ bars }) => {
     return bars.map((bar) => {
+
+        let deltaLabel = ''
+
         // skip legend for small bars
         if (bar.width < 60) return null
 
@@ -19,21 +22,20 @@ const getLabels = (units) => ({ bars }) => {
 
         if (units === 'percentage') value = `${value}%`
 
-        let delta = bar.data.data[`${bar.data.id}_${units}Delta`]
-        if (delta === null || typeof delta === 'undefined') {
-            delta = ''
-        } else {
-            delta = delta > 0 ? `+${delta}` : delta
-            if (units === 'percentage') delta = `${delta}%`
-            delta = `(${delta})`
-        }
+        // delta is not shown right now
+        // const deltaValue = bar.data.data[`${bar.data.id}_${units}Delta`]
+        // if (typeof deltaValue !== 'undefined' && deltaValue !== null) {
+        //     deltaLabel = deltaValue > 0 ? `+${deltaValue}` : deltaValue
+        //     if (units === 'percentage') deltaLabel = `${deltaLabel}%`
+        //     deltaLabel = `(${deltaLabel})`
+        // }
 
         // `pointerEvents: none` is used to not
         // disturb mouse events
         return (
             <ChartLabel
                 key={bar.key}
-                label={`${value} ${delta}`}
+                label={`${value} ${deltaLabel}`}
                 transform={`translate(${bar.x + bar.width / 2},${bar.y + bar.height / 2})`}
                 style={{ pointerEvents: 'none' }}
             />

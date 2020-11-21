@@ -100,12 +100,18 @@ export const GlobalStyle = createGlobalStyle`
     }
     
     .Page--awards {
+        .Page__Introduction{
+            margin: 0;
+            p{
+                margin: 0;
+            }
+        }
         .Page__Contents{
         @media ${mq.mediumLarge} {
             width: 100%;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            column-gap: ${spacing(4)};
+            column-gap: ${spacing(6)};
             row-gap: ${spacing(4)};
             
             .Page__Introduction {
