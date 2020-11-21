@@ -20,6 +20,7 @@ import GenderBlock from 'core/blocks/demographics/GenderBlock'
 // features
 import FeatureExperienceBlock from 'core/blocks/features/FeatureExperienceBlock'
 import FeaturesOverviewBlock from 'core/blocks/features/FeaturesOverviewBlock'
+import KnowledgeScoreBlock from 'core/blocks/features/KnowledgeScoreBlock'
 
 // tools
 import ToolHeaderBlock from 'core/blocks/tools/ToolHeaderBlock'
@@ -59,6 +60,7 @@ const blockRegistry = {
     // features
     FeatureExperienceBlock,
     FeaturesOverviewBlock,
+    KnowledgeScoreBlock,
 
     // tools
     ToolHeaderBlock,

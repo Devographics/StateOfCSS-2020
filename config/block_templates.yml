@@ -65,7 +65,7 @@ demographicsTemplate:
         }
 
 knowledgeScoreTemplate:
-    blockType: VerticalBarBlock
+    blockType: KnowledgeScoreBlock
     dataPath: 'surveyApi.survey.demographics.knowledge_score.year'
     # titleId: 'user_info.knowledge_score'
     # descriptionId: 'user_info.knowledge_score.description'
