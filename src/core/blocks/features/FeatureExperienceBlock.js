@@ -1,14 +1,13 @@
 import React, { useState } from 'react'
 import PropTypes from 'prop-types'
+import get from 'lodash/get'
+import styled from 'styled-components'
 import Block from 'core/blocks/block/Block'
-import { useI18n } from 'core/i18n/i18nContext'
 import ChartContainer from 'core/charts/ChartContainer'
 import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import { usePageContext } from 'core/helpers/pageContext'
 import { useBucketKeys } from 'core/helpers/useBucketKeys'
-import get from 'lodash/get'
-import styled from 'styled-components'
-import { mq, spacing, fontSize } from 'core/theme'
+import { spacing } from 'core/theme'
 
 // convert relative links into absolute MDN links
 const parseMDNLinks = (content) =>
@@ -19,7 +18,6 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
 
     const context = usePageContext()
     const { locale } = context
-    const { translate } = useI18n()
     const { name, mdn } = data
 
     const allYears = get(data, 'experience.all_years', [])
