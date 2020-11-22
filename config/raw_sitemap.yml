@@ -32,6 +32,12 @@
   blocks:
       - id: survey_intro
         blockType: SurveyIntroBlock
+      - id: survey_newsletter
+        blockType: NewsletterBlock
+      - id: survey_sponsors
+        blockType: SponsorsBlock
+      - id: survey_translators
+        blockType: TranslatorsBlock
 
 - id: tshirt
   path: /tshirt
@@ -812,6 +818,8 @@
   blocks:
       - id: conclusion
         blockType: ConclusionBlock
+      - id: conclusion_newsletter
+        blockType: NewsletterBlock
 
 # note: other pages need to be included in the sitemap too so they can get the proper
 # locale passed to them

@@ -3,13 +3,12 @@ import styled from 'styled-components'
 // import locales from '../../../../config/locales.yml'
 import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing } from 'core/theme'
-import { usePageContext } from '../helpers/pageContext'
+import { usePageContext } from 'core/helpers/pageContext'
 import get from 'lodash/get'
 
 const TranslatorsBlock = () => {
     const { translate } = useI18n()
     const context = usePageContext()
-
     return (
         <>
             <Container>
@@ -21,9 +20,9 @@ const TranslatorsBlock = () => {
                             <Locale key={label}>
                                 <LocaleLabel>{label}</LocaleLabel>
                                 <Translators>
-                                    {translators.map(({ name, github }) => (
+                                    {translators.map((name) => (
                                         <Translator key={name}>
-                                            <a href={github}>{name}</a>
+                                            <a href={`http://github.com/${name}`}>{name}</a>
                                         </Translator>
                                     ))}
                                 </Translators>

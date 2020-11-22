@@ -8,6 +8,9 @@ import TextBlock from 'core/blocks/other/TextBlock'
 import RecommendedResourcesBlock from 'core/blocks/other/RecommendedResourcesBlock'
 import PageIntroductionBlock from 'core/blocks/other/PageIntroductionBlock'
 import SurveyIntroBlock from 'core/blocks/other/SurveyIntroBlock'
+import NewsletterBlock from 'core/blocks/other/NewsletterBlock'
+import SponsorsBlock from 'core/blocks/other/SponsorsBlock'
+import TranslatorsBlock from 'core/blocks/other/TranslatorsBlock'
 import TshirtBlock from 'core/blocks/other/TshirtBlock'
 import AwardBlock from 'core/blocks/awards/AwardBlock'
 import ConclusionBlock from 'core/blocks/other/ConclusionBlock'
@@ -51,6 +54,9 @@ const blockRegistry = {
     SurveyIntroBlock,
     AwardBlock,
     ConclusionBlock,
+    NewsletterBlock,
+    SponsorsBlock,
+    TranslatorsBlock,
     NotFoundBlock,
 
     // demographics

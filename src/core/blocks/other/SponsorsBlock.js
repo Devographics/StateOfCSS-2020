@@ -11,7 +11,7 @@ const SponsorsBlock = () => {
     return (
         <>
             <Container>
-                <Header>{translate('partners.our_partners')}:</Header>
+                <Header>{translate('partners.our_partners')}</Header>
                 <SponsorList className="Sponsor__list">
                     {sponsors.map(({ name, image, url, id }) => (
                         <Sponsor className={`Sponsor Sponsor--${id}`} key={name}>
