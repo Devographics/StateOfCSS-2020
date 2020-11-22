@@ -1,7 +1,6 @@
 import React, { useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import Block from 'core/blocks/block/Block'
-import ChartContainer from 'core/charts/ChartContainer'
 import { useI18n } from 'core/i18n/i18nContext'
 import StreamChart from 'core/charts/generic/StreamChart'
 import { useBucketKeys } from 'core/helpers/useBucketKeys'
@@ -13,23 +12,10 @@ import range from 'lodash/range'
 const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
-    const { id, bucketKeysName = id } = block
 
     const { translate } = useI18n()
     const title = translate(`blocks.tools_section_streams.title`)
     const description = translate(`blocks.tools_section_streams.description`)
-
-    // exclude tools having no aggregations available,
-    // typically happens for previous years when new tools
-    // were added.
-    const filteredData = data.filter((datum) => {
-        if (datum.experience.year === null) {
-            console.info(`[ToolsSectionStreamsBlock] no data available for tool: ${datum.id}`)
-            return false
-        }
-
-        return true
-    })
 
     return (
         <Block
@@ -51,19 +37,18 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
                 },
             }}
         >
-            {/* <ChartContainer height={400}> */}
-            {/* <ToolsSectionStreamsChart
-                    data={filteredData}
-                    units={units}
-                    current={current}
-                    namespace={bucketKeysName}
-                /> */}
             <GridContainer count={data.length}>
-                {data.map((toolData) => (
-                    <Stream toolData={toolData} current={current} units={units} />
-                ))}
+                {data.map((toolData) => {
+                    return (
+                        <Stream
+                            key={toolData.id}
+                            toolData={toolData}
+                            current={current}
+                            units={units}
+                        />
+                    )
+                })}
             </GridContainer>
-            {/* </ChartContainer> */}
         </Block>
     )
 }
