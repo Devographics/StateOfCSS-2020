@@ -4,10 +4,9 @@ import { BasicTooltip } from '@nivo/tooltip'
 
 const ParticipationByCountryTooltip = ({ feature }) => {
     if (feature.data === undefined) return null
-
     return (
         <BasicTooltip
-            id={feature.label}
+            id={feature.properties.name}
             color={feature.color}
             enableChip={true}
             value={`${feature.data.percentage.toFixed(1)}% (${Math.round(feature.data.count)})`}

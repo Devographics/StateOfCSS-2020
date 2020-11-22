@@ -31,9 +31,11 @@ const KnowledgeScoreBlock = ({ block, data }) => {
 
     const { buckets, total, completion } = data
 
+    const getLabel = n => `${n * groupBy}-${(n + 1) * groupBy}%`
+
     const bucketKeys = range(0, 100 / groupBy).map((n) => ({
-        id: n,
-        shortLabel: `${n * groupBy}-${(n + 1) * groupBy}%`,
+        id: getLabel(n),
+        shortLabel: getLabel(n),
     }))
 
     const groupedBuckets = range(0, 100 / groupBy).map((n) => {
@@ -41,7 +43,7 @@ const KnowledgeScoreBlock = ({ block, data }) => {
             (b) => b.id >= n * groupBy && b.id < (n + 1) * groupBy
         )
         return {
-            id: n,
+            id: getLabel(n),
             count: sumBy(selectedBuckets, 'count'),
             percentage: Math.round(100 * sumBy(selectedBuckets, 'percentage')) / 100,
         }
@@ -62,11 +64,10 @@ const KnowledgeScoreBlock = ({ block, data }) => {
                     total={total}
                     buckets={groupedBuckets}
                     i18nNamespace={i18nNamespace || id}
-                    translateData={translateData}
+                    translateData={false}
                     mode={mode}
                     units={units}
                     viewportWidth={width}
-                    showTooltips={false}
                 />
             </ChartContainer>
         </Block>

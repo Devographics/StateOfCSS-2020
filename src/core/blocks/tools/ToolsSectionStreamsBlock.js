@@ -17,6 +17,8 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
     const title = translate(`blocks.tools_section_streams.title`)
     const description = translate(`blocks.tools_section_streams.description`)
 
+    const filteredData = data.filter(toolData => toolData.experience.all_years.length > 1)
+    
     return (
         <Block
             units={units}
@@ -27,7 +29,7 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
                 description,
                 legendPosition: 'top',
             }}
-            data={data}
+            data={filteredData}
             legendProps={{
                 onMouseEnter: ({ id }) => {
                     setCurrent(id)
@@ -37,8 +39,8 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
                 },
             }}
         >
-            <GridContainer count={data.length}>
-                {data.map((toolData) => {
+            <GridContainer count={filteredData.length}>
+                {filteredData.map((toolData) => {
                     return (
                         <Stream
                             key={toolData.id}
