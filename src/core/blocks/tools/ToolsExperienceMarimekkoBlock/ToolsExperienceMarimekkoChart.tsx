@@ -9,10 +9,12 @@ import { keys } from 'core/constants'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ToolsExperienceMarimekkoToolData } from './types'
+import { ToolsExperienceMarimekkoLegend } from './ToolsExperienceMarimekkoLegend'
 
 export const MARGIN = {
-    top: 40,
-    bottom: 40,
+    top: 30,
+    right: 10,
+    bottom: 120,
     left: 160,
 }
 export const ROW_HEIGHT = 40
@@ -37,6 +39,7 @@ const ShadowsLayer = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolDat
         <g>
             {data.map((datum) => (
                 <rect
+                    key={datum.id}
                     x={datum.x - 4}
                     y={datum.y + 7}
                     width={datum.width}
@@ -58,7 +61,9 @@ const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData
         <g>
             {data.map((datum) => (
                 <g key={datum.id} transform={`translate(-160, ${datum.y + datum.height / 2})`}>
-                    <text style={theme.axis.ticks.text}>{datum.id}</text>
+                    <text style={theme.axis.ticks.text} dominantBaseline="central">
+                        {datum.id}
+                    </text>
                 </g>
             ))}
         </g>
@@ -127,7 +132,22 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
             animate={false}
             innerPadding={3}
             outerPadding={7}
-            layers={['grid', 'axes', ShadowsLayer, ToolsLabels, 'bars']}
+            layers={[
+                ({ bars }) => (
+                    <g
+                        transform={`translate(${bars[2].x}, ${
+                            bars[bars.length - 1].y + bars[bars.length - 1].height + 60
+                        })`}
+                    >
+                        <ToolsExperienceMarimekkoLegend colors={theme.colors.ranges.tools} />
+                    </g>
+                ),
+                'grid',
+                'axes',
+                ShadowsLayer,
+                ToolsLabels,
+                'bars',
+            ]}
         />
     )
 }
