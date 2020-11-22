@@ -363,7 +363,34 @@ toolsSectionOverviewTemplate:
                         name
                     }
                     experience {
-                        year(year: 2020) {
+                        year(year: ${currentYear}) {
+                            buckets {
+                                id
+                                count
+                                percentage
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+toolsExperienceMarimekkoTemplate:
+    blockType: ToolsExperienceMarimekkoBlock
+    dataPath: 'surveyApi.survey.${parentId}_tools'
+    bucketKeysName: tools
+    showLegend: true
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${parentId}_tools: tools(ids: [${toolIds}]) {
+                    id
+                    entity {
+                        name
+                    }
+                    experience {
+                        year(year: ${currentYear}) {
+                            total
                             buckets {
                                 id
                                 count

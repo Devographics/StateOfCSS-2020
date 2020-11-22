@@ -365,13 +365,11 @@
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
 
+            - id: '${id}_experience_marimekko'
+              template: toolsExperienceMarimekkoTemplate
+
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
-
-            # - id: '${id}_matrices'
-            #   template: toolsMatricesTemplate
-            #   variables:
-            #     sectionId: '${id}'
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
@@ -432,6 +430,9 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
+
+            - id: '${id}_experience_marimekko'
+              template: toolsExperienceMarimekkoTemplate
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
@@ -514,6 +515,9 @@
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
 
+            - id: '${id}_experience_marimekko'
+              template: toolsExperienceMarimekkoTemplate
+
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
 
@@ -580,6 +584,9 @@
 
             - id: '${id}_section_streams'
               template: toolsSectionStreamsTemplate
+
+            - id: '${id}_experience_marimekko'
+              template: toolsExperienceMarimekkoTemplate
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate

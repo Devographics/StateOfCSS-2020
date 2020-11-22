@@ -34,6 +34,7 @@ import ToolsSectionStreamsBlock from 'core/blocks/tools/ToolsSectionStreamsBlock
 import ToolsExperienceRankingBlock from 'core/blocks/tools/ToolsExperienceRankingBlock'
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
 import ToolsMatricesBlock from 'core/blocks/tools/ToolsMatricesBlock'
+import { ToolsExperienceMarimekkoBlock } from 'core/blocks/tools/ToolsExperienceMarimekkoBlock'
 
 // happiness
 import HappinessBlock from 'core/blocks/happiness/HappinessBlock'
@@ -78,6 +79,7 @@ const blockRegistry = {
     ToolsExperienceRankingBlock,
     ToolsScatterplotBlock,
     ToolsMatricesBlock,
+    ToolsExperienceMarimekkoBlock,
 
     // happiness
     HappinessBlock,
