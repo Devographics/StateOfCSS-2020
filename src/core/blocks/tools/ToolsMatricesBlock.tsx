@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useMemo, useState } from 'react'
 import { BlockContext } from '../types'
 
 export type ToolsMatrixDimension =
@@ -37,7 +37,11 @@ interface ToolsMatricesBlockProps {
 }
 
 const ToolsMatricesBlock = (props: ToolsMatricesBlockProps) => {
-    console.log(props.block.blockType)
+    const toolIds = useMemo(() => props.block.pageVariables.toolIds.split(','), [props.block.pageVariables])
+
+    const [dimension, setDimension] = useState<ToolsMatrixDimension>('years_of_experience')
+    const dimensionData = props.data[dimension].year.buckets
+    console.log(toolIds, dimension, dimensionData)
 
     return null
 }
