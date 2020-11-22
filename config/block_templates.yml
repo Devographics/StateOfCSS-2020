@@ -5,9 +5,11 @@
 ###############################################################################
 
 pageIntroductionTemplate:
+    id: ${parentId}_introduction
     blockType: PageIntroductionBlock
 
 recommendedResourcesTemplate:
+    id: ${parentId}_resources
     blockName: recommendedResources
     blockType: RecommendedResourcesBlock
     showDescription: false
@@ -38,8 +40,6 @@ recommendedResourcesTemplate:
 demographicsTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year'
-    # titleId: 'user_info.${id}'
-    # descriptionId: 'user_info.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -65,10 +65,9 @@ demographicsTemplate:
         }
 
 knowledgeScoreTemplate:
+    id: knowledge_score
     blockType: KnowledgeScoreBlock
     dataPath: 'surveyApi.survey.demographics.knowledge_score.year'
-    # titleId: 'user_info.knowledge_score'
-    # descriptionId: 'user_info.knowledge_score.description'
     showDescription: true
     query: >
         surveyApi {
@@ -91,9 +90,8 @@ knowledgeScoreTemplate:
 proficiencyTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
-    # titleId: 'user_info.${id}'
-    # descriptionId: 'user_info.${id}.description'
     showDescription: true
+    showLegend: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -218,6 +216,8 @@ toolsArrowsTemplate:
 ###############################################################################
 
 featuresOverviewTemplate:
+    id: features_overview
+    blockName: featuresOverview
     blockType: FeaturesOverviewBlock
     dataPath: 'surveyApi.survey.features'
     query: >
@@ -376,6 +376,7 @@ toolsSectionOverviewTemplate:
         }
 
 toolsSectionStreamsTemplate:
+    id: '${parentId}_section_streams'
     blockType: ToolsSectionStreamsBlock
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
@@ -511,13 +512,14 @@ toolExperienceGraphTemplate:
         }
 
 toolsExperienceRankingTemplate:
+    id: '${parentId}_experience_ranking'
     blockType: ToolsExperienceRankingBlock
     blockName: tools_experience_ranking
     dataPath: 'surveyApi.survey.${parentId}_rankings.experience'
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${parentId}_rankings: tools_rankings(ids: [${toolsCategories[sectionId]}]) {
+                ${parentId}_rankings: tools_rankings(ids: [${toolsCategories[parentId]}]) {
                     ids
                     experience {
                         id
@@ -545,6 +547,7 @@ toolsExperienceRankingTemplate:
         }
 
 toolsMatricesTemplate:
+    id: ${parentId}_matrices
     blockType: ToolsMatricesBlock
     blockName: tools_matrices
     dataPath: 'surveyApi.survey.${parentId}_matrices.tools'
@@ -642,10 +645,40 @@ scatterplotTemplate:
 ###############################################################################
 
 happinessTemplate:
+    id: '${parentId}_happiness'
+    # blockType: HappinessBlock
+    blockType: VerticalBarBlock
+    dataPath: 'surveyApi.survey.${parentId}_happiness.year'
+    showDescription: true
+    i18nNamespace: happiness
+    bucketKeysName: happiness
+    blockName: happiness
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${parentId}_happiness: happiness(id: ${parentId}) {
+                    year(year: ${currentYear}) {
+                        year
+                        mean
+                        buckets {
+                            count
+                            id
+                            percentage
+                        }
+                    }
+                }
+            }
+        }
+
+opinionHappinessTemplate:
+    titleId: 'happiness.${id}'
     # blockType: HappinessBlock
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.${id}_happiness.year'
     showDescription: true
+    i18nNamespace: happiness
+    bucketKeysName: happiness
+    blockName: happiness
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -673,7 +706,6 @@ happinessTemplate:
 # {id} refers to the current subject
 opinionTemplate:
     blockType: OpinionBlock
-    # titleId: 'opinions.${id}'
     dataPath: 'surveyApi.survey.${id}.all_years'
     showDescription: true
     query: >
@@ -699,10 +731,9 @@ opinionTemplate:
         }
 
 opinionsOthersTemplate:
+    titleId: 'opinions_other.${id}.others'
     blockType: HorizontalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
-    # titleId: 'opinions_others.${id}'
-    # descriptionId: 'opinions_others.${id}.description'
     showDescription: true
     query: >
         surveyApi {
@@ -736,6 +767,43 @@ opinionsOthersTemplate:
 # OTHER TOOLS
 #
 ###############################################################################
+
+sectionOtherToolsTemplate:
+    id: ${parentId}_others
+    blockType: HorizontalBarBlock
+    showDescription: true
+    mode: relative
+    units: count
+    dataPath: 'surveyApi.survey.${parentId}_others.year'
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${parentId}_others: tools_others(id: ${parentId}_others) {
+                    id
+                    year(year: ${currentYear}) {
+                        year
+                        total
+                        completion {
+                            count
+                            percentage
+                        }
+                        buckets{
+                            id
+                            count
+                            percentage
+                            entity {
+                                id
+                                homepage
+                                name
+                                github {
+                                    url
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
 otherToolsTemplate:
     blockType: HorizontalBarBlock
