@@ -354,11 +354,6 @@
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
-            - id: '${id}_matrices'
-              template: toolsMatricesTemplate
-              variables:
-                  sectionId: '${id}'
-
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
 
@@ -372,6 +367,11 @@
 
             - id: '${id}_section_overview'
               template: toolsSectionOverviewTemplate
+
+            # - id: '${id}_matrices'
+            #   template: toolsMatricesTemplate
+            #   variables:
+            #     sectionId: '${id}'
 
             - id: '${id}_experience_heatmap'
               template: heatmapTemplate
