@@ -343,16 +343,15 @@
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
-            - template: toolsMatricesTemplate
-
             - template: pageIntroductionTemplate
 
             - template: toolsExperienceRankingTemplate
 
             - template: toolsSectionStreamsTemplate
 
-            # - id: '${id}_section_overview'
-            #   template: toolsSectionOverviewTemplate
+            # - template: toolsSectionOverviewTemplate
+            
+            - template: toolsExperienceMarimekkoTemplate
 
             # - id: '${id}_experience_heatmap'
             #   template: heatmapTemplate
@@ -398,8 +397,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - id: '${id}_section_overview'
-            #   template: toolsSectionOverviewTemplate
+            # - template: toolsSectionOverviewTemplate
+
+            - template: toolsExperienceMarimekkoTemplate
 
             # - id: '${id}_experience_heatmap'
             #   template: heatmapTemplate
@@ -463,8 +463,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - id: '${id}_section_overview'
-            #   template: toolsSectionOverviewTemplate
+            # - template: toolsSectionOverviewTemplate
+
+            - template: toolsExperienceMarimekkoTemplate
 
             # - id: '${id}_experience_heatmap'
             #   template: heatmapTemplate
@@ -514,8 +515,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - id: '${id}_section_overview'
-            #   template: toolsSectionOverviewTemplate
+            # - template: toolsSectionOverviewTemplate
+
+            - template: toolsExperienceMarimekkoTemplate
 
             # - id: '${id}_experience_heatmap'
             #   template: heatmapTemplate

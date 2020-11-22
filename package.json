@@ -24,10 +24,13 @@
     "@nivo/circle-packing": "0.65.1",
     "@nivo/core": "0.65.0",
     "@nivo/geo": "0.65.1",
+    "@nivo/heatmap": "0.65.1",
     "@nivo/line": "0.65.1",
+    "@nivo/marimekko": "0.65.1",
     "@nivo/sankey": "0.65.1",
     "@nivo/scatterplot": "0.65.1",
     "@nivo/stream": "0.65.1",
+    "@types/react": "16.14.1",
     "babel-plugin-styled-components": "^1.11.1",
     "bowser": "2.11.0",
     "classnames": "^2.2.6",
@@ -70,7 +73,7 @@
     "remove-markdown": "^0.3.0",
     "styled-components": "^5.2.0",
     "tinycolor2": "^1.4.1",
-    "topojson-client": "^3.1.0"
+    "typescript": "^4.1.2"
   },
   "devDependencies": {
     "eslint-config-prettier": "^6.11.0",
@@ -82,6 +85,7 @@
     "deploy": "gatsby build && gh-pages -d public",
     "dev": "gatsby develop",
     "dev:clean": "rm -rf .cache && yarn run dev",
-    "fmt": "prettier --write \"src/**/*.{js,jsx}\" \"node_src/**/*.js\" \"config/**/*.{yaml,yml}\""
+    "fmt": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" \"node_src/**/*.js\" \"config/**/*.{yaml,yml}\"",
+    "lint": "eslint src"
   }
 }
