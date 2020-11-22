@@ -33,7 +33,19 @@ const valueFormatter = (value: number) => `${Math.abs(Math.round(value))}%`
  * Add a shadow behind each tool bars.
  */
 const ShadowsLayer = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData>) => {
-    return null
+    return (
+        <g>
+            {data.map((datum) => (
+                <rect
+                    x={datum.x - 4}
+                    y={datum.y + 7}
+                    width={datum.width}
+                    height={datum.height}
+                    fill="rgba(0, 0, 0, .5)"
+                />
+            ))}
+        </g>
+    )
 }
 
 /**
@@ -60,6 +72,8 @@ interface ToolsExperienceMarimekkoChartProps {
 export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoChartProps) => {
     const { translate } = useI18n()
 
+    // `id` is the label while `value` is the accessor
+    // for a given dimension.
     const dimensions = useMemo(
         () => [
             {
@@ -84,14 +98,10 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
 
     const theme = useContext(ThemeContext) as any
 
+    // colors should match the order defined in `dimensions`.
     const colors = useMemo(
-        () => [
-            theme.colors.ranges.tools.not_interested,
-            theme.colors.ranges.tools.would_not_use,
-            theme.colors.ranges.tools.interested,
-            theme.colors.ranges.tools.would_use,
-        ],
-        [theme]
+        () => dimensions.map((dimension) => theme.colors.ranges.tools[dimension.value]),
+        [dimensions, theme]
     )
 
     return (
@@ -116,6 +126,7 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
             layout="horizontal"
             animate={false}
             innerPadding={3}
+            outerPadding={7}
             layers={['grid', 'axes', ShadowsLayer, ToolsLabels, 'bars']}
         />
     )
