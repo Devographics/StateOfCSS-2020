@@ -1,7 +1,8 @@
 import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
 import { keyBy, sortBy } from 'lodash'
-import { ResponsiveMarimekko } from '@nivo/marimekko'
+import { ResponsiveMarimekko, ComputedDatum } from '@nivo/marimekko'
+import { useTheme } from '@nivo/core'
 import { keys } from 'core/constants'
 import { useI18n } from 'core/i18n/i18nContext'
 import Block from 'core/blocks/block/Block'
@@ -39,6 +40,23 @@ interface ToolsExperienceMarimekkoBlockProps {
 const experienceKeys = keyBy(keys.tools.keys, 'id')
 
 const valueFormatter = (value: number) => `${Math.abs(Math.round(value))}%`
+
+const ToolsLabels = (props: { data: ComputedDatum<any>[] }) => {
+    const theme = useTheme()
+    console.log(props)
+
+    return (
+        <g>
+            {props.data.map((datum) => {
+                return (
+                    <g key={datum.id} transform={`translate(-160, ${datum.y + datum.height / 2})`}>
+                        <text style={theme.axis.ticks.text}>{datum.id}</text>
+                    </g>
+                )
+            })}
+        </g>
+    )
+}
 
 export const ToolsExperienceMarimekkoBlock = (props: ToolsExperienceMarimekkoBlockProps) => {
     const theme = useContext(ThemeContext)
@@ -131,6 +149,8 @@ export const ToolsExperienceMarimekkoBlock = (props: ToolsExperienceMarimekkoBlo
                     offset="diverging"
                     layout="horizontal"
                     animate={false}
+                    innerPadding={3}
+                    layers={['grid', 'axes', ToolsLabels, 'bars']}
                 />
             </ChartContainer>
         </Block>
