@@ -54,28 +54,28 @@ const ThemedLayout = ({
     return (
         <ThemeProvider theme={themes[themeId]}>
             {/* <ToolsContextProvider> */}
-                <EntitiesContextProvider>
-                    <GlobalStyle />
-                    <Head />
-                    <Page
-                        showSidebar={showSidebar}
-                        className={classNames(`Page--${context.id}`, {
-                            capture: context.isCapturing,
-                            nocapture: !context.isCapturing,
-                        })}
-                    >
-                        <Sidebar {...props} showSidebar={showSidebar} closeSidebar={closeSidebar} />
-                        <PageContent>
-                            {showPagination && (
-                                <Pagination toggleSidebar={toggleSidebar} position="top" />
-                            )}
-                            <PageMain>
-                                <PageMetaDebug />
-                                {props.children}
-                            </PageMain>
-                        </PageContent>
-                    </Page>
-                </EntitiesContextProvider>
+            <EntitiesContextProvider>
+                <GlobalStyle />
+                <Head />
+                <Page
+                    showSidebar={showSidebar}
+                    className={classNames(`Page--${context.id}`, {
+                        capture: context.isCapturing,
+                        nocapture: !context.isCapturing,
+                    })}
+                >
+                    <Sidebar {...props} showSidebar={showSidebar} closeSidebar={closeSidebar} />
+                    <PageContent>
+                        {showPagination && (
+                            <Pagination toggleSidebar={toggleSidebar} position="top" />
+                        )}
+                        <PageMain>
+                            <PageMetaDebug />
+                            {props.children}
+                        </PageMain>
+                    </PageContent>
+                </Page>
+            </EntitiesContextProvider>
             {/* </ToolsContextProvider> */}
         </ThemeProvider>
     )

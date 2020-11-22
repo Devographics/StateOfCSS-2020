@@ -11,7 +11,6 @@ import ChartLabel from 'core/components/ChartLabel'
 // this way, we can add an extra outline to bar labels
 const getLabels = (units) => ({ bars }) => {
     return bars.map((bar) => {
-
         let deltaLabel = ''
 
         // skip legend for small bars

@@ -105,29 +105,29 @@ Create individual pages for each block (for social media meta tags)
 
 */
 exports.createBlockPages = (page, context, createPage, locales) => {
-  const blocks = page.blocks
-  if (!Array.isArray(blocks) || blocks.length === 0) {
-      return
-  }
+    const blocks = page.blocks
+    if (!Array.isArray(blocks) || blocks.length === 0) {
+        return
+    }
 
-  blocks.forEach((block) => {
-      // allow for specifying explicit pageId in block definition
-      if (!block.pageId) {
-          block.pageId = page.id
-      }
-      locales.forEach((locale) => {
-          const blockPage = {
-              path: getLocalizedPath(block.path, locale),
-              component: path.resolve(`./src/core/share/ShareBlockTemplate.js`),
-              context: {
-                  ...context,
-                  redirect: `${getLocalizedPath(page.path, locale)}#${block.id}`,
-                  block,
-                  locales: getCleanLocales(locales),
-                  locale,
-              },
-          }
-          createPage(blockPage)
-      })
-  })
+    blocks.forEach((block) => {
+        // allow for specifying explicit pageId in block definition
+        if (!block.pageId) {
+            block.pageId = page.id
+        }
+        locales.forEach((locale) => {
+            const blockPage = {
+                path: getLocalizedPath(block.path, locale),
+                component: path.resolve(`./src/core/share/ShareBlockTemplate.js`),
+                context: {
+                    ...context,
+                    redirect: `${getLocalizedPath(page.path, locale)}#${block.id}`,
+                    block,
+                    locales: getCleanLocales(locales),
+                    locale,
+                },
+            }
+            createPage(blockPage)
+        })
+    })
 }

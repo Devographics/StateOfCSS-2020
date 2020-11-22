@@ -5,11 +5,7 @@ import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing, fontSize } from 'core/theme'
 import Button from 'core/components/Button'
 
-const images = [
-    'stateofcss/tshirt5.jpg',
-    'stateofcss/tshirt6.jpg',
-    'stateofcss/tshirt4.png',
-]
+const images = ['stateofcss/tshirt5.jpg', 'stateofcss/tshirt6.jpg', 'stateofcss/tshirt4.png']
 
 const TshirtBlock = () => {
     const { translate } = useI18n()

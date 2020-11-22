@@ -33,6 +33,7 @@ import ToolsSectionOverviewBlock from 'core/blocks/tools/ToolsSectionOverviewBlo
 import ToolsSectionStreamsBlock from 'core/blocks/tools/ToolsSectionStreamsBlock'
 import ToolsExperienceRankingBlock from 'core/blocks/tools/ToolsExperienceRankingBlock'
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
+import ToolsMatricesBlock from 'core/blocks/tools/ToolsMatricesBlock'
 
 // happiness
 import HappinessBlock from 'core/blocks/happiness/HappinessBlock'
@@ -76,6 +77,7 @@ const blockRegistry = {
     ToolsSectionStreamsBlock,
     ToolsExperienceRankingBlock,
     ToolsScatterplotBlock,
+    ToolsMatricesBlock,
 
     // happiness
     HappinessBlock,

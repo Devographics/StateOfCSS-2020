@@ -59,9 +59,7 @@ const NavItem = ({ page, currentPath, closeSidebar, isHidden = false, depth = 0 
                 depth={depth}
                 isHidden={isHidden}
             >
-                <span>
-                    {getPageLabel(page, translate)}
-                </span>
+                <span>{getPageLabel(page, translate)}</span>
             </StyledPageLink>
             {hasChildren && (
                 <>

@@ -21,12 +21,12 @@ const labelPositions = {
         'Styled Components': [0, 10],
     },
     interest: {
-        PureCSS: [-50,-20],
-        Less: [-55,0],
-        JSS: [0,10],
-        SMACSS: [-70,0],
-        Radium: [-70,0],
-        'Spectre.css': [-50,-20]
+        PureCSS: [-50, -20],
+        Less: [-55, 0],
+        JSS: [0, 10],
+        SMACSS: [-70, 0],
+        Radium: [-70, 0],
+        'Spectre.css': [-50, -20],
     },
 }
 

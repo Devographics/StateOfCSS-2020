@@ -51,17 +51,27 @@ const Block = ({
             />
             {isShareable && <ShareBlockDebug block={block} />}
             {showLegend && legendPosition === 'top' && (
-                <BlockLegends block={block} data={data} units={units} position={legendPosition} {...legendProps} />
+                <BlockLegends
+                    block={block}
+                    data={data}
+                    units={units}
+                    position={legendPosition}
+                    {...legendProps}
+                />
             )}
             <div className="Block__Contents">
                 {error ? <div className="error">{error}</div> : children}
             </div>
             {showLegend && legendPosition === 'bottom' && (
-                <BlockLegends block={block} data={data} units={units} position={legendPosition} {...legendProps} />
+                <BlockLegends
+                    block={block}
+                    data={data}
+                    units={units}
+                    position={legendPosition}
+                    {...legendProps}
+                />
             )}
-            <BlockNote
-                block={block}
-            />
+            <BlockNote block={block} />
             {blockFooter}
         </Container>
     )

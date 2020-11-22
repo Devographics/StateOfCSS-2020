@@ -22,7 +22,7 @@ export const getPageLabel = (
     let label
 
     label = translate(page.titleId || `sections.${page.id}.title`)
-    
+
     // if (['features_intro', 'features_results', 'features_conclusion'].includes(page.type)) {
     //     label = translate(
     //         `page.${page.type}.${isContextual === true ? 'contextual_label' : 'label'}`,
@@ -71,7 +71,9 @@ export const getPageMeta = (context, translate, overrides = {}) => {
 
     const meta = {
         url,
-        title: isRoot ? config.siteTitle : getPageLabel(context, translate, { includeWebsite: true }),
+        title: isRoot
+            ? config.siteTitle
+            : getPageLabel(context, translate, { includeWebsite: true }),
         imageUrl,
         ...overrides,
     }

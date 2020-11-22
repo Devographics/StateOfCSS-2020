@@ -64,7 +64,7 @@ const StreamChart = ({
     colorScale,
     applyEmptyPatternTo,
     showLabels = true,
-    showYears= true,
+    showYears = true,
     height = 260,
 }) => {
     const theme = useContext(ThemeContext)

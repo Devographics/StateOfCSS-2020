@@ -133,7 +133,7 @@
 
       - id: knowledge_score
         template: knowledgeScoreTemplate
-        
+
   children:
       - id: layout
         path: /layout
@@ -354,6 +354,11 @@
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
+            - id: '${id}_matrices'
+              template: toolsMatricesTemplate
+              variables:
+                  sectionId: '${id}'
+
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
 
@@ -392,7 +397,7 @@
               template: toolExperienceTemplate
             - id: post_css
               template: toolExperienceTemplate
-            - id: stylus 
+            - id: stylus
               template: toolExperienceTemplate
 
             - id: '${id}_other_tools'
@@ -541,7 +546,7 @@
             - id: it_css
               template: toolExperienceTemplate
             - id: cube_css
-              template: toolExperienceTemplate   
+              template: toolExperienceTemplate
 
             - id: '${id}_other_tools'
               blockName: category_other_tools
@@ -555,7 +560,7 @@
               template: happinessTemplate
               bucketKeysName: happiness
               variables:
-                  id: ${id} 
+                  id: ${id}
 
             - id: '${id}_recommended_resources'
               template: recommendedResourcesTemplate

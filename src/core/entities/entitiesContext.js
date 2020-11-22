@@ -10,7 +10,7 @@ const entitiesQuery = graphql`
                 id
                 name
                 homepage
-                mdn{
+                mdn {
                     url
                 }
             }
@@ -28,7 +28,6 @@ const findEntity = (entities, key) =>
     })
 
 const EntitiesContextProviderInner = ({ children, entities }) => {
-    
     const getEntity = useCallback(
         (id) => {
             const entity = findEntity(entities, id)
