@@ -348,6 +348,11 @@
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
+            - id: '${id}_matrices'
+              template: toolsMatricesTemplate
+              variables:
+                  sectionId: '${id}'
+
             - id: '${id}_introduction'
               template: pageIntroductionTemplate
 
