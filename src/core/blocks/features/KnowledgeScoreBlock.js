@@ -31,7 +31,10 @@ const KnowledgeScoreBlock = ({ block, data }) => {
 
     const { buckets, total, completion } = data
 
-    const bucketKeys = range(0, 100 / groupBy).map(n => ({id: n, shortLabel: `${n * groupBy}-${(n + 1) * groupBy}%`}))
+    const bucketKeys = range(0, 100 / groupBy).map((n) => ({
+        id: n,
+        shortLabel: `${n * groupBy}-${(n + 1) * groupBy}%`,
+    }))
 
     const groupedBuckets = range(0, 100 / groupBy).map((n) => {
         const selectedBuckets = buckets.filter(

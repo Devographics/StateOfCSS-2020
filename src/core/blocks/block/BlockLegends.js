@@ -19,7 +19,7 @@ const BlockLegends = ({
     data,
     units,
     position,
-    useShortLabels = layout === 'horizontal'
+    useShortLabels = layout === 'horizontal',
 }) => {
     const { id: blockId, bucketKeysName = blockId } = block
 
@@ -75,11 +75,10 @@ BlockLegends.defaultProps = {
 const Container = styled.div`
     font-size: ${fontSize('small')};
     /* margin-top: ${spacing()}; */
-    margin-top: ${({ position }) =>  position === 'bottom' ? spacing() : 0};
-    margin-bottom: ${({ position }) =>  position === 'top' ? spacing() : 0};
+    margin-top: ${({ position }) => (position === 'bottom' ? spacing() : 0)};
+    margin-bottom: ${({ position }) => (position === 'top' ? spacing() : 0)};
 
     ${(props) => {
-        
         if (props.layout === 'horizontal') {
             return css`
                 @media ${mq.mediumLarge} {

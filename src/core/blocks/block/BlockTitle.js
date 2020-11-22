@@ -69,7 +69,7 @@ const BlockTitle = ({
                 <LeftPart>
                     <BlockTitleText className="BlockTitleText">
                         <SharePermalink url={meta.link} />
-                        {titleLink ? <a href={titleLink}>{blockTitle}</a>: blockTitle}
+                        {titleLink ? <a href={titleLink}>{blockTitle}</a> : blockTitle}
                     </BlockTitleText>
                     {completion && <BlockCompletionIndicator completion={completion} />}
                     {isExportable && block && (

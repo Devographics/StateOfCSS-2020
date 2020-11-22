@@ -98,12 +98,15 @@ const Stream = ({ toolData, current, units }) => {
     )
 }
 
-const minCols = 4;
-const maxCols = 5;
-const getColNumber = count => {
+const minCols = 4
+const maxCols = 5
+const getColNumber = (count) => {
     // calculate number of items on the last line for 3, 4, or 5 columns
     // note: we give modulo 0 a higher "score" of 999
-    const colOptions = range(minCols, maxCols +1).map(cols => ({ cols, itemsOnLastLine: count%cols || 999 }))
+    const colOptions = range(minCols, maxCols + 1).map((cols) => ({
+        cols,
+        itemsOnLastLine: count % cols || 999,
+    }))
     // take the option with the most number of orphans
     const bestOption = sortBy(colOptions, ['itemsOnLastLine']).reverse()[0]
     return bestOption.cols
@@ -117,7 +120,7 @@ const GridContainer = styled.div`
     @media ${mq.mediumLarge} {
         display: grid;
         width: 100%;
-        grid-template-columns: repeat(${props => getColNumber(props.count)}, 1fr);
+        grid-template-columns: repeat(${(props) => getColNumber(props.count)}, 1fr);
         column-gap: ${spacing(2)};
         row-gap: ${spacing(2)};
     }

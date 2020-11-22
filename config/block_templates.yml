@@ -744,7 +744,6 @@ otherToolsTemplate:
             }
         }
 
-
 otherToolsFreeFormTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
@@ -820,7 +819,6 @@ resourcesTemplate:
                 }
             }
         }
-
 
 resourcesFreeFormTemplate:
     blockType: HorizontalBarBlock

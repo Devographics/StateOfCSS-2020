@@ -43,13 +43,14 @@ const Note = styled.div`
     background: ${(props) => props.theme.colors.backgroundAlt};
     padding: ${spacing()};
     margin-top: ${spacing(2)};
-    font-size: ${props => props.theme.typography.size.small};
-    p, ul, ol {
+    font-size: ${(props) => props.theme.typography.size.small};
+    p,
+    ul,
+    ol {
         &:last-child {
             margin: 0;
         }
     }
-
 `
 
 export default memo(BlockNote)
