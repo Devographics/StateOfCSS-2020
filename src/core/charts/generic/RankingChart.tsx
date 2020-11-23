@@ -6,6 +6,22 @@ import { useTheme } from 'styled-components'
 import { ResponsiveBump } from '@nivo/bump'
 import { BasicTooltip } from '@nivo/tooltip'
 
+export interface RankingChartDatum {
+    // year
+    x: number
+    // rank
+    y: number
+    // percentage attached to a specific year
+    // used to compute the rank
+    percentage: number
+}
+
+export interface RankingChartSerie {
+    id: string
+    name: string
+    data: RankingChartDatum[]
+}
+
 interface CustomPointProps {
     x: number
     y: number
@@ -13,9 +29,7 @@ interface CustomPointProps {
     size: number
     borderColor: string
     borderWidth: number
-    data: {
-        percentage: number
-    }
+    data: RankingChartDatum
 }
 
 const CustomPoint = ({
@@ -59,22 +73,6 @@ interface CustomTooltipProps {
 const CustomTooltip = ({ name, color }: CustomTooltipProps) => (
     <BasicTooltip id={name} enableChip={true} color={color} />
 )
-
-export interface RankingChartDatum {
-    // year
-    x: number
-    // rank
-    y: number
-    // percentage attached to a specific year
-    // used to compute the rank
-    percentage: number
-}
-
-export interface RankingChartSerie {
-    id: string
-    name: string
-    data: RankingChartDatum[]
-}
 
 interface RankingChartProps {
     data: RankingChartSerie[]
