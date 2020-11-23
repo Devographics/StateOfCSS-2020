@@ -4,7 +4,7 @@ import { usePageContext } from 'core/helpers/pageContext'
 import { getPageSocialMeta, getPageMeta } from 'core/helpers/pageHelpers'
 import { useI18n } from 'core/i18n/i18nContext'
 // import { useTools } from 'core/helpers/toolsContext'
-// import { websiteTitle } from 'core/constants.js'
+// import { websiteTitle } from 'core/constants'
 
 const Head = () => {
     const context = usePageContext()
