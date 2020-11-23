@@ -675,51 +675,51 @@
         blockType: AwardBlock
         awards:
             - id: grid
-              value: +18.6%
+              value: '+18.6%'
             - id: object_fit
-              value: +17.8%
+              value: '+17.8%'
             - id: variables
-              value: +15.2%
+              value: '+15.2%'
 
       - id: tool_usage_delta_award
         blockType: AwardBlock
         awards:
             - id: tailwind_css
-              value: +17.8%
+              value: '+17.8%'
             - id: atomic_css
-              value: +10.8%
+              value: '+10.8%'
             - id: css_modules
-              value: +10.1%
+              value: '+10.1%'
 
       - id: tool_satisfaction_award
         blockType: AwardBlock
         awards:
             - id: post_css
-              value: 91.4%
+              value: '91.4%'
             - id: css_modules
-              value: 86.8%
+              value: '86.8%'
             - id: tailwind_css
-              value: 86.6%
+              value: '86.6%'
 
       - id: tool_interest_award
         blockType: AwardBlock
         awards:
             - id: css_modules
-              value: 75.1%
+              value: '75.1%'
             - id: tailwind_css
-              value: 62%
+              value: '62%'
             - id: styled_components
-              value: 60%
+              value: '60%'
 
       - id: most_write_ins_award
         blockType: AwardBlock
         awards:
             - id: phpstorm
-              value: 200
+              value: '200'
             - id: udemy
-              value: 159
+              value: '159'
             - id: frontendmasters
-              value: 112
+              value: '112'
 
       # - id: prediction_award
       #   blockType: AwardBlock
