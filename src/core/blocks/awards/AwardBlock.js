@@ -1,6 +1,6 @@
-import React, { memo, useState, useCallback, useContext } from 'react'
+import React, { memo, useState, useCallback } from 'react'
 import PropTypes from 'prop-types'
-import styled, { ThemeContext, keyframes } from 'styled-components'
+import styled, { useTheme, keyframes } from 'styled-components'
 import ReactMarkdown from 'react-markdown'
 import Confetti from 'react-confetti'
 import tinycolor from 'tinycolor2'
@@ -11,7 +11,6 @@ import { mq, spacing, fontSize } from 'core/theme'
 import periodicTableData from '../../../../config/periodic_table.yml'
 import AwardIcon from './AwardIcon'
 import { useEntities } from 'core/entities/entitiesContext'
-import get from 'lodash/get'
 
 const AwardBlock = ({ block }) => {
     const { getEntity } = useEntities()
@@ -19,7 +18,7 @@ const AwardBlock = ({ block }) => {
     const { id, awards } = block
     const type = id
     const { translate } = useI18n()
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const [isRevealed, setIsRevealed] = useState(false)
     const handleClick = useCallback(() => {

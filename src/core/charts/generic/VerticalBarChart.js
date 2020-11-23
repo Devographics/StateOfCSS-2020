@@ -1,6 +1,6 @@
-import React, { memo, useMemo, useContext } from 'react'
+import React, { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { ResponsiveBar } from '@nivo/bar'
 import { useI18n } from 'core/i18n/i18nContext'
 import { useBarChart } from 'core/charts/hooks'
@@ -56,7 +56,7 @@ const VerticalBarChart = ({
     units,
     chartProps,
 }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { translate } = useI18n()
 
     const { formatValue, maxValue, ticks } = useBarChart({

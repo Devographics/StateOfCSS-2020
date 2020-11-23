@@ -1,6 +1,6 @@
-import React, { memo, useContext } from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 
 /**
  * This component is used to render a custom label for charts,
@@ -14,7 +14,7 @@ const ChartLabel = ({
     textColor: _textColor,
     ...rest
 }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const outlineColor = _outlineColor || theme.colors.background
     const textColor = _textColor || theme.colors.text

@@ -1,4 +1,6 @@
-export default {
+import { DefaultTheme } from 'styled-components'
+
+const cssThemeTypography: DefaultTheme['typography'] = {
     rootSize: {
         mobile: '13px',
         desktop: '17px',
@@ -18,3 +20,5 @@ export default {
         bold: 800,
     },
 }
+
+export default cssThemeTypography

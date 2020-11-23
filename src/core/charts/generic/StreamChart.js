@@ -1,5 +1,5 @@
-import React, { useContext } from 'react'
-import { ThemeContext } from 'styled-components'
+import React from 'react'
+import { useTheme } from 'styled-components'
 import { ResponsiveStream } from '@nivo/stream'
 
 const Dot = ({ x, y, datum, current, units }) => {
@@ -67,7 +67,7 @@ const StreamChart = ({
     showYears = true,
     height = 260,
 }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const horizontalAxis = {
         tickSize: 10,

@@ -1,6 +1,6 @@
-import React, { useMemo, useContext } from 'react'
+import React, { useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import get from 'lodash/get'
 import { ResponsiveBar } from '@nivo/bar'
 
@@ -10,7 +10,7 @@ const margin = {
 }
 
 const ToolsSectionOverviewChart = ({ data, units, current, namespace }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const chartData = useMemo(
         () =>

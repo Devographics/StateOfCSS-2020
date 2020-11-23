@@ -1,6 +1,6 @@
-import React, { memo, useMemo, useContext } from 'react'
+import React, { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { ResponsiveChoroplethCanvas } from '@nivo/geo'
 import countries from 'data/geo/world_countries'
 import { colors } from 'core/constants'
@@ -30,7 +30,7 @@ const chartLegends = [
 ]
 
 const ParticipationByCountryChart = ({ units, data }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const mergedTheme = {
         ...theme.charts,

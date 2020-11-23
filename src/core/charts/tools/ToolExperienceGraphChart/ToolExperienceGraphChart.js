@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import { ResponsiveSankey } from '@nivo/sankey'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { keys } from 'core/constants'
 import YearsLayer from './YearsLayer'
 import NodeTooltip from './NodeTooltip'
@@ -34,7 +34,7 @@ const minNodeValueOnTop = (nodeA, nodeB) => {
 }
 
 const ToolExperienceGraphChart = ({ data }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const links = data.links.map((link) => ({
         ...link,

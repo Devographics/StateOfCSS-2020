@@ -1,7 +1,7 @@
-import React, { useContext, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import camelCase from 'lodash/camelCase'
-import styled, { ThemeContext } from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import Modal from 'react-modal'
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
@@ -42,7 +42,7 @@ const ExportIcon = () => (
 
 const BlockExport = ({ data, block, title }) => {
     const [modalIsOpen, setIsOpen] = useState(false)
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { translate } = useI18n()
 
     const { id, query } = block

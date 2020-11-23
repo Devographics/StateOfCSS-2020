@@ -1,6 +1,6 @@
-import React, { memo, useMemo, useContext } from 'react'
+import React, { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import sortBy from 'lodash/sortBy'
 import round from 'lodash/round'
 import { ResponsiveBar } from '@nivo/bar'
@@ -20,7 +20,7 @@ const margin = {
 }
 
 const Text = ({ hasLink = false, label }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const shortenLabel = label.length > labelMaxLength
     const shortLabel = shortenLabel ? label.substr(0, labelMaxLength) + '…' : label
 
@@ -80,7 +80,7 @@ const HorizontalBarChart = ({
     units,
     chartProps,
 }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { translate } = useI18n()
 
     const { formatTick, formatValue, maxValue } = useBarChart({

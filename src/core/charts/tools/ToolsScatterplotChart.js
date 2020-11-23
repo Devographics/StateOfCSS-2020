@@ -1,8 +1,8 @@
-import React, { memo, useContext } from 'react'
+import React, { memo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { ResponsiveScatterPlot } from '@nivo/scatterplot'
-import { colors, getColor } from 'core/constants.js'
+import { colors, getColor } from 'core/constants'
 import { useI18n } from 'core/i18n/i18nContext'
 
 const totalCountRounded = 9000
@@ -202,7 +202,7 @@ const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
 }
 
 const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { translate } = useI18n()
 
     const quadrants = [

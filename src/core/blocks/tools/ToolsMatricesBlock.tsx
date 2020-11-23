@@ -1,5 +1,5 @@
-import React, { useMemo, useState, useContext, useCallback } from 'react'
-import { ThemeContext } from 'styled-components'
+import React, { useMemo, useState } from 'react'
+import { useTheme } from 'styled-components'
 import tinycolor from 'tinycolor2'
 import { HeatMap } from '@nivo/heatmap'
 import { keys } from 'core/constants'
@@ -114,7 +114,7 @@ const Switcher = ({ setDimension, dimension }) => {
 }
 
 const ToolsMatricesBlock = (props: ToolsMatricesBlockProps) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const toolIds = useMemo(() => props.block.pageVariables.toolIds.split(','), [
         props.block.pageVariables,

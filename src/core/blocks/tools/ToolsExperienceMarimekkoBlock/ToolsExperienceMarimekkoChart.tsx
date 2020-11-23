@@ -1,6 +1,6 @@
 // @ts-ignore
-import React, { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import React, { useMemo } from 'react'
+import { useTheme } from 'styled-components'
 import { keyBy } from 'lodash'
 import { ResponsiveMarimekko, CustomLayerProps } from '@nivo/marimekko'
 // @ts-ignore
@@ -54,7 +54,7 @@ const ShadowsLayer = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolDat
  * Extra layer to add tool names.
  */
 const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData>) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     return (
         <g>
@@ -116,7 +116,7 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
         [translate]
     )
 
-    const theme = useContext(ThemeContext) as any
+    const theme = useTheme()
 
     // colors should match the order defined in `dimensions`.
     const colors = useMemo(

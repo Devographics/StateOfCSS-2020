@@ -1,10 +1,10 @@
-import { useContext, useMemo } from 'react'
-import { ThemeContext } from 'styled-components'
+import { useMemo } from 'react'
+import { useTheme } from 'styled-components'
 import { keys } from 'core/constants'
 import { useI18n } from 'core/i18n/i18nContext'
 
 export const useBucketKeys = (bucketKeysId) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { translate } = useI18n()
 
     const keysConfig = keys[bucketKeysId]

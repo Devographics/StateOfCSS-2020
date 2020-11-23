@@ -1,6 +1,6 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { ResponsiveLine } from '@nivo/line'
 import { fontFamily } from 'core/constants'
 
@@ -31,7 +31,7 @@ const verticalAxis = {
 }
 
 const HappinessChart = ({ data }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const xySerie = data.map((bucket) => ({
         x: bucket.year,

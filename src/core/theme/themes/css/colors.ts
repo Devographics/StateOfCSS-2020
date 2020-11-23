@@ -1,6 +1,7 @@
+import { DefaultTheme } from 'styled-components'
 import colors from '../../colors'
 
-export default {
+const cssThemeColors: DefaultTheme['colors'] = {
     background: colors.navy,
     backgroundAlt: colors.navyDark,
     backgroundInverted: '#aac6c9',
@@ -68,3 +69,5 @@ export default {
         colors.pink,
     ],
 }
+
+export default cssThemeColors

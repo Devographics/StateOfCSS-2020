@@ -1,9 +1,9 @@
 import React, { memo, useMemo, useContext } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'
 import { ResponsiveBar } from '@nivo/bar'
-import { useTheme } from '@nivo/core'
+import { useTheme as useNivoTheme } from '@nivo/core'
 import { Chip } from '@nivo/tooltip'
 import ChartLabel from 'core/components/ChartLabel'
 
@@ -43,7 +43,7 @@ const getLabels = (units) => ({ bars }) => {
 }
 
 const Tooltip = memo(({ translate, i18nNamespace, bar, units }) => {
-    const theme = useTheme()
+    const theme = useNivoTheme()
 
     return (
         <div style={theme.tooltip.basic}>
@@ -59,7 +59,7 @@ const Tooltip = memo(({ translate, i18nNamespace, bar, units }) => {
 
 const GaugeBarChart = ({ buckets, colorMapping, units, applyEmptyPatternTo, i18nNamespace }) => {
     const { translate } = useI18n()
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const keys = useMemo(() => colorMapping.map((m) => m.id), [colorMapping])
     const data = useMemo(

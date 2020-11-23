@@ -1,5 +1,5 @@
-import React, { memo, useContext } from 'react'
-import styled, { ThemeContext } from 'styled-components'
+import React, { memo } from 'react'
+import styled, { useTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 import { ResponsiveBubble } from '@nivo/circle-packing'
 import { getColor } from 'core/constants'
@@ -25,7 +25,7 @@ const sectionLabelOffsets = {
 
 const Node = ({ node, handlers }) => {
     const radius = node.r
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     if (node.depth === 0) {
         return null
@@ -86,7 +86,7 @@ const Node = ({ node, handlers }) => {
 }
 
 const FeaturesCirclePackingChart = ({ data, className }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     return (
         <Chart className={`CirclePackingChart ${className}`}>

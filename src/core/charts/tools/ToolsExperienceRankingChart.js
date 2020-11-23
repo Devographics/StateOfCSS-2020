@@ -1,11 +1,11 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { ResponsiveBump } from '@nivo/bump'
 import { BasicTooltip } from '@nivo/tooltip'
 
 const CustomPoint = (props) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
     const { x, y, data, isInactive, size, borderColor, borderWidth } = props
 
     return (
@@ -31,7 +31,7 @@ const CustomTooltip = ({ name, color }) => (
 )
 
 const ToolsExperienceRankingChart = ({ data }) => {
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     return (
         <ResponsiveBump

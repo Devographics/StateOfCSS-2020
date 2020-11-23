@@ -9,7 +9,6 @@ import Head from './components/Head'
 import { PageContextProvider } from './helpers/pageContext'
 import { mergePageContext } from './helpers/pageHelpers'
 import { I18nContextProvider } from './i18n/i18nContext'
-// import { ToolsContextProvider } from './helpers/toolsContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
 import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
@@ -53,7 +52,6 @@ const ThemedLayout = ({
 
     return (
         <ThemeProvider theme={themes[themeId]}>
-            {/* <ToolsContextProvider> */}
             <EntitiesContextProvider>
                 <GlobalStyle />
                 <Head />
@@ -76,7 +74,6 @@ const ThemedLayout = ({
                     </PageContent>
                 </Page>
             </EntitiesContextProvider>
-            {/* </ToolsContextProvider> */}
         </ThemeProvider>
     )
 }

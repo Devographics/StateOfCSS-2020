@@ -1,15 +1,15 @@
-import React, { memo, useState, useMemo, useContext } from 'react'
+import React, { memo, useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
-import { ThemeContext } from 'styled-components'
+import { useTheme } from 'styled-components'
 import { keys } from 'core/constants'
 import Block from 'core/blocks/block/Block'
 import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import ChartContainer from 'core/charts/ChartContainer'
 
 const GenderBlock = ({ block, data }) => {
-    const { id, units: defaultUnits = 'percentage' } = block
+    const { units: defaultUnits = 'percentage' } = block
     const [units, setUnits] = useState(defaultUnits)
-    const theme = useContext(ThemeContext)
+    const theme = useTheme()
 
     const colorMapping = useMemo(
         () =>
