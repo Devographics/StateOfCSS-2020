@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { useSpring, animated } from 'react-spring'
 import { useTheme } from 'styled-components'
 import { ResponsiveBump } from '@nivo/bump'
 import { BasicTooltip } from '@nivo/tooltip'
@@ -8,8 +9,12 @@ const CustomPoint = (props) => {
     const theme = useTheme()
     const { x, y, data, isInactive, size, borderColor, borderWidth } = props
 
+    const transition = useSpring({
+        transform: `translate(${x}, ${y})`,
+    })
+
     return (
-        <g transform={`translate(${x}, ${y})`} style={{ pointerEvents: 'none' }}>
+        <animated.g transform={transition.transform} style={{ pointerEvents: 'none' }}>
             <circle r={(size + borderWidth) / 2} cy={size / 5} fill="rgba(0, 0, 0, .2)" />
             <circle
                 r={size / 2}
@@ -22,7 +27,7 @@ const CustomPoint = (props) => {
                     {Math.round(data.percentage)}%
                 </text>
             )}
-        </g>
+        </animated.g>
     )
 }
 
