@@ -45,13 +45,15 @@ const CustomPoint = ({
 
     const transition = useSpring({
         transform: `translate(${x}, ${y})`,
+        radius: size / 2,
+        shadowRadius: (size + borderWidth) / 2,
     })
 
     return (
         <animated.g transform={transition.transform} style={{ pointerEvents: 'none' }}>
-            <circle r={(size + borderWidth) / 2} cy={size / 5} fill="rgba(0, 0, 0, .2)" />
-            <circle
-                r={size / 2}
+            <animated.circle r={transition.shadowRadius} cy={size / 5} fill="rgba(0, 0, 0, .2)" />
+            <animated.circle
+                r={transition.radius}
                 fill={theme.colors.background}
                 stroke={borderColor}
                 strokeWidth={borderWidth}
