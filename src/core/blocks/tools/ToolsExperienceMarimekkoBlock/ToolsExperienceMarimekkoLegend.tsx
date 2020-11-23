@@ -1,5 +1,5 @@
 // @ts-ignore
-import React, { Fragment } from 'react'
+import React, { CSSProperties, Fragment } from 'react'
 import { useTheme } from '@nivo/core'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
@@ -102,7 +102,7 @@ export const ToolsExperienceMarimekkoLegend = ({ colors }: ToolsExperienceMarime
                         fill={colors.text}
                         textAnchor={item.labelAnchor}
                         dominantBaseline="middle"
-                        style={theme.axis.ticks.text}
+                        style={theme.axis.ticks.text as any}
                     >
                         {item.id}
                     </text>
@@ -131,7 +131,7 @@ export const ToolsExperienceMarimekkoLegend = ({ colors }: ToolsExperienceMarime
                 y={ITEM_HEIGHT / 2}
                 fill={colors.text}
                 dominantBaseline="middle"
-                style={theme.axis.ticks.text}
+                style={theme.axis.ticks.text as any}
             >
                 {translate(`options.experience_ranking.awareness`)}
             </text>
