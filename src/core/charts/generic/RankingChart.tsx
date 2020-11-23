@@ -1,13 +1,33 @@
+// @ts-ignore
 import React from 'react'
-import PropTypes from 'prop-types'
+// @ts-ignore
 import { useSpring, animated } from 'react-spring'
 import { useTheme } from 'styled-components'
 import { ResponsiveBump } from '@nivo/bump'
 import { BasicTooltip } from '@nivo/tooltip'
 
-const CustomPoint = (props) => {
+interface CustomPointProps {
+    x: number
+    y: number
+    isInactive: boolean
+    size: number
+    borderColor: string
+    borderWidth: number
+    data: {
+        percentage: number
+    }
+}
+
+const CustomPoint = ({
+    x,
+    y,
+    data,
+    isInactive,
+    size,
+    borderColor,
+    borderWidth,
+}: CustomPointProps) => {
     const theme = useTheme()
-    const { x, y, data, isInactive, size, borderColor, borderWidth } = props
 
     const transition = useSpring({
         transform: `translate(${x}, ${y})`,
@@ -31,11 +51,36 @@ const CustomPoint = (props) => {
     )
 }
 
-const CustomTooltip = ({ name, color }) => (
+interface CustomTooltipProps {
+    name: string
+    color: string
+}
+
+const CustomTooltip = ({ name, color }: CustomTooltipProps) => (
     <BasicTooltip id={name} enableChip={true} color={color} />
 )
 
-const ToolsExperienceRankingChart = ({ data }) => {
+export interface RankingChartDatum {
+    // year
+    x: number
+    // rank
+    y: number
+    // percentage attached to a specific year
+    // used to compute the rank
+    percentage: number
+}
+
+export interface RankingChartSerie {
+    id: string
+    name: string
+    data: RankingChartDatum[]
+}
+
+interface RankingChartProps {
+    data: RankingChartSerie[]
+}
+
+export const RankingChart = ({ data }: RankingChartProps) => {
     const theme = useTheme()
 
     return (
@@ -43,6 +88,7 @@ const ToolsExperienceRankingChart = ({ data }) => {
             data={data}
             margin={{ top: 40, right: 120, bottom: 40, left: 120 }}
             colors={theme.colors.distinct}
+            // @ts-ignore
             inactiveLineWidth={5}
             theme={theme.charts}
             enableGridX={true}
@@ -79,24 +125,8 @@ const ToolsExperienceRankingChart = ({ data }) => {
             activePointBorderWidth={4}
             inactivePointSize={0}
             inactivePointBorderWidth={2}
+            // @ts-ignore
             tooltip={({ serie }) => <CustomTooltip {...serie} />}
         />
     )
 }
-
-ToolsExperienceRankingChart.propTypes = {
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            data: PropTypes.arrayOf(
-                PropTypes.shape({
-                    x: PropTypes.number.isRequired,
-                    y: PropTypes.number,
-                    percentage: PropTypes.number,
-                })
-            ).isRequired,
-        })
-    ).isRequired,
-}
-
-export default ToolsExperienceRankingChart
