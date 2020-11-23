@@ -3,9 +3,8 @@ import React, { useContext, useMemo } from 'react'
 import { ThemeContext } from 'styled-components'
 import { keyBy } from 'lodash'
 import { ResponsiveMarimekko, CustomLayerProps } from '@nivo/marimekko'
-import { useTheme } from '@nivo/core'
 // @ts-ignore
-import { keys } from 'core/constants'
+import { keys, fontFamily } from 'core/constants'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ToolsExperienceMarimekkoToolData } from './types'
@@ -55,17 +54,33 @@ const ShadowsLayer = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolDat
  * Extra layer to add tool names.
  */
 const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData>) => {
-    const theme = useTheme()
+    const theme = useContext(ThemeContext)
 
     return (
         <g>
-            {data.map((datum) => (
-                <g key={datum.id} transform={`translate(-160, ${datum.y + datum.height / 2})`}>
-                    <text style={theme.axis.ticks.text} dominantBaseline="central">
+            {data.map((datum) => {
+                const link = datum.data.tool.homepage
+
+                const text = (
+                    <text
+                        style={{
+                            fill: link ? theme.colors.link : theme.colors.text,
+                            fontFamily,
+                            fontSize: 14,
+                        }}
+                        dominantBaseline="central"
+                    >
                         {datum.id}
                     </text>
-                </g>
-            ))}
+                )
+
+                return (
+                    <g key={datum.id} transform={`translate(-160, ${datum.y + datum.height / 2})`}>
+                        {link && <a href={datum.data.tool.homepage}>{text}</a>}
+                        {!link && text}
+                    </g>
+                )
+            })}
         </g>
     )
 }
@@ -118,7 +133,7 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
             axisBottom={{
                 format: valueFormatter,
             }}
-            id="tool"
+            id="tool.name"
             value="awareness"
             valueFormat={valueFormatter}
             data={props.data}

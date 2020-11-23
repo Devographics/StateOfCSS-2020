@@ -18,7 +18,7 @@ export interface ToolsExperienceToolData {
 }
 
 export interface ToolsExperienceMarimekkoToolData {
-    tool: string
+    tool: Entity
     awareness: number
     would_not_use: number
     not_interested: number
