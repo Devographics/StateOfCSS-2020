@@ -1,4 +1,12 @@
 import 'styled-components'
+import {
+    ToolExperienceId,
+    ToolsSectionId,
+    FeatureExperienceId,
+    SimplifiedFeatureExperienceId,
+    FeaturesSectionId,
+    GenderId,
+} from '../core/bucket_keys'
 
 declare module 'styled-components' {
     export interface DefaultTheme {
@@ -48,43 +56,12 @@ declare module 'styled-components' {
             lineChartDefaultColor: string
             barChartDefaultColor: string
             ranges: {
-                tools: {
-                    would_use: string
-                    would_not_use: string
-                    interested: string
-                    not_interested: string
-                    never_heard: string
-                }
-                toolSections: {
-                    pre_post_processors: string
-                    css_frameworks: string
-                    css_methodologies: string
-                    css_in_js: string
-                }
-                features: {
-                    used: string
-                    heard: string
-                    never_heard: string
-                }
-                featureSections: {
-                    layout: string
-                    shapes_graphics: string
-                    interactions: string
-                    typography: string
-                    animations_transforms: string
-                    media_queries: string
-                    other_features: string
-                }
-                features_simplified: {
-                    know_it: string
-                    used_it: string
-                }
-                gender: {
-                    male: string
-                    female: string
-                    non_binary: string
-                    prefer_not_to_say: string
-                }
+                tools: Record<ToolExperienceId, string>
+                toolSections: Record<ToolsSectionId, string>
+                features: Record<FeatureExperienceId, string>
+                featureSections: Record<FeaturesSectionId, string>
+                features_simplified: Record<SimplifiedFeatureExperienceId, string>
+                gender: Record<GenderId, string>
                 opinions: {
                     4: string
                     3: string

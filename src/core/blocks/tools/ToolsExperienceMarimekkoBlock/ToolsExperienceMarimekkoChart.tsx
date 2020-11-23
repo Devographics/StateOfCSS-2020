@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { keyBy } from 'lodash'
 import { ResponsiveMarimekko, CustomLayerProps } from '@nivo/marimekko'
 // @ts-ignore
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ToolsExperienceMarimekkoToolData } from './types'

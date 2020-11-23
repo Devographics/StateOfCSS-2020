@@ -1,6 +1,6 @@
 import { useMemo } from 'react'
 import { useTheme } from 'styled-components'
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 import { useI18n } from 'core/i18n/i18nContext'
 
 export const useBucketKeys = (bucketKeysId) => {

@@ -1,7 +1,7 @@
 import React from 'react'
 import { ResponsiveSankey } from '@nivo/sankey'
 import { useTheme } from 'styled-components'
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 import YearsLayer from './YearsLayer'
 import NodeTooltip from './NodeTooltip'
 import LinkTooltip from './LinkTooltip'

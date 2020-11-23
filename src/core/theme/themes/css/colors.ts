@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components'
-import colors from '../../colors'
+import colors from 'core/theme/colors'
 
 const cssThemeColors: DefaultTheme['colors'] = {
     background: colors.navy,
