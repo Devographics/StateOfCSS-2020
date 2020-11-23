@@ -5,7 +5,6 @@ import sortBy from 'lodash/sortBy'
 import round from 'lodash/round'
 import { ResponsiveBar } from '@nivo/bar'
 import { useI18n } from 'core/i18n/i18nContext'
-import { fontFamily } from 'core/constants'
 import { useBarChart } from 'core/charts/hooks'
 import BarTooltip from 'core/charts/generic/BarTooltip'
 import HorizontalBarStripes from './HorizontalBarStripes'
@@ -32,7 +31,7 @@ const Text = ({ hasLink = false, label }) => {
             style={{
                 fill: hasLink ? theme.colors.link : theme.colors.text,
                 fontSize: 14,
-                fontFamily,
+                fontFamily: theme.typography.fontFamily,
             }}
         >
             <title>{label}</title>

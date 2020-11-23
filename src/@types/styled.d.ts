@@ -1,5 +1,4 @@
 import 'styled-components'
-import colors from '../core/theme/themes/css/colors'
 
 declare module 'styled-components' {
     export interface DefaultTheme {
@@ -12,6 +11,7 @@ declare module 'styled-components' {
             }
         }
         typography: {
+            fontFamily: string
             rootSize: {
                 mobile: string
                 desktop: string
@@ -97,6 +97,7 @@ declare module 'styled-components' {
             countries: string[]
         }
         charts: {
+            fontFamily: string
             axis: {
                 ticks: {
                     line: {

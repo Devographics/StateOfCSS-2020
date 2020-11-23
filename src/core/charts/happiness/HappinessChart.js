@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from 'styled-components'
 import { ResponsiveLine } from '@nivo/line'
-import { fontFamily } from 'core/constants'
 
 const horizontalAxis = {
     tickSize: 10,
@@ -46,7 +45,7 @@ const HappinessChart = ({ data }) => {
                     axis: theme.charts.streamTimelineAxis,
                     dots: {
                         text: {
-                            fontFamily,
+                            fontFamily: theme.typography.fontFamily,
                             fontWeight: 600,
                             fontSize: 12,
                             fill: theme.colors.text,

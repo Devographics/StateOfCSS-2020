@@ -2,7 +2,7 @@ import React from 'react'
 import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'
-import { mq, typography, spacing } from 'core/theme'
+import { mq, spacing } from 'core/theme'
 
 const PageIntroductionBlock = ({ block }) => {
     const { translate } = useI18n()
@@ -20,7 +20,7 @@ const Introduction = styled(ReactMarkdown)`
     }
 
     @media ${mq.large} {
-        font-size: ${typography.size.large};
+        font-size: ${(props) => props.theme.typography.size.large};
         margin-bottom: ${spacing(4)};
     }
 `

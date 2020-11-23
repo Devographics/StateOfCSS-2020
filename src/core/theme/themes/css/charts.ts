@@ -3,9 +3,11 @@ import defaultsDeep from 'lodash/defaultsDeep'
 import charts from '../../charts'
 import baseColors from '../../colors'
 import colors from './colors'
+import typography from './typography'
 
 const cssThemeCharts: DefaultTheme['charts'] = defaultsDeep(
     {
+        fontFamily: typography.fontFamily,
         axis: {
             ticks: {
                 line: {

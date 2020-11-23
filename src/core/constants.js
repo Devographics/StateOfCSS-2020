@@ -227,5 +227,3 @@ export const keys = {
     css_for_print: generateEnvironmentRatingKeys('css_for_print'),
     css_for_email: generateEnvironmentRatingKeys('css_for_email'),
 }
-
-export const fontFamily = `'IBM Plex Mono', monospace`

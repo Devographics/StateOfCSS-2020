@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import { usePageContext } from '../helpers/pageContext'
 import { useI18n } from '../i18n/i18nContext'
 import { getPageLabel } from '../helpers/pageHelpers'
-import { typography } from 'core/theme'
 
 const PageHeader = ({ title: _title, showIntro = true, introduction }) => {
     const context = usePageContext()
@@ -18,7 +17,7 @@ const PageHeader = ({ title: _title, showIntro = true, introduction }) => {
 }
 
 const PageTitle = styled.h2`
-    font-size: ${typography.size.largest};
+    font-size: ${(props) => props.theme.typography.size.largest};
 `
 
 PageHeader.propTypes = {

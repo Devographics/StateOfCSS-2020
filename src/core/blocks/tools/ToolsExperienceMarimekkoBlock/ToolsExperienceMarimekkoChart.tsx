@@ -4,7 +4,7 @@ import { useTheme } from 'styled-components'
 import { keyBy } from 'lodash'
 import { ResponsiveMarimekko, CustomLayerProps } from '@nivo/marimekko'
 // @ts-ignore
-import { keys, fontFamily } from 'core/constants'
+import { keys } from 'core/constants'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ToolsExperienceMarimekkoToolData } from './types'
@@ -65,7 +65,7 @@ const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData
                     <text
                         style={{
                             fill: link ? theme.colors.link : theme.colors.text,
-                            fontFamily,
+                            fontFamily: theme.typography.fontFamily,
                             fontSize: 14,
                         }}
                         dominantBaseline="central"

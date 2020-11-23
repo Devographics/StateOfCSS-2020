@@ -1,6 +1,7 @@
 import { DefaultTheme } from 'styled-components'
 
 const cssThemeTypography: DefaultTheme['typography'] = {
+    fontFamily: `'IBM Plex Mono', monospace`,
     rootSize: {
         mobile: '13px',
         desktop: '17px',

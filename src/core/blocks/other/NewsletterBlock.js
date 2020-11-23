@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Newsletter from 'core/components/Newsletter'
 import { useI18n } from 'core/i18n/i18nContext'
-import { typography, spacing } from 'core/theme'
+import { spacing } from 'core/theme'
 
 const NewsletterBlock = () => {
     const { translate } = useI18n()
@@ -27,7 +27,7 @@ const Container = styled.div`
 
 const Heading = styled.h3`
     margin-bottom: ${spacing(0.5)};
-    font-size: ${typography.size.larger};
+    font-size: ${(props) => props.theme.typography.size.larger};
 `
 
 const Description = styled.div`

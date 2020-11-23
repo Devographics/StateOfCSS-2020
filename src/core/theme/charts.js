@@ -1,7 +1,4 @@
-import { fontFamily } from 'core/constants'
-
 export default {
-    fontFamily,
     emptyPattern: {
         id: 'empty',
         type: 'patternLines',
@@ -20,14 +17,12 @@ export default {
         ticks: {
             text: {
                 fontSize: 12,
-                fontFamily,
             },
         },
         legend: {
             text: {
                 fontSize: 14,
                 fontWeight: 600,
-                fontFamily,
             },
         },
     },
@@ -50,7 +45,6 @@ export default {
     legends: {
         text: {
             fontSize: 11,
-            fontFamily,
         },
     },
     tooltip: {
@@ -64,7 +58,6 @@ export default {
         text: {
             fontSize: 12,
             fontWeight: 500,
-            fontFamily,
             textShadow: `0px 2px 3px rgba(0,0,0,0.35)`,
         },
     },
