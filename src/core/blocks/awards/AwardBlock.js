@@ -6,9 +6,7 @@ import Confetti from 'react-confetti'
 import tinycolor from 'tinycolor2'
 import ShareBlock from 'core/share/ShareBlock'
 import { useI18n } from 'core/i18n/i18nContext'
-import PeriodicElement from 'core/blocks/tools/ToolPeriodicElement'
 import { mq, spacing, fontSize } from 'core/theme'
-import periodicTableData from '../../../../config/periodic_table.yml'
 import AwardIcon from './AwardIcon'
 import { useEntities } from 'core/entities/entitiesContext'
 
@@ -28,9 +26,7 @@ const AwardBlock = ({ block }) => {
     const awardsWithEntities = awards.map((a) => ({ ...a, entity: getEntity(a.id) }))
     const winner = awardsWithEntities[0]
     const runnerUps = awardsWithEntities.slice(1)
-    const items = awardsWithEntities
 
-    console.log(awardsWithEntities)
     return (
         <Container className={`Award Award--${isRevealed ? 'show' : 'hide'}`} id={type}>
             <Heading className="Award__Heading">{translate(`award.${type}.title`)}</Heading>

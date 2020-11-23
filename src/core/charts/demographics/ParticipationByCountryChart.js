@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import { useTheme } from 'styled-components'
 import { ResponsiveChoroplethCanvas } from '@nivo/geo'
 import countries from 'data/geo/world_countries'
-import { colors } from 'core/constants'
 import ParticipationByCountryTooltip from './ParticipationByCountryTooltip'
 
 const features = countries.features.map((feature) => {
@@ -23,7 +22,6 @@ const chartLegends = [
         itemWidth: 100,
         itemHeight: 18,
         itemDirection: 'left-to-right',
-        itemTextColor: colors.tealLight,
         symbolSize: 18,
         justify: true,
     },

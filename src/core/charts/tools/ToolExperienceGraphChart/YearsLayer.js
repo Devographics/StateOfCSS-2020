@@ -1,12 +1,16 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { colors } from 'core/constants'
+import { useTheme } from 'styled-components'
 
-const YearLabel = ({ year, x }) => (
-    <text fill={colors.grey} textAnchor="middle" x={x} fontSize={16}>
-        {year}
-    </text>
-)
+const YearLabel = ({ year, x }) => {
+    const theme = useTheme()
+
+    return (
+        <text fill={theme.colors.text} textAnchor="middle" x={x} fontSize={16}>
+            {year}
+        </text>
+    )
+}
 
 YearLabel.propTypes = {
     year: PropTypes.number.isRequired,

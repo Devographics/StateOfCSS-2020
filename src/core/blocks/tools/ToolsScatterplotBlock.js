@@ -1,9 +1,10 @@
 import React, { useState } from 'react'
+import { useTheme } from 'styled-components'
 import Block from 'core/blocks/block/Block'
 import compact from 'lodash/compact'
 import round from 'lodash/round'
 import get from 'lodash/get'
-import { getColor, keys } from 'core/constants'
+import { keys } from 'core/constants'
 import ToolsScatterplotChart from 'core/charts/tools/ToolsScatterplotChart'
 import { useI18n } from 'core/i18n/i18nContext'
 import ChartContainer from 'core/charts/ChartContainer'
@@ -16,7 +17,9 @@ import { toolsCategories } from '../../../../config/variables.yml'
 Parse data and convert it into a format compatible with the Scatterplot chart
 
 */
-const getChartData = (data, translate, metric = 'satisfaction') => {
+const useChartData = (data, translate, metric = 'satisfaction') => {
+    const theme = useTheme()
+
     const allTools = Object.keys(toolsCategories).map((categoryId) => {
         const toolsIds = toolsCategories[categoryId]
 
@@ -64,11 +67,14 @@ const getChartData = (data, translate, metric = 'satisfaction') => {
 
                 return node
             })
+
+        const color = theme.colors.ranges.toolSections[categoryId]
+
         return categoryData.length > 0
             ? {
                   id: categoryId,
                   name: translate(`page.${categoryId}`),
-                  color: getColor(categoryId),
+                  color,
                   data: compact(categoryData),
               }
             : null
@@ -100,20 +106,22 @@ const Switcher = ({ setMetric, metric }) => {
     )
 }
 
-const ToolsOverviewBlock = ({ block, data }) => {
+const ToolsScatterplotBlock = ({ block, data }) => {
     const { translate } = useI18n()
+    const theme = useTheme()
+
     const [metric, setMetric] = useState('satisfaction')
-    const chartData = getChartData(data, translate, metric)
+    const chartData = useChartData(data, translate, metric)
     const [current, setCurrent] = useState(null)
 
     const title = translate(`blocks.tools_quadrant.title`)
     const description = translate(`blocks.tools_quadrant.${metric}.description`)
 
-    const legends = keys.toolCategories.map(({ id: keyId, color }) => ({
+    const legends = keys.toolSections.keys.map(({ id: keyId, color }) => ({
         id: `toolCategories.${keyId}`,
         label: translate(`page.${keyId}.short`),
         keyLabel: `${translate(`page.${keyId}.short`)}:`,
-        color,
+        color: theme.colors.ranges.toolSections[keyId],
     }))
 
     return (
@@ -144,4 +152,4 @@ const ToolsOverviewBlock = ({ block, data }) => {
     )
 }
 
-export default ToolsOverviewBlock
+export default ToolsScatterplotBlock

@@ -1,8 +1,7 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { useTheme } from 'styled-components'
 import round from 'lodash/round'
-import { useTheme } from '@nivo/core'
-import { getColor } from 'core/constants'
+import { useTheme as useNivoTheme } from '@nivo/core'
 import { useI18n } from 'core/i18n/i18nContext'
 import { spacing, fontWeight } from 'core/theme'
 
@@ -17,25 +16,24 @@ export const FeaturesCirclePackingChartTooltip = (props) => {
     const { translate } = useI18n()
     const { data } = props
     const { name, awareness, usage } = data
+    const nivoTheme = useNivoTheme()
     const theme = useTheme()
+    const color = theme.colors.ranges.featureSections[data.sectionId]
 
     return (
-        <div style={theme.tooltip.basic}>
+        <div style={nivoTheme.tooltip.basic}>
             <div>
                 <Heading>{name}</Heading>
                 <Grid>
-                    <Chip color={`${getColor(data.sectionId)}50`} />
+                    <Chip color={`${color}50`} />
                     {translate('options.features_simplified.know_it')}
                     <Value>{awareness}</Value>
 
-                    <Chip color={getColor(data.sectionId)} />
+                    <Chip color={color} />
                     {translate('options.features_simplified.used_it')}
                     <Value>{usage}</Value>
 
-                    <Chip
-                        color={`${getColor(data.sectionId)}50`}
-                        color2={getColor(data.sectionId)}
-                    />
+                    <Chip color={`${color}50`} color2={color} />
                     {translate('options.features_simplified.usage_ratio')}
                     <Value>{round((usage / awareness) * 100, 1)}%</Value>
                 </Grid>

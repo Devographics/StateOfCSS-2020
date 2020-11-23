@@ -1,4 +1,5 @@
 import 'styled-components'
+import colors from '../core/theme/themes/css/colors'
 
 declare module 'styled-components' {
     export interface DefaultTheme {
@@ -32,6 +33,8 @@ declare module 'styled-components' {
         }
         colors: {
             background: string
+            backgroundBackground: string
+            backgroundForeground: string
             backgroundAlt: string
             backgroundInverted: string
             text: string
@@ -52,10 +55,25 @@ declare module 'styled-components' {
                     not_interested: string
                     never_heard: string
                 }
+                toolSections: {
+                    pre_post_processors: string
+                    css_frameworks: string
+                    css_methodologies: string
+                    css_in_js: string
+                }
                 features: {
                     used: string
                     heard: string
                     never_heard: string
+                }
+                featureSections: {
+                    layout: string
+                    shapes_graphics: string
+                    interactions: string
+                    typography: string
+                    animations_transforms: string
+                    media_queries: string
+                    other_features: string
                 }
                 features_simplified: {
                     know_it: string
@@ -111,6 +129,11 @@ declare module 'styled-components' {
                     color: string
                     borderRadius: number
                     boxShadow: string
+                }
+            }
+            legends: {
+                text: {
+                    fill: string
                 }
             }
         }

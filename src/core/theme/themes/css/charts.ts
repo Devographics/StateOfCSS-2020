@@ -40,6 +40,11 @@ const cssThemeCharts: DefaultTheme['charts'] = defaultsDeep(
                 boxShadow: `9px 9px 0 rgba(0, 0, 0, 0.15)`,
             },
         },
+        legends: {
+            text: {
+                fill: colors.text,
+            },
+        },
     },
     charts
 )

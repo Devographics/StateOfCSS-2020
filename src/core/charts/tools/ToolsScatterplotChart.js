@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from 'styled-components'
 import { ResponsiveScatterPlot } from '@nivo/scatterplot'
-import { colors, getColor } from 'core/constants'
 import { useI18n } from 'core/i18n/i18nContext'
 
 const totalCountRounded = 9000
@@ -52,8 +51,11 @@ const Nodes = (props) => {
 }
 
 const Crosshair = ({ x, y, label, cutoffX = 0, cutoffY = 0 }) => {
+    const theme = useTheme()
+
     const width = label.length * 8 + 10
     const height = 22
+
     return (
         <g transform={`translate(${x},${y})`}>
             <g opacity={0.75}>
@@ -63,7 +65,7 @@ const Crosshair = ({ x, y, label, cutoffX = 0, cutoffY = 0 }) => {
                     y1={0}
                     x2={-x - cutoffX}
                     y2={-y + cutoffY}
-                    stroke={colors.white}
+                    stroke={theme.colors.border}
                     strokeWidth={3}
                 />
                 <rect
@@ -71,13 +73,13 @@ const Crosshair = ({ x, y, label, cutoffX = 0, cutoffY = 0 }) => {
                     y={-height / 2}
                     width={width}
                     height={height}
-                    fill={colors.white}
+                    fill={theme.colors.backgroundInverted}
                     rx={3}
                 />
             </g>
             <text
                 className="Scatterplot__Node__Crosshair__Label"
-                fill={colors.navy}
+                fill={theme.colors.textInverted}
                 textAnchor="middle"
                 alignmentBaseline="middle"
             >
@@ -87,6 +89,8 @@ const Crosshair = ({ x, y, label, cutoffX = 0, cutoffY = 0 }) => {
     )
 }
 const Node = (props) => {
+    const theme = useTheme()
+
     const { id, data, style, x, y, height, margin, current, metric } = props
     const { name, formattedX, formattedY } = data
     const yInverted = height - margin.top - margin.bottom - y
@@ -94,6 +98,7 @@ const Node = (props) => {
     const translateLabel = labelPositions[metric][name] || [0, 0]
     const category = id.split('.')[0]
     const opacity = current !== null && current !== category ? 0.3 : 1
+
     return (
         <g className="Scatterplot__Node" transform={`translate(${x},${y})`}>
             <g className="Scatterplot__Node__Crosshairs">
@@ -101,7 +106,7 @@ const Node = (props) => {
                     className="Scatterplot__Node__PointHover"
                     r={12}
                     strokeWidth={3}
-                    stroke={colors.white}
+                    stroke={theme.colors.border}
                 />
                 <Crosshair x={0} y={yInverted} label={`${formattedX}`} cutoffY={cutoff} />
                 <Crosshair x={-x} y={0} label={`${formattedY}%`} cutoffX={cutoff} />
@@ -126,14 +131,14 @@ const Node = (props) => {
                     y={-10}
                     width={name && name.length * 8 + 9}
                     height={20}
-                    fill={colors.white}
+                    fill={theme.colors.backgroundInverted}
                     rx={3}
                 />
                 <text
                     className="Scatterplot__Node__Label__Text"
                     textAnchor="left"
                     alignmentBaseline="middle"
-                    fill={colors.teal}
+                    fill={theme.colors.text}
                 >
                     {name}
                 </text>
@@ -149,6 +154,8 @@ const quadrantLabels = {
 
 const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
     const { translate } = useI18n()
+    const theme = useTheme()
+
     const qWidth = (width - margin.right - margin.left) / 2
     const qHeight = (height - margin.top - margin.bottom) / 2
 
@@ -156,25 +163,25 @@ const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
         {
             x: 0,
             y: 0,
-            color: colors.navyLight,
+            color: theme.colors.background,
             label: translate(`options.quadrant.${quadrantLabels[metric][0]}`),
         },
         {
             x: qWidth,
             y: 0,
-            color: colors.navyLighter,
+            color: theme.colors.backgroundForeground,
             label: translate(`options.quadrant.${quadrantLabels[metric][1]}`),
         },
         {
             x: 0,
             y: qHeight,
-            color: colors.navyDark,
+            color: theme.colors.backgroundBackground,
             label: translate(`options.quadrant.${quadrantLabels[metric][2]}`),
         },
         {
             x: qWidth,
             y: qHeight,
-            color: colors.navyLight,
+            color: theme.colors.background,
             label: translate(`options.quadrant.${quadrantLabels[metric][3]}`),
         },
     ]
@@ -247,7 +254,7 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current }) => {
                     format: (s) => `${s}%`,
                 }}
                 layers={quadrants}
-                colors={(dot) => getColor(dot.serieId)}
+                colors={(dot) => theme.colors.ranges.toolSections[dot.serieId]}
                 animate={false}
                 tooltip={({ node }) => {
                     const { data, x, y } = node

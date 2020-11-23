@@ -2,7 +2,6 @@ import React, { memo } from 'react'
 import styled, { useTheme } from 'styled-components'
 import PropTypes from 'prop-types'
 import { ResponsiveBubble } from '@nivo/circle-packing'
-import { getColor } from 'core/constants'
 import ChartLabel from 'core/components/ChartLabel'
 import { FeaturesCirclePackingChartTooltip } from './FeaturesCirclePackingChartTooltip'
 
@@ -32,6 +31,8 @@ const Node = ({ node, handlers }) => {
     }
 
     if (node.depth === 1 && node.data.isSection) {
+        const color = theme.colors.ranges.featureSections[node.data.id]
+
         return (
             <g transform={`translate(${node.x},${node.y})`}>
                 <defs>
@@ -46,7 +47,7 @@ const Node = ({ node, handlers }) => {
                     <textPath
                         xlinkHref={`#textcircle-${node.data.id}`}
                         side="right"
-                        fill={getColor(node.data.id)}
+                        fill={color}
                         style={{
                             fontWeight: '600',
                             fontSize: '0.9rem',
@@ -60,7 +61,7 @@ const Node = ({ node, handlers }) => {
                     r={node.r}
                     fill={theme.colors.backgroundAlt}
                     fillOpacity={0.4}
-                    stroke={getColor(node.data.id)}
+                    stroke={color}
                     strokeWidth={1}
                     strokeLinecap="round"
                     strokeDasharray="2 3"
@@ -68,7 +69,9 @@ const Node = ({ node, handlers }) => {
             </g>
         )
     }
+
     const usageRadius = node.r * (node.data.usage / node.data.awareness)
+    const color = theme.colors.ranges.featureSections[node.data.sectionId]
 
     return (
         <CirclePackingNode
@@ -78,8 +81,8 @@ const Node = ({ node, handlers }) => {
             onMouseMove={handlers.onMouseMove}
             onMouseLeave={handlers.onMouseLeave}
         >
-            <circle r={node.r} fill={`${getColor(node.data.sectionId)}50`} />
-            <circle r={usageRadius} fill={getColor(node.data.sectionId)} />
+            <circle r={node.r} fill={`${color}50`} />
+            <circle r={usageRadius} fill={color} />
             <ChartLabel label={node.label} fontSize={fontSizeByRadius(node.r)} />
         </CirclePackingNode>
     )

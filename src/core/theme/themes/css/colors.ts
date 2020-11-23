@@ -3,6 +3,8 @@ import colors from '../../colors'
 
 const cssThemeColors: DefaultTheme['colors'] = {
     background: colors.navy,
+    backgroundBackground: colors.navyDark,
+    backgroundForeground: colors.navyLighter,
     backgroundAlt: colors.navyDark,
     backgroundInverted: '#aac6c9',
     text: '#9ac6c9',
@@ -23,10 +25,25 @@ const cssThemeColors: DefaultTheme['colors'] = {
             not_interested: colors.pinkLight,
             never_heard: '#59608a',
         },
+        toolSections: {
+            pre_post_processors: colors.indigo,
+            css_frameworks: colors.pink,
+            css_methodologies: colors.red,
+            css_in_js: colors.purple,
+        },
         features: {
             used: colors.blue,
             heard: '#9AC6C9',
             never_heard: colors.navyLighter,
+        },
+        featureSections: {
+            layout: colors.indigo,
+            shapes_graphics: colors.pink,
+            interactions: colors.red,
+            typography: colors.purple,
+            animations_transforms: colors.orange,
+            media_queries: colors.green,
+            other_features: colors.skyblue,
         },
         features_simplified: {
             know_it: '#ACFFC3',
