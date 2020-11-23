@@ -31,7 +31,7 @@ const KnowledgeScoreBlock = ({ block, data }) => {
 
     const { buckets, total, completion } = data
 
-    const getLabel = n => `${n * groupBy}-${(n + 1) * groupBy}%`
+    const getLabel = (n) => `${n * groupBy}-${(n + 1) * groupBy}%`
 
     const bucketKeys = range(0, 100 / groupBy).map((n) => ({
         id: getLabel(n),

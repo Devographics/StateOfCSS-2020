@@ -16,10 +16,10 @@ export default {
     barChartDefaultColor: colors.blue,
     ranges: {
         tools: {
-            would_use: colors.pink,
-            would_not_use: colors.pinkLight,
-            interested: '#59DF7F',
-            not_interested: '#ACFFC3',
+            would_use: '#59DF7F',
+            would_not_use: colors.pink,
+            interested: '#ACFFC3',
+            not_interested: colors.pinkLight,
             never_heard: '#59608a',
         },
         features: {

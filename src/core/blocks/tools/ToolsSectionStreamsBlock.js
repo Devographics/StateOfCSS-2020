@@ -17,8 +17,8 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
     const title = translate(`blocks.tools_section_streams.title`)
     const description = translate(`blocks.tools_section_streams.description`)
 
-    const filteredData = data.filter(toolData => toolData.experience.all_years.length > 1)
-    
+    const filteredData = data.filter((toolData) => toolData.experience.all_years.length > 1)
+
     return (
         <Block
             units={units}
