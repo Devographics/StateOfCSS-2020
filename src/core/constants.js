@@ -236,14 +236,14 @@ export const keys = {
         colorRange: 'tools',
         keys: [
             {
-                id: 'would_use',
-                label: 'options.tools.would_use.legend',
-                shortLabel: 'options.tools.would_use.short',
-            },
-            {
                 id: 'would_not_use',
                 label: 'options.tools.would_not_use.legend',
                 shortLabel: 'options.tools.would_not_use.short',
+            },
+            {
+                id: 'not_interested',
+                label: 'options.tools.not_interested.legend',
+                shortLabel: 'options.tools.not_interested.short',
             },
             {
                 id: 'interested',
@@ -251,9 +251,9 @@ export const keys = {
                 shortLabel: 'options.tools.interested.short',
             },
             {
-                id: 'not_interested',
-                label: 'options.tools.not_interested.legend',
-                shortLabel: 'options.tools.not_interested.short',
+                id: 'would_use',
+                label: 'options.tools.would_use.legend',
+                shortLabel: 'options.tools.would_use.short',
             },
             {
                 id: 'never_heard',
