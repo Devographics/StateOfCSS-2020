@@ -1,18 +1,33 @@
 import React, { useState, useMemo } from 'react'
-import PropTypes from 'prop-types'
+import { BlockContext } from 'core/blocks/types'
+// @ts-ignore
 import Block from 'core/blocks/block/Block'
+// @ts-ignore
 import ChartContainer from 'core/charts/ChartContainer'
-import { RankingChart } from 'core/charts/generic/RankingChart'
+import { RankingChart, RankingChartSerie } from 'core/charts/generic/RankingChart'
+// @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
+// @ts-ignore
 import ButtonGroup from 'core/components/ButtonGroup'
+// @ts-ignore
 import Button from 'core/components/Button'
+import { Entity } from 'core/types'
 
-const Switcher = ({ setMetric, metric }) => {
+type MetricId = 'satisfaction' | 'interest' | 'awareness'
+
+const ALL_METRICS: MetricId[] = ['satisfaction', 'interest', 'awareness']
+
+interface SwitcherProps {
+    setMetric: (metric: MetricId) => void
+    metric: MetricId
+}
+
+const Switcher = ({ setMetric, metric }: SwitcherProps) => {
     const { translate } = useI18n()
 
     return (
         <ButtonGroup>
-            {['satisfaction', 'interest', 'awareness'].map((key) => (
+            {ALL_METRICS.map((key) => (
                 <Button
                     key={key}
                     size="small"
@@ -31,13 +46,38 @@ const Switcher = ({ setMetric, metric }) => {
     )
 }
 
-const ToolsExperienceRankingBlock = ({ block, data }) => {
+interface MetricBucket {
+    year: number
+    rank: number
+    percentage: number
+}
+
+interface ToolData {
+    id: string
+    entity: Entity
+    awareness: MetricBucket[]
+    interest: MetricBucket[]
+    satisfaction: MetricBucket[]
+}
+
+interface ToolsExperienceRankingBlockProps {
+    block: BlockContext<
+        'toolsExperienceRankingTemplate',
+        'ToolsExperienceRankingBlock',
+        { toolIds: string },
+        any
+    >
+    data: ToolData[]
+}
+
+export const ToolsExperienceRankingBlock = ({ block, data }: ToolsExperienceRankingBlockProps) => {
+    const [metric, setMetric] = useState<MetricId>('satisfaction')
+
     const { translate } = useI18n()
-    const [metric, setMetric] = useState('satisfaction')
     const title = translate(`blocks.tools_experience_ranking.title`)
     const description = translate(`blocks.tools_experience_ranking.description`)
 
-    const chartData = useMemo(
+    const chartData: RankingChartSerie[] = useMemo(
         () =>
             data.map((tool) => {
                 return {
@@ -71,37 +111,3 @@ const ToolsExperienceRankingBlock = ({ block, data }) => {
         </Block>
     )
 }
-
-ToolsExperienceRankingBlock.propTypes = {
-    block: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-    }).isRequired,
-    data: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.string.isRequired,
-            awareness: PropTypes.arrayOf(
-                PropTypes.shape({
-                    year: PropTypes.number.isRequired,
-                    rank: PropTypes.number,
-                    percentage: PropTypes.number,
-                })
-            ).isRequired,
-            interest: PropTypes.arrayOf(
-                PropTypes.shape({
-                    year: PropTypes.number.isRequired,
-                    rank: PropTypes.number,
-                    percentage: PropTypes.number,
-                })
-            ).isRequired,
-            satisfaction: PropTypes.arrayOf(
-                PropTypes.shape({
-                    year: PropTypes.number.isRequired,
-                    rank: PropTypes.number,
-                    percentage: PropTypes.number,
-                })
-            ).isRequired,
-        })
-    ).isRequired,
-}
-
-export default ToolsExperienceRankingBlock
