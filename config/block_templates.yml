@@ -314,12 +314,11 @@ featureExperienceTemplate:
 
 otherFeaturesTemplate:
     blockType: HorizontalBarBlock
-    # titleId: 'features_others.${id}'
-    # descriptionId: 'features_others.${id}.description'
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
     translateData: true
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
