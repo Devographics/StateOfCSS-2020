@@ -20,6 +20,7 @@ const VerticalBarBlock = ({ block, data }) => {
         translateData,
         bucketKeysName = id,
         i18nNamespace,
+        colorVariant,
     } = block
 
     const context = usePageContext()
@@ -62,6 +63,7 @@ const VerticalBarBlock = ({ block, data }) => {
                     mode={mode}
                     units={units}
                     viewportWidth={width}
+                    colorVariant={colorVariant}
                 />
             </ChartContainer>
         </Block>
@@ -76,6 +78,7 @@ VerticalBarBlock.propTypes = {
         showDescription: PropTypes.bool,
         mode: PropTypes.oneOf(['absolute', 'relative']),
         units: PropTypes.oneOf(['percentage', 'count']),
+        colorVariant: PropTypes.oneOf(['primary', 'secondary']),
     }).isRequired,
     data: PropTypes.shape({
         buckets: PropTypes.arrayOf(

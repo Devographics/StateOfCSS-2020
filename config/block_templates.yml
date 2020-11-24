@@ -770,6 +770,7 @@ opinionsOthersTemplate:
     blockType: HorizontalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
     showDescription: true
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -882,6 +883,7 @@ otherToolsFreeFormTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    colorVariant: secondary
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -921,7 +923,8 @@ otherToolsFreeFormTemplate:
 resourcesTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
-    mode: absolute
+    mode: relative
+    units: count
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {
@@ -958,6 +961,7 @@ resourcesFreeFormTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    colorVariant: secondary
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -998,6 +1002,7 @@ environmentTemplate:
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}_environments.year'
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {

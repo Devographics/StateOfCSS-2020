@@ -11,6 +11,7 @@ const HorizontalBarBlock = ({ block, data }) => {
         units: defaultUnits = 'percentage',
         translateData,
         i18nNamespace,
+        colorVariant,
     } = block
 
     const [units, setUnits] = useState(defaultUnits)
@@ -27,6 +28,7 @@ const HorizontalBarBlock = ({ block, data }) => {
                     translateData={translateData}
                     mode={mode}
                     units={units}
+                    colorVariant={colorVariant}
                 />
             </ChartContainer>
         </Block>
@@ -41,6 +43,7 @@ HorizontalBarBlock.propTypes = {
         translateData: PropTypes.bool,
         mode: PropTypes.oneOf(['absolute', 'relative']),
         units: PropTypes.oneOf(['percentage', 'count']),
+        colorVariant: PropTypes.oneOf(['primary', 'secondary']),
     }).isRequired,
     data: PropTypes.shape({
         buckets: PropTypes.arrayOf(

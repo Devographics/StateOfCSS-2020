@@ -74,10 +74,11 @@ const HorizontalBarChart = ({
     buckets,
     total,
     i18nNamespace,
-    translateData,
+    translateData = false,
     mode,
     units,
     chartProps,
+    colorVariant = 'primary',
 }) => {
     const theme = useTheme()
     const { translate } = useI18n()
@@ -90,6 +91,7 @@ const HorizontalBarChart = ({
         mode,
         units,
     })
+
     const data = useMemo(
         () =>
             sortBy(
@@ -114,7 +116,7 @@ const HorizontalBarChart = ({
                 label={(d) => (units === 'percentage' ? `${round(d.value, 1)}%` : d.value)}
                 labelTextColor={theme.colors.text}
                 labelSkipWidth={40}
-                colors={[theme.colors.barChartDefaultColor]}
+                colors={[theme.colors.barChart[colorVariant]]}
                 padding={0.4}
                 borderRadius={1}
                 axisTop={{
@@ -170,12 +172,10 @@ HorizontalBarChart.propTypes = {
         })
     ),
     i18nNamespace: PropTypes.string.isRequired,
-    translateData: PropTypes.bool.isRequired,
+    translateData: PropTypes.bool,
     mode: PropTypes.oneOf(['absolute', 'relative']).isRequired,
     units: PropTypes.oneOf(['count', 'percentage']).isRequired,
-}
-HorizontalBarChart.defaultProps = {
-    translateData: false,
+    colorVariant: PropTypes.oneOf(['primary', 'secondary']),
 }
 
 export default memo(HorizontalBarChart)

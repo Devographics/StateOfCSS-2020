@@ -7,7 +7,7 @@ const cssThemeColors: DefaultTheme['colors'] = {
     backgroundForeground: colors.navyLighter,
     backgroundAlt: colors.navyDark,
     backgroundInverted: '#aac6c9',
-    text: '#9ac6c9',
+    text: '#a3cacd',
     textInverted: colors.navyDark,
     textHighlight: colors.greenDark,
     link: colors.pink,
@@ -16,7 +16,10 @@ const cssThemeColors: DefaultTheme['colors'] = {
     border: '#9ac6c9',
     heatmap: colors.pinkLight,
     lineChartDefaultColor: '#59DF7F',
-    barChartDefaultColor: colors.blue,
+    barChart: {
+        primary: colors.blue,
+        secondary: '#556ad7',
+    },
     ranges: {
         tools: {
             would_use: '#59DF7F',

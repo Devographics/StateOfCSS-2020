@@ -54,7 +54,10 @@ declare module 'styled-components' {
             border: string
             heatmap: string
             lineChartDefaultColor: string
-            barChartDefaultColor: string
+            barChart: {
+                primary: string
+                secondary: string
+            }
             ranges: {
                 tools: Record<ToolExperienceId, string>
                 toolSections: Record<ToolsSectionId, string>
