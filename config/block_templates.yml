@@ -490,8 +490,9 @@ toolExperienceTemplate:
                                 count
                                 percentage
                             }
-                            awarenessInterestSatisfaction {
+                            awarenessUsageInterestSatisfaction {
                                 awareness
+                                usage
                                 interest
                                 satisfaction
                             }
@@ -554,6 +555,11 @@ toolsExperienceRankingTemplate:
                         id
                         entity {
                             name
+                        }
+                        usage {
+                            year
+                            rank
+                            percentage
                         }
                         awareness {
                             year
