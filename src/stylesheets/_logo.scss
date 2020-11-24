@@ -25,11 +25,93 @@ Mixins
     .Logo--animated .#{$className} {
         animation-iteration-count: 1;
         animation-fill-mode: forwards;
-        animation-name: $animationName;
+        animation-name: unquote($animationName);
         animation-duration: $duration;
         animation-delay: $delay;
         animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
         @content;
+    }
+}
+
+
+@keyframes appear {
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes pop {
+    0% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes popspin {
+    0% {
+        transform: scale(0) rotate(0);
+    }
+    50% {
+        transform: scale(1.2) rotate(800deg);
+    }
+    100% {
+        transform: scale(1) rotate(720deg);
+    }
+}
+
+@keyframes slideleft {
+    0% {
+        opacity: 0;
+        transform: translateX(40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+@keyframes slideright {
+    0% {
+        opacity: 0;
+        transform: translateX(-40px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+@keyframes slidetop {
+    0% {
+        opacity: 0;
+        transform: translateY(-200px) rotate(180deg);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0px) rotate(0deg);
+    }
+}
+@keyframes blob {
+    0% {
+        opacity: 0;
+        transform: translateX(-100%);
+    }
+    20% {
+        opacity: 1;
+    }
+    80% {
+        opacity: 1;
+        transform: translateX(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(-40px);
     }
 }
 
@@ -230,86 +312,6 @@ Logo
         }
     }
 
-    @keyframes appear {
-        to {
-            opacity: 1;
-        }
-    }
-
-    @keyframes pop {
-        0% {
-            opacity: 0;
-            transform: scale(0);
-        }
-        50% {
-            transform: scale(1.2);
-        }
-        100% {
-            opacity: 1;
-            transform: scale(1);
-        }
-    }
-
-    @keyframes popspin {
-        0% {
-            transform: scale(0) rotate(0);
-        }
-        50% {
-            transform: scale(1.2) rotate(800deg);
-        }
-        100% {
-            transform: scale(1) rotate(720deg);
-        }
-    }
-
-    @keyframes slideleft {
-        0% {
-            opacity: 0;
-            transform: translateX(40px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0px);
-        }
-    }
-    @keyframes slideright {
-        0% {
-            opacity: 0;
-            transform: translateX(-40px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(0px);
-        }
-    }
-
-    @keyframes slidetop {
-        0% {
-            opacity: 0;
-            transform: translateY(-200px) rotate(180deg);
-        }
-        100% {
-            opacity: 1;
-            transform: translateY(0px) rotate(0deg);
-        }
-    }
-    @keyframes blob {
-        0% {
-            opacity: 0;
-            transform: translateX(-100%);
-        }
-        20% {
-            opacity: 1;
-        }
-        80% {
-            opacity: 1;
-            transform: translateX(-20px);
-        }
-        100% {
-            opacity: 1;
-            transform: translateX(-40px);
-        }
-    }
 
     // letters
     @include anim('c>div', 'pop', 300ms, 100ms) {
@@ -404,9 +406,6 @@ Logo
     @include large{
         @include logo(0.8);
     }
-}
-
-.Logo__Container{
     @include flex-center;
     margin-bottom: $spacing * 2;
 }

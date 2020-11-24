@@ -145,6 +145,9 @@
             - id: writing_modes
               template: featureExperienceTemplate
 
+            - id: shadeed9
+              template: picksTemplate
+              
             - id: exclusions
               template: featureExperienceTemplate
 
@@ -174,6 +177,9 @@
 
             - id: clip_path
               template: featureExperienceTemplate
+
+            - id: argyleink
+              template: picksTemplate
 
             - id: masks
               template: featureExperienceTemplate

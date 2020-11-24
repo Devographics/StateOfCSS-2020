@@ -799,6 +799,7 @@ opinionsOthersTemplate:
 
 sectionOtherToolsTemplate:
     id: ${parentId}_others
+    blockName: category_other_tools
     blockType: HorizontalBarBlock
     showDescription: true
     mode: relative
@@ -1049,3 +1050,12 @@ environmentRatingTemplate:
                 }
             }
         }
+
+###############################################################################
+#
+# OTHER
+#
+###############################################################################
+
+picksTemplate:
+    blockType: PicksBlock

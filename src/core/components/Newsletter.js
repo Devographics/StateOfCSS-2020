@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import ReactGA from 'react-ga'
 import styled from 'styled-components'
 import Trans from 'core/i18n/Trans'
-import { emailOctopusUrl, emailOctopusCode, emailOctopusSiteKey } from '../../../config/config.yml'
+import { emailOctopusUrl, emailOctopusCode, emailOctopusSiteKey } from 'config/config.yml'
 import { mq, spacing } from 'core/theme'
 import Button from 'core/components/Button'
 const postUrl = emailOctopusUrl

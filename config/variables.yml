@@ -186,8 +186,8 @@ toolsCategories:
         - emotion
         - css_modules
         - styled_system
-        # - stitches # disabled because of sub-10% awareness
-        # - styletron # disabled because of sub-10% awareness
-        # - fela # disabled because of sub-10% awareness
-        # - linaria # disabled because of sub-10% awareness
-        # - astroturf  # disabled because of sub-10% awareness
+        - stitches # disabled because of sub-10% awareness
+        - styletron # disabled because of sub-10% awareness
+        - fela # disabled because of sub-10% awareness
+        - linaria # disabled because of sub-10% awareness
+        - astroturf  # disabled because of sub-10% awareness

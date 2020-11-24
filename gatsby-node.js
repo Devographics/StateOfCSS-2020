@@ -121,6 +121,9 @@ exports.createPages = createPagesSingleLoop
 exports.onCreateWebpackConfig = ({ stage, actions, plugins }) => {
     actions.setWebpackConfig({
         resolve: {
+            alias: {
+                config: path.resolve(__dirname, 'config'),
+            },
             modules: [path.resolve(__dirname, 'src'), 'node_modules'],
         },
         plugins: [

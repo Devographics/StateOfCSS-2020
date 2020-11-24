@@ -14,7 +14,7 @@ const BlockNote = ({ block }) => {
     } else {
         // for _others blocks (freeform answers), replace suffix with ".others"
         const id = block.id.replace('_others', '.others')
-        blockNote = translate(`${block.pageId}.${id}.note`, {}, null)
+        blockNote = translate(`blocks.${block.blockName || id}.note`, {}, null)
     }
 
     return blockNote ? (

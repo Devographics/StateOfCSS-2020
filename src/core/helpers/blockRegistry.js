@@ -10,6 +10,7 @@ import PageIntroductionBlock from 'core/blocks/other/PageIntroductionBlock'
 import SurveyIntroBlock from 'core/blocks/other/SurveyIntroBlock'
 import NewsletterBlock from 'core/blocks/other/NewsletterBlock'
 import SponsorsBlock from 'core/blocks/other/SponsorsBlock'
+import PicksBlock from 'core/blocks/other/PicksBlock'
 import TranslatorsBlock from 'core/blocks/other/TranslatorsBlock'
 import TshirtBlock from 'core/blocks/other/TshirtBlock'
 import AwardBlock from 'core/blocks/awards/AwardBlock'
@@ -58,6 +59,7 @@ const blockRegistry = {
     ConclusionBlock,
     NewsletterBlock,
     SponsorsBlock,
+    PicksBlock,
     TranslatorsBlock,
     NotFoundBlock,
 
