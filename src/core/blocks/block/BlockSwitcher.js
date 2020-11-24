@@ -1,7 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import blockRegistry from 'core/helpers/blockRegistry'
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 import isEmpty from 'lodash/isEmpty'
 import Block from 'core/blocks/block/Block'
 import get from 'lodash/get'

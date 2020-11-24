@@ -86,28 +86,30 @@ FeatureExperienceBlock.propTypes = {
         id: PropTypes.string.isRequired,
         name: PropTypes.string.isRequired,
         experience: PropTypes.shape({
-            year: PropTypes.shape({
-                year: PropTypes.number.isRequired,
-                completion: PropTypes.shape({
-                    count: PropTypes.number.isRequired,
-                    percentage: PropTypes.number.isRequired,
-                }).isRequired,
-                buckets: PropTypes.arrayOf(
-                    PropTypes.shape({
-                        id: PropTypes.string.isRequired,
-                        usage: PropTypes.shape({
-                            total: PropTypes.number.isRequired,
-                            buckets: PropTypes.arrayOf(
-                                PropTypes.shape({
-                                    id: PropTypes.string.isRequired,
-                                    count: PropTypes.number.isRequired,
-                                    percentage: PropTypes.number.isRequired,
-                                })
-                            ).isRequired,
-                        }),
-                    })
-                ).isRequired,
-            }).isRequired,
+            all_years: PropTypes.arrayOf(
+                PropTypes.shape({
+                    year: PropTypes.number.isRequired,
+                    completion: PropTypes.shape({
+                        count: PropTypes.number.isRequired,
+                        percentage: PropTypes.number.isRequired,
+                    }).isRequired,
+                    buckets: PropTypes.arrayOf(
+                        PropTypes.shape({
+                            id: PropTypes.string.isRequired,
+                            usage: PropTypes.shape({
+                                total: PropTypes.number.isRequired,
+                                buckets: PropTypes.arrayOf(
+                                    PropTypes.shape({
+                                        id: PropTypes.string.isRequired,
+                                        count: PropTypes.number.isRequired,
+                                        percentage: PropTypes.number.isRequired,
+                                    })
+                                ).isRequired,
+                            }),
+                        })
+                    ).isRequired,
+                })
+            ).isRequired,
         }).isRequired,
     }).isRequired,
 }

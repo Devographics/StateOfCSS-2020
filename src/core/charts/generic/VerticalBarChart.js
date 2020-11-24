@@ -55,6 +55,7 @@ const VerticalBarChart = ({
     mode,
     units,
     chartProps,
+    colorVariant = 'primary',
 }) => {
     const theme = useTheme()
     const { translate } = useI18n()
@@ -81,7 +82,7 @@ const VerticalBarChart = ({
                 padding={0.4}
                 theme={theme.charts}
                 animate={false}
-                colors={[theme.colors.barChartDefaultColor]}
+                colors={[theme.colors.barChart[colorVariant]]}
                 borderRadius={1}
                 enableLabel={false}
                 enableGridX={false}
@@ -132,6 +133,7 @@ VerticalBarChart.propTypes = {
     translateData: PropTypes.bool.isRequired,
     mode: PropTypes.oneOf(['absolute', 'relative']).isRequired,
     units: PropTypes.oneOf(['percentage', 'count']).isRequired,
+    colorVariant: PropTypes.oneOf(['primary', 'secondary']),
 }
 VerticalBarChart.defaultProps = {
     translateData: true,

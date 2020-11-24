@@ -1,11 +1,80 @@
 import range from 'lodash/range'
 
-/*
+export type ToolExperienceId =
+    | 'would_not_use'
+    | 'not_interested'
+    | 'interested'
+    | 'would_use'
+    | 'never_heard'
 
-Keys
+// should be updated depending on the survey
+export type ToolsSectionId =
+    | 'pre_post_processors'
+    | 'css_frameworks'
+    | 'css_methodologies'
+    | 'css_in_js'
 
-*/
-const generateProficiencyKeys = (proficiencyId) => ({
+export type FeatureExperienceId = 'used' | 'heard' | 'never_heard'
+
+export type SimplifiedFeatureExperienceId = 'know_it' | 'used_it'
+
+// should be updated depending on the survey
+export type FeaturesSectionId =
+    | 'layout'
+    | 'shapes_graphics'
+    | 'interactions'
+    | 'typography'
+    | 'animations_transforms'
+    | 'media_queries'
+    | 'other_features'
+
+export type GenderId = 'male' | 'female' | 'non_binary' | 'prefer_not_to_say'
+
+export type YearlySalaryRangeId =
+    | 'range_work_for_free'
+    | 'range_0_10'
+    | 'range_10_30'
+    | 'range_30_50'
+    | 'range_50_100'
+    | 'range_100_200'
+    | 'range_more_than_200'
+
+export type CompanySizeRangeId =
+    | 'range_1'
+    | 'range_1_5'
+    | 'range_5_10'
+    | 'range_10_20'
+    | 'range_20_50'
+    | 'range_50_100'
+    | 'range_100_1000'
+    | 'range_more_than_1000'
+
+export type YearsOfExperienceRangeId =
+    | 'range_less_than_1'
+    | 'range_1_2'
+    | 'range_2_5'
+    | 'range_5_10'
+    | 'range_10_20'
+    | 'range_more_than_20'
+
+export type ProficiencyId = 'css_proficiency' | 'javascript_proficiency' | 'backend_proficiency'
+
+export type EnvironmentId = 'css_for_print' | 'css_for_email'
+
+export interface BucketKey<K extends string | number> {
+    id: K
+    label: string
+}
+
+export interface BucketKeyWithShortLabel<K extends string | number> extends BucketKey<K> {
+    shortLabel: string
+}
+
+const generateProficiencyKeys = (
+    proficiencyId: ProficiencyId
+): {
+    keys: BucketKeyWithShortLabel<number>[]
+} => ({
     keys: [0, 1, 2, 3, 4].map((id) => ({
         id,
         label: `options.${proficiencyId}.${id}`,
@@ -13,7 +82,11 @@ const generateProficiencyKeys = (proficiencyId) => ({
     })),
 })
 
-const generateEnvironmentRatingKeys = (environmentId) => ({
+const generateEnvironmentRatingKeys = (
+    environmentId: EnvironmentId
+): {
+    keys: BucketKeyWithShortLabel<number>[]
+} => ({
     keys: [0, 1, 2, 3].map((id) => ({
         id,
         label: `options.${environmentId}.${id}`,
@@ -35,7 +108,7 @@ export const keys = {
             id,
             label: `options.yearly_salary.${id}`,
             shortLabel: `options.yearly_salary.${id}.short`,
-        })),
+        })) as BucketKeyWithShortLabel<YearlySalaryRangeId>[],
     },
     company_size: {
         keys: [
@@ -51,7 +124,7 @@ export const keys = {
             id,
             label: `options.company_size.${id}`,
             shortLabel: `options.company_size.${id}.short`,
-        })),
+        })) as BucketKeyWithShortLabel<CompanySizeRangeId>[],
     },
     years_of_experience: {
         keys: [
@@ -65,7 +138,7 @@ export const keys = {
             id,
             label: `options.years_of_experience.${id}`,
             shortLabel: `options.years_of_experience.${id}.short`,
-        })),
+        })) as BucketKeyWithShortLabel<YearsOfExperienceRangeId>[],
     },
     gender: {
         colorRange: 'gender',
@@ -86,7 +159,7 @@ export const keys = {
                 id: 'prefer_not_to_say',
                 label: 'options.gender.prefer_not_to_say',
             },
-        ],
+        ] as BucketKey<GenderId>[],
     },
     race_ethnicity: {
         keys: [
@@ -123,7 +196,7 @@ export const keys = {
             id,
             label: `options.happiness.${id}`,
             shortLabel: `options.happiness.${id}.short`,
-        })),
+        })) as BucketKeyWithShortLabel<number>[],
     },
     knowledge_score: {
         keys: range(1, 100).map((n) => ({ id: n })),
@@ -151,7 +224,7 @@ export const keys = {
                 id: 0,
                 label: 'options.opinions.0',
             },
-        ],
+        ] as BucketKey<number>[],
     },
     tools: {
         colorRange: 'tools',
@@ -181,7 +254,7 @@ export const keys = {
                 label: 'options.tools.never_heard.legend',
                 shortLabel: 'options.tools.never_heard.short',
             },
-        ],
+        ] as BucketKeyWithShortLabel<ToolExperienceId>[],
     },
     toolSections: {
         keys: [
@@ -209,7 +282,7 @@ export const keys = {
                 label: 'options.features.never_heard.label',
                 shortLabel: 'options.features.never_heard.short',
             },
-        ],
+        ] as BucketKeyWithShortLabel<FeatureExperienceId>[],
     },
     features_simplified: {
         colorRange: 'features_simplified',
@@ -222,7 +295,7 @@ export const keys = {
                 id: 'used_it',
                 label: 'options.features_simplified.used_it',
             },
-        ],
+        ] as BucketKey<SimplifiedFeatureExperienceId>[],
     },
     css_for_print: generateEnvironmentRatingKeys('css_for_print'),
     css_for_email: generateEnvironmentRatingKeys('css_for_email'),

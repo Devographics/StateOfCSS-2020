@@ -13,7 +13,10 @@ export default {
     border: '#4c84ff',
     heatmap: '#b83eff',
     lineChartDefaultColor: '#3076f6',
-    barChartDefaultColor: '#3076f6',
+    barChart: {
+        primary: '#3076f6',
+        secondary: '#6d9aff',
+    },
     ranges: {
         tools: {
             would_use: '#436eec',

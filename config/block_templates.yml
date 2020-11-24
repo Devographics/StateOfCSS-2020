@@ -314,12 +314,11 @@ featureExperienceTemplate:
 
 otherFeaturesTemplate:
     blockType: HorizontalBarBlock
-    # titleId: 'features_others.${id}'
-    # descriptionId: 'features_others.${id}.description'
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}.year'
     translateData: true
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -490,8 +489,9 @@ toolExperienceTemplate:
                                 count
                                 percentage
                             }
-                            awarenessInterestSatisfaction {
+                            awarenessUsageInterestSatisfaction {
                                 awareness
+                                usage
                                 interest
                                 satisfaction
                             }
@@ -554,6 +554,11 @@ toolsExperienceRankingTemplate:
                         id
                         entity {
                             name
+                        }
+                        usage {
+                            year
+                            rank
+                            percentage
                         }
                         awareness {
                             year
@@ -764,6 +769,7 @@ opinionsOthersTemplate:
     blockType: HorizontalBarBlock
     dataPath: 'surveyApi.survey.${id}.year'
     showDescription: true
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -877,6 +883,7 @@ otherToolsFreeFormTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    colorVariant: secondary
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -916,7 +923,8 @@ otherToolsFreeFormTemplate:
 resourcesTemplate:
     blockType: HorizontalBarBlock
     showDescription: true
-    mode: absolute
+    mode: relative
+    units: count
     dataPath: 'surveyApi.survey.${id}.year'
     query: >
         surveyApi {
@@ -953,6 +961,7 @@ resourcesFreeFormTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    colorVariant: secondary
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -993,6 +1002,7 @@ environmentTemplate:
     showDescription: true
     mode: relative
     dataPath: 'surveyApi.survey.${id}_environments.year'
+    units: count
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {

@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react'
 import PropTypes from 'prop-types'
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 import Block from 'core/blocks/block/Block'
 import ChartContainer from 'core/charts/ChartContainer'
 import VerticalBarChart from 'core/charts/generic/VerticalBarChart'
@@ -16,13 +16,7 @@ const KnowledgeScoreBlock = ({ block, data }) => {
             `KnowledgeScoreBlock: Missing data for block ${block.id}, page data is undefined`
         )
     }
-    const {
-        id,
-        mode = 'relative',
-        units: defaultUnits = 'percentage',
-        translateData,
-        i18nNamespace,
-    } = block
+    const { id, mode = 'relative', units: defaultUnits = 'percentage', i18nNamespace } = block
 
     const context = usePageContext()
     const { width } = context

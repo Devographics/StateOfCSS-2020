@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useState } from 'react'
+import React, { memo, useState } from 'react'
 import PropTypes from 'prop-types'
 import Block from 'core/blocks/block/Block'
 import ChartContainer from 'core/charts/ChartContainer'
@@ -32,23 +32,6 @@ const Emojis = ({ bars, size = 24 }) => (
         })}
     </>
 )
-
-const getChartData = (buckets) => {
-    const sortedBuckets = [0, 1, 2, 3, 4].map((step) => {
-        const bucket = buckets.find((b) => b.id === step)
-        if (bucket === undefined) {
-            return {
-                id: step,
-                count: 0,
-                percentage: 0,
-            }
-        }
-
-        return bucket
-    })
-
-    return sortedBuckets
-}
 
 const formatTick = (translate) => (value) => {
     return translate(`opinion_scale.${value}.long`)

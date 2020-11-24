@@ -1,10 +1,10 @@
 // @ts-ignore
 import React, { useMemo } from 'react'
 import { useTheme } from 'styled-components'
+import { DataFormatter } from '@nivo/core'
 import { keyBy } from 'lodash'
 import { ResponsiveMarimekko, CustomLayerProps } from '@nivo/marimekko'
-// @ts-ignore
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ToolsExperienceMarimekkoToolData } from './types'
@@ -28,7 +28,7 @@ const experienceKeys = keyBy(keys.tools.keys, 'id')
  * we have to use negative and positive values, that's why we're using
  * this formatter, also to add a `%` sign to values.
  */
-const valueFormatter = (value: number) => `${Math.abs(Math.round(value))}%`
+const valueFormatter = ((value: number) => `${Math.abs(Math.round(value))}%`) as DataFormatter
 
 /**
  * Add a shadow behind each tool bars.

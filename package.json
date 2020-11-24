@@ -82,8 +82,9 @@
   },
   "private": true,
   "scripts": {
-    "build": "gatsby build",
-    "deploy": "gatsby build && gh-pages -d public",
+    "build": "node scripts/patch-react-spring.js && gatsby build",
+    "serve": "yarn run build && gatsby serve",
+    "deploy": "yarn run build && gh-pages -d public",
     "dev": "gatsby develop",
     "dev:clean": "rm -rf .cache && yarn run dev",
     "fmt": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\" \"node_src/**/*.js\" \"config/**/*.{yaml,yml}\"",

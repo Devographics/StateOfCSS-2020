@@ -1,7 +1,7 @@
 import React, { memo, useState, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from 'styled-components'
-import { keys } from 'core/constants'
+import { keys } from 'core/bucket_keys'
 import Block from 'core/blocks/block/Block'
 import GaugeBarChart from 'core/charts/generic/GaugeBarChart'
 import ChartContainer from 'core/charts/ChartContainer'

@@ -15,7 +15,10 @@ export default {
     border: colors.greyMediumest,
     heatmap: colors.teal,
     lineChartDefaultColor: colors.red,
-    barChartDefaultColor: colors.red,
+    barChart: {
+        primary: colors.red,
+        secondary: colors.redLight,
+    },
     stroke: colors.greyMediumest,
     ranges: {
         tools: {

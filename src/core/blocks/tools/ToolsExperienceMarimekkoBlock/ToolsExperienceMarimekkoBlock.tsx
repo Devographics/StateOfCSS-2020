@@ -7,7 +7,7 @@ import { useI18n } from 'core/i18n/i18nContext'
 import Block from 'core/blocks/block/Block'
 // @ts-ignore
 import ChartContainer from 'core/charts/ChartContainer'
-import { BlockContext } from '../../types'
+import { BlockContext } from 'core/blocks/types'
 import { ToolsExperienceToolData, ToolsExperienceMarimekkoToolData } from './types'
 import { ToolsExperienceMarimekkoChart, MARGIN, ROW_HEIGHT } from './ToolsExperienceMarimekkoChart'
 

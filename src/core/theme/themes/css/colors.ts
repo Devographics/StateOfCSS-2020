@@ -1,5 +1,5 @@
 import { DefaultTheme } from 'styled-components'
-import colors from '../../colors'
+import colors from 'core/theme/colors'
 
 const cssThemeColors: DefaultTheme['colors'] = {
     background: colors.navy,
@@ -8,7 +8,7 @@ const cssThemeColors: DefaultTheme['colors'] = {
     backgroundAlt: colors.navyDark,
     backgroundInverted: '#aac6c9',
     backgroundInvertedAlt: '#FBFAE1',
-    text: '#9ac6c9',
+    text: '#a3cacd',
     textAlt: '#789B9D',
     textInverted: colors.navyDark,
     textHighlight: colors.greenDark,
@@ -18,7 +18,10 @@ const cssThemeColors: DefaultTheme['colors'] = {
     border: '#9ac6c9',
     heatmap: colors.pinkLight,
     lineChartDefaultColor: '#59DF7F',
-    barChartDefaultColor: colors.blue,
+    barChart: {
+        primary: colors.blue,
+        secondary: '#556ad7',
+    },
     ranges: {
         tools: {
             would_use: '#59DF7F',

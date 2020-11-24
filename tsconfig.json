@@ -12,6 +12,10 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "typeRoots": ["node_modules/@types/", "./src/@types/", ".src/**/@types/"],
-    "strict": true
+    "strict": true,
+    "baseUrl": ".",
+    "paths": {
+      "core/*": ["./src/core/*"]
+    }
   }
 }
