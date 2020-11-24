@@ -13,9 +13,9 @@ import ButtonGroup from 'core/components/ButtonGroup'
 import Button from 'core/components/Button'
 import { Entity } from 'core/types'
 
-type MetricId = 'satisfaction' | 'interest' | 'awareness'
+type MetricId = 'satisfaction' | 'interest' | 'usage' | 'awareness'
 
-const ALL_METRICS: MetricId[] = ['satisfaction', 'interest', 'awareness']
+const ALL_METRICS: MetricId[] = ['satisfaction', 'interest', 'usage', 'awareness']
 
 interface SwitcherProps {
     setMetric: (metric: MetricId) => void
@@ -52,12 +52,9 @@ interface MetricBucket {
     percentage: number
 }
 
-interface ToolData {
+interface ToolData extends Record<MetricId, MetricBucket[]> {
     id: string
     entity: Entity
-    awareness: MetricBucket[]
-    interest: MetricBucket[]
-    satisfaction: MetricBucket[]
 }
 
 interface ToolsExperienceRankingBlockProps {

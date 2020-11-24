@@ -86,7 +86,7 @@ export const RankingChart = ({ data }: RankingChartProps) => {
     return (
         <ResponsiveBump
             data={data}
-            margin={{ top: 40, right: 120, bottom: 40, left: 120 }}
+            margin={{ top: 40, right: 150, bottom: 40, left: 150 }}
             colors={theme.colors.distinct}
             // @ts-ignore
             inactiveLineWidth={5}
