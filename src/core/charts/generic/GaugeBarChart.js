@@ -1,4 +1,4 @@
-import React, { memo, useMemo, useContext } from 'react'
+import React, { memo, useMemo } from 'react'
 import PropTypes from 'prop-types'
 import { useTheme } from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'

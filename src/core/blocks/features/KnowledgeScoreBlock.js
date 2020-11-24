@@ -16,13 +16,7 @@ const KnowledgeScoreBlock = ({ block, data }) => {
             `KnowledgeScoreBlock: Missing data for block ${block.id}, page data is undefined`
         )
     }
-    const {
-        id,
-        mode = 'relative',
-        units: defaultUnits = 'percentage',
-        translateData,
-        i18nNamespace,
-    } = block
+    const { id, mode = 'relative', units: defaultUnits = 'percentage', i18nNamespace } = block
 
     const context = usePageContext()
     const { width } = context
