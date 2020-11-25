@@ -16,8 +16,11 @@ exports.getLocalizedPath = getLocalizedPath
 
 Get locales without the strings, to avoid loading every locale's dictionnary in memory
 
+Also add paths
+
 */
-const getCleanLocales = (locales) => locales.map((l) => omit(l, ['strings']))
+const getCleanLocales = (locales) =>
+    locales.map((l) => ({ path: `/${l.id}`, ...omit(l, ['strings']) }))
 exports.getCleanLocales = getCleanLocales
 
 /*
