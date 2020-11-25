@@ -7,7 +7,7 @@ const Debug = ({ title, data }) => (
         <div style={{ fontSize: '12px' }}>
             {Object.keys(data).map((key) => {
                 let value = data[key]
-                if (value !== undefined && value.indexOf('http') === 0) {
+                if (value !== undefined && value !== null && value.indexOf('http') === 0) {
                     value = <a href={value}>{value}</a>
                 }
                 return (

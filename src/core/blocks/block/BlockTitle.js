@@ -12,6 +12,7 @@ import { getBlockMeta } from 'core/helpers/blockHelpers'
 import SharePermalink from 'core/share/SharePermalink'
 import BlockUnitsSelector from 'core/blocks/block/BlockUnitsSelector'
 import BlockCompletionIndicator from 'core/blocks/block/BlockCompletionIndicator'
+import { getBlockTitle, getBlockDescription } from 'core/helpers/blockHelpers'
 
 const BlockTitle = ({
     isShareable,
@@ -23,42 +24,15 @@ const BlockTitle = ({
     block,
     switcher,
 }) => {
-    const { id, blockName, titleLink, showDescription = true } = block
-    const completion = data && (Array.isArray(data) ? last(data).completion : data.completion)
+    const { id, titleLink, showDescription = true } = block
+    const completion = data && (Array.isArray(data) ? last(data) && last(data).completion : data.completion)
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
     const { translate } = useI18n()
-    const page = context
 
-    let blockTitle
-    if (block.title) {
-        blockTitle = block.title
-    } else if (block.titleId) {
-        blockTitle = translate(block.titleId)
-    } else if (blockName) {
-        blockTitle = translate(`blocks.${blockName}.title`)
-    } else {
-        // blockTitle = getBlockTitle(block, context, translate, { values })
-        // for _others blocks (freeform answers), replace suffix with ".others"
-        const id = block.id.replace('_others', '.others')
-        blockTitle = translate(`${page.i18nNamespace || page.id}.${id}`)
-    }
-
-    let blockDescription
-    if (block.description) {
-        blockDescription = block.description
-    } else if (block.descriptionId) {
-        blockDescription = translate(block.descriptionId)
-    } else if (blockName) {
-        blockDescription = translate(`blocks.${blockName}.description`)
-    } else {
-        // blockDescription = getBlockDescription(block, context, translate, { values })
-        // for _others blocks (freeform answers), replace suffix with ".others"
-        const id = block.id.replace('_others', '.others')
-        blockDescription = translate(`${page.i18nNamespace || page.id}.${id}.description`, {}, null)
-    }
-
-    const meta = getBlockMeta(block, context, translate)
+    const blockTitle = getBlockTitle(block, context, translate)
+    const blockDescription = getBlockDescription(block, context, translate)
+    const blockMeta = getBlockMeta(block, context, translate)
 
     return (
         <>
@@ -67,7 +41,7 @@ const BlockTitle = ({
             >
                 <LeftPart>
                     <BlockTitleText className="BlockTitleText">
-                        <SharePermalink url={meta.link} />
+                        <SharePermalink url={blockMeta.link} />
                         {titleLink ? <a href={titleLink}>{blockTitle}</a> : blockTitle}
                     {completion && !context.isCapturing && <BlockCompletionIndicator completion={completion} />}
 

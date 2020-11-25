@@ -10,7 +10,7 @@ import { PageContextProvider } from './helpers/pageContext'
 import { mergePageContext } from './helpers/pageHelpers'
 import { I18nContextProvider } from './i18n/i18nContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
-import PageMetaDebug from './pages/PageMetaDebug'
+// import PageMetaDebug from './pages/PageMetaDebug'
 import themes from './theme/themes'
 import { GlobalStyle, mq, spacing } from './theme'
 
@@ -68,7 +68,7 @@ const ThemedLayout = ({
                             <Pagination toggleSidebar={toggleSidebar} position="top" />
                         )}
                         <PageMain>
-                            <PageMetaDebug />
+                            {/* <PageMetaDebug /> */}
                             {props.children}
                         </PageMain>
                     </PageContent>

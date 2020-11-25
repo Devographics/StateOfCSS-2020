@@ -3,11 +3,9 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'
 import { color, spacing, fontSize } from 'core/theme'
-import { usePageContext } from 'core/helpers/pageContext'
 
 const BlockCompletionIndicator = ({ completion }) => {
     const { translate } = useI18n()
-    const context = usePageContext()
 
     return (
         <Container className="CompletionIndicator">
@@ -15,10 +13,10 @@ const BlockCompletionIndicator = ({ completion }) => {
                 {translate('general.completion_percentage')}{' '}
                 <strong>{completion.percentage}%</strong> ({completion.count})
             </Tooltip>
-            {!context.isCapturing && <div className="CompletionIndicator__Data sr-only">
+            <div className="CompletionIndicator__Data sr-only">
                 {translate('general.completion_percentage')}{' '}
                 <strong>{completion.percentage}%</strong> ({completion.count})
-            </div>}
+            </div>
             <Chart height="16" width="16" viewBox="0 0 20 20">
                 <ChartBackground r="10" cx="10" cy="10" />
                 <ChartForeground

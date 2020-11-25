@@ -5,29 +5,22 @@ export const getBlockTitle = (
     block,
     context,
     translate,
-    { format = 'short', values = {} } = {}
 ) => {
-    const { id, title, blockName } = block
+    const { blockName } = block
+    const page = context
+
     let blockTitle
 
-    const titleValues = {
-        values: {
-            ...getTranslationValuesFromContext(context, translate),
-            ...values,
-        },
-    }
-
-    if (title) {
-        blockTitle = title
+    if (block.title) {
+        blockTitle = block.title
+    } else if (block.titleId) {
+        blockTitle = translate(block.titleId)
     } else if (blockName) {
-        blockTitle = translate(`block.title.${blockName}`, titleValues)
+        blockTitle = translate(`blocks.${blockName}.title`)
     } else {
-        blockTitle = translate(`block.title.${id}`, titleValues)
-    }
-
-    if (format === 'full') {
-        const pageLabel = getPageLabel(context, translate)
-        blockTitle = `${pageLabel} - ${blockTitle}`
+        // for _others blocks (freeform answers), replace suffix with ".others"
+        const id = block.id.replace('_others', '.others')
+        blockTitle = translate(`${page.i18nNamespace || page.id}.${id}`)
     }
 
     return blockTitle
@@ -37,28 +30,21 @@ export const getBlockDescription = (
     block,
     context,
     translate,
-    { isMarkdownEnabled = true, values = {} } = {}
 ) => {
-    const { id, description, blockName } = block
+    const { blockName } = block
+    const page = context
     let blockDescription
 
-    const descriptionValues = {
-        values: {
-            ...getTranslationValuesFromContext(context, translate),
-            ...values,
-        },
-    }
-
-    if (description) {
-        blockDescription = description
+    if (block.description) {
+        blockDescription = block.description
+    } else if (block.descriptionId) {
+        blockDescription = translate(block.descriptionId)
     } else if (blockName) {
-        blockDescription = translate(`block.description.${blockName}`, descriptionValues)
+        blockDescription = translate(`blocks.${blockName}.description`)
     } else {
-        blockDescription = translate(`block.description.${id}`, descriptionValues)
-    }
-
-    if (isMarkdownEnabled !== true) {
-        blockDescription = removeMarkdown(blockDescription)
+        // for _others blocks (freeform answers), replace suffix with ".others"
+        const id = block.id.replace('_others', '.others')
+        blockDescription = translate(`${page.i18nNamespace || page.id}.${id}.description`, {}, null)
     }
 
     return blockDescription

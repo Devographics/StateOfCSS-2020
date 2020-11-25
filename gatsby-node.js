@@ -5,7 +5,7 @@ require('dotenv').config({
     path: `.env`,
 })
 
-exports.createPages = createPagesSingleLoop
+exports.createPages = createPagesTwoLoops
 
 // handle 404 page separately
 // exports.onCreatePage = async ({ page, actions }) => {

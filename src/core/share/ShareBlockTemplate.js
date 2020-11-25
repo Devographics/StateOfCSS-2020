@@ -1,53 +1,41 @@
-import React, { Component } from 'react'
-import { Redirect } from '@reach/router'
+import React from 'react'
+import { Redirect, useLocation } from '@reach/router'
 import { getBlockTitle, getBlockDescription } from 'core/helpers/blockHelpers'
 import { mergePageContext } from '../helpers/pageHelpers'
 import PageMeta from '../pages/PageMeta'
 import PageMetaDebug from '../pages/PageMetaDebug'
-import { PageContextProvider } from '../helpers/pageContext'
-import { I18nContextProvider } from '../i18n/i18nContext'
-import Trans from '../i18n/Trans'
+import config from 'config/config.yml'
+import { useI18n } from 'core/i18n/i18nContext'
+import { usePageContext } from 'core/helpers/pageContext'
 
-export default class ShareBlockTemplate extends Component {
-    render() {
-        const { pageContext, location } = this.props
-        const { block } = pageContext
+const ShareBlockTemplate = () => {
+    const pageContext = usePageContext()
+    const { block } = pageContext
+    const location = useLocation()
+    const { translate } = useI18n()
+    const context = mergePageContext(pageContext, location)
 
-        const context = mergePageContext(pageContext, location)
-
-        return (
-            <PageContextProvider value={context}>
-                <I18nContextProvider>
-                    <Trans>
-                        {(translate) => {
-                            const overrides = {
-                                title: `${getBlockTitle(block, context, translate, {
-                                    format: 'full',
-                                })} #StateOfJS`,
-                                description: getBlockDescription(
-                                    context.block,
-                                    context,
-                                    translate,
-                                    {
-                                        isMarkdownEnabled: false,
-                                    }
-                                ),
-                            }
-
-                            return (
-                                <div className="template">
-                                    <PageMeta overrides={overrides} />
-                                    <PageMetaDebug overrides={overrides} />
-                                    {!context.isDebugEnabled && (
-                                        <Redirect to={context.redirect} noThrow />
-                                    )}
-                                    Redirecting…
-                                </div>
-                            )
-                        }}
-                    </Trans>
-                </I18nContextProvider>
-            </PageContextProvider>
-        )
+    const blockTitle = getBlockTitle(block, context, translate, {
+        format: 'full',
+    })
+    const blockDescription = getBlockDescription(context.block, context, translate, {
+        isMarkdownEnabled: false,
+    })
+    const overrides = {
+        title: `${config.siteTitle}: ${blockTitle} ${config.hashtag}`,
     }
+    if (blockDescription) {
+        overrides.description = blockDescription
+    }
+
+    return (
+        <div className="template">
+            <PageMeta overrides={overrides} />
+            <PageMetaDebug overrides={overrides} />
+            {!context.isDebugEnabled && <Redirect to={context.redirect} noThrow />}
+            Redirecting…
+        </div>
+    )
 }
+
+export default ShareBlockTemplate
