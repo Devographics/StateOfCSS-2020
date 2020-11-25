@@ -417,6 +417,7 @@ toolsExperienceMarimekkoTemplate:
 
 toolsSectionStreamsTemplate:
     id: '${parentId}_section_streams'
+    blockName: tools_section_streams
     blockType: ToolsSectionStreamsBlock
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools

@@ -178,9 +178,6 @@
             - id: clip_path
               template: featureExperienceTemplate
 
-            - id: argyleink
-              template: picksTemplate
-
             - id: masks
               template: featureExperienceTemplate
 
@@ -235,9 +232,6 @@
             - id: initial_letter
               template: featureExperienceTemplate
 
-            - id: kilianvalkhof
-              template: picksTemplate
-
             - id: font_variant_numeric
               template: featureExperienceTemplate
 
@@ -259,7 +253,7 @@
             - id: transforms
               template: featureExperienceTemplate
 
-            - id: christianoliff
+            - id: sarasoueidan
               template: picksTemplate
 
             - id: animations
@@ -298,6 +292,9 @@
             - id: containment
               template: featureExperienceTemplate
 
+            - id: argyleink
+              template: picksTemplate
+
             - id: will_change
               template: featureExperienceTemplate
 
@@ -329,6 +326,9 @@
       - id: tree_document_structure
         template: otherFeaturesTemplate
 
+      - id: kilianvalkhof
+        template: picksTemplate
+        
       - id: attributes
         template: otherFeaturesTemplate
 
@@ -445,6 +445,10 @@
               template: toolExperienceTemplate
             - id: ui_kit
               template: toolExperienceTemplate
+
+            - id: christianoliff
+              template: picksTemplate
+
             - id: tachyons
               template: toolExperienceTemplate
             - id: primer
@@ -563,6 +567,9 @@
               template: toolExperienceTemplate
             - id: styled_system
               template: toolExperienceTemplate
+
+            - id: piccalilli_
+              template: picksTemplate
 
             - id: stitches
               template: toolExperienceTemplate
