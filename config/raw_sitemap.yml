@@ -247,9 +247,6 @@
             - id: line_clamp
               template: featureExperienceTemplate
 
-            - id: direction
-              template: featureExperienceTemplate
-
       - id: animations_transforms
         path: /animations-and-transforms
         blocks:
