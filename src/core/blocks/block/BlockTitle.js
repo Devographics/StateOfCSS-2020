@@ -46,7 +46,7 @@ const BlockTitle = ({
                     {completion && !context.isCapturing && <BlockCompletionIndicator completion={completion} />}
 
                     </BlockTitleText>
-                    {isExportable && block && (
+                    {isExportable && block && !context.isCapturing && (
                         <BlockExport
                             id={id}
                             data={data}
@@ -55,7 +55,7 @@ const BlockTitle = ({
                             className="Block__Title__Export"
                         />
                     )}
-                    {isShareable && (
+                    {isShareable && !context.isCapturing && (
                         <ShareBlock
                             block={block}
                             className="Block__Title__Share"

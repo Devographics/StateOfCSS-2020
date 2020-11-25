@@ -1,6 +1,7 @@
 import { getToolName } from 'core/helpers/tools'
 import get from 'lodash/get'
 import config from 'config/config.yml'
+import { getBlockImage } from './blockHelpers'
 
 export const getTranslationValuesFromContext = (context, translate) => {
     const values = {}
@@ -53,11 +54,7 @@ export const getPageImageUrl = (context) => {
 
     let imageUrl
     if (context.block !== undefined) {
-        imageUrl = `${baseUrl}captures/${get(context, 'locale.path')}/${context.block.id}.png`
-        // imageUrl = `${baseUrl}captures/${context.basePath
-        //     .replace(/^\//, '')
-        //     .replace(/\/$/, '')
-        //     .replace(/\//g, '_')}_${context.block.id}.png`
+        imageUrl = getBlockImage(context.block, context)
     } else {
         imageUrl = `${baseUrl}${config.socialMediaImage}`
     }

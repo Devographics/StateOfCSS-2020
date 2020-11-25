@@ -1,5 +1,7 @@
 import removeMarkdown from 'remove-markdown'
 import { getTranslationValuesFromContext, getPageLabel } from '../helpers/pageHelpers'
+import get from 'lodash/get'
+import config from 'config/config.yml'
 
 export const getBlockTitle = (
     block,
@@ -50,8 +52,8 @@ export const getBlockDescription = (
     return blockDescription
 }
 
-export const getBlockImage = (block, context, translate) => {
-    return `${context.host}/images/captures/${block.id}.png`
+export const getBlockImage = (block, context) => {
+    return `${config.capturesUrl}${get(context, 'locale.path')}/${block.id}.png`
 }
 
 export const getBlockMeta = (block, context, translate, title) => {

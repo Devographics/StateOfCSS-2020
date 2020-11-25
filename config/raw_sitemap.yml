@@ -644,6 +644,9 @@
       - id: sites_courses
         template: resourcesTemplate
 
+      - id: 5t3ph
+        template: picksTemplate
+        
       - id: sites_courses_others
         template: resourcesFreeFormTemplate
 
