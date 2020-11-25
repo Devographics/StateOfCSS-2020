@@ -8,6 +8,7 @@ import BlockTitle from 'core/blocks/block/BlockTitle'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
+import config from 'config/config.yml'
 
 const trackClick = (id, resource, label) => {
     ReactGA.event({
@@ -49,7 +50,7 @@ const RecommendedResourcesBlock = ({ block, data }) => {
                     {sectionResources.map((resource) => {
                         const url = resource.url.includes('utm_source')
                             ? resource.url
-                            : `${resource.url}?utm_source=stateofjs&utm_medium=sponsor&utm_campaign=${id}`
+                            : `${resource.url}?utm_source=${config.siteContext}&utm_medium=sponsor&utm_campaign=${id}`
 
                         return (
                             <Resource key={resource.name} className="Resource">

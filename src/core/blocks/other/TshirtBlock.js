@@ -22,7 +22,7 @@ const TshirtBlock = () => {
                         >
                             <img
                                 src={`/images/tshirt/${image}`}
-                                alt={translate('tshirt.stateofjs')}
+                                alt={translate('sections.tshirt.title')}
                             />
                         </a>
                     </Image>

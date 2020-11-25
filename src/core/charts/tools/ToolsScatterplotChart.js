@@ -18,6 +18,11 @@ const labelPositions = {
         'Styled System': [-50, -20],
         'Tailwind CSS': [-50, -20],
         'Styled Components': [0, 10],
+        'Styletron': [0,5],
+        'Fela': [0,10],
+        'Stitches': [0,5],
+        'Linaria': [0,-5],
+        'Bulma': [0,-5],
     },
     interest: {
         PureCSS: [-50, -20],
@@ -25,6 +30,11 @@ const labelPositions = {
         JSS: [0, 10],
         SMACSS: [-70, 0],
         Radium: [-70, 0],
+        Bulma: [0, 5],
+        Styletron: [0, 5],
+        Fela: [-55, 0],
+        Linaria: [-80, 0],
+        Stitches: [0, 5],
         'Spectre.css': [-50, -20],
     },
 }

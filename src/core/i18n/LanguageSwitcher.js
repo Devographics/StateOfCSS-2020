@@ -5,6 +5,7 @@ import { usePageContext } from 'core/helpers/pageContext'
 import { useI18n } from 'core/i18n/i18nContext'
 import Locales from './Locales'
 import get from 'lodash/get'
+import config from 'config/config.yml'
 
 const svgs = {
     top: <polygon stroke="#000" points="0,50 100,50 50,0" />,
@@ -34,7 +35,7 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
                 <LanguageSwitcherPopup className="LanguageSwitcherPopup" position={position}>
                     <Locales />
                     <LanguageSwitcherHelp className="LanguageSwitcherHelp">
-                        <a href="https://github.com/StateOfJS/State-of-JS-2019/issues/8">
+                        <a href={config.translationLink}>
                             {translate('general.help_us_translate')}
                         </a>
                     </LanguageSwitcherHelp>

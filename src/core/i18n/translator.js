@@ -3,7 +3,7 @@ import template from 'lodash/template'
 export const getTranslator = (locale = {}) => (key, { values } = {}, fallback) => {
     const { id, strings = [] } = locale
     // reverse strings so that strings added last take priority
-    const translation = strings.reverse().find((t) => t.key === key)
+    const translation = strings.slice().reverse().find((t) => t.key === key)
 
     if (translation === undefined) {
         return typeof fallback === 'undefined' ? `[${id}] ${key}` : fallback
