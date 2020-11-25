@@ -42,7 +42,6 @@ query {
 
 // v1. single loop, run graphql queries and create pages in the same loop
 exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createRedirect } }) => {
-    const { flat } = await computeSitemap(rawSitemap)
 
     const localesResults = await graphql(
         `
@@ -50,6 +49,11 @@ exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createR
         `
     )
     const locales = localesResults.data.surveyApi.locales
+    const cleanLocales = getCleanLocales(locales)
+
+    const { flat } = await computeSitemap(rawSitemap, cleanLocales)
+
+    logToFile('locales.json', cleanLocales, { mode: 'overwrite' })
 
     for (const page of flat) {
         let pageData = {}
@@ -86,7 +90,7 @@ exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createR
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locales: getCleanLocales(locales),
+                    locales: cleanLocales,
                     locale,
                     pageData,
                     pageQuery, // passed for debugging purposes
@@ -114,7 +118,6 @@ exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createR
 // v2. two loops, one for batching all queries together and one for creating pages
 exports.createPagesTwoLoops = async ({ graphql, actions: { createPage, createRedirect } }) => {
     let allQueries = ''
-    const { flat } = await computeSitemap(rawSitemap)
 
     const localesResults = await graphql(
         `
@@ -122,6 +125,11 @@ exports.createPagesTwoLoops = async ({ graphql, actions: { createPage, createRed
         `
     )
     const locales = localesResults.data.surveyApi.locales
+    const cleanLocales = getCleanLocales(locales)
+
+    const { flat } = await computeSitemap(rawSitemap, cleanLocales)
+
+    logToFile('locales.json', cleanLocales, { mode: 'overwrite' })
 
     // first loop: aggregate all page queries together
     for (const page of flat) {
@@ -156,7 +164,7 @@ exports.createPagesTwoLoops = async ({ graphql, actions: { createPage, createRed
                 component: path.resolve(`./src/core/pages/PageTemplate.js`),
                 context: {
                     ...context,
-                    locales: getCleanLocales(locales),
+                    locales: cleanLocales,
                     locale,
                     pageData: allPageData,
                 },

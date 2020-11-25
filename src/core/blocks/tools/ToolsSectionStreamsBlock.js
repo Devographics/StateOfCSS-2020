@@ -62,7 +62,7 @@ const Stream = ({ toolData, current, units }) => {
     const colors = useMemo(() => bucketKeys.map((key) => key.color), [bucketKeys])
 
     return (
-        <div>
+        <StreamItem>
             <StreamChart
                 colorScale={colors}
                 current={current}
@@ -81,7 +81,7 @@ const Stream = ({ toolData, current, units }) => {
             <StreamTitle>
                 <a href={toolData.entity.homepage}>{toolData.entity.name}</a>
             </StreamTitle>
-        </div>
+        </StreamItem>
     )
 }
 
@@ -110,6 +110,12 @@ const GridContainer = styled.div`
         grid-template-columns: repeat(${(props) => getColNumber(props.count)}, 1fr);
         column-gap: ${spacing(2)};
         row-gap: ${spacing(2)};
+    }
+`
+
+const StreamItem = styled.div`
+    @media ${mq.small} {
+        margin-bottom: ${spacing(2)};
     }
 `
 

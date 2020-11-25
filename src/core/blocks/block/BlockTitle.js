@@ -69,8 +69,9 @@ const BlockTitle = ({
                     <BlockTitleText className="BlockTitleText">
                         <SharePermalink url={meta.link} />
                         {titleLink ? <a href={titleLink}>{blockTitle}</a> : blockTitle}
+                    {completion && !context.isCapturing && <BlockCompletionIndicator completion={completion} />}
+
                     </BlockTitleText>
-                    {completion && <BlockCompletionIndicator completion={completion} />}
                     {isExportable && block && (
                         <BlockExport
                             id={id}
@@ -151,7 +152,9 @@ const StyledBlockTitle = styled.div`
 
 const BlockTitleText = styled.h3`
     margin-bottom: 0;
-
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
     @media ${mq.small} {
         opacity: 1;
         transition: all 300ms ease-in;

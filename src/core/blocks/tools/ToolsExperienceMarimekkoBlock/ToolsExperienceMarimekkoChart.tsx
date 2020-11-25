@@ -159,7 +159,7 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
                 ),
                 'grid',
                 'axes',
-                ShadowsLayer,
+                // ShadowsLayer,
                 ToolsLabels,
                 'bars',
             ]}

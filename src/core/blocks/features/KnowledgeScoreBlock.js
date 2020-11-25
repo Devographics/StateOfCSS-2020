@@ -50,7 +50,6 @@ const KnowledgeScoreBlock = ({ block, data }) => {
             completion={completion}
             data={data}
             block={block}
-            legendProps={{ layout: 'vertical' }}
         >
             <ChartContainer fit={true}>
                 <VerticalBarChart

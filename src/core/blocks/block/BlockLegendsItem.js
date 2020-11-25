@@ -52,6 +52,7 @@ export default class LegendsItem extends Component {
             units,
             onMouseEnter,
             useShortLabels,
+            layout,
         } = this.props
 
         const isInteractive = typeof onMouseEnter !== 'undefined'
@@ -66,26 +67,31 @@ export default class LegendsItem extends Component {
                 onClick={this.handleClick}
             >
                 {color && (
-                    <Chip
-                        style={{
-                            width: chipSize,
-                            height: chipSize,
-                            background: color,
-                            ...chipStyle,
-                        }}
-                    />
+                    <ChipWrapper layout={layout}>
+                        <Chip
+                            style={{
+                                width: chipSize,
+                                height: chipSize,
+                                background: color,
+                                ...chipStyle,
+                            }}
+                        />
+                    </ChipWrapper>
                 )}
                 {!color && shortLabel && (
-                    <KeyLabel className="Legends__Item__KeyLabel">{shortLabel} </KeyLabel>
+                    <KeyLabel layout={layout} className="Legends__Item__KeyLabel">
+                        {shortLabel}{' '}
+                    </KeyLabel>
                 )}
                 <Label
+                    layout={layout}
                     className="Legends__Item__Label"
                     dangerouslySetInnerHTML={{
                         __html: useShortLabels ? shortLabel || label : label,
                     }}
                 />
                 {data && (
-                    <Value className="Legends__Item__Value">
+                    <Value layout={layout} className="Legends__Item__Value">
                         {units === 'percentage' ? `${data[units]}%` : data[units]}
                     </Value>
                 )}
@@ -94,11 +100,8 @@ export default class LegendsItem extends Component {
     }
 }
 
-const Container = styled.div`
-    display: flex;
-    align-items: center;
+const Container = styled.tr`
     cursor: default;
-    flex: 1;
 
     &:last-child {
         margin-bottom: 0;
@@ -116,22 +119,22 @@ const Container = styled.div`
     }}
 `
 
-const Chip = styled.span`
-    display: block;
-    margin-right: ${spacing(0.5)};
-    flex-shrink: 0;
+const ChipWrapper = styled.th`
+    padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;
+`
+const Chip = styled.div`
 `
 
-const KeyLabel = styled.span`
-    width: 100px;
-    margin-right: ${spacing()};
+const KeyLabel = styled.th`
+    padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;
+    text-align: left;
 `
 
-const Label = styled.span`
-    padding-right: ${spacing()};
+const Label = styled.td`
+    padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;
+    width: 100%;
 `
 
-const Value = styled.span`
-    display: inline-block;
-    margin-left: ${spacing(0.5)};
+const Value = styled.td`
+    padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;
 `

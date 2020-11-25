@@ -13,7 +13,7 @@ const getMargins = (viewportWidth) => ({
     top: 10,
     right: 70,
     bottom: viewportWidth < breakpoint ? 110 : 60,
-    left: 60,
+    left: 40,
 })
 
 const getLabelsLayer = (units) => (props) => {
@@ -121,7 +121,7 @@ const VerticalBarChart = ({
 }
 
 VerticalBarChart.propTypes = {
-    total: PropTypes.number.isRequired,
+    total: PropTypes.number,
     buckets: PropTypes.arrayOf(
         PropTypes.shape({
             id: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,

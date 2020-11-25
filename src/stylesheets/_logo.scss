@@ -170,7 +170,7 @@ Logo
         .text {
             font-size: 48px * $s;
             font-style: italic;
-            color: $teal;
+            color: $greyTeal;
         }
         .stateof {
             top: 0px;
@@ -206,7 +206,7 @@ Logo
         .stripe {
             height: 5px * $s;
             width: 100px * $s;
-            background: $teal;
+            background: $greyTeal;
         }
         .stripe1 {
             top: 248px * $s;
@@ -242,7 +242,7 @@ Logo
         .blob {
             width: 50%;
             height: 100%;
-            background: $teal;
+            background: $greyTeal;
             border-radius: 50%;
         }
         .blob1 {
@@ -285,7 +285,7 @@ Logo
                     border: 10px * $s solid $blue;
                     @include square-ratio;
                     box-sizing: content-box;
-                    box-shadow: 7px * $s 7px * $s 0px 0px $teal;
+                    box-shadow: 7px * $s 7px * $s 0px 0px $greyTeal;
                 }
             }
         }

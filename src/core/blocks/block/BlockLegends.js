@@ -29,24 +29,27 @@ const BlockLegends = ({
 
     return (
         <Container style={rootStyle} layout={layout} withFrame={withFrame} position={position}>
-            {blockLegends.map(({ id, label, shortLabel, color }) => (
-                <BlockLegendsItem
-                    key={id}
-                    id={id}
-                    label={label}
-                    shortLabel={shortLabel}
-                    useShortLabels={useShortLabels}
-                    color={color}
-                    style={itemStyle}
-                    chipSize={chipSize}
-                    chipStyle={chipStyle}
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                    onClick={onClick}
-                    data={data && Array.isArray(data) && data.find((b) => b.id === id)}
-                    units={units}
-                />
-            ))}
+            <tbody>
+                {blockLegends.map(({ id, label, shortLabel, color }) => (
+                    <BlockLegendsItem
+                        key={id}
+                        id={id}
+                        label={label}
+                        shortLabel={shortLabel}
+                        useShortLabels={useShortLabels}
+                        color={color}
+                        style={itemStyle}
+                        chipSize={chipSize}
+                        chipStyle={chipStyle}
+                        onMouseEnter={onMouseEnter}
+                        onMouseLeave={onMouseLeave}
+                        onClick={onClick}
+                        data={data && Array.isArray(data) && data.find((b) => b.id === id)}
+                        units={units}
+                        layout={layout}
+                    />
+                ))}
+            </tbody>
         </Container>
     )
 }
@@ -72,11 +75,12 @@ BlockLegends.defaultProps = {
     chipSize: 16,
 }
 
-const Container = styled.div`
+const Container = styled.table`
     font-size: ${fontSize('small')};
     /* margin-top: ${spacing()}; */
     margin-top: ${({ position }) => (position === 'bottom' ? spacing() : 0)};
     margin-bottom: ${({ position }) => (position === 'top' ? spacing() : 0)};
+    width: 100%;
 
     ${(props) => {
         if (props.layout === 'horizontal') {
@@ -98,9 +102,9 @@ const Container = styled.div`
 
         if (props.layout === 'vertical') {
             return css`
-                display: flex;
+                /* display: flex;
                 flex-direction: column;
-                justify-content: space-between;
+                justify-content: space-between; */
 
                 @media ${mq.small} {
                     margin-top: ${spacing()};

@@ -147,6 +147,10 @@ const Email = styled.input`
 const SubmitButton = styled(Button)`
     min-width: 140px;
     display: block;
+    @media ${mq.small} {
+        margin-top: ${spacing()};
+        width: 100%;
+    }
     /*
     @include small {
         width: 100%;

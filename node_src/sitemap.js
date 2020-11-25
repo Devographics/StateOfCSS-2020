@@ -133,7 +133,7 @@ exports.pageFromConfig = (stack, config, parent, pageIndex) => {
 
 let computedSitemap = null
 
-exports.computeSitemap = async (rawSitemap) => {
+exports.computeSitemap = async (rawSitemap, locales) => {
     try {
         if (computedSitemap !== null) {
             return computedSitemap
@@ -185,7 +185,7 @@ exports.computeSitemap = async (rawSitemap) => {
             `# please edit \`raw_sitemap.yaml\` instead.`,
             `# generated on: ${now.toISOString()}`,
             `###################################################################`,
-            yaml.dump(stack.hierarchy, { noRefs: true }),
+            yaml.dump({locales, contents: stack.hierarchy}, { noRefs: true }),
         ].join('\n')
         await fs.writeFileSync('./config/sitemap.yml', sitemapContent)
 

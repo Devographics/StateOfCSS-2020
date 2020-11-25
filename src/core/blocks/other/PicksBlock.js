@@ -15,26 +15,27 @@ const PicksBlock = ({ block, data }) => {
         return null
     }
 
-    const { twitterName, fullName, avatarUrl, url } = pick
+    const { twitterName, fullName, pickName, avatarUrl, url } = pick
     return (
         <PicksContainer className="Block">
-            <div className="resources">
-                <Pick className="Resource">
+            <PicksIntroMobile>{translate(`picks.intro`)}</PicksIntroMobile>
+
+            <div className="pick">
+                <Pick>
                     <PickContentWrapper>
-                        <PickContent className="Resource__content">
-                            <PickTitle className="Resource__title">
+                        <PickContent>
+                            <PickTitle>
                                 <span>{translate(`picks.my_2020_pick`)}</span>
-                                <a href={url}>{translate(`picks.${twitterName}.title`)}</a>
+                                <a href={url}>{pickName}</a>
                             </PickTitle>
                             <Description>
                                 {translate(`picks.${twitterName}.description`)}
                             </Description>
                         </PickContent>
-
                         <PicksIntro>{translate(`picks.intro`)}</PicksIntro>
                     </PickContentWrapper>
                     <PickPerson>
-                        <PickImage className="Resource__image">
+                        <PickImage>
                             <div>
                                 <a
                                     href={`https://twitter.com/${twitterName}`}
@@ -78,11 +79,16 @@ const PickContentWrapper = styled.div`
     position: relative;
 `
 const PickContent = styled.div`
-    padding: ${spacing(1.5)};
     background: ${({ theme }) => theme.colors.backgroundInvertedAlt};
     color: ${({ theme }) => theme.colors.textInverted};
     position: relative;
     margin-bottom: ${spacing(0.75)};
+    @media ${mq.small} {
+        padding: ${spacing()};
+    }
+    @media ${mq.mediumLarge} {
+        padding: ${spacing(1.5)};
+    }
     &:after {
         content: ' ';
         clip-path: polygon(0 0, 100% 0, 50% 100%);
@@ -96,7 +102,6 @@ const PickContent = styled.div`
 `
 
 const PickTitle = styled.h3`
-    line-height: 1;
     margin-bottom: ${spacing(0.5)};
 `
 
@@ -104,6 +109,15 @@ const Description = styled.div`
     font-size: ${fontSize('smallish')};
 `
 
+const PicksIntroMobile = styled.div`
+    font-size: ${fontSize('small')};
+    text-align: center;
+    margin-bottom: ${spacing(0.5)};
+    color: ${({ theme }) => theme.colors.textAlt};
+    @media ${mq.mediumLarge} {
+        display: none;
+    }
+`
 const PicksIntro = styled.div`
     font-size: ${fontSize('small')};
     text-align: right;
@@ -111,6 +125,9 @@ const PicksIntro = styled.div`
     bottom: -30px;
     right: 0;
     color: ${({ theme }) => theme.colors.textAlt};
+    @media ${mq.small} {
+        display: none;
+    }
 `
 
 const PickPerson = styled.div`

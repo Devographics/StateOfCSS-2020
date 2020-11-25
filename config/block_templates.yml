@@ -41,6 +41,7 @@ demographicsTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -69,6 +70,7 @@ knowledgeScoreTemplate:
     blockType: KnowledgeScoreBlock
     dataPath: 'surveyApi.survey.demographics.knowledge_score.year'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -92,6 +94,7 @@ proficiencyTemplate:
     dataPath: 'surveyApi.survey.${id}.year'
     showDescription: true
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -118,6 +121,7 @@ sourceTemplate:
     blockType: VerticalBarBlock
     dataPath: 'surveyApi.survey.demographics.${id}.year' # select the 4th array item to select the 4th year
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -157,6 +161,7 @@ scatterplotOverviewTemplate:
     blockType: ToolsScatterplotBlock
     dataPath: 'surveyApi.survey.tools'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -187,6 +192,7 @@ toolsArrowsTemplate:
     blockType: ToolsArrowsBlock
     dataPath: 'surveyApi.survey.tools'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -220,6 +226,7 @@ featuresOverviewTemplate:
     blockName: featuresOverview
     blockType: FeaturesOverviewBlock
     dataPath: 'surveyApi.survey.features'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -250,6 +257,7 @@ featuresCategoryOverviewTemplate:
     dataPath: 'surveyApi.survey.features'
     bucketKeysName: featureExperienceSimplified
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -280,6 +288,7 @@ featureExperienceTemplate:
     showDescription: true
     bucketKeysName: features
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -319,6 +328,7 @@ otherFeaturesTemplate:
     dataPath: 'surveyApi.survey.${id}.year'
     translateData: true
     units: count
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -354,6 +364,7 @@ toolsSectionOverviewTemplate:
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -381,6 +392,7 @@ toolsExperienceMarimekkoTemplate:
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -409,6 +421,7 @@ toolsSectionStreamsTemplate:
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -468,6 +481,7 @@ toolExperienceTemplate:
     dataPath: surveyApi.survey.${id}_experience
     bucketKeysName: tools
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -512,6 +526,7 @@ toolExperienceGraphTemplate:
     blockType: ToolExperienceGraphBlock
     dataPath: surveyApi.survey.tool
     showLegend: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -545,6 +560,7 @@ toolsExperienceRankingTemplate:
     blockType: ToolsExperienceRankingBlock
     blockName: tools_experience_ranking
     dataPath: 'surveyApi.survey.${parentId}_rankings.experience'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -585,6 +601,7 @@ toolsMatricesTemplate:
     blockType: ToolsMatricesBlock
     blockName: tools_matrices
     dataPath: 'surveyApi.survey.${parentId}_matrices.tools'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -614,6 +631,7 @@ heatmapTemplate:
     blockType: HeatmapBlock
     dataPath: 'surveyApi.survey.${parentId}_matrices.tools.${heatmapId}.year'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -646,6 +664,7 @@ scatterplotTemplate:
     blockType: ToolsScatterplotBlock
     dataPath: 'surveyApi.survey.tools'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -687,6 +706,7 @@ happinessTemplate:
     i18nNamespace: happiness
     bucketKeysName: happiness
     blockName: happiness
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -713,6 +733,7 @@ opinionHappinessTemplate:
     i18nNamespace: happiness
     bucketKeysName: happiness
     blockName: happiness
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -742,6 +763,7 @@ opinionTemplate:
     blockType: OpinionBlock
     dataPath: 'surveyApi.survey.${id}.all_years'
     showDescription: true
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -770,6 +792,7 @@ opinionsOthersTemplate:
     dataPath: 'surveyApi.survey.${id}.year'
     showDescription: true
     units: count
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -811,6 +834,7 @@ sectionOtherToolsTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${parentId}_others.year'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -847,6 +871,7 @@ otherToolsTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -884,6 +909,7 @@ otherToolsFreeFormTemplate:
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
     colorVariant: secondary
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -926,6 +952,7 @@ resourcesTemplate:
     mode: relative
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -962,6 +989,7 @@ resourcesFreeFormTemplate:
     units: count
     dataPath: 'surveyApi.survey.${id}.year'
     colorVariant: secondary
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -1003,6 +1031,7 @@ environmentTemplate:
     mode: relative
     dataPath: 'surveyApi.survey.${id}_environments.year'
     units: count
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
@@ -1039,6 +1068,7 @@ environmentRatingTemplate:
     mode: relative
     i18nNamespace: frequency
     dataPath: 'surveyApi.survey.${id}.year'
+    enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {

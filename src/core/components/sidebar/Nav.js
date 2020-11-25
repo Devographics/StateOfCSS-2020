@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import sitemap from '../../../../config/sitemap.yml'
+import sitemap from 'config/sitemap.yml'
 import { mq, fancyLinkMixin, spacing } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import PageLink from 'core/pages/PageLink'
@@ -8,7 +8,7 @@ import LanguageSwitcher from 'core/i18n/LanguageSwitcher'
 import { useI18n } from 'core/i18n/i18nContext'
 import { getPageLabel } from 'core/helpers/pageHelpers'
 
-const filteredNav = sitemap.filter((page) => !page.is_hidden)
+const filteredNav = sitemap.contents.filter((page) => !page.is_hidden)
 
 const StyledPageLink = styled(PageLink)`
     display: inline-block;

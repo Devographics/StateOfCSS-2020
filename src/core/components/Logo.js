@@ -47,7 +47,7 @@ const Logo = ({ className, animated = true, showText = true, size = 'l' }) => (
             <div className="letter s2">
                 <div>S</div>
             </div>
-            {showText && <div className="text year">2019</div>}
+            {showText && <div className="text year">2020</div>}
         </div>
     </div>
 )

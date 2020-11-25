@@ -2,31 +2,37 @@
   fullName: Ahmad Shadeed
   avatarUrl: shadeed9.jpg
   url: https://www.bram.us/2020/11/05/container-queries-are-coming-to-chromium/
+  pickName: Container Queries
 
 - twitterName: argyleink
   fullName: Adam Argyle
   avatarUrl: argyleink.jpg
   url: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Logical_Properties/Basic_concepts
+  pickName: Logical Properties 
 
-# - twitterName:
-#   fullName:
-#   avatarUrl:
-#   url: 
+- twitterName: sachagreif
+  fullName: Sacha Greif
+  avatarUrl: sachagreif.jpg
+  url: https://wattenberger.com/blog/css-cascade
+  pickName: The CSS Cascade
+
+- twitterName: kilianvalkhof
+  fullName: Kilian Valkhof
+  avatarUrl: kilianvalkhof.jpg
+  url: https://web.dev/content-visibility/
+  pickName: Content-Visibility
   
-# - twitterName:
-#   fullName:
-#   avatarUrl:
-#   url: 
+- twitterName: christianoliff
+  fullName: Christian Oliff
+  avatarUrl: christianoliff.jpg
+  url: https://purgecss.com/
+  pickName: PurgeCSS
   
-# - twitterName:
-#   fullName:
-#   avatarUrl:
-#   url: 
-  
-# - twitterName:
-#   fullName:
-#   avatarUrl:
-#   url: 
+- twitterName: walterstephanie
+  fullName: Stéphanie Walter
+  avatarUrl: walterstephanie.jpg
+  url: https://www.youtube.com/c/LayoutLand
+  pickName: Jen Simmons' Layout Land
 
 # - twitterName:
 #   fullName:

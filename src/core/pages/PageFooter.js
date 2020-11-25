@@ -21,7 +21,7 @@ const PageFooter = () => {
                         className="PageFooter__Link PageFooter__Link--previous"
                         to={context.previous.path}
                     >
-                        « {translate('page.previous')} <PageLabel page={context.previous} />
+                        « <LinkLabel>{translate('page.previous')}</LinkLabel> <PageLabel page={context.previous} />
                     </PreviousLink>
                 )}
                 {context.next && !isEmpty(context.next) && (
@@ -30,7 +30,7 @@ const PageFooter = () => {
                         className="PageFooter__Link PageFooter__Link--next Button"
                         to={context.next.path}
                     >
-                        {translate('page.next')} <PageLabel page={context.next} /> »
+                        <LinkLabel>{translate('page.next')}</LinkLabel> <PageLabel page={context.next} /> »
                     </NextLink>
                 )}
             </Nav>
@@ -66,15 +66,13 @@ const Container = styled.div`
 `
 
 const Nav = styled.div`
-    @media ${mq.mediumLarge} {
         display: flex;
         align-items: center;
         justify-content: center;
-    }
 `
 
 const Notes = styled.div`
-    font-size: ${fontSize('smaller')};
+    font-size: ${fontSize('small')};
     text-align: center;
 
     @media ${mq.small} {
@@ -89,18 +87,20 @@ const FooterLink = styled(Button)`
     @media ${mq.small} {
         display: block;
         text-align: center;
+        text-overflow: ellipsis;
     }
 `
 
 const PreviousLink = styled(FooterLink)`
-    @media ${mq.small} {
-        margin-bottom: ${spacing()};
-    }
-    @media ${mq.mediumLarge} {
-        margin-right: ${spacing()};
-    }
+    margin-right: ${spacing()};
 `
 
 const NextLink = styled(FooterLink)``
+
+const LinkLabel = styled.span`
+     @media ${mq.small} {
+        display: none;
+    }   
+`
 
 export default PageFooter

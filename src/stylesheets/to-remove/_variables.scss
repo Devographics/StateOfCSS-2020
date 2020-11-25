@@ -40,6 +40,9 @@ $border2: 1px solid $border-color;
 }
 .sr-only {
     @include sr-only;
+    .capture & {
+        display: none !important;
+    }
 }
 
 @keyframes svgAnts {

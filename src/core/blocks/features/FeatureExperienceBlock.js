@@ -36,10 +36,7 @@ const FeatureExperienceBlock = ({ block, data, units: defaultUnits = 'percentage
             title={name}
             units={units}
             setUnits={setUnits}
-            data={{
-                completion: get(data, 'experience.year.completion'),
-                allYears,
-            }}
+            data={allYears}
             block={{ ...block, title: name, titleLink: mdnLink, description }}
         >
             {allYears.map((year) => (

@@ -5,7 +5,8 @@ import { mq, spacing } from 'core/theme'
 const Link = styled.a`
     display: block;
     flex-shrink: 0;
-
+    z-index: 1000;
+    position: relative;
     &:last-child {
         margin-right: 0;
     }
