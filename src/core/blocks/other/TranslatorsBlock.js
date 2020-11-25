@@ -15,7 +15,7 @@ const TranslatorsBlock = () => {
                 <Header>{translate('general.translation_help')}</Header>
                 <Locales>
                     {get(context, 'locales', [])
-                        .filter(({ locale }) => locale !== 'en-US')
+                        .filter(({ id: locale }) => locale !== 'en-US')
                         .map(({ label, translators }) => (
                             <Locale key={label}>
                                 <LocaleLabel>{label}</LocaleLabel>
