@@ -13,10 +13,6 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
 
-    const { translate } = useI18n()
-    const title = translate(`blocks.tools_section_streams.title`)
-    const description = translate(`blocks.tools_section_streams.description`)
-
     const filteredData = data.filter((toolData) => toolData.experience.all_years.length > 1)
 
     return (
@@ -25,9 +21,8 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
             setUnits={setUnits}
             block={{
                 ...block,
-                title,
-                description,
                 legendPosition: 'top',
+                legendProps: { layout: 'horizontal' },
             }}
             data={filteredData}
             legendProps={{

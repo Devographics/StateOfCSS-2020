@@ -53,7 +53,7 @@ export const getPageImageUrl = (context) => {
 
     let imageUrl
     if (context.block !== undefined) {
-        imageUrl = `${baseUrl}captures/${context.locale.id}/${context.block.id}.png`
+        imageUrl = `${baseUrl}captures/${get(context, 'locale.path')}/${context.block.id}.png`
         // imageUrl = `${baseUrl}captures/${context.basePath
         //     .replace(/^\//, '')
         //     .replace(/\/$/, '')

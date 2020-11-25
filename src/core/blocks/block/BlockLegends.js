@@ -29,7 +29,7 @@ const BlockLegends = ({
 
     return (
         <Container style={rootStyle} layout={layout} withFrame={withFrame} position={position}>
-            <tbody>
+            <ContainerInner layout={layout}>
                 {blockLegends.map(({ id, label, shortLabel, color }) => (
                     <BlockLegendsItem
                         key={id}
@@ -49,7 +49,7 @@ const BlockLegends = ({
                         layout={layout}
                     />
                 ))}
-            </tbody>
+            </ContainerInner>
         </Container>
     )
 }
@@ -83,6 +83,21 @@ const Container = styled.table`
     width: 100%;
 
     ${(props) => {
+        if (props.withFrame) {
+            return css`
+                border: 1px solid ${color('border')};
+                padding: ${spacing(0.5)};
+
+                @media ${mq.small} {
+                    padding: ${spacing(0.5)};
+                }
+            `
+        }
+    }}
+`
+
+const ContainerInner = styled.tbody`
+    ${(props) => {
         if (props.layout === 'horizontal') {
             return css`
                 @media ${mq.mediumLarge} {
@@ -108,19 +123,6 @@ const Container = styled.table`
 
                 @media ${mq.small} {
                     margin-top: ${spacing()};
-                }
-            `
-        }
-    }}
-
-    ${(props) => {
-        if (props.withFrame) {
-            return css`
-                border: 1px solid ${color('border')};
-                padding: ${spacing()};
-
-                @media ${mq.small} {
-                    padding: ${spacing(0.5)};
                 }
             `
         }
