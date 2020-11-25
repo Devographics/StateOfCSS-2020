@@ -84,10 +84,10 @@ const PickContent = styled.div`
     position: relative;
     margin-bottom: ${spacing(0.75)};
     @media ${mq.small} {
-        padding: ${spacing()};
+        padding: ${spacing(0.75)} ${spacing()} ${spacing()} ${spacing()};
     }
     @media ${mq.mediumLarge} {
-        padding: ${spacing(1.5)};
+        padding: ${spacing(1)} ${spacing(1.5)} ${spacing(1.5)} ${spacing(1.5)};
     }
     &:after {
         content: ' ';
