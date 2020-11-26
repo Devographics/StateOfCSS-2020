@@ -229,6 +229,9 @@
             - id: font_variant
               template: featureExperienceTemplate
 
+            - id: piccalilli_
+              template: picksTemplate
+
             - id: initial_letter
               template: featureExperienceTemplate
 
@@ -568,7 +571,7 @@
             - id: styled_system
               template: toolExperienceTemplate
 
-            - id: piccalilli_
+            - id: hugogiraudel
               template: picksTemplate
 
             - id: stitches
@@ -602,6 +605,9 @@
 
       - id: text_editors
         template: otherToolsTemplate
+
+      - id: foolip
+        template: picksTemplate
 
       - id: text_editors_others
         template: otherToolsFreeFormTemplate
@@ -672,6 +678,9 @@
 
       - id: selector_nesting_to_be_avoided
         template: opinionTemplate
+
+      - id: jina
+        template: picksTemplate
 
       - id: css_is_programming_language
         template: opinionTemplate

@@ -51,3 +51,21 @@
   avatarUrl: 5t3ph.jpg
   url: https://www.youtube.com/watch?v=o6ssu5oKyaU
   pickName: Writing even more CSS with Accessibility in Mind
+
+- twitterName: hugogiraudel
+  fullName: Hugo Giraudel
+  avatarUrl: hugogiraudel.jpg
+  url: https://fela.js.org/
+  pickName: Fela
+
+- twitterName: foolip
+  fullName: Philip Jägenstedt
+  avatarUrl: foolip.jpg
+  url: https://blogs.igalia.com/svillar/2020/10/01/closing-the-gap-in-flexbox/
+  pickName: Sergio Villar
+
+- twitterName: jina
+  fullName: Jina Anne
+  avatarUrl: jina.jpg
+  url: https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion
+  pickName: prefers-reduced-motion

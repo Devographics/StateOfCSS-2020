@@ -20,7 +20,7 @@ const StyledPageLink = styled(PageLink)`
             : props.theme.typography.size.medium};
     font-weight: ${(props) => (props.depth === 0 ? 800 : 400)};
 
-    &>span{
+    & > span {
         text-overflow: ellipsis;
         overflow: hidden;
         white-space: nowrap;
@@ -35,7 +35,9 @@ const StyledPageLink = styled(PageLink)`
     ${(props) => {
         if (props.isHidden) {
             return css`
-                display:none;
+                @media ${mq.large} {
+                    display: none;
+                }
             `
         }
     }}

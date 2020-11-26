@@ -40,7 +40,7 @@ export const getBlockTitle = (
     page,
     translate,
 ) => {
-    return block.title || translate(`${getBlockTitleKey(block, page)}.title`)
+    return block.title || translate(getBlockTitleKey(block, page))
 }
 
 export const getBlockDescription = (

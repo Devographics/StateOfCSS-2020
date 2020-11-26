@@ -4,7 +4,7 @@ import ReactMarkdown from 'react-markdown/with-html'
 import { useKeydownContext } from 'core/helpers/keydownContext'
 
 const getGitHubSearchUrl = (k, localeId) =>
-    `https://github.com/search?q="${k}"+repo%3AStateOfJS%2Fstate-of-js-graphql-results-api+path%3A%2Fsrc%2Fi18n%2F${localeId}%2F+path%3A%2Fsrc%2Fi18n%2Fen-US%2F&type=Code&ref=advsearch&l=&l=`
+    `https://github.com/search?q=${k}+repo%3AStateOfJS%2Fstate-of-js-graphql-results-api+path%3A%2Fsrc%2Fi18n%2F${localeId}%2F+path%3A%2Fsrc%2Fi18n%2Fen-US%2F&type=Code&ref=advsearch&l=&l=`
 
 const T = ({ t: override, k, values, md = false, html = false, fallback }) => {
     const { getString } = useI18n()
