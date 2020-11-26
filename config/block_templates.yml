@@ -598,6 +598,37 @@ toolsExperienceRankingTemplate:
             }
         }
 
+toolsRangesMutlipleDivergingLinesTemplate:
+    id: ${parentId}_ranges_multiple_diverging_lines
+    blockType: ToolsRangesMultipleDivergingLinesBlock
+    blockName: tools_ranges_multiple_diverging_lines
+    dataPath: 'surveyApi.survey.${parentId}_matrices.tools'
+    enableExport: true
+    query: >
+        surveyApi {
+            survey(survey: ${surveyType}) {
+                ${parentId}_matrices: matrices {
+                    tools(ids: [${toolIds}]) {
+                        years_of_experience(experience: would_use) {
+                            year(year: ${currentYear}) {
+                                year
+                            }
+                        }
+                        yearly_salary(experience: would_use) {
+                            year(year: ${currentYear}) {
+                                year
+                            }
+                        }
+                        company_size(experience: would_use) {
+                            year(year: ${currentYear}) {
+                                year
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
 toolsMatricesTemplate:
     id: ${parentId}_matrices
     blockType: ToolsMatricesBlock
