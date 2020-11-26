@@ -62,9 +62,6 @@ export const ToolsExperienceMarimekkoBlock = ({
     block,
     data,
 }: ToolsExperienceMarimekkoBlockProps) => {
-    const { translate } = useI18n()
-    const title = translate(`blocks.tools_experience_marimekko.title`)
-    const description = translate(`blocks.tools_experience_marimekko.description`)
 
     const normalizedData = useNormalizedData(data)
 
@@ -79,8 +76,6 @@ export const ToolsExperienceMarimekkoBlock = ({
         <Block
             block={{
                 ...block,
-                title,
-                description,
                 showLegend: false,
             }}
             data={data}

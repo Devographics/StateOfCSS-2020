@@ -3,53 +3,52 @@ import { getTranslationValuesFromContext, getPageLabel } from '../helpers/pageHe
 import get from 'lodash/get'
 import config from 'config/config.yml'
 
+export const getBlockTitleKey = (
+    block,
+    page,
+) => {
+    const { blockName, titleId } = block
+    if (titleId) {
+        return titleId
+    } else if (blockName){
+        return `blocks.${blockName}.title`
+    } else {
+        const pageId = page.i18nNamespace || page.id
+        const blockId = block.id.replace('_others', '.others')
+        return `${pageId}.${blockId}`
+    }
+}
+
+export const getBlockDescriptionKey = (
+    block,
+    page,
+) => {
+    const { blockName, titleId } = block
+    if (titleId) {
+        return titleId
+    } else if (blockName){
+        return `blocks.${blockName}.description`
+    } else {
+        const pageId = page.i18nNamespace || page.id
+        const blockId = block.id.replace('_others', '.others')
+        return `${pageId}.${blockId}.description`
+    }
+}
+
 export const getBlockTitle = (
     block,
-    context,
+    page,
     translate,
 ) => {
-    const { blockName } = block
-    const page = context
-
-    let blockTitle
-
-    if (block.title) {
-        blockTitle = block.title
-    } else if (block.titleId) {
-        blockTitle = translate(block.titleId)
-    } else if (blockName) {
-        blockTitle = translate(`blocks.${blockName}.title`)
-    } else {
-        // for _others blocks (freeform answers), replace suffix with ".others"
-        const id = block.id.replace('_others', '.others')
-        blockTitle = translate(`${page.i18nNamespace || page.id}.${id}`)
-    }
-
-    return blockTitle
+    return block.title || translate(`${getBlockTitleKey(block, page)}.title`)
 }
 
 export const getBlockDescription = (
     block,
-    context,
+    page,
     translate,
 ) => {
-    const { blockName } = block
-    const page = context
-    let blockDescription
-
-    if (block.description) {
-        blockDescription = block.description
-    } else if (block.descriptionId) {
-        blockDescription = translate(block.descriptionId)
-    } else if (blockName) {
-        blockDescription = translate(`blocks.${blockName}.description`)
-    } else {
-        // for _others blocks (freeform answers), replace suffix with ".others"
-        const id = block.id.replace('_others', '.others')
-        blockDescription = translate(`${page.i18nNamespace || page.id}.${id}.description`, {}, null)
-    }
-
-    return blockDescription
+    return block.description || translate(`${getBlockDescriptionKey(block, page)}.description`)
 }
 
 export const getBlockImage = (block, context) => {

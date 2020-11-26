@@ -1,20 +1,15 @@
 import React from 'react'
-import ReactMarkdown from 'react-markdown'
 import styled from 'styled-components'
-import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing } from 'core/theme'
+import T from 'core/i18n/T'
 
-const PageIntroductionBlock = ({ block }) => {
-    const { translate } = useI18n()
-    return (
-        <Introduction
-            className="Page__Introduction"
-            source={translate(`sections.${block.pageId}.description`)}
-        />
-    )
-}
+const PageIntroductionBlock = ({ block }) => (
+    <Introduction className="Page__Introduction">
+        <T k={`sections.${block.pageId}.description`} md={true} />
+    </Introduction>
+)
 
-const Introduction = styled(ReactMarkdown)`
+const Introduction = styled.div`
     @media ${mq.smallMedium} {
         margin-bottom: ${spacing(2)};
     }

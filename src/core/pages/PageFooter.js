@@ -3,14 +3,14 @@ import isEmpty from 'lodash/isEmpty'
 import styled from 'styled-components'
 import { mq, spacing, fontSize } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
-import { useI18n } from 'core/i18n/i18nContext'
 import Link from 'core/components/LocaleLink'
 import Button from 'core/components/Button'
 import PageLabel from './PageLabel'
+import config from 'config/config.yml'
+import T from 'core/i18n/T'
 
 const PageFooter = () => {
     const context = usePageContext()
-    const { translate } = useI18n()
 
     return (
         <Container>
@@ -21,7 +21,11 @@ const PageFooter = () => {
                         className="PageFooter__Link PageFooter__Link--previous"
                         to={context.previous.path}
                     >
-                        « <LinkLabel>{translate('page.previous')}</LinkLabel> <PageLabel page={context.previous} />
+                        «{' '}
+                        <LinkLabel>
+                            <T k="page.previous" />
+                        </LinkLabel>{' '}
+                        <PageLabel page={context.previous} />
                     </PreviousLink>
                 )}
                 {context.next && !isEmpty(context.next) && (
@@ -30,26 +34,21 @@ const PageFooter = () => {
                         className="PageFooter__Link PageFooter__Link--next Button"
                         to={context.next.path}
                     >
-                        <LinkLabel>{translate('page.next')}</LinkLabel> <PageLabel page={context.next} /> »
+                        <LinkLabel>
+                            <T k="page.next" />
+                        </LinkLabel>{' '}
+                        <PageLabel page={context.next} /> »
                     </NextLink>
                 )}
             </Nav>
             <Notes>
-                <span
-                    dangerouslySetInnerHTML={{
-                        __html: translate('general.leave_issue', {
-                            values: {
-                                link: 'https://github.com/StateOfJS/StateOfCSS-2020',
-                            },
-                        }),
-                    }}
-                />{' '}
-                <span
-                    dangerouslySetInnerHTML={{
-                        __html: translate('general.netlify_link', {
-                            values: { link: 'https://www.netlify.com' },
-                        }),
-                    }}
+                <T k="general.leave_issue" values={{ link: config.issuesUrl }} html={true} />{' '}
+                <T k="general.join_discord" values={{ link: config.discordUrl }} html={true} />{' '}
+                <T k="general.translator_mode"/>{' '}
+                <T
+                    k="general.netlify_link"
+                    values={{ link: 'https://www.netlify.com' }}
+                    html={true}
                 />
             </Notes>
         </Container>
@@ -66,9 +65,9 @@ const Container = styled.div`
 `
 
 const Nav = styled.div`
-        display: flex;
-        align-items: center;
-        justify-content: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `
 
 const Notes = styled.div`
@@ -98,9 +97,9 @@ const PreviousLink = styled(FooterLink)`
 const NextLink = styled(FooterLink)``
 
 const LinkLabel = styled.span`
-     @media ${mq.small} {
+    @media ${mq.small} {
         display: none;
-    }   
+    }
 `
 
 export default PageFooter

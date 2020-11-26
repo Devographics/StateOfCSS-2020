@@ -70,10 +70,6 @@ interface ToolsExperienceRankingBlockProps {
 export const ToolsExperienceRankingBlock = ({ block, data }: ToolsExperienceRankingBlockProps) => {
     const [metric, setMetric] = useState<MetricId>('satisfaction')
 
-    const { translate } = useI18n()
-    const title = translate(`blocks.tools_experience_ranking.title`)
-    const description = translate(`blocks.tools_experience_ranking.description`)
-
     const chartData: RankingChartSerie[] = useMemo(
         () =>
             data.map((tool) => {
@@ -94,11 +90,7 @@ export const ToolsExperienceRankingBlock = ({ block, data }: ToolsExperienceRank
 
     return (
         <Block
-            block={{
-                ...block,
-                title,
-                description,
-            }}
+            block={block}
             titleProps={{ switcher: <Switcher setMetric={setMetric} metric={metric} /> }}
             data={data}
         >

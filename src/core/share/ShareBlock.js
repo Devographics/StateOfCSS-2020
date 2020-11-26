@@ -13,6 +13,7 @@ import ShareLinkedIn from './ShareLinkedIn'
 import ShareFacebook from './ShareFacebook'
 import ShareEmail from './ShareEmail'
 import ShareImage from './ShareImage'
+import T from 'core/i18n/T'
 
 const ShareIcon = () => (
     <Icon
@@ -69,7 +70,7 @@ const ShareBlock = ({ block, section, className, toggleClass, title }) => {
                         toggleOptions(e)
                     }}
                 >
-                    <span className="desktop">{translate('share.share')}</span>
+                    <span className="desktop"><T k='share.share'/></span>
                     <ShareIcon />
                 </ShareButton>
             </ButtonWrapper>

@@ -19,8 +19,8 @@ export const textShadowMixin = (color) => css`
     text-shadow: 0px 2px 3px ${transparentize(0.6, color)};
 `
 
-export const textShadowHighlightMixin = (color) => css`
-    text-shadow: 0px 2px 10px ${transparentize(0.1, color)};
+export const textShadowHighlightMixin = (color, transparency = 0.1) => css`
+    text-shadow: 0px 2px 7px ${transparentize(transparency, color)};
 `
 
 export const fancyLinkMixin = ({ color, activeClassName = '_is-active', activeColor }) => css`

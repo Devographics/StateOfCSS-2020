@@ -2,18 +2,16 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { usePageContext } from '../helpers/pageContext'
-import { useI18n } from '../i18n/i18nContext'
-import { getPageLabel } from '../helpers/pageHelpers'
+import { getPageLabelKey } from '../helpers/pageHelpers'
 import { mq } from 'core/theme'
+import T from 'core/i18n/T'
 
-const PageHeader = ({ title: _title, showIntro = true, introduction }) => {
-    const context = usePageContext()
-    const { translate } = useI18n()
-    const page = context
+const PageHeader = () => {
+    const page = usePageContext()
     return (
-        <>
-            <PageTitle>{getPageLabel(page, translate)}</PageTitle>
-        </>
+        <PageTitle>
+            <T k={getPageLabelKey(page)} />
+        </PageTitle>
     )
 }
 

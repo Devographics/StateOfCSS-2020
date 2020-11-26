@@ -2,7 +2,6 @@ import React, { memo, useState } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import last from 'lodash/last'
-import ReactMarkdown from 'react-markdown/with-html'
 import { mq, spacing } from 'core/theme'
 import ShareBlock from 'core/share/ShareBlock'
 import BlockExport from 'core/blocks/block/BlockExport'
@@ -12,7 +11,31 @@ import { getBlockMeta } from 'core/helpers/blockHelpers'
 import SharePermalink from 'core/share/SharePermalink'
 import BlockUnitsSelector from 'core/blocks/block/BlockUnitsSelector'
 import BlockCompletionIndicator from 'core/blocks/block/BlockCompletionIndicator'
-import { getBlockTitle, getBlockDescription } from 'core/helpers/blockHelpers'
+import { getBlockTitleKey, getBlockDescriptionKey, getBlockTitle } from 'core/helpers/blockHelpers'
+import T from 'core/i18n/T'
+
+const BlockTitleContents = ({ block, context }) => {
+    const { title, titleLink } = block
+    if (title) {
+        return titleLink ? <a href={titleLink}>{title}</a> : title
+    } else {
+        return <T k={getBlockTitleKey(block, context)} />
+    }
+}
+
+const BlockDescriptionContents = ({ block, context }) => {
+    const { translate } = useI18n()
+    const { description } = block
+    const key = `${getBlockDescriptionKey(block, context)}`
+    if (description || translate(key, {}, null)) {
+        return (
+            <Description className="Block__Description">
+                <T t={description} k={key} md={true} fallback={null}/>
+            </Description>
+        )
+    }
+    return null
+}
 
 const BlockTitle = ({
     isShareable,
@@ -24,14 +47,14 @@ const BlockTitle = ({
     block,
     switcher,
 }) => {
-    const { id, titleLink, showDescription = true } = block
-    const completion = data && (Array.isArray(data) ? last(data) && last(data).completion : data.completion)
+    const { id, showDescription = true } = block
+    const completion =
+        data && (Array.isArray(data) ? last(data) && last(data).completion : data.completion)
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
     const { translate } = useI18n()
 
     const blockTitle = getBlockTitle(block, context, translate)
-    const blockDescription = getBlockDescription(block, context, translate)
     const blockMeta = getBlockMeta(block, context, translate)
 
     return (
@@ -42,9 +65,10 @@ const BlockTitle = ({
                 <LeftPart>
                     <BlockTitleText className="BlockTitleText">
                         <SharePermalink url={blockMeta.link} />
-                        {titleLink ? <a href={titleLink}>{blockTitle}</a> : blockTitle}
-                    {completion && !context.isCapturing && <BlockCompletionIndicator completion={completion} />}
-
+                        <BlockTitleContents block={block} context={context} />
+                        {completion && !context.isCapturing && (
+                            <BlockCompletionIndicator completion={completion} />
+                        )}
                     </BlockTitleText>
                     {isExportable && block && !context.isCapturing && (
                         <BlockExport
@@ -80,11 +104,7 @@ const BlockTitle = ({
                     )
                 )}
             </StyledBlockTitle>
-            {showDescription && blockDescription && (
-                <Description className="Block__Description">
-                    <ReactMarkdown source={blockDescription} escapeHtml={false} />
-                </Description>
-            )}
+            {showDescription && <BlockDescriptionContents block={block} context={context} />}
         </>
     )
 }

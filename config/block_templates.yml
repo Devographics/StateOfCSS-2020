@@ -223,7 +223,7 @@ toolsArrowsTemplate:
 
 featuresOverviewTemplate:
     id: features_overview
-    blockName: featuresOverview
+    blockName: features_overview
     blockType: FeaturesOverviewBlock
     dataPath: 'surveyApi.survey.features'
     enableExport: true
@@ -389,6 +389,7 @@ toolsSectionOverviewTemplate:
 toolsExperienceMarimekkoTemplate:
     id: '${parentId}_experience_marimekko'
     blockType: ToolsExperienceMarimekkoBlock
+    blockName: tools_experience_marimekko
     dataPath: 'surveyApi.survey.${parentId}_tools'
     bucketKeysName: tools
     showLegend: true

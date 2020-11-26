@@ -15,27 +15,16 @@ export const getTranslationValuesFromContext = (context, translate) => {
     return values
 }
 
+export const getPageLabelKey = (page) => page.titleId || `sections.${page.id}.title`
+
 export const getPageLabel = (
     page,
     translate,
-    { isContextual = false, includeWebsite = false } = {}
+    { includeWebsite = false } = {}
 ) => {
     let label
 
-    label = translate(page.titleId || `sections.${page.id}.title`)
-
-    // if (['features_intro', 'features_results', 'features_conclusion'].includes(page.type)) {
-    //     label = translate(
-    //         `page.${page.type}.${isContextual === true ? 'contextual_label' : 'label'}`,
-    //         {
-    //             values: {
-    //                 section: translate(`features.${page.data.section}`),
-    //             },
-    //         }
-    //     )
-    // } else {
-    //     label = translate(`sections.${page.id}.title`)
-    // }
+    label = translate(getPageLabelKey(page))
 
     if (includeWebsite === true) {
         label = `${config.siteTitle}: ${label}`

@@ -1,27 +1,25 @@
 import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import ReactMarkdown from 'react-markdown/with-html'
 import { spacing } from 'core/theme'
 import { useI18n } from 'core/i18n/i18nContext'
+import T from 'core/i18n/T'
 
 const BlockNote = ({ block }) => {
     const { translate } = useI18n()
-
-    let blockNote
-    if (block.note) {
-        blockNote = block.note
+    // for "_others" blocks (freeform answers), replace suffix with ".others"
+    const blockId = block.id.replace('_others', '.others')
+    const key = `blocks.${block.blockName || blockId}.note`
+    const blockNote = translate(key, {}, null)
+    if (blockNote) {
+        return (
+            <Note className="Block__Note">
+                <T k={key} md={true} />
+            </Note>
+        )
     } else {
-        // for _others blocks (freeform answers), replace suffix with ".others"
-        const id = block.id.replace('_others', '.others')
-        blockNote = translate(`blocks.${block.blockName || id}.note`, {}, null)
+        return null
     }
-
-    return blockNote ? (
-        <Note className="Block__Note">
-            <ReactMarkdown source={blockNote} escapeHtml={false} />
-        </Note>
-    ) : null
 }
 
 BlockNote.propTypes = {

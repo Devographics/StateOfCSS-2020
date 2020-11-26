@@ -7,7 +7,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs'
 import 'react-tabs/style/react-tabs.css'
 import { mq, spacing, fontSize } from 'core/theme'
 import Button from 'core/components/Button'
-import { useI18n } from 'core/i18n/i18nContext'
+import T from 'core/i18n/T'
 
 // Make sure to bind modal to your appElement (http://reactcommunity.org/react-modal/accessibility/)
 Modal.setAppElement('#___gatsby')
@@ -43,7 +43,6 @@ const ExportIcon = () => (
 const BlockExport = ({ data, block, title }) => {
     const [modalIsOpen, setIsOpen] = useState(false)
     const theme = useTheme()
-    const { translate } = useI18n()
 
     const { id, query } = block
 
@@ -96,7 +95,9 @@ ${trimmedQuery}
                         setIsOpen(true)
                     }}
                 >
-                    <span className="desktop">{translate('export.export')}</span>
+                    <span className="desktop">
+                        <T k="export.export" />
+                    </span>
                     <ExportIcon />
                 </ExportButton>
             </ButtonWrapper>
@@ -107,7 +108,9 @@ ${trimmedQuery}
                 contentLabel="Example Modal"
             >
                 <Content>
-                    <h3>{translate('export.title', { values: { title } })}</h3>
+                    <h3>
+                        <T k="export.title" values={{ title }} />
+                    </h3>
                     <Tabs>
                         <TabList>
                             <Tab>JSON</Tab>
@@ -118,9 +121,9 @@ ${trimmedQuery}
                         </TabPanel>
                         <TabPanel>
                             <Text value={graphQLExport} />
-                            <Message
-                                dangerouslySetInnerHTML={{ __html: translate('export.graphql') }}
-                            />
+                            <Message>
+                                <T k={'export.graphql'} html={true} />
+                            </Message>
                         </TabPanel>
                     </Tabs>
                 </Content>

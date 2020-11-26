@@ -4,18 +4,20 @@ import { usePageContext } from 'core/helpers/pageContext'
 import { Link } from 'gatsby'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
 import get from 'lodash/get'
+import BlockCompletionIndicator from 'core/blocks/block/BlockCompletionIndicator'
 
 const Container = styled.div`
     display: grid;
     grid-template-columns: auto auto;
-    grid-column-gap: ${spacing()};
-    grid-row-gap: ${spacing()};
+    grid-column-gap: ${spacing(1.5)};
+    grid-row-gap: ${spacing(1.5)};
 `
 
-const Item = styled(Link)`
+const Item = styled.span`
     text-align: center;
     font-size: ${fontSize('medium')};
-    
+    display: flex;
+    align-items: center;
     @media ${mq.smallMedium} {
         font-size: ${fontSize('small')};    
     }
@@ -41,13 +43,15 @@ const Locales = () => {
 
     return (
         <Container className="Locales">
-            {links.map(({ label, id, link, isCurrent }) => (
+            {links.map(({ label, id, link, isCurrent, completion }) => (
                 <Item
                     key={id}
                     className={`Locales__Item${isCurrent ? ' _is-current' : ''}`}
-                    to={link}
                 >
-                    {label}
+                    <Link to={link}>{label}</Link>
+                    {completion < 95 && (
+                        <BlockCompletionIndicator completion={{ percentage: completion }} variant="grey" />
+                    )}
                 </Item>
             ))}
         </Container>

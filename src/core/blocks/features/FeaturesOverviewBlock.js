@@ -72,8 +72,6 @@ const FeaturesOverviewBlock = ({ block, data }) => {
                 ...block,
                 showLegend: true,
                 bucketKeysName: 'features_simplified',
-                title: translate('blocks.features_overview.title'),
-                description: translate('blocks.features_overview.description'),
             }}
             data={chartData}
             className="FeaturesOverviewBlock"

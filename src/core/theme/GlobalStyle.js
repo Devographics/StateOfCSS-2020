@@ -1,7 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
 import { color, spacing, fontWeight } from './util'
 import { primaryFontMixin, secondaryFontMixin } from './typography'
+import { textShadowHighlightMixin } from './mixins'
 import mq from './mq'
+import colors from './colors'
 
 export const GlobalStyle = createGlobalStyle`
     body {
@@ -107,17 +109,26 @@ export const GlobalStyle = createGlobalStyle`
             }
         }
         .Page__Contents{
-        @media ${mq.mediumLarge} {
-            width: 100%;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            column-gap: ${spacing(6)};
-            row-gap: ${spacing(4)};
-            
-            .Page__Introduction {
-                grid-column: 1 / 3;
+            @media ${mq.mediumLarge} {
+                width: 100%;
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                column-gap: ${spacing(6)};
+                row-gap: ${spacing(4)};
+                
+                .Page__Introduction {
+                    grid-column: 1 / 3;
+                }
             }
         }
     }
+    .t-modkeydown{
+        &.t-fallback, &.t-missing{
+            ${textShadowHighlightMixin(colors.green, 0.05)}
+            &:hover{
+                cursor: pointer;
+                ${textShadowHighlightMixin(colors.pink, 0.05)}
+            }
+        }
     }
 `

@@ -7,6 +7,7 @@ import Pagination from './pages/Pagination'
 import { Sidebar } from './components/sidebar'
 import Head from './components/Head'
 import { PageContextProvider } from './helpers/pageContext'
+import { KeydownContextProvider } from './helpers/keydownContext'
 import { mergePageContext } from './helpers/pageHelpers'
 import { I18nContextProvider } from './i18n/i18nContext'
 import { EntitiesContextProvider } from './entities/entitiesContext'
@@ -164,18 +165,20 @@ export default class Layout extends PureComponent {
         const { showSidebar } = this.state
         const context = mergePageContext(pageContext, location, this.state)
         return (
-            <PageContextProvider value={context}>
-                <I18nContextProvider>
-                    <ThemedLayout
-                        context={context}
-                        showPagination={showPagination}
-                        showSidebar={showSidebar}
-                        toggleSidebar={this.toggleSidebar}
-                        closeSidebar={this.closeSidebar}
-                        props={this.props}
-                    />
-                </I18nContextProvider>
-            </PageContextProvider>
+            <KeydownContextProvider>
+                <PageContextProvider value={context}>
+                    <I18nContextProvider>
+                        <ThemedLayout
+                            context={context}
+                            showPagination={showPagination}
+                            showSidebar={showSidebar}
+                            toggleSidebar={this.toggleSidebar}
+                            closeSidebar={this.closeSidebar}
+                            props={this.props}
+                        />
+                    </I18nContextProvider>
+                </PageContextProvider>
+            </KeydownContextProvider>
         )
     }
 }

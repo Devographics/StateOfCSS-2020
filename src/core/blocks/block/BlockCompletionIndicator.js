@@ -4,22 +4,26 @@ import styled from 'styled-components'
 import { useI18n } from 'core/i18n/i18nContext'
 import { color, spacing, fontSize } from 'core/theme'
 
-const BlockCompletionIndicator = ({ completion }) => {
+const BlockCompletionIndicator = ({ completion, variant = 'pink' }) => {
     const { translate } = useI18n()
-
+    const colorName1 = variant === 'pink' ? 'link' : 'text'
+    const colorName2 = variant === 'pink' ? 'link' : 'textAlt'
     return (
         <Container className="CompletionIndicator">
-            <Tooltip className="CompletionIndicator__Tooltip">
+            <Tooltip className="CompletionIndicator__Tooltip" colorName={colorName1}>
                 {translate('general.completion_percentage')}{' '}
-                <strong>{completion.percentage}%</strong> ({completion.count})
+                <strong>{completion.percentage}%</strong>{' '}
+                {completion.count && <span>({completion.count})</span>}
             </Tooltip>
             <div className="CompletionIndicator__Data sr-only">
                 {translate('general.completion_percentage')}{' '}
-                <strong>{completion.percentage}%</strong> ({completion.count})
+                <strong>{completion.percentage}%</strong>{' '}
+                {completion.count && <span>({completion.count})</span>}
             </div>
             <Chart height="16" width="16" viewBox="0 0 20 20">
-                <ChartBackground r="10" cx="10" cy="10" />
+                <ChartBackground r="10" cx="10" cy="10" colorName={colorName2} />
                 <ChartForeground
+                    colorName={colorName2}
                     r="5"
                     cx="10"
                     cy="10"
@@ -51,7 +55,7 @@ const Tooltip = styled.div`
     border-radius: 3px;
     transition: all 200ms ease-in;
     pointer-events: none;
-    background: ${color('link')};
+    background: ${({ colorName }) => color(colorName)};
     color: ${color('background')};
 
     &:after {
@@ -64,7 +68,7 @@ const Tooltip = styled.div`
         pointer-events: none;
         margin-left: -8px;
         border: 8px solid rgba(136, 183, 213, 0);
-        border-top-color: ${color('link')};
+        border-top-color: ${({ colorName }) => color(colorName)};
     }
 `
 
@@ -85,12 +89,12 @@ const Chart = styled.svg`
 `
 
 const ChartBackground = styled.circle`
-    fill: ${color('link')};
+    fill: ${({ colorName }) => color(colorName)};
     opacity: 0.5;
 `
 
 const ChartForeground = styled.circle`
-    stroke: ${color('link')};
+    stroke: ${({ colorName }) => color(colorName)};
 `
 
 export default memo(BlockCompletionIndicator)
