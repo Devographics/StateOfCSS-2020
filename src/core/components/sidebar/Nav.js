@@ -1,5 +1,5 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import sitemap from 'config/sitemap.yml'
 import { mq, fancyLinkMixin, spacing } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
@@ -29,9 +29,16 @@ const StyledPageLink = styled(PageLink)`
     }
 
     @media ${mq.large} {
-        /* display: ${(props) => (props.isHidden ? 'none' : 'block')}; */
         margin-left: ${(props) => (props.depth > 0 ? spacing() : 0)};
     }
+
+    ${(props) => {
+        if (props.isHidden) {
+            return css`
+                display:none;
+            `
+        }
+    }}
 
     &._is-active {
         span span::before {
