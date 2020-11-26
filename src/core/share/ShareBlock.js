@@ -141,14 +141,14 @@ const Popup = styled.div`
     max-width: 300px;
     margin: 0 auto;
     pointer-events: none;
-
+    
     @media ${mq.small} {
         left: 50%;
         top: 50%;
     }
     @media ${mq.mediumLarge} {
         top: 0;
-        left: 0;
+        left: 110%;
     }
 `
 

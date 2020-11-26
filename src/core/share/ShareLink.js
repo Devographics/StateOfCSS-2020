@@ -69,7 +69,7 @@ const Link = styled.a`
                 transform: translateX(-50%) translateY(-275%);
             }
             @media ${mq.mediumLarge} {
-                transform: translateX(280%);
+                transform: translateX(20%);
             }
         }
         &.ShareLink--facebook {
@@ -77,15 +77,15 @@ const Link = styled.a`
                 transform: translateX(-200%) translateY(-200%);
             }
             @media ${mq.mediumLarge} {
-                transform: translateX(320%);
+                transform: translateX(60%);
             }
         }
         &.ShareLink--linkedin {
-            @media ${mq.mediumLarge} {
-                transform: translateX(390%);
-            }
             @media ${mq.small} {
                 transform: translateX(-275%) translateY(-50%);
+            }
+            @media ${mq.mediumLarge} {
+                transform: translateX(130%);
             }
         }
         &.ShareLink--email {
@@ -93,7 +93,7 @@ const Link = styled.a`
                 transform: translateX(-200%) translateY(100%);
             }
             @media ${mq.mediumLarge} {
-                transform: translateX(460%);
+                transform: translateX(200%);
             }
         }
         &.ShareLink--image {
@@ -101,7 +101,7 @@ const Link = styled.a`
                 transform: translateX(-50%) translateY(175%);
             }
             @media ${mq.mediumLarge} {
-                transform: translateX(530%);
+                transform: translateX(270%);
             }
         }
     }

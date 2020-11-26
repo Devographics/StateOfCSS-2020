@@ -16,6 +16,14 @@ const StyledLink = styled(PageLink)`
 
     @media ${mq.smallMedium} {
         font-size: ${fontSize('smaller')};
+        span {
+            display: block;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 100%;
+            text-align: center;
+        }
     }
     @media ${mq.large} {
         font-size: ${fontSize('medium')};

@@ -140,7 +140,7 @@ const ToolsScatterplotBlock = ({ block, data }) => {
                 },
             }}
         >
-            <ChartContainer vscroll={true}>
+            <ChartContainer vscroll={false}>
                 <ToolsScatterplotChart
                     data={chartData}
                     metric={metric}

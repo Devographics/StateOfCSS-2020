@@ -77,7 +77,7 @@ const FeaturesOverviewBlock = ({ block, data }) => {
             className="FeaturesOverviewBlock"
             showDescription={true}
         >
-            <ChartContainer vscroll={true}>
+            <ChartContainer vscroll={false}>
                 <FeaturesOverviewCirclePackingChart
                     className="FeaturesOverviewChart"
                     data={chartData}

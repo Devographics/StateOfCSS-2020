@@ -90,7 +90,7 @@ const Container = styled.div`
 const ChartContainerInner = styled.div`
     &.ChartContainerInner--expand {
         @media ${mq.small} {
-            max-height: 400px;
+            /* max-height: 400px; */
         }
         @media ${mq.smallMedium} {
             min-width: 800px;

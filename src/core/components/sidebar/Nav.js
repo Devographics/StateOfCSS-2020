@@ -11,7 +11,7 @@ import T from 'core/i18n/T'
 const filteredNav = sitemap.contents.filter((page) => !page.is_hidden)
 
 const StyledPageLink = styled(PageLink)`
-    display: inline-block;
+    display: flex;
     white-space: nowrap;
     margin: 0 0 ${spacing(0.33)} 0;
     font-size: ${(props) =>
@@ -20,8 +20,16 @@ const StyledPageLink = styled(PageLink)`
             : props.theme.typography.size.medium};
     font-weight: ${(props) => (props.depth === 0 ? 800 : 400)};
 
+    &>span{
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        max-width: 100%;
+        display: inline-block;
+    }
+
     @media ${mq.large} {
-        display: ${(props) => (props.isHidden ? 'none' : 'block')};
+        /* display: ${(props) => (props.isHidden ? 'none' : 'block')}; */
         margin-left: ${(props) => (props.depth > 0 ? spacing() : 0)};
     }
 

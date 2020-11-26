@@ -44,7 +44,11 @@ const PageFooter = () => {
             <Notes>
                 <T k="general.leave_issue" values={{ link: config.issuesUrl }} html={true} />{' '}
                 <T k="general.join_discord" values={{ link: config.discordUrl }} html={true} />{' '}
-                <T k="general.translator_mode"/>{' '}
+                {context.locale.id !== 'en-US' && (
+                    <>
+                        <T k="general.translator_mode" />{' '}
+                    </>
+                )}
                 <T
                     k="general.netlify_link"
                     values={{ link: 'https://www.netlify.com' }}
@@ -65,9 +69,16 @@ const Container = styled.div`
 `
 
 const Nav = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    @media ${mq.small} {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        column-gap: ${spacing()};
+    }
+    @media ${mq.mediumLarge} {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 `
 
 const Notes = styled.div`
@@ -87,11 +98,16 @@ const FooterLink = styled(Button)`
         display: block;
         text-align: center;
         text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+        width: 100%;
     }
 `
 
 const PreviousLink = styled(FooterLink)`
-    margin-right: ${spacing()};
+    @media ${mq.mediumLarge} {
+        margin-right: ${spacing()};
+    }
 `
 
 const NextLink = styled(FooterLink)``
