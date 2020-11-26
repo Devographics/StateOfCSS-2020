@@ -36,6 +36,7 @@ import { ToolsExperienceRankingBlock } from 'core/blocks/tools/ToolsExperienceRa
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
 import ToolsMatricesBlock from 'core/blocks/tools/ToolsMatricesBlock'
 import { ToolsExperienceMarimekkoBlock } from 'core/blocks/tools/ToolsExperienceMarimekkoBlock'
+import { ToolsRangesMultipleDivergingLinesBlock } from 'core/blocks/tools/ToolsRangesMultipleDivergingLinesBlock'
 
 // happiness
 import HappinessBlock from 'core/blocks/happiness/HappinessBlock'
@@ -82,6 +83,7 @@ const blockRegistry = {
     ToolsScatterplotBlock,
     ToolsMatricesBlock,
     ToolsExperienceMarimekkoBlock,
+    ToolsRangesMultipleDivergingLinesBlock,
 
     // happiness
     HappinessBlock,
