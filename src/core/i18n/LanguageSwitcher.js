@@ -1,4 +1,4 @@
-import React, { memo, useState, useCallback } from 'react'
+import React, { memo, useState, useCallback, useEffect, useRef } from 'react'
 import styled from 'styled-components'
 import { mq, spacing, fontSize } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
@@ -14,10 +14,29 @@ const svgs = {
 
 const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
     const { translate } = useI18n()
+    const wrapperRef = useRef(null)
 
     const context = usePageContext()
     const [isOpened, setIsOpened] = useState(false)
-    const toggle = useCallback(() => setIsOpened((flag) => !flag), [])
+    const toggle = useCallback(() => {
+        setIsOpened((flag) => !flag)
+    }, [setIsOpened])
+
+    const handleClickOutside = useCallback(
+        (event) => {
+            if (isOpened && wrapperRef.current && !wrapperRef.current.contains(event.target)) {
+                setIsOpened(false)
+            }
+        },
+        [isOpened]
+    )
+
+    useEffect(() => {
+        document.addEventListener('click', handleClickOutside, false)
+        return () => {
+            document.removeEventListener('click', handleClickOutside, false)
+        }
+    }, [handleClickOutside])
 
     return (
         <Container
@@ -32,7 +51,11 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
                         {isOpened ? svgs[positionOpen] : svgs[position]}
                     </svg>
                 </LanguageSwitcherToggle>
-                <LanguageSwitcherPopup className="LanguageSwitcherPopup" position={position}>
+                <LanguageSwitcherPopup
+                    ref={wrapperRef}
+                    className="LanguageSwitcherPopup"
+                    position={position}
+                >
                     <Locales />
                     <LanguageSwitcherHelp className="LanguageSwitcherHelp">
                         <a href={config.translationLink}>
