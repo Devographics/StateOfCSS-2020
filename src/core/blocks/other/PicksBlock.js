@@ -26,7 +26,9 @@ const PicksBlock = ({ block, data }) => {
                         <PickContent>
                             <PickTitle>
                                 <span>{translate(`picks.my_2020_pick`)}</span>
-                                <a href={url}>{pickName}</a>
+                                <a href={url} target="_blank" rel="noopener noreferrer">
+                                    {pickName}
+                                </a>
                             </PickTitle>
                             <Description>
                                 {translate(`picks.${twitterName}.description`)}
@@ -50,7 +52,13 @@ const PicksBlock = ({ block, data }) => {
                         </PickImage>
                         <PickCredit>
                             <PickName>
-                                <a href={`https://twitter.com/${twitterName}`}>{fullName}</a>
+                                <a
+                                    href={`https://twitter.com/${twitterName}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    {fullName}
+                                </a>
                             </PickName>
                             <PickBio>{translate(`picks.${twitterName}.bio`)}</PickBio>
                         </PickCredit>

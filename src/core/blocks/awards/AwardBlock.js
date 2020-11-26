@@ -96,7 +96,13 @@ const AwardBlock = ({ block }) => {
 const EntityItem = ({ entity }) => {
     const { name, homepage, mdn } = entity
     const url = homepage || (mdn && `https://developer.mozilla.org${mdn.url}`)
-    return url ? <a href={url}>{name}</a> : <span>{name}</span>
+    return url ? (
+        <a href={url} target="_blank" rel="noopener noreferrer">
+            {name}
+        </a>
+    ) : (
+        <span>{name}</span>
+    )
 }
 
 AwardBlock.propTypes = {

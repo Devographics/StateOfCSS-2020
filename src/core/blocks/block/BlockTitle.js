@@ -17,7 +17,13 @@ import T from 'core/i18n/T'
 const BlockTitleContents = ({ block, context }) => {
     const { title, titleLink } = block
     if (title) {
-        return titleLink ? <a href={titleLink}>{title}</a> : title
+        return titleLink ? (
+            <a href={titleLink} target="_blank" rel="noopener noreferrer">
+                {title}
+            </a>
+        ) : (
+            title
+        )
     } else {
         return <T k={getBlockTitleKey(block, context)} />
     }
@@ -30,7 +36,7 @@ const BlockDescriptionContents = ({ block, context }) => {
     if (description || translate(key, {}, null)) {
         return (
             <Description className="Block__Description">
-                <T t={description} k={key} md={true} fallback={null}/>
+                <T t={description} k={key} md={true} fallback={null} />
             </Description>
         )
     }
