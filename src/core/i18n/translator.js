@@ -18,7 +18,7 @@ export const getStringTranslator = (locale = {}) => (key, { values } = {}, fallb
             s.t = template(s.t)(values)
         } catch (error) {
             console.error(error)
-            s.t = `[${s.locale.id}][ERR] ${key}`
+            s.t = `[${locale.id}][ERR] ${key}`
         }
     }
 

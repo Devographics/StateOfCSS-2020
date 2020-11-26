@@ -39,7 +39,7 @@ const BlockCompletionIndicator = ({ completion, variant = 'pink' }) => {
 
 BlockCompletionIndicator.propTypes = {
     completion: PropTypes.shape({
-        count: PropTypes.number.isRequired,
+        count: PropTypes.number,
         percentage: PropTypes.number.isRequired,
     }).isRequired,
 }

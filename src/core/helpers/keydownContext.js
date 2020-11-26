@@ -2,7 +2,7 @@ import React, { useEffect, useState, createContext, useContext } from 'react'
 
 const keydownContext = createContext({})
 
-const targetKey = 'Meta'
+const targetKey = 'Alt'
 
 const KeydownContextProviderInner = ({ children }) => {
     const [modKeyDown, setModKeyDown] = useState(false)
