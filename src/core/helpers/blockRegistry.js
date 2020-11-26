@@ -29,14 +29,14 @@ import KnowledgeScoreBlock from 'core/blocks/features/KnowledgeScoreBlock'
 // tools
 import ToolHeaderBlock from 'core/blocks/tools/ToolHeaderBlock'
 import ToolExperienceBlock from 'core/blocks/tools/ToolExperienceBlock'
-import ToolExperienceGraphBlock from 'core/blocks/tools/ToolExperienceGraphBlock'
-import ToolsSectionOverviewBlock from 'core/blocks/tools/ToolsSectionOverviewBlock'
+// import ToolExperienceGraphBlock from 'core/blocks/tools/ToolExperienceGraphBlock'
+// import ToolsSectionOverviewBlock from 'core/blocks/tools/ToolsSectionOverviewBlock'
 import ToolsSectionStreamsBlock from 'core/blocks/tools/ToolsSectionStreamsBlock'
 import { ToolsExperienceRankingBlock } from 'core/blocks/tools/ToolsExperienceRankingBlock'
 import ToolsScatterplotBlock from 'core/blocks/tools/ToolsScatterplotBlock'
-import ToolsMatricesBlock from 'core/blocks/tools/ToolsMatricesBlock'
+// import ToolsMatricesBlock from 'core/blocks/tools/ToolsMatricesBlock'
 import { ToolsExperienceMarimekkoBlock } from 'core/blocks/tools/ToolsExperienceMarimekkoBlock'
-import { ToolsRangesMultipleDivergingLinesBlock } from 'core/blocks/tools/ToolsRangesMultipleDivergingLinesBlock'
+// import { ToolsRangesMultipleDivergingLinesBlock } from 'core/blocks/tools/ToolsRangesMultipleDivergingLinesBlock'
 
 // happiness
 import HappinessBlock from 'core/blocks/happiness/HappinessBlock'
@@ -76,14 +76,14 @@ const blockRegistry = {
     // tools
     ToolHeaderBlock,
     ToolExperienceBlock,
-    ToolExperienceGraphBlock,
-    ToolsSectionOverviewBlock,
+    // ToolExperienceGraphBlock,
+    // ToolsSectionOverviewBlock,
     ToolsSectionStreamsBlock,
     ToolsExperienceRankingBlock,
     ToolsScatterplotBlock,
-    ToolsMatricesBlock,
+    // ToolsMatricesBlock,
     ToolsExperienceMarimekkoBlock,
-    ToolsRangesMultipleDivergingLinesBlock,
+    // ToolsRangesMultipleDivergingLinesBlock,
 
     // happiness
     HappinessBlock,
