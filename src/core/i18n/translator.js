@@ -13,7 +13,7 @@ export const getStringTranslator = (locale = {}) => (key, { values } = {}, fallb
         .reverse()
         .find((t) => t.key === key)
 
-    if (values) {
+    if (s && values) {
         try {
             s.t = template(s.t)(values)
         } catch (error) {
