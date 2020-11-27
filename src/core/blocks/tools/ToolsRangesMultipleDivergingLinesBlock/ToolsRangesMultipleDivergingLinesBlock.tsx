@@ -1,12 +1,31 @@
-import React, { useState } from 'react'
-import { random } from 'lodash'
+import React, {useMemo, useState} from 'react'
 import { BlockContext } from 'core/blocks/types'
 // @ts-ignore
 import Block from 'core/blocks/block/Block'
 import { RangesMultipleDivergingLines } from 'core/charts/generic/RangesMultipleDivergingLines'
 import { keys } from 'core/bucket_keys'
+import { Entity } from 'core/types'
 import { RangeType } from './types'
 import { Switcher } from './Switcher'
+
+interface ToolMatrixRange {
+    range: string
+    count: number
+    percentage_from_range: number
+    percentage_delta_from_range: number
+}
+
+interface ToolMatrix {
+    id: string
+    entity: Entity
+    ranges: ToolMatrixRange[]
+}
+
+interface ToolsMatrixYear {
+    year: {
+        tools: ToolMatrix[]
+    }
+}
 
 interface ToolsRangesMultipleDivergingLinesBlockProps {
     block: BlockContext<
@@ -15,85 +34,13 @@ interface ToolsRangesMultipleDivergingLinesBlockProps {
         { toolIds: string },
         any
     >
-    data: any
+    data: Record<RangeType, ToolsMatrixYear>
 }
 
-const tools = [
-    {
-        id: 'sass',
-        name: 'Sass',
-    },
-    {
-        id: 'less',
-        name: 'Less',
-    },
-    {
-        id: 'postcss',
-        name: 'PostCSS',
-    },
-    {
-        id: 'stylus',
-        name: 'Stylus',
-    },
-    /*
-    {
-        id: 'a',
-        name: 'Stylus',
-    },
-    {
-        id: 'b',
-        name: 'Stylus',
-    },
-    {
-        id: 'c',
-        name: 'Stylus',
-    },
-    {
-        id: 'd',
-        name: 'Stylus',
-    },
-    {
-        id: 'e',
-        name: 'Stylus',
-    },
-    {
-        id: 'f',
-        name: 'Stylus',
-    },
-    {
-        id: 'g',
-        name: 'Stylus',
-    },
-     */
-]
-
-const generateSampleData = (keyIds: string[]) => {
-    return tools.map((tool) => ({
-        ...tool,
-        buckets: keyIds.map((key) => ({
-            id: key,
-            delta: random(-10, 10),
-        })),
-    }))
-}
-
-const yearsOfExperienceKeys = keys.years_of_experience.keys.map((key) => key.id)
-const yearlySalaryKeys = keys.yearly_salary.keys.map((key) => key.id)
-const companySizeKeys = keys.company_size.keys.map((key) => key.id)
-
-const sampleData = {
-    years_of_experience: {
-        keys: yearsOfExperienceKeys,
-        data: generateSampleData(yearsOfExperienceKeys),
-    },
-    yearly_salary: {
-        keys: yearlySalaryKeys,
-        data: generateSampleData(yearlySalaryKeys),
-    },
-    company_size: {
-        keys: companySizeKeys,
-        data: generateSampleData(companySizeKeys),
-    },
+const keysByRangeType: Record<RangeType, string[]> = {
+    years_of_experience: keys.years_of_experience.keys.map((key) => key.id),
+    yearly_salary: keys.yearly_salary.keys.map((key) => key.id),
+    company_size: keys.company_size.keys.map((key) => key.id),
 }
 
 const CHART_MARGIN = {
@@ -104,11 +51,28 @@ const CHART_MARGIN = {
 }
 
 export const ToolsRangesMultipleDivergingLinesBlock = ({
+    data,
     block,
 }: ToolsRangesMultipleDivergingLinesBlockProps) => {
     const [rangeType, setRangeType] = useState<RangeType>('years_of_experience')
 
-    const { keys, data } = sampleData[rangeType]
+    const keys = keysByRangeType[rangeType]
+    const rangeTypeData = data[rangeType].year.tools
+
+    const normalizedData = useMemo(() => rangeTypeData.map((datum) => {
+        return {
+            id: datum.id,
+            name: datum.entity.name,
+            data: keys.map((key) => {
+                const range = datum.ranges.find((range) => range.range === key)
+
+                return {
+                    index: key,
+                    value: range?.percentage_delta_from_range ?? 0,
+                }
+            }),
+        }
+    }), [data, keys])
 
     return (
         <Block
@@ -121,11 +85,11 @@ export const ToolsRangesMultipleDivergingLinesBlock = ({
             <div
                 style={{
                     maxWidth: 900,
-                    height: CHART_MARGIN.top + data.length * 100 + CHART_MARGIN.bottom,
+                    height: CHART_MARGIN.top + rangeTypeData.length * 60 + CHART_MARGIN.bottom,
                 }}
             >
                 <RangesMultipleDivergingLines
-                    data={data}
+                    data={normalizedData}
                     keys={keys}
                     i18nNamespace={rangeType}
                     margin={CHART_MARGIN}

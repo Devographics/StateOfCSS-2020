@@ -49,7 +49,7 @@ export const Legend = ({ size }: RangesDeltaJoyPlotLegendProps) => {
                 }}
                 textAnchor="end"
             >
-                {translate(`charts.ranges_delta_joy_plot.baseline`)}
+                {translate(`charts.ranges_multiple_diverging_lines.baseline`)}
             </text>
             <g transform={`translate(${-size}, 0)`}>
                 <path
@@ -77,7 +77,7 @@ export const Legend = ({ size }: RangesDeltaJoyPlotLegendProps) => {
                             fontSize: 11,
                         }}
                     >
-                        {translate(`charts.ranges_delta_joy_plot.positive_offset`)}
+                        {translate(`charts.ranges_multiple_diverging_lines.positive_offset`)}
                     </text>
                 </g>
                 <g transform={`translate(${legendXScale(3)}, ${legendYScale(-0.45)})`}>
@@ -92,7 +92,7 @@ export const Legend = ({ size }: RangesDeltaJoyPlotLegendProps) => {
                             fontSize: 11,
                         }}
                     >
-                        {translate(`charts.ranges_delta_joy_plot.negative_offset`)}
+                        {translate(`charts.ranges_multiple_diverging_lines.negative_offset`)}
                     </text>
                 </g>
             </g>

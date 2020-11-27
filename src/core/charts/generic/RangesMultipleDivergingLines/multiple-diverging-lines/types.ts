@@ -2,20 +2,20 @@ export interface ComputedPoint {
     x: number
     y: number
     data: {
-        id: string
-        delta: number
+        index: string
+        value: number
     }
 }
 
-export interface Bucket {
-    id: string
-    delta: number
+export interface PointDatum {
+    index: string
+    value: number
 }
 
 export interface Datum {
     id: string
     name: string
-    buckets: Bucket[]
+    data: PointDatum[]
 }
 
 export interface ComputedDatum {

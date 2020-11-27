@@ -18,8 +18,8 @@ export const useScales = ({
     const absoluteMaxValue = useMemo(() => {
         const allValues: number[] = []
         data.forEach((datum) => {
-            datum.buckets.forEach((bucket) => {
-                allValues.push(bucket.delta)
+            datum.data.forEach((pointDatum) => {
+                allValues.push(pointDatum.value)
             })
         })
 
@@ -78,11 +78,11 @@ export const useComputedData = ({
             const computedDatum: Omit<ComputedDatum, 'color'> = {
                 ...datum,
                 index,
-                data: datum.buckets.map((bucket) => {
+                data: datum.data.map((pointDatum) => {
                     return {
-                        x: indexScale(bucket.id) as number,
-                        y: valueScale(bucket.delta) as number,
-                        data: bucket,
+                        x: indexScale(pointDatum.index) as number,
+                        y: valueScale(pointDatum.value) as number,
+                        data: pointDatum,
                     }
                 }),
             }

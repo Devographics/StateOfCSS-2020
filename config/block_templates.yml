@@ -602,26 +602,71 @@ toolsRangesMutlipleDivergingLinesTemplate:
     id: ${parentId}_ranges_multiple_diverging_lines
     blockType: ToolsRangesMultipleDivergingLinesBlock
     blockName: tools_ranges_multiple_diverging_lines
-    dataPath: 'surveyApi.survey.${parentId}_matrices.tools'
+    dataPath: 'surveyApi.survey.${parentId}_ranges_multi.tools'
     enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${parentId}_matrices: matrices {
+                ${parentId}_ranges_multi: matrices {
                     tools(ids: [${toolIds}]) {
                         years_of_experience(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        name
+                                        homepage
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage_from_range
+                                        percentage_delta_from_range
+                                    }
+                                }
                             }
                         }
                         yearly_salary(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        name
+                                        homepage
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage_from_range
+                                        percentage_delta_from_range
+                                    }
+                                }
                             }
                         }
                         company_size(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        name
+                                        homepage
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage_from_range
+                                        percentage_delta_from_range
+                                    }
+                                }
                             }
                         }
                     }
@@ -642,17 +687,59 @@ toolsMatricesTemplate:
                     tools(ids: [${toolIds}]) {
                         years_of_experience(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        name
+                                        homepage
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage
+                                    }
+                                }
                             }
                         }
                         yearly_salary(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        name
+                                        homepage
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage
+                                    }
+                                }
                             }
                         }
                         company_size(experience: would_use) {
                             year(year: ${currentYear}) {
-                                year
+                                tools {
+                                    id
+                                    entity {
+                                        homepage
+                                        name
+                                        github {
+                                            url
+                                        }
+                                    }
+                                    ranges {
+                                        range
+                                        count
+                                        percentage
+                                    }
+                                }
                             }
                         }
                     }
@@ -673,17 +760,16 @@ heatmapTemplate:
                         ${heatmapId}(experience: would_use) {
                             year(year: ${currentYear}) {
                                 year
-                                buckets{
-                                    average
-                                    total
+                                tools {
                                     id
-                                    entity{
+                                    total
+                                    entity {
                                         name
                                     }
                                     ranges {
                                         range
-                                        percentage
                                         count
+                                        percentage
                                     }
                                 }
                             }
