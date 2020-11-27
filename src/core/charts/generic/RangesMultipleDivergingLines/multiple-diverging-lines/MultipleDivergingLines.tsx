@@ -6,6 +6,7 @@ import { ComputedDatum, Datum } from './types'
 import { defaultProps } from './props'
 import { useComputedData, useScales, useShapeGenerators } from './hooks'
 import { Legend } from './Legend'
+import { SubAxes } from './SubAxes'
 import { Labels } from './Labels'
 import { Lines } from './Lines'
 import { Dots } from './Dots'
@@ -69,6 +70,12 @@ const InnerMultipleDivergingLines = ({
                     height={innerHeight}
                     top={axisTop}
                     bottom={axisBottom}
+                />
+                <SubAxes
+                    data={computedData}
+                    valueScale={valueScale}
+                    itemHeight={itemHeight}
+                    width={innerWidth}
                 />
                 <Labels
                     data={computedData}

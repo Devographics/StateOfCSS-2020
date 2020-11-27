@@ -5,7 +5,7 @@ import { OrdinalColorScaleConfig, useOrdinalColorScale } from '@nivo/colors'
 import { ComputedDatum, ComputedPoint, Datum } from './types'
 
 export const useScales = ({
-    data,
+    // data,
     keys,
     width,
     itemHeight,
@@ -15,6 +15,8 @@ export const useScales = ({
     width: number
     itemHeight: number
 }) => {
+    const absoluteMaxValue = 10
+    /*
     const absoluteMaxValue = useMemo(() => {
         const allValues: number[] = []
         data.forEach((datum) => {
@@ -28,6 +30,7 @@ export const useScales = ({
 
         return Math.ceil(Math.max(Math.abs(minValue), maxValue))
     }, [data])
+    */
 
     const indexScale = scalePoint().domain(keys).range([0, width])
 
