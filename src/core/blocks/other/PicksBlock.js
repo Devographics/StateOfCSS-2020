@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import ReactMarkdown from 'react-markdown'
 import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing, fontSize } from 'core/theme'
 import picks from 'config/picks.yml'
@@ -29,7 +30,9 @@ const PicksBlock = ({ block, data }) => {
                                 <a href={url}>{pickName}</a>
                             </PickTitle>
                             <Description>
-                                {translate(`picks.${twitterName}.description`)}
+                                <ReactMarkdown
+                                    source={translate(`picks.${twitterName}.description`)}
+                                />
                             </Description>
                         </PickContent>
                         <PicksIntro>{translate(`picks.intro`)}</PicksIntro>
