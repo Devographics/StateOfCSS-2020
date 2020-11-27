@@ -109,7 +109,10 @@ const StreamChart = ({
                 dotComponent={(d) => <Dot {...d} current={current} units={units} />}
                 dotColor="inherit:brighter(0.6)"
                 animate={false}
-                tooltipLabel={(d) => bucketKeys.find((key) => key.id === d.id).shortLabel}
+                tooltipLabel={(d) => {
+                    const key = bucketKeys.find((key) => key.id === d.id)
+                    return key.shortLabel || key.label
+                }}
                 tooltipFormat={tooltipFormat}
                 defs={[theme.charts.emptyPattern]}
                 fill={[
