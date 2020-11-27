@@ -59,7 +59,7 @@ const Tooltip = styled.div`
     color: ${color('background')};
 
     &:after {
-        top: 99%;
+        bottom: -15px;
         left: 50%;
         content: ' ';
         height: 0;
