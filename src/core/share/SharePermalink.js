@@ -8,8 +8,8 @@ const Link = styled.a`
     opacity: 0;
     line-height: 1;
     width: 22px;
-    margin-left: -22px;
-    padding-right: 4px;
+    margin-left: -30px;
+    margin-right: 8px;
     transition: none;
     position: relative;
 
@@ -17,7 +17,7 @@ const Link = styled.a`
         top: 3px;
     }
     @media ${mq.mediumLarge} {
-        top: 7px;
+        top: 1px;
     }
 
     path {
