@@ -6,6 +6,7 @@ import { ComputedDatum, Datum } from './types'
 import { defaultProps } from './props'
 import { useComputedData, useScales, useShapeGenerators } from './hooks'
 import { Legend } from './Legend'
+import { Labels } from './Labels'
 import { Lines } from './Lines'
 import { Dots } from './Dots'
 
@@ -69,6 +70,12 @@ const InnerMultipleDivergingLines = ({
                     top={axisTop}
                     bottom={axisBottom}
                 />
+                <Labels
+                    data={computedData}
+                    itemHeight={itemHeight}
+                    width={innerWidth}
+                    margin={margin}
+                />
                 <Lines
                     data={computedData}
                     lineGenerator={lineGenerator}
@@ -76,10 +83,7 @@ const InnerMultipleDivergingLines = ({
                     itemHeight={itemHeight}
                     width={innerWidth}
                 />
-                <Dots
-                    data={computedData}
-                    itemHeight={itemHeight}
-                />
+                <Dots data={computedData} itemHeight={itemHeight} />
                 {/*computedData.map((datum) => (
                     <g key={datum.id} transform={`translate(0, ${datum.index * itemHeight})`}>
                         <Item

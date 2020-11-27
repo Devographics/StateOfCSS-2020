@@ -8,22 +8,18 @@ import { Entity } from 'core/types'
 import { RangeType } from './types'
 import { Switcher } from './Switcher'
 
-interface ToolMatrixRange {
-    range: string
-    count: number
-    percentage_from_range: number
-    percentage_delta_from_range: number
-}
-
-interface ToolMatrix {
-    id: string
-    entity: Entity
-    ranges: ToolMatrixRange[]
-}
-
 interface ToolsMatrixYear {
     year: {
-        tools: ToolMatrix[]
+        tools: {
+            id: string
+            entity: Entity
+            ranges: {
+                range: string
+                count: number
+                percentage_from_range: number
+                percentage_delta_from_range: number
+            }[]
+        }[]
     }
 }
 
