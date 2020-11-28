@@ -47,14 +47,16 @@ const TickItem = (tick) => {
 
     let label, link
 
-    label = shouldTranslate ? translate(`options.${i18nNamespace}.${value}`) : value
-
-    if (entity) {
+    if (shouldTranslate) {
+        label = translate(`options.${i18nNamespace}.${value}`)
+    } else if (entity) {
         const { name, homepage, github } = entity
         if (name) {
             label = name
         }
         link = homepage || (github && github.url)
+    } else {
+        label = value
     }
 
     return (

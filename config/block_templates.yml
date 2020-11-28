@@ -1185,7 +1185,7 @@ environmentRatingTemplate:
     showDescription: true
     showLegend: true
     mode: relative
-    i18nNamespace: frequency
+    # i18nNamespace: frequency
     dataPath: 'surveyApi.survey.${id}.year'
     enableExport: true
     query: >
