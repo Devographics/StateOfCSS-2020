@@ -2,7 +2,7 @@ import React, {useMemo, useState} from 'react'
 import { BlockContext } from 'core/blocks/types'
 // @ts-ignore
 import Block from 'core/blocks/block/Block'
-import { RangesMultipleDivergingLines } from 'core/charts/generic/RangesMultipleDivergingLines'
+import { UsageVariationsChart } from 'core/charts/generic/UsageVariationsChart'
 import { keys } from 'core/bucket_keys'
 import { Entity } from 'core/types'
 import { RangeType } from './types'
@@ -23,7 +23,7 @@ interface ToolsMatrixYear {
     }
 }
 
-interface ToolsRangesMultipleDivergingLinesBlockProps {
+interface ToolsUsageVariationsBlockProps {
     block: BlockContext<
         'toolsRangesDeltaJoyPlotTemplate',
         'ToolsRangesDeltaJoyPlotBlock',
@@ -46,10 +46,10 @@ const CHART_MARGIN = {
     left: 140,
 }
 
-export const ToolsRangesMultipleDivergingLinesBlock = ({
+export const ToolsUsageVariationsBlock = ({
     data,
     block,
-}: ToolsRangesMultipleDivergingLinesBlockProps) => {
+}: ToolsUsageVariationsBlockProps) => {
     const [rangeType, setRangeType] = useState<RangeType>('years_of_experience')
 
     const keys = keysByRangeType[rangeType]
@@ -84,7 +84,7 @@ export const ToolsRangesMultipleDivergingLinesBlock = ({
                     height: CHART_MARGIN.top + rangeTypeData.length * 60 + CHART_MARGIN.bottom,
                 }}
             >
-                <RangesMultipleDivergingLines
+                <UsageVariationsChart
                     data={normalizedData}
                     keys={keys}
                     i18nNamespace={rangeType}
