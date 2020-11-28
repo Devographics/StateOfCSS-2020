@@ -610,7 +610,7 @@ toolsUsageVariationsTemplate:
                 ${parentId}_tools_usage_variations: matrices {
                     tools(
                         year: ${currentYear},
-                        experiences: [would_use],
+                        experiences: [usage],
                         dimensions: [
                             years_of_experience,
                             yearly_salary,
