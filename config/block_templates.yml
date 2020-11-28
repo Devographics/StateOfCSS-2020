@@ -598,16 +598,16 @@ toolsExperienceRankingTemplate:
             }
         }
 
-toolsRangesMutlipleDivergingLinesTemplate:
-    id: ${parentId}_ranges_multiple_diverging_lines
-    blockType: ToolsRangesMultipleDivergingLinesBlock
-    blockName: tools_ranges_multiple_diverging_lines
-    dataPath: 'surveyApi.survey.${parentId}_ranges_multi.tools'
+toolsUsageVariationsTemplate:
+    id: ${parentId}_tools_usage_variations
+    blockType: ToolsUsageVariationsBlock
+    blockName: tools_usage_variations
+    dataPath: 'surveyApi.survey.${parentId}_tools_usage_variations.tools'
     enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
-                ${parentId}_ranges_multi: matrices {
+                ${parentId}_tools_usage_variations: matrices {
                     tools(ids: [${toolIds}]) {
                         years_of_experience(experience: would_use) {
                             year(year: ${currentYear}) {

@@ -42,7 +42,6 @@ query {
 
 // v1. single loop, run graphql queries and create pages in the same loop
 exports.createPagesSingleLoop = async ({ graphql, actions: { createPage, createRedirect } }) => {
-
     const localesResults = await graphql(
         `
             ${localesQuery}

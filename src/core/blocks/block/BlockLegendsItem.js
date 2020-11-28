@@ -122,8 +122,7 @@ const Container = styled.tr`
 const ChipWrapper = styled.th`
     padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;
 `
-const Chip = styled.div`
-`
+const Chip = styled.div``
 
 const KeyLabel = styled.th`
     padding: ${spacing(0.25)} ${spacing(0.5)} ${spacing(0.25)} 0;

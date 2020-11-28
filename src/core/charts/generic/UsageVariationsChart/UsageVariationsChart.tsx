@@ -5,7 +5,7 @@ import { TickFormatter } from '@nivo/axes'
 import { useI18n } from 'core/i18n/i18nContext'
 import { ResponsiveMultipleDivergingLines } from './multiple-diverging-lines'
 
-export const RangesMultipleDivergingLines = ({ margin, data, keys, i18nNamespace }: any) => {
+export const UsageVariationsChart = ({ margin, data, keys, i18nNamespace }: any) => {
     const theme = useTheme()
     const { translate } = useI18n()
 

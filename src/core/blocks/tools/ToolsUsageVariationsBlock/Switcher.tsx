@@ -25,12 +25,8 @@ export const Switcher = ({
                     className={`Button--${rangeType === key ? 'selected' : 'unselected'}`}
                     onClick={() => setRangeType(key)}
                 >
-                    <span className="desktop">
-                        {translate(`ranges.selector.${key}`)}
-                    </span>
-                    <span className="mobile">
-                        {translate(`ranges.selector.${key}`)[0]}
-                    </span>
+                    <span className="desktop">{translate(`ranges.selector.${key}`)}</span>
+                    <span className="mobile">{translate(`ranges.selector.${key}`)[0]}</span>
                 </Button>
             ))}
         </ButtonGroup>

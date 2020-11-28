@@ -70,7 +70,9 @@ const ShareBlock = ({ block, section, className, toggleClass, title }) => {
                         toggleOptions(e)
                     }}
                 >
-                    <span className="desktop"><T k='share.share'/></span>
+                    <span className="desktop">
+                        <T k="share.share" />
+                    </span>
                     <ShareIcon />
                 </ShareButton>
             </ButtonWrapper>
@@ -141,7 +143,7 @@ const Popup = styled.div`
     max-width: 300px;
     margin: 0 auto;
     pointer-events: none;
-    
+
     @media ${mq.small} {
         left: 50%;
         top: 50%;

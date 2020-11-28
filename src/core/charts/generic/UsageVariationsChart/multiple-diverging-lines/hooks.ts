@@ -5,7 +5,7 @@ import { OrdinalColorScaleConfig, useOrdinalColorScale } from '@nivo/colors'
 import { ComputedDatum, ComputedPoint, Datum } from './types'
 
 export const useScales = ({
-    data,
+    // data,
     keys,
     width,
     itemHeight,
@@ -14,32 +14,36 @@ export const useScales = ({
     keys: string[]
     width: number
     itemHeight: number
-}) => {
-    const absoluteMaxValue = useMemo(() => {
-        const allValues: number[] = []
-        data.forEach((datum) => {
-            datum.data.forEach((pointDatum) => {
-                allValues.push(pointDatum.value)
+}) =>
+    useMemo(() => {
+        const absoluteMaxValue = 10
+        /*
+        const absoluteMaxValue = useMemo(() => {
+            const allValues: number[] = []
+            data.forEach((datum) => {
+                datum.data.forEach((pointDatum) => {
+                    allValues.push(pointDatum.value)
+                })
             })
-        })
 
-        const maxValue = Math.max(...allValues)
-        const minValue = Math.min(...allValues)
+            const maxValue = Math.max(...allValues)
+            const minValue = Math.min(...allValues)
 
-        return Math.ceil(Math.max(Math.abs(minValue), maxValue))
-    }, [data])
+            return Math.ceil(Math.max(Math.abs(minValue), maxValue))
+        }, [data])
+        */
 
-    const indexScale = scalePoint().domain(keys).range([0, width])
+        const indexScale = scalePoint().domain(keys).range([0, width])
 
-    const valueScale = scaleLinear()
-        .domain([-absoluteMaxValue, absoluteMaxValue])
-        .range([itemHeight / 2, -itemHeight / 2])
+        const valueScale = scaleLinear()
+            .domain([-absoluteMaxValue, absoluteMaxValue])
+            .range([itemHeight / 2, -itemHeight / 2])
 
-    return {
-        indexScale,
-        valueScale,
-    }
-}
+        return {
+            indexScale,
+            valueScale,
+        }
+    }, [keys, width, itemHeight])
 
 export const useShapeGenerators = () =>
     useMemo(() => {

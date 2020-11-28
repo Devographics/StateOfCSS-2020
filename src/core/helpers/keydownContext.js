@@ -31,7 +31,11 @@ const KeydownContextProviderInner = ({ children }) => {
         }
     }, []) // Empty array ensures that effect is only run on mount and unmount
 
-    return <keydownContext.Provider value={value}><div className={modKeyDown ? 'modKeyDown' : 'modKeyUp'}>{children}</div></keydownContext.Provider>
+    return (
+        <keydownContext.Provider value={value}>
+            <div className={modKeyDown ? 'modKeyDown' : 'modKeyUp'}>{children}</div>
+        </keydownContext.Provider>
+    )
 }
 
 export const KeydownContextProvider = ({ children }) => {

@@ -185,7 +185,7 @@ exports.computeSitemap = async (rawSitemap, locales) => {
             `# please edit \`raw_sitemap.yaml\` instead.`,
             `# generated on: ${now.toISOString()}`,
             `###################################################################`,
-            yaml.dump({locales, contents: stack.hierarchy}, { noRefs: true }),
+            yaml.dump({ locales, contents: stack.hierarchy }, { noRefs: true }),
         ].join('\n')
         await fs.writeFileSync('./config/sitemap.yml', sitemapContent)
 

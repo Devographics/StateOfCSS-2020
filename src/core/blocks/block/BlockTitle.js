@@ -30,7 +30,7 @@ const BlockDescriptionContents = ({ block, context }) => {
     if (description || translate(key, {}, null)) {
         return (
             <Description className="Block__Description">
-                <T t={description} k={key} md={true} fallback={null}/>
+                <T t={description} k={key} md={true} fallback={null} />
             </Description>
         )
     }

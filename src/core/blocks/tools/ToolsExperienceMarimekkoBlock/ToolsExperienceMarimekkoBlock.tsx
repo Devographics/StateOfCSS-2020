@@ -62,7 +62,6 @@ export const ToolsExperienceMarimekkoBlock = ({
     block,
     data,
 }: ToolsExperienceMarimekkoBlockProps) => {
-
     const normalizedData = useNormalizedData(data)
 
     // make the height relative to the number of tools
