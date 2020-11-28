@@ -5,28 +5,28 @@ import { useI18n } from 'core/i18n/i18nContext'
 import ButtonGroup from 'core/components/ButtonGroup'
 // @ts-ignore
 import Button from 'core/components/Button'
-import { RANGE_TYPES, RangeType } from './types'
+import { allDimensionIds, DimensionId } from './types'
 
 export const Switcher = ({
-    setRangeType,
-    rangeType,
+    setDimension,
+    dimension,
 }: {
-    setRangeType: (rangeType: RangeType) => void
-    rangeType: RangeType
+    setDimension: (dimension: DimensionId) => void
+    dimension: DimensionId
 }) => {
     const { translate } = useI18n()
 
     return (
         <ButtonGroup>
-            {RANGE_TYPES.map((key) => (
+            {allDimensionIds.map((dimensionId) => (
                 <Button
-                    key={key}
+                    key={dimensionId}
                     size="small"
-                    className={`Button--${rangeType === key ? 'selected' : 'unselected'}`}
-                    onClick={() => setRangeType(key)}
+                    className={`Button--${dimension === dimensionId ? 'selected' : 'unselected'}`}
+                    onClick={() => setDimension(dimensionId)}
                 >
-                    <span className="desktop">{translate(`ranges.selector.${key}`)}</span>
-                    <span className="mobile">{translate(`ranges.selector.${key}`)[0]}</span>
+                    <span className="desktop">{translate(`ranges.selector.${dimensionId}`)}</span>
+                    <span className="mobile">{translate(`ranges.selector.${dimensionId}`)[0]}</span>
                 </Button>
             ))}
         </ButtonGroup>

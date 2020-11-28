@@ -1,11 +1,31 @@
 import React, { useCallback } from 'react'
 import { useTheme } from 'styled-components'
+import { Margin } from '@nivo/core'
 import { TickFormatter } from '@nivo/axes'
 // @ts-ignore
 import { useI18n } from 'core/i18n/i18nContext'
 import { ResponsiveMultipleDivergingLines } from './multiple-diverging-lines'
 
-export const UsageVariationsChart = ({ margin, data, keys, i18nNamespace }: any) => {
+interface UsageVariationsChartProps {
+    data: {
+        id: string
+        name: string
+        data: {
+            index: string
+            value: number
+        }[]
+    }[]
+    margin: Margin
+    keys: string[]
+    i18nNamespace: string
+}
+
+export const UsageVariationsChart = ({
+    data,
+    margin,
+    keys,
+    i18nNamespace,
+}: UsageVariationsChartProps) => {
     const theme = useTheme()
     const { translate } = useI18n()
 

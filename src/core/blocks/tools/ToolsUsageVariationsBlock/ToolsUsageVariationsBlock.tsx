@@ -4,24 +4,9 @@ import { BlockContext } from 'core/blocks/types'
 import Block from 'core/blocks/block/Block'
 import { UsageVariationsChart } from 'core/charts/generic/UsageVariationsChart'
 import { keys } from 'core/bucket_keys'
-import { Entity } from 'core/types'
-import { RangeType } from './types'
+import { ToolsExperienceMatrices } from 'core/survey_api/matrices'
+import { DimensionId } from './types'
 import { Switcher } from './Switcher'
-
-interface ToolsMatrixYear {
-    year: {
-        tools: {
-            id: string
-            entity: Entity
-            ranges: {
-                range: string
-                count: number
-                percentage_from_range: number
-                percentage_delta_from_range: number
-            }[]
-        }[]
-    }
-}
 
 interface ToolsUsageVariationsBlockProps {
     block: BlockContext<
@@ -30,10 +15,10 @@ interface ToolsUsageVariationsBlockProps {
         { toolIds: string },
         any
     >
-    data: Record<RangeType, ToolsMatrixYear>
+    data: ToolsExperienceMatrices
 }
 
-const keysByRangeType: Record<RangeType, string[]> = {
+const keysByDimension: Record<DimensionId, string[]> = {
     years_of_experience: keys.years_of_experience.keys.map((key) => key.id),
     yearly_salary: keys.yearly_salary.keys.map((key) => key.id),
     company_size: keys.company_size.keys.map((key) => key.id),
@@ -47,19 +32,19 @@ const CHART_MARGIN = {
 }
 
 export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsBlockProps) => {
-    const [rangeType, setRangeType] = useState<RangeType>('years_of_experience')
+    const [dimension, setDimension] = useState<DimensionId>('years_of_experience')
 
-    const keys = keysByRangeType[rangeType]
-    const rangeTypeData = data[rangeType].year.tools
+    const keys = keysByDimension[dimension]
+    const dimensionData = data.dimensions.find((d) => d.dimension === dimension)
 
     const normalizedData = useMemo(
         () =>
-            rangeTypeData.map((datum) => {
+            dimensionData!.tools.map((datum) => {
                 return {
                     id: datum.id,
                     name: datum.entity.name,
                     data: keys.map((key) => {
-                        const range = datum.ranges.find((range) => range.range === key)
+                        const range = datum.buckets.find((bucket) => bucket.id === key)
 
                         return {
                             index: key,
@@ -68,7 +53,7 @@ export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsB
                     }),
                 }
             }),
-        [data, keys]
+        [dimensionData, keys]
     )
 
     return (
@@ -76,19 +61,19 @@ export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsB
             block={block}
             data={data}
             titleProps={{
-                switcher: <Switcher setRangeType={setRangeType} rangeType={rangeType} />,
+                switcher: <Switcher setDimension={setDimension} dimension={dimension} />,
             }}
         >
             <div
                 style={{
                     maxWidth: 900,
-                    height: CHART_MARGIN.top + rangeTypeData.length * 60 + CHART_MARGIN.bottom,
+                    height: CHART_MARGIN.top + normalizedData.length * 60 + CHART_MARGIN.bottom,
                 }}
             >
                 <UsageVariationsChart
                     data={normalizedData}
                     keys={keys}
-                    i18nNamespace={rangeType}
+                    i18nNamespace={dimension}
                     margin={CHART_MARGIN}
                 />
             </div>

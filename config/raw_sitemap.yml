@@ -358,35 +358,15 @@
         variables:
             toolIds: ${toolsCategories.pre_post_processors}
         blocks:
-            # - template: toolsRangesMutlipleDivergingLinesTemplate
-
             - template: pageIntroductionTemplate
 
             - template: toolsExperienceRankingTemplate
 
             - template: toolsSectionStreamsTemplate
 
-            # - template: toolsSectionOverviewTemplate
-
             - template: toolsExperienceMarimekkoTemplate
 
-            # - id: '${id}_experience_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: years_of_experience
-
-            # - id: '${id}_salary_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: yearly_salary
-
-            # - id: '${id}_company_size_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: company_size
+            - template: toolsUsageVariationsTemplate
 
             - id: sass
               template: toolExperienceTemplate
@@ -414,27 +394,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - template: toolsSectionOverviewTemplate
-
             - template: toolsExperienceMarimekkoTemplate
 
-            # - id: '${id}_experience_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: years_of_experience
-
-            # - id: '${id}_salary_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: yearly_salary
-
-            # - id: '${id}_company_size_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: company_size
+            - template: toolsUsageVariationsTemplate
 
             - id: bootstrap
               template: toolExperienceTemplate
@@ -484,27 +446,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - template: toolsSectionOverviewTemplate
-
             - template: toolsExperienceMarimekkoTemplate
 
-            # - id: '${id}_experience_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: years_of_experience
-
-            # - id: '${id}_salary_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: yearly_salary
-
-            # - id: '${id}_company_size_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: company_size
+            - template: toolsUsageVariationsTemplate
 
             - id: bem
               template: toolExperienceTemplate
@@ -540,27 +484,9 @@
 
             - template: toolsSectionStreamsTemplate
 
-            # - template: toolsSectionOverviewTemplate
-
             - template: toolsExperienceMarimekkoTemplate
 
-            # - id: '${id}_experience_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: years_of_experience
-
-            # - id: '${id}_salary_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: yearly_salary
-
-            # - id: '${id}_company_size_heatmap'
-            #   template: heatmapTemplate
-            #   variables:
-            #       subject: tools
-            #       heatmapId: company_size
+            - template: toolsUsageVariationsTemplate
 
             - id: styled_components
               template: toolExperienceTemplate

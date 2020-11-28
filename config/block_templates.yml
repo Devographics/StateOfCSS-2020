@@ -602,70 +602,43 @@ toolsUsageVariationsTemplate:
     id: ${parentId}_tools_usage_variations
     blockType: ToolsUsageVariationsBlock
     blockName: tools_usage_variations
-    dataPath: 'surveyApi.survey.${parentId}_tools_usage_variations.tools'
+    dataPath: 'surveyApi.survey.${parentId}_tools_usage_variations.tools[0]'
     enableExport: true
     query: >
         surveyApi {
             survey(survey: ${surveyType}) {
                 ${parentId}_tools_usage_variations: matrices {
-                    tools(ids: [${toolIds}]) {
-                        years_of_experience(experience: would_use) {
-                            year(year: ${currentYear}) {
-                                tools {
+                    tools(
+                        year: ${currentYear},
+                        experiences: [would_use],
+                        dimensions: [
+                            years_of_experience,
+                            yearly_salary,
+                            company_size,
+                        ],
+                        ids: [${toolIds}]
+                    ) {
+                        experience
+                        dimensions {
+                            dimension
+                            tools {
+                                id
+                                entity {
                                     id
-                                    entity {
-                                        name
-                                        homepage
-                                        github {
-                                            url
-                                        }
-                                    }
-                                    ranges {
-                                        range
-                                        count
-                                        percentage_from_range
-                                        percentage_delta_from_range
+                                    name
+                                    homepage
+                                    github {
+                                        url
                                     }
                                 }
-                            }
-                        }
-                        yearly_salary(experience: would_use) {
-                            year(year: ${currentYear}) {
-                                tools {
+                                buckets {
                                     id
-                                    entity {
-                                        name
-                                        homepage
-                                        github {
-                                            url
-                                        }
-                                    }
-                                    ranges {
-                                        range
-                                        count
-                                        percentage_from_range
-                                        percentage_delta_from_range
-                                    }
-                                }
-                            }
-                        }
-                        company_size(experience: would_use) {
-                            year(year: ${currentYear}) {
-                                tools {
-                                    id
-                                    entity {
-                                        name
-                                        homepage
-                                        github {
-                                            url
-                                        }
-                                    }
-                                    ranges {
-                                        range
-                                        count
-                                        percentage_from_range
-                                        percentage_delta_from_range
-                                    }
+                                    count
+                                    percentage
+                                    total_in_range
+                                    percentage_from_range
+                                    percentage_delta_from_range
+                                    percentage_from_experience
                                 }
                             }
                         }
@@ -674,6 +647,7 @@ toolsUsageVariationsTemplate:
             }
         }
 
+# QUERY NEEDS TO BE ADJUSTED IF WE ENABLE THIS BLOCK!
 toolsMatricesTemplate:
     id: ${parentId}_matrices
     blockType: ToolsMatricesBlock
@@ -747,6 +721,7 @@ toolsMatricesTemplate:
             }
         }
 
+# QUERY NEEDS TO BE ADJUSTED IF WE ENABLE THIS BLOCK!
 heatmapTemplate:
     blockType: HeatmapBlock
     dataPath: 'surveyApi.survey.${parentId}_matrices.tools.${heatmapId}.year'

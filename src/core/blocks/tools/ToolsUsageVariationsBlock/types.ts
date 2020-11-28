@@ -1,2 +1,7 @@
-export const RANGE_TYPES = ['years_of_experience', 'yearly_salary', 'company_size'] as const
-export type RangeType = typeof RANGE_TYPES[number]
+import { allMatrixDimensionIds, MatrixDimensionId } from 'core/survey_api/matrices'
+
+export type DimensionId = Exclude<MatrixDimensionId, 'source'>
+
+export const allDimensionIds = allMatrixDimensionIds.filter(
+    (dimension) => !['source'].includes(dimension)
+) as DimensionId[]
