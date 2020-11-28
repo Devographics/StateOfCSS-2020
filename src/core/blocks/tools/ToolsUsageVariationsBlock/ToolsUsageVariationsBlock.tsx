@@ -1,4 +1,4 @@
-import React, {useMemo, useState} from 'react'
+import React, { useMemo, useState } from 'react'
 import { BlockContext } from 'core/blocks/types'
 // @ts-ignore
 import Block from 'core/blocks/block/Block'
@@ -46,29 +46,30 @@ const CHART_MARGIN = {
     left: 140,
 }
 
-export const ToolsUsageVariationsBlock = ({
-    data,
-    block,
-}: ToolsUsageVariationsBlockProps) => {
+export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsBlockProps) => {
     const [rangeType, setRangeType] = useState<RangeType>('years_of_experience')
 
     const keys = keysByRangeType[rangeType]
     const rangeTypeData = data[rangeType].year.tools
 
-    const normalizedData = useMemo(() => rangeTypeData.map((datum) => {
-        return {
-            id: datum.id,
-            name: datum.entity.name,
-            data: keys.map((key) => {
-                const range = datum.ranges.find((range) => range.range === key)
-
+    const normalizedData = useMemo(
+        () =>
+            rangeTypeData.map((datum) => {
                 return {
-                    index: key,
-                    value: range?.percentage_delta_from_range ?? 0,
+                    id: datum.id,
+                    name: datum.entity.name,
+                    data: keys.map((key) => {
+                        const range = datum.ranges.find((range) => range.range === key)
+
+                        return {
+                            index: key,
+                            value: range?.percentage_delta_from_range ?? 0,
+                        }
+                    }),
                 }
             }),
-        }
-    }), [data, keys])
+        [data, keys]
+    )
 
     return (
         <Block

@@ -17,11 +17,7 @@ export const getTranslationValuesFromContext = (context, translate) => {
 
 export const getPageLabelKey = (page) => page.titleId || `sections.${page.id}.title`
 
-export const getPageLabel = (
-    page,
-    translate,
-    { includeWebsite = false } = {}
-) => {
+export const getPageLabel = (page, translate, { includeWebsite = false } = {}) => {
     let label
 
     label = translate(getPageLabelKey(page))
@@ -38,7 +34,6 @@ export const getPageLabel = (
  *   http://2018.stateofjs.com/images/captures/en-US/front-end_overview.png
  */
 export const getPageImageUrl = (context) => {
-
     const baseUrl = `${context.host}/images/`
 
     let imageUrl

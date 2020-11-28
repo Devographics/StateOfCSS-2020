@@ -147,7 +147,7 @@
 
             - id: shadeed9
               template: picksTemplate
-              
+
             - id: exclusions
               template: featureExperienceTemplate
 
@@ -204,7 +204,7 @@
 
             - id: walterstephanie
               template: picksTemplate
-              
+
             - id: overflow_anchor
               template: featureExperienceTemplate
 
@@ -331,7 +331,7 @@
 
       - id: kilianvalkhof
         template: picksTemplate
-        
+
       - id: attributes
         template: otherFeaturesTemplate
 
@@ -515,7 +515,7 @@
 
             - id: sachagreif
               template: picksTemplate
-              
+
             - id: smacss
               template: toolExperienceTemplate
             - id: it_css
@@ -658,7 +658,7 @@
 
       - id: 5t3ph
         template: picksTemplate
-        
+
       - id: sites_courses_others
         template: resourcesFreeFormTemplate
 

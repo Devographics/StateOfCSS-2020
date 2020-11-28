@@ -45,7 +45,7 @@
 - name: Redux and MobX with Steve Kinney
   id: redux-mobx
   description: >
-    Learn best practices for structuring your data using tools including: Redux, Redux Thunk, Redux Observables and MobX.
+      Learn best practices for structuring your data using tools including: Redux, Redux Thunk, Redux Observables and MobX.
   url: https://frontendmasters.com/courses/redux-mobx/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
   image: https://static.frontendmasters.com/assets/teachers/kinney/thumb@2x.jpg
 
@@ -94,7 +94,7 @@
 # frontend 2
 
 - name: >
-    JavaScript: The Recent Parts with Kyle Simpson
+      JavaScript: The Recent Parts with Kyle Simpson
   id: js-recent-parts
   description: Learn the latest features in JavaScript with Kyle Simpson, author of the popular, You Don't Know JS, book series!
   url: https://frontendmasters.com/courses/js-recent-parts/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019

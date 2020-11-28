@@ -44,13 +44,13 @@ const Locales = () => {
     return (
         <Container className="Locales">
             {links.map(({ label, id, link, isCurrent, completion }) => (
-                <Item
-                    key={id}
-                    className={`Locales__Item${isCurrent ? ' _is-current' : ''}`}
-                >
+                <Item key={id} className={`Locales__Item${isCurrent ? ' _is-current' : ''}`}>
                     <Link to={link}>{label}</Link>
                     {completion < 95 && (
-                        <BlockCompletionIndicator completion={{ percentage: completion }} variant="grey" />
+                        <BlockCompletionIndicator
+                            completion={{ percentage: completion }}
+                            variant="grey"
+                        />
                     )}
                 </Item>
             ))}

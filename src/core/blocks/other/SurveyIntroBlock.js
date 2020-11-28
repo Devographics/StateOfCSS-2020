@@ -12,7 +12,7 @@ const SurveyIntroBlock = () => {
             <Logo size="l" />
             <div className="SurveyIntro">
                 <div className="SurveyIntro__Content">
-                    <T k="sections.introduction.description" md={true}/>
+                    <T k="sections.introduction.description" md={true} />
                     {/* <TextBlock text={translate('sections.introduction.description')} /> */}
                     <IntroductionFooter />
                 </div>

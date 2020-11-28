@@ -10,7 +10,7 @@ export default {
 
     greyTeal: '#a3cacd',
     greyTealDark: '#789B9D',
-    
+
     blueLighter: '#B2BBEE',
     blueLight: '#808EE1',
     blue: '#3c52d1',

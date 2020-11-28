@@ -3,14 +3,11 @@ import { getTranslationValuesFromContext, getPageLabel } from '../helpers/pageHe
 import get from 'lodash/get'
 import config from 'config/config.yml'
 
-export const getBlockTitleKey = (
-    block,
-    page,
-) => {
+export const getBlockTitleKey = (block, page) => {
     const { blockName, titleId } = block
     if (titleId) {
         return titleId
-    } else if (blockName){
+    } else if (blockName) {
         return `blocks.${blockName}.title`
     } else {
         const pageId = page.i18nNamespace || page.id
@@ -19,14 +16,11 @@ export const getBlockTitleKey = (
     }
 }
 
-export const getBlockDescriptionKey = (
-    block,
-    page,
-) => {
+export const getBlockDescriptionKey = (block, page) => {
     const { blockName, titleId } = block
     if (titleId) {
         return titleId
-    } else if (blockName){
+    } else if (blockName) {
         return `blocks.${blockName}.description`
     } else {
         const pageId = page.i18nNamespace || page.id
@@ -35,19 +29,11 @@ export const getBlockDescriptionKey = (
     }
 }
 
-export const getBlockTitle = (
-    block,
-    page,
-    translate,
-) => {
+export const getBlockTitle = (block, page, translate) => {
     return block.title || translate(getBlockTitleKey(block, page))
 }
 
-export const getBlockDescription = (
-    block,
-    page,
-    translate,
-) => {
+export const getBlockDescription = (block, page, translate) => {
     return block.description || translate(`${getBlockDescriptionKey(block, page)}.description`)
 }
 
