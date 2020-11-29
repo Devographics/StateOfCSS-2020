@@ -1,4 +1,5 @@
 import React, { useMemo, useState } from 'react'
+import styled from 'styled-components'
 import { BlockContext } from 'core/blocks/types'
 // @ts-ignore
 import Block from 'core/blocks/block/Block'
@@ -24,6 +25,7 @@ const keysByDimension: Record<DimensionId, string[]> = {
     company_size: keys.company_size.keys.map((key) => key.id),
 }
 
+const MAX_WIDTH = 900
 const CHART_MARGIN = {
     top: 170,
     right: 40,
@@ -57,16 +59,12 @@ export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsB
     )
 
     return (
-        <Block
-            block={block}
-            data={data}
-            titleProps={{
-                switcher: <Switcher setDimension={setDimension} dimension={dimension} />,
-            }}
-        >
-            <div
+        <Block block={block} data={data}>
+            <SwitcherContainer>
+                <Switcher setDimension={setDimension} dimension={dimension} />
+            </SwitcherContainer>
+            <ChartContainer
                 style={{
-                    maxWidth: 900,
                     height: CHART_MARGIN.top + normalizedData.length * 60 + CHART_MARGIN.bottom,
                 }}
             >
@@ -76,7 +74,18 @@ export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsB
                     i18nNamespace={dimension}
                     margin={CHART_MARGIN}
                 />
-            </div>
+            </ChartContainer>
         </Block>
     )
 }
+
+const SwitcherContainer = styled.div`
+    max-width: ${MAX_WIDTH}px;
+    padding: 0 ${CHART_MARGIN.right}px 0 ${CHART_MARGIN.left}px;
+    display: flex;
+    justify-content: center;
+`
+
+const ChartContainer = styled.div`
+    max-width: ${MAX_WIDTH}px;
+`
