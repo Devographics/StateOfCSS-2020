@@ -28,7 +28,7 @@ export const Labels = ({ data, itemHeight, width, margin }: LabelsProps) => {
                     >
                         <line
                             x1={-margin.left}
-                            x2={width + margin.right}
+                            x2={width}
                             fill="none"
                             stroke={datum.color}
                             strokeWidth={1}
