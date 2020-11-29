@@ -4,6 +4,7 @@ import Link from 'core/components/LocaleLink'
 import sponsors from 'config/sponsors.yml'
 import { useI18n } from 'core/i18n/i18nContext'
 import { mq, spacing, fontSize } from 'core/theme'
+import TextBlock from 'core/blocks/other/TextBlock'
 
 const SponsorsBlock = () => {
     const { translate } = useI18n()
@@ -13,11 +14,16 @@ const SponsorsBlock = () => {
             <Container>
                 <Header>{translate('partners.our_partners')}</Header>
                 <SponsorList className="Sponsor__list">
-                    {sponsors.map(({ name, image, url, id }) => (
+                    {sponsors.map(({ name, image, url, id, description }) => (
                         <Sponsor className={`Sponsor Sponsor--${id}`} key={name}>
-                            <a href={url} title={name}>
-                                <img src={`/images/sponsors/${image}`} alt={name} />
-                            </a>
+                            <SponsorLogo>
+                                <a href={url} title={name}>
+                                    <img src={`/images/sponsors/${image}`} alt={name} />
+                                </a>
+                            </SponsorLogo>
+                            <SponsorDescription>
+                                <TextBlock text={description} />
+                            </SponsorDescription>
                         </Sponsor>
                     ))}
                 </SponsorList>
@@ -51,6 +57,20 @@ const SponsorList = styled.div`
 `
 
 const Sponsor = styled.div`
+    @media ${mq.smallMedium} {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+    @media ${mq.large} {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        column-gap: ${spacing(2)};
+    }
+`
+
+const SponsorLogo = styled.div`
     width: 150px;
 
     @media ${mq.smallMedium} {
@@ -58,7 +78,7 @@ const Sponsor = styled.div`
     }
 
     @media ${mq.large} {
-        margin-right: ${spacing(3)};
+        /* margin-right: ${spacing(3)}; */
     }
 
     &:last-child {
@@ -76,6 +96,11 @@ const Sponsor = styled.div`
     }
 `
 
+const SponsorDescription = styled.div`
+    @media ${mq.smallMedium} {
+        text-align: center;
+    }
+`
 const Support = styled.div`
     text-align: center;
     margin-top: ${spacing(0.5)};

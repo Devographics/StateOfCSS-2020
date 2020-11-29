@@ -1,187 +1,77 @@
 # Front End Masters
 
-- name: TypeScript 3 Fundamentals with Mike North
-  id: typescript-v2
-  description: Add type checking to Your JavaScript to catch bugs before they happen, and provides a superior developer experience for collaborative teams!
-  url: https://frontendmasters.com/courses/typescript-v2/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
+- name: Frontend Masters
+  id: fm-homepage
+  description: Advance Your Skills with In-Depth, Modern Front-End Engineering Courses
+  url: https://frontendmasters.com/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
   image: https://static.frontendmasters.com/assets/teachers/north/thumb@2x.jpg
 
-- name: Elm 0.19 with Richard Feldman
-  id: intro-elm
-  description: Learn to build error-free web applications with Elm from the ground up!
-  url: https://frontendmasters.com/courses/intro-elm/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/feldman/thumb@2x.jpg
+- name: Learn CSS, from Laying Out Websites to Performant Animations
+  id: fm-learncss
+  description: >
+    CSS is rich in capabilities and is more than simply laying out pages! Replace costly JavaScript with CSS.
+  url: https://frontendmasters.com/learn/css/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
+  image: https://static.frontendmasters.com/assets/teachers/north/thumb@2x.jpg
 
-- name: Complete Intro to React with Brian Holt
-  id: complete-react-v5
-  description: Use React hooks to build real-world web apps with the latest features in React including hooks, effects, context, and portals!
-  url: https://frontendmasters.com/courses/complete-react-v5/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/holt/thumb@2x.jpg
+- name: CSS Grids and Flexbox for Responsive Web Design
+  id: fm-gridsflexbox
+  description: >
+    Starting with a review of floats for context, but quickly moving into Flexbox and CSS grids, 
+    this essential course is for web developers that want to build responsive, beautiful web applications faster using less code and best practices. 
+  url: https://frontendmasters.com/courses/css-grids-flexbox/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
+  image: https://static.frontendmasters.com/assets/teachers/kramer/thumb.png
 
-- name: Introduction to Vue.js with Sarah Drasner
-  id: fem-vue
-  description: Vue.js brings together the best features of the javascript framework landscape elegantly. Build complex and maintainable applications faster!
-  url: https://frontendmasters.com/courses/vue/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
+- name: SVG Essentials & Animation, v2
+  id: fm-svg
+  description: >
+    Learn to build and optimize SVG – the scalable graphics format for 
+    the web that can achieve impressively small filesizes for fast-loading websites. I
+  url: https://frontendmasters.com/courses/svg-essentials-animation/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
   image: https://static.frontendmasters.com/assets/teachers/drasner/thumb@2x.jpg
 
-- name: Angular and Angular CLI with Lukas Ruebbelke
-  id: angular-core
-  description: Build robust web applications using Angular CLI to quickstart our app and then use components, templates, routes, forms, and ajax in Angular.
-  url: https://frontendmasters.com/courses/angular-core/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/ruebbelke/thumb@2x.jpg
+- name: Responsive Web Typography v2
+  id: fm-typography
+  description: >
+    In this course, Jason Pamental demonstrates 
+    type fundamentals to create better user experiences on mobile and desktop.
+  url: https://frontendmasters.com/courses/responsive-typography-v2/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
+  image: https://static.frontendmasters.com/assets/teachers/pamental/thumb@2x.jpg
 
-# - name: Complete Intro to React with Brian Holt
-#   id: complete-react-v5
-#   description: 🎣 Use React hooks to build real-world web apps with the latest features in React including hooks, effects, context, and portals!
-#   url: https://frontendmasters.com/courses/complete-react-v5/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-#   image: https://static.frontendmasters.com/assets/teachers/holt/thumb@2x.jpg
-
-- name: Ember Octane with Mike North
-  id: ember-octane
-  description: 🏎💨 Use glimmer components, tracked properties, actions, modifiers to build performant Ember apps and PWAs with Ember Octane!
-  url: https://frontendmasters.com/courses/ember-octane/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
+- name: Sass Fundamentals
+  id: fm-sass
+  description: >
+    Leverage the Sass preprocessing to empower your CSS practices and 
+    master styling complex applications. 
+  url: https://frontendmasters.com/courses/sass/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
   image: https://static.frontendmasters.com/assets/teachers/north/thumb@2x.jpg
 
-- name: Redux and MobX with Steve Kinney
-  id: redux-mobx
+- name: Scalable Modular Architecture for CSS (SMACSS)
+  id: fm-smacss
+  description: > 
+    CSS architecture expert Jonathan Snook shares his experience building large sites 
+    with large teams to make your CSS more maintainable using his SMACSS methodology.
+  url: https://frontendmasters.com/courses/smacss/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
+  image: https://static.frontendmasters.com/assets/teachers/snook/thumb@2x.jpg
+
+- name: Intermediate React, v2
+  id: fm-react
   description: >
-      Learn best practices for structuring your data using tools including: Redux, Redux Thunk, Redux Observables and MobX.
-  url: https://frontendmasters.com/courses/redux-mobx/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/kinney/thumb@2x.jpg
-
-- name: GraphQL in React with Scott Moss
-  id: client-graphql-react
-  description: ⚛️ Learn to connect GraphQL to React using Apollo Client and React hooks!
-  url: https://frontendmasters.com/courses/client-graphql-react/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/moss/thumb@2x.jpg
-
-- name: GraphQL APIs in Node.js with Scott Moss
-  id: server-graphql-nodejs
-  description: 📡 Learn to create GraphQL APIs on the server in Node.js with Apollo Server with Scott Moss.
-  url: https://frontendmasters.com/courses/server-graphql-nodejs/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/moss/thumb@2x.jpg
-
-- name: REST APIs with Express and MongoDB with Scott Moss
-  id: api-design-nodejs-v3
-  description: Learn to build a REST API with verb methods to create, read, update and delete resources from a MongoDB database.
-  url: https://frontendmasters.com/courses/api-design-nodejs-v3/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/moss/thumb@2x.jpg
-
-- name: Gatsby.js with Jason Lengstorf
-  id: gatsby
-  description: Build a blog app using Gatsby to create pages and posts, and optimize your images automatically with the gatsby-image!
-  url: https://frontendmasters.com/courses/gatsby/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/lengstorf/thumb@2x.jpg
-
-- name: Intermediate React with Brian Holt
-  id: intermediate-react-v2
-  description: Learn to build scalable, performant React apps with TypeScript, Redux and more tools from the React ecosystem!
-  url: https://frontendmasters.com/courses/intermediate-react-v2/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
+    You’ll learn hooks in-depth, CSS-in-JS with emotion, 
+    increase performance with code splitting and server-side rendering, and more. 
+  url: https://frontendmasters.com/courses/intermediate-react-v2/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
   image: https://static.frontendmasters.com/assets/teachers/holt/thumb@2x.jpg
 
-- name: Testing React with Kent C. Dodds
-  id: testing-react
-  description: Learn to Test React Applications with Jest, react-testing-library and Cypress!
-  url: https://frontendmasters.com/courses/testing-react/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/dodds/thumb@2x.jpg
+- name: Advanced CSS Layouts
+  id: fm-layouts
+  description: >
+    For the first time in the history of the web, 
+    CSS is graced with tools for laying out web pages without hacks. 
+  url: https://frontendmasters.com/courses/advanced-css-layouts/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
+  image: https://static.frontendmasters.com/assets/teachers/kramer/thumb@2x.jpg
 
-- name: Electron with Steve Kinney
-  id: electron-v2
-  description: Use Electron to build native, cross-platform desktop applications using web technologies (e.g. HTML, CSS, and JavaScript).
-  url: https://frontendmasters.com/courses/electron-v2/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/kinney/thumb@2x.jpg
-
-# frontend 2
-
-- name: >
-      JavaScript: The Recent Parts with Kyle Simpson
-  id: js-recent-parts
-  description: Learn the latest features in JavaScript with Kyle Simpson, author of the popular, You Don't Know JS, book series!
-  url: https://frontendmasters.com/courses/js-recent-parts/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/simpson/thumb@2x.jpg
-
-- name: Exploring Service Workers with Kyle Simpson
-  id: service-workers
-  description: Explore the core API enabling Progressive Web Apps with Kyle Simpson, author of the popular, You Don't Know JS, book series!
-  url: https://frontendmasters.com/courses/service-workers/?utm_source=stateofjs&utm_medium=website&utm_campaign=stateofjs2019
-  image: https://static.frontendmasters.com/assets/teachers/simpson/thumb@2x.jpg
-
-# NewLine
-
-- name: Fullstack Node.js Book
-  id: fullstack-node-1
-  url: https://www.newline.co/fullstack-nodejs?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: Learn to build production Node.js apps with the Fullstack Node.js Book
-  image: /images/resources/newline/express-fullstack-nodejs.png
-
-- name: Fullstack React Native Book
-  id: fullstack-react-native-1
-  url: https://www.newline.co/fullstack-react-native/?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: Learn React Native and build beautiful apps with the up-to-date, in-depth, complete guide to React Native.
-  image: /images/resources/newline/react-native-fullstack-react-native.png
-
-- name: Tinyhouse Fullstack React Masterclass
-  id: fullstack-react-masterclass-tinyhouse-1
-  url: https://www.newline.co/tinyhouse?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: Learn advanced React, Node, TypeScript, and GraphQL by building a production-ready application in this 8-week, online course.
-  image: /images/resources/newline/react-tinyhouse.png
-
-- name: Fullstack Vue.js Book
-  id: fullstack-vue-1
-  url: https://www.newline.co/vue?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: Learn how to create elegant apps with Vue.js with the up-to-date, in-depth, complete guide to Vue.
-  image: /images/resources/newline/vue-fullstack-vue.png
-
-- name: ng-book
-  id: fullstack-ng-book-1
-  url: https://www.ng-book.com/2/?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: The in-depth, complete, and up-to-date book on Angular. Become an Angular expert today.
-  image: /images/resources/newline/angular-ng-book.png
-
-# amelia
-
-- name: Fullstack D3 and Data Visualization
-  id: fullstack-d3
-  url: https://www.newline.co/fullstack-d3?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: Dig in right away and build your first visualization by the end of the first chapter (a free download)! Fullstack D3 will walk you through practical examples, while teaching tips and tricks, data visualization design fundamentals, and a flexible approach to use on your own custom visualizations.
-  image: /images/resources/newline/d3-fullstack.png
-
-# chroma
-
-- name: Learn Storybook – A free tutorial for React, Vue, and Angular
-  id: storybook1
-  url: https://www.learnstorybook.com/?utm_source=stateofjs2019&utm_campaign=stateofjs2019
-  description: See why companies like Airbnb, Microsoft, and IBM use Storybook to build UI components and libraries. This in-depth tutorial teaches you best practices as you build a UI from scratch using Storybook. Follow along with real code commits.
-  image: /images/resources/chroma/sojs2019-ad.jpg
-
-# wes bos
-
-- name: ES6 For Everyone
-  id: wesbos-es6
-  url: https://ES6.io/friend/STATEOFJS
-  description: A premium training course to strengthen your core JavaScript skills and master all that ES6 has to offer.
-  image: /images/resources/wesbos/es6.jpg
-
-- name: React For Beginners
-  id: wesbos-react
-  url: https://ReactForBeginners.com/friend/STATEOFJS
-  description: Upgrade your JavaScript skills, learn React.js in just a couple of afternoons.
-  image: /images/resources/wesbos/reactforbeginners.jpg
-
-- name: Advanced React
-  id: wesbos-advanced-react
-  url: https://advancedreact.com/friend/STATEOFJS
-  description: Join 10,393 others learning to build Full Stack JavaScript Apps with React.js and GraphQL.
-  image: /images/resources/wesbos/advancedreact.jpg
-
-- name: '#JavaScript30'
-  id: wesbos-js30
-  url: https://javascript30.com/friend/STATEOFJS
-  description: '30 Day Vanilla JS Coding Challenge: Build 30 things in 30 days with 30 tutorials'
-  image: /images/resources/wesbos/javascript30.jpg
-
-- name: Learn Node
-  id: wesbos-learnnode
-  url: https://learnnode.com/friend/STATEOFJS
-  description: A premium training course to learn to build apps with Node.js, Express, MongoDB, and friends.
-  image: /images/resources/wesbos/learnnode.jpg
+- name: Design Systems with React & Storybook
+  id: fm-storybook
+  description: >
+    Design systems increase the speed of development across teams, as well as make your applications look and feel consistent.
+  url: https://frontendmasters.com/courses/design-systems/
+  image: https://static.frontendmasters.com/assets/teachers/bostian/thumb@2x.jpg

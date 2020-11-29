@@ -98,6 +98,9 @@
       - id: backend_proficiency
         template: proficiencyTemplate
 
+      - items: [fm-homepage]
+        template: recommendedResourcesTemplate
+        
 #- id: overview
 #  path: /overview
 #  blocks:
@@ -123,6 +126,9 @@
 
       - template: knowledgeScoreTemplate
 
+      - items: [fm-learncss]
+        template: recommendedResourcesTemplate
+        
   children:
       - id: layout
         path: /layout
@@ -163,6 +169,9 @@
             - id: content_visibility
               template: featureExperienceTemplate
 
+            - items: [fm-gridsflexbox]
+              template: recommendedResourcesTemplate
+
       - id: shapes_graphics
         path: /shapes-and-graphics
         blocks:
@@ -189,6 +198,9 @@
 
             - id: backdrop_filter
               template: featureExperienceTemplate
+
+            - items: [fm-svg]
+              template: recommendedResourcesTemplate
 
       - id: interactions
         path: /interactions
@@ -243,6 +255,9 @@
 
             - id: line_clamp
               template: featureExperienceTemplate
+
+            - items: [fm-typography]
+              template: recommendedResourcesTemplate
 
       - id: animations_transforms
         path: /animations-and-transforms
@@ -309,6 +324,9 @@
 
             - id: comparison_functions
               template: featureExperienceTemplate
+
+            - items: [fm-layouts]
+              template: recommendedResourcesTemplate
 
 - id: units_selectors
   path: /units-and-selectors
@@ -381,7 +399,9 @@
 
             - template: happinessTemplate
 
-            - template: recommendedResourcesTemplate
+            - items: [fm-sass]
+              template: recommendedResourcesTemplate
+
 
       - id: css_frameworks
         path: /css-frameworks
@@ -433,8 +453,6 @@
 
             - template: happinessTemplate
 
-            - template: recommendedResourcesTemplate
-
       - id: css_methodologies
         path: /methodologies
         variables:
@@ -471,7 +489,8 @@
 
             - template: happinessTemplate
 
-            - template: recommendedResourcesTemplate
+            - items: [fm-smacss]
+              template: recommendedResourcesTemplate
 
       - id: css_in_js
         path: /css-in-js
@@ -521,7 +540,8 @@
 
             - template: happinessTemplate
 
-            - template: recommendedResourcesTemplate
+            - items: [fm-react]
+              template: recommendedResourcesTemplate
 
 - id: tools_others
   path: /other-tools
@@ -549,6 +569,9 @@
 
       - id: browsers_others
         template: otherToolsFreeFormTemplate
+
+      - items: [fm-storybook]
+        template: recommendedResourcesTemplate
 
 - id: environments
   path: /environments

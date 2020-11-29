@@ -6,7 +6,6 @@ import Link from 'core/components/LocaleLink'
 import resources from 'config/recommended_resources.yml'
 import BlockTitle from 'core/blocks/block/BlockTitle'
 import { useI18n } from 'core/i18n/i18nContext'
-import { usePageContext } from 'core/helpers/pageContext'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
 import config from 'config/config.yml'
 
@@ -20,17 +19,7 @@ const trackClick = (id, resource, label) => {
 
 const RecommendedResourcesBlock = ({ block, data }) => {
     const { translate } = useI18n()
-    const context = usePageContext()
-    const { sponsors: pageSponsors, locale } = context
-    const { sponsors: blockSponsors } = block
-
-    // only show recommended resources on english version
-    if (locale !== 'en-US') {
-        return null
-    }
-
-    // sponsors can be defined either at the page level or block level
-    const sponsors = pageSponsors || blockSponsors
+    const { items: sponsors } = block
 
     if (!sponsors) {
         return null
@@ -45,7 +34,7 @@ const RecommendedResourcesBlock = ({ block, data }) => {
     return (
         <div className="Block">
             <div className="resources">
-                <BlockTitle block={{ ...block, showDescription: false }} isShareable={false} />
+                <BlockTitle block={{ ...block, showDescription: false }} isExportable={false} isShareable={false} />
                 <List className="Resources__list">
                     {sectionResources.map((resource) => {
                         const url = resource.url.includes('utm_source')

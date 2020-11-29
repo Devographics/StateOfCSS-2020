@@ -10,7 +10,7 @@ pageIntroductionTemplate:
 
 recommendedResourcesTemplate:
     id: ${parentId}_resources
-    blockName: recommendedResources
+    blockName: recommended_resources
     blockType: RecommendedResourcesBlock
     showDescription: false
 
