@@ -125,7 +125,7 @@ const Link = styled.a`
         }
 
         @media ${mq.small} {
-            position: relative;
+            position: static;
         }
     }
 `
