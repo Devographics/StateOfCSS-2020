@@ -28,7 +28,7 @@ const keysByDimension: Record<DimensionId, string[]> = {
 const MAX_WIDTH = 900
 const CHART_MARGIN = {
     top: 170,
-    right: 40,
+    right: 60,
     bottom: 50,
     left: 140,
 }
@@ -45,12 +45,15 @@ export const ToolsUsageVariationsBlock = ({ data, block }: ToolsUsageVariationsB
                 return {
                     id: datum.id,
                     name: datum.entity.name,
+                    baseline: datum.percentage,
                     data: keys.map((key) => {
                         const range = datum.buckets.find((bucket) => bucket.id === key)
 
                         return {
                             index: key,
-                            value: range?.percentage_delta_from_range ?? 0,
+                            count: range?.count ?? 0,
+                            percentage: range?.range_percentage ?? 0,
+                            percentageDelta: range?.range_percentage_delta ?? 0,
                         }
                     }),
                 }

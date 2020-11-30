@@ -23,14 +23,16 @@ export interface MatrixBucket {
     count: number
     percentage: number
     total_in_range: number
-    percentage_from_range: number
-    percentage_delta_from_range: number
-    percentage_from_experience: number
+    range_total: number
+    range_percentage: number
+    range_percentage_delta: number
 }
 
 export interface ToolMatrix {
     id: string
     entity: Entity
+    total: number
+    percentage: number
     buckets: MatrixBucket[]
 }
 
