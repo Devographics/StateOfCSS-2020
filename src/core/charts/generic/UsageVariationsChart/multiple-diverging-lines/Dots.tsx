@@ -1,13 +1,28 @@
-import React, { useMemo } from 'react'
+import React, { memo, useMemo } from 'react'
 import { useTransition, animated, to } from 'react-spring'
 import { useTheme } from 'styled-components'
-import { useMotionConfig } from '@nivo/core'
+import { useMotionConfig, useTheme as useNivoTheme } from '@nivo/core'
+import { useTooltip } from '@nivo/tooltip'
+// @ts-ignore
+import { useI18n } from 'core/i18n/i18nContext'
 import { ComputedDatum, ComputedPoint } from './types'
 
-interface DotsProps {
-    data: ComputedDatum[]
-    itemHeight: number
-}
+const Tooltip = memo(
+    ({ data, i18nNamespace }: { data: ComputedPoint['data']; i18nNamespace: string }) => {
+        const theme = useNivoTheme()
+        const { translate } = useI18n()
+
+        return (
+            <div style={theme.tooltip.container as any}>
+                <strong>{translate(`options.${i18nNamespace}.${data.index}`)}</strong>
+                <br />
+                <strong>{data.percentage}%</strong> ({data.percentageDelta}%)
+                <br />
+                out of {data.count} responses
+            </div>
+        )
+    }
+)
 
 interface DotData {
     key: string
@@ -17,7 +32,13 @@ interface DotData {
     data: ComputedPoint['data']
 }
 
-export const Dots = ({ data, itemHeight }: DotsProps) => {
+interface DotsProps {
+    data: ComputedDatum[]
+    itemHeight: number
+    i18nNamespace: string
+}
+
+export const Dots = ({ data, itemHeight, i18nNamespace }: DotsProps) => {
     const theme = useTheme()
 
     const dotsData = useMemo(
@@ -93,6 +114,11 @@ export const Dots = ({ data, itemHeight }: DotsProps) => {
         immediate: !animate,
     })
 
+    const { showTooltipFromEvent, hideTooltip } = useTooltip()
+    const onMouseEnter = (event: any, data: DotData) => {
+        showTooltipFromEvent(<Tooltip data={data.data} i18nNamespace={i18nNamespace} />, event)
+    }
+
     return (
         <g>
             {transition((style, dot) => (
@@ -104,6 +130,13 @@ export const Dots = ({ data, itemHeight }: DotsProps) => {
                     fill={theme.colors.background}
                     stroke={style.color}
                     strokeWidth={2}
+                    onMouseEnter={(event) => {
+                        onMouseEnter(event, dot)
+                    }}
+                    onMouseMove={(event) => {
+                        onMouseEnter(event, dot)
+                    }}
+                    onMouseLeave={hideTooltip}
                 />
             ))}
         </g>

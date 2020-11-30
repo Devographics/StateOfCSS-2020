@@ -29,7 +29,7 @@ const BlockCompletionIndicator = ({ completion, variant = 'pink' }) => {
                     cy="10"
                     fill="transparent"
                     strokeWidth="10"
-                    strokeDasharray={`calc(${completion.percentage} * 31.4 / 100) 31.4`}
+                    strokeDasharray={`calc(${completion.percentage} * 31.4px / 100) 31.4px`}
                     transform="rotate(-90) translate(-20)"
                 />
             </Chart>

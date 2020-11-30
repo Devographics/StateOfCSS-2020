@@ -10,9 +10,12 @@ interface UsageVariationsChartProps {
     data: {
         id: string
         name: string
+        baseline: number
         data: {
             index: string
-            value: number
+            count: number
+            percentage: number
+            percentageDelta: number
         }[]
     }[]
     margin: Margin

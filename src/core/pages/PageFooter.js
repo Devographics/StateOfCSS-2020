@@ -43,18 +43,20 @@ const PageFooter = () => {
             </Nav>
             <Notes>
                 <T k="general.charts_nivo" values={{ link: 'https://nivo.rocks/' }} html={true} />{' '}
-                <T k="general.leave_issue" values={{ link: config.issuesUrl }} html={true} />{' '}
-                <T k="general.join_discord" values={{ link: config.discordUrl }} html={true} />{' '}
-                {context.locale.id !== 'en-US' && (
-                    <>
-                        <T k="general.translator_mode" />{' '}
-                    </>
-                )}
                 <T
                     k="general.netlify_link"
                     values={{ link: 'https://www.netlify.com' }}
                     html={true}
                 />
+                <br />
+                <T k="general.leave_issue" values={{ link: config.issuesUrl }} html={true} />{' '}
+                <T k="general.join_discord" values={{ link: config.discordUrl }} html={true} />
+                {context.locale.id !== 'en-US' && (
+                    <>
+                        <br />
+                        <T k="general.translator_mode" />{' '}
+                    </>
+                )}
             </Notes>
         </Container>
     )

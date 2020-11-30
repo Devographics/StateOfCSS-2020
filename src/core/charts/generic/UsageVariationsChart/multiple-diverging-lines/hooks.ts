@@ -16,7 +16,7 @@ export const useScales = ({
     itemHeight: number
 }) =>
     useMemo(() => {
-        const absoluteMaxValue = 10
+        const absoluteMaxValue = 20
         /*
         const absoluteMaxValue = useMemo(() => {
             const allValues: number[] = []
@@ -85,7 +85,7 @@ export const useComputedData = ({
                 data: datum.data.map((pointDatum) => {
                     return {
                         x: indexScale(pointDatum.index) as number,
-                        y: valueScale(pointDatum.value) as number,
+                        y: valueScale(pointDatum.percentageDelta) as number,
                         data: pointDatum,
                     }
                 }),

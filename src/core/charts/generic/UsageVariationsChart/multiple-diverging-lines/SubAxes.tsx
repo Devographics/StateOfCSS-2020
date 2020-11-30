@@ -22,6 +22,14 @@ export const SubAxes = ({ data, itemHeight, width }: SubAxesProps) => {
                         <g transform={`translate(0, ${itemHeight})`}>
                             <line x2={width} {...(theme.grid.line as any)} />
                         </g>
+                        <text
+                            x={width + 12}
+                            y={itemHeight * 0.5}
+                            dy={4}
+                            style={theme.axis.ticks.text as any}
+                        >
+                            {datum.baseline}%
+                        </text>
                     </g>
                 )
             })}

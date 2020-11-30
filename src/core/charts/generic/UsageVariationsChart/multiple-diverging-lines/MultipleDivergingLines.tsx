@@ -40,6 +40,7 @@ const InnerMultipleDivergingLines = ({
     axisTop,
     axisBottom,
     colors = defaultProps.colors,
+    i18nNamespace,
 }: MultipleDivergingLinesSvgProps) => {
     const { outerWidth, outerHeight, margin, innerWidth, innerHeight } = useDimensions(
         width,
@@ -90,24 +91,7 @@ const InnerMultipleDivergingLines = ({
                     itemHeight={itemHeight}
                     width={innerWidth}
                 />
-                <Dots data={computedData} itemHeight={itemHeight} />
-                {/*computedData.map((datum) => (
-                    <g key={datum.id} transform={`translate(0, ${datum.index * itemHeight})`}>
-                        <Item
-                            id={datum.id}
-                            name={datum.name}
-                            color={theme.colors.distinct[datum.index]}
-                            indexScale={indexScale}
-                            valueScale={valueScale}
-                            keys={keys}
-                            data={datum.data}
-                            lineGenerator={lineGenerator}
-                            areaGenerator={areaGenerator}
-                            margin={margin}
-                            isFirst={datum.index === 0}
-                        />
-                    </g>
-                ))*/}
+                <Dots data={computedData} itemHeight={itemHeight} i18nNamespace={i18nNamespace} />
             </g>
         </svg>
     )

@@ -610,7 +610,7 @@ toolsUsageVariationsTemplate:
                 ${parentId}_tools_usage_variations: matrices {
                     tools(
                         year: ${currentYear},
-                        experiences: [usage],
+                        experiences: [positive_sentiment],
                         dimensions: [
                             years_of_experience,
                             yearly_salary,
@@ -631,14 +631,15 @@ toolsUsageVariationsTemplate:
                                         url
                                     }
                                 }
+                                total
+                                percentage
                                 buckets {
                                     id
                                     count
                                     percentage
-                                    total_in_range
-                                    percentage_from_range
-                                    percentage_delta_from_range
-                                    percentage_from_experience
+                                    range_total
+                                    range_percentage
+                                    range_percentage_delta
                                 }
                             }
                         }
