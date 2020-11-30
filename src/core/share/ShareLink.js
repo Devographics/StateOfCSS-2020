@@ -28,6 +28,12 @@ const Link = styled.a`
         }
     }
 
+    @media ${mq.small} {
+        top: 0;
+        left: 0;
+        position: absolute;
+    }
+
     .ShareBlock & {
         transition: all 500ms cubic-bezier(0.87, -0.41, 0.19, 1.44);
         opacity: 0;
@@ -116,6 +122,10 @@ const Link = styled.a`
             margin: 0 auto;
             height: 24px;
             width: 24px;
+        }
+
+        @media ${mq.small} {
+            position: relative;
         }
     }
 `
