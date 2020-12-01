@@ -4,14 +4,14 @@
   id: fm-homepage
   description: Advance Your Skills with In-Depth, Modern Front-End Engineering Courses
   url: https://frontendmasters.com/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
-  image: https://static.frontendmasters.com/assets/teachers/north/thumb@2x.jpg
+  image: https://static.frontendmasters.com/assets/brand/logos/m-black.jpg
 
 - name: Learn CSS, from Laying Out Websites to Performant Animations
   id: fm-learncss
   description: >
     CSS is rich in capabilities and is more than simply laying out pages! Replace costly JavaScript with CSS.
   url: https://frontendmasters.com/learn/css/?utm_source=stateofcss&utm_medium=website&utm_campaign=stateofcss2020
-  image: https://static.frontendmasters.com/assets/teachers/north/thumb@2x.jpg
+  image: https://static.frontendmasters.com/assets/brand/icons/icon-paths.jpg
 
 - name: CSS Grids and Flexbox for Responsive Web Design
   id: fm-gridsflexbox
