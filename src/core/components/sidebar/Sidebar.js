@@ -42,11 +42,11 @@ const SidebarContainer = styled.nav`
     border-right: ${(props) => props.theme.separationBorder};
     display: flex;
     flex-direction: column;
-    height: 100vh;
-    position: fixed;
 
     @media ${mq.large} {
         width: ${({ theme }) => theme.dimensions.sidebar.width}px;
+        height: 100vh;
+        position: fixed;
     }
 
     @media ${mq.smallMedium} {
@@ -58,10 +58,9 @@ const SidebarContainer = styled.nav`
         background: ${color('background')};
         z-index: 1000;
         text-align: center;
-        overflow-x: hidden;
-        overflow-y: scroll;
+        /* overflow-x: hidden; */
+        /* overflow-y: scroll; */
         position: fixed;
-        height: 100vh;
         ${(props) => (props.show ? '' : screenReadersOnlyMixin)};
     }
 `
