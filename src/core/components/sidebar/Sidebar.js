@@ -61,7 +61,7 @@ const SidebarContainer = styled.nav`
         overflow-x: hidden;
         overflow-y: scroll;
         position: fixed;
-
+        height: 100vh;
         ${(props) => (props.show ? '' : screenReadersOnlyMixin)};
     }
 `
