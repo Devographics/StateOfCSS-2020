@@ -100,7 +100,7 @@
 
       - items: [fm-homepage]
         template: recommendedResourcesTemplate
-        
+
 #- id: overview
 #  path: /overview
 #  blocks:
@@ -128,7 +128,7 @@
 
       - items: [fm-learncss]
         template: recommendedResourcesTemplate
-        
+
   children:
       - id: layout
         path: /layout
@@ -512,8 +512,6 @@
             - id: jss
               template: toolExperienceTemplate
             - id: styled_jsx
-              template: toolExperienceTemplate
-            - id: radium
               template: toolExperienceTemplate
             - id: emotion
               template: toolExperienceTemplate

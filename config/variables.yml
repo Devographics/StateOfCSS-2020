@@ -141,7 +141,6 @@ allTools:
     - styled_components
     - jss
     - styled_jsx
-    - radium
     - emotion
     - css_modules
     - styled_system
@@ -182,7 +181,6 @@ toolsCategories:
         - styled_components
         - jss
         - styled_jsx
-        - radium
         - emotion
         - css_modules
         - styled_system

@@ -29,7 +29,6 @@ const labelPositions = {
         Less: [-55, 0],
         JSS: [0, 10],
         SMACSS: [-70, 0],
-        Radium: [-70, 0],
         Bulma: [0, 5],
         Styletron: [0, 5],
         Fela: [-55, 0],
