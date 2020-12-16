@@ -4,6 +4,8 @@ import template from 'lodash/template'
 
 Returns the translation string object
 
+Use `hello {name}` to interpolate values
+
 */
 export const getStringTranslator = (locale = {}) => (key, { values } = {}, fallback) => {
     const { strings = [], ...rest } = locale
@@ -15,7 +17,7 @@ export const getStringTranslator = (locale = {}) => (key, { values } = {}, fallb
 
     if (s && values) {
         try {
-            s.t = template(s.t)(values)
+            s.t = template(s.t, { interpolate: /{([\s\S]+?)}/g })(values)
         } catch (error) {
             console.error(error)
             s.t = `[${locale.id}][ERR] ${key}`

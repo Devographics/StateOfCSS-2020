@@ -16,6 +16,7 @@ import TshirtBlock from 'core/blocks/other/TshirtBlock'
 import AwardBlock from 'core/blocks/awards/AwardBlock'
 import ConclusionBlock from 'core/blocks/other/ConclusionBlock'
 import NotFoundBlock from 'core/blocks/other/NotFoundBlock'
+import EssayBlock from 'core/essay/EssayBlock'
 
 // demographics
 import ParticipationByCountryBlock from 'core/blocks/demographics/ParticipationByCountryBlock'
@@ -63,7 +64,8 @@ const blockRegistry = {
     PicksBlock,
     TranslatorsBlock,
     NotFoundBlock,
-
+    EssayBlock,
+    
     // demographics
     ParticipationByCountryBlock,
     GenderBlock,
