@@ -142,7 +142,7 @@ ToolsSectionStreamsBlock.propTypes = {
                             percentage: PropTypes.number.isRequired,
                         })
                     ).isRequired,
-                }).isRequired,
+                }),
             }),
         })
     ).isRequired,

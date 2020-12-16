@@ -11,6 +11,10 @@ const BlockImport = ({ id, children, size = 's' }) => {
     const pageContext = usePageContext()
     const block = allBlocks.find((b) => b.id === id && b.isReport)
 
+    if (!block) {
+        return <div>Missing block {id}</div>
+    }
+
     const newBlock = {
         ...block,
         hidden: false,
@@ -31,7 +35,7 @@ const BlockImport = ({ id, children, size = 's' }) => {
         })
     )
 
-    const hasOverlays = Array.isArray(children)
+    const hasOverlays = typeof children !== 'undefined'
 
     return (
         <ChartWrapper className="ChartWrapper" size={size}>
@@ -80,6 +84,8 @@ const ChartContents = styled.div`
         `}
 `
 
-const ChartOverlays = styled.div``
+const ChartOverlays = styled.div`
+    pointer-events: none;
+`
 
 export default BlockImport

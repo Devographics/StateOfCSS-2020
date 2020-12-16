@@ -30,7 +30,7 @@ const useNormalizedData = (
             const aware = total - keyedBuckets.never_heard.count
 
             return {
-                tool: tool.entity,
+                tool: {...tool.entity, id: tool.id},
                 awareness: aware,
                 would_not_use: (keyedBuckets.would_not_use.count / aware) * 100 * -1,
                 not_interested: (keyedBuckets.not_interested.count / aware) * 100 * -1,
@@ -55,12 +55,14 @@ interface ToolsExperienceMarimekkoBlockProps {
         { toolIds: string },
         any
     >
-    data: ToolsExperienceToolData[]
+    data: ToolsExperienceToolData[],
+    triggerId: string | null
 }
 
 export const ToolsExperienceMarimekkoBlock = ({
     block,
     data,
+    triggerId = null,
 }: ToolsExperienceMarimekkoBlockProps) => {
     const normalizedData = useNormalizedData(data)
 
@@ -71,6 +73,8 @@ export const ToolsExperienceMarimekkoBlock = ({
     // than those with more.
     const height = MARGIN.top + ROW_HEIGHT * data.length + MARGIN.bottom
 
+    const controlledCurrent = triggerId
+
     return (
         <Block
             block={{
@@ -80,7 +84,7 @@ export const ToolsExperienceMarimekkoBlock = ({
             data={data}
         >
             <ChartContainer fit height={height}>
-                <ToolsExperienceMarimekkoChart data={normalizedData} />
+                <ToolsExperienceMarimekkoChart data={normalizedData} current={controlledCurrent}/>
             </ChartContainer>
         </Block>
     )

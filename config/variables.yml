@@ -171,6 +171,18 @@ toolsCategories:
         - pure_css
         - skeleton
         - spectre_css
+    css_frameworks_abridged:
+        - bootstrap
+        - materialize_css
+        - ant_design
+        - semantic_ui
+        - bulma
+        - foundation
+        - ui_kit
+        - tachyons
+        - tailwind_css
+        - pure_css
+        - skeleton
     css_methodologies:
         - bem
         - atomic_css

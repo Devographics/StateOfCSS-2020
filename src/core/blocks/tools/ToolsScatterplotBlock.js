@@ -10,7 +10,7 @@ import { useI18n } from 'core/i18n/i18nContext'
 import ChartContainer from 'core/charts/ChartContainer'
 import ButtonGroup from 'core/components/ButtonGroup'
 import Button from 'core/components/Button'
-import { toolsCategories } from '../../../../config/variables.yml'
+import { toolsCategories } from 'config/variables.yml'
 
 /*
 
@@ -20,7 +20,7 @@ Parse data and convert it into a format compatible with the Scatterplot chart
 const useChartData = (data, translate, metric = 'satisfaction') => {
     const theme = useTheme()
 
-    const allTools = Object.keys(toolsCategories).map((categoryId) => {
+    const allTools = Object.keys(toolsCategories).filter(c => !c.includes('abridged')).map((categoryId) => {
         const toolsIds = toolsCategories[categoryId]
 
         const categoryTools = data.filter((tool) => toolsIds.includes(tool.id))

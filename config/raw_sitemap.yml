@@ -792,7 +792,7 @@
         isReport: true
         hidden: true
         variables: 
-          parentId: css_frameworks
+          parentId: css_frameworks_abridged
 
       - id: scatterplot_overview
         isReport: true

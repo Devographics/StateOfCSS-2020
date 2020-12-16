@@ -70,7 +70,7 @@ const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData
                         }}
                         dominantBaseline="central"
                     >
-                        {datum.id}
+                        {datum.data.tool.name}
                     </text>
                 )
 
@@ -87,10 +87,13 @@ const ToolsLabels = ({ data }: CustomLayerProps<ToolsExperienceMarimekkoToolData
 
 interface ToolsExperienceMarimekkoChartProps {
     data: ToolsExperienceMarimekkoToolData[]
+    current: string | null
 }
 
 export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoChartProps) => {
     const { translate } = useI18n()
+
+    const { current } = props
 
     // `id` is the label while `value` is the accessor
     // for a given dimension.
@@ -118,11 +121,22 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
 
     const theme = useTheme()
 
-    // colors should match the order defined in `dimensions`.
-    const colors = useMemo(
-        () => dimensions.map((dimension) => theme.colors.ranges.tools[dimension.value]),
-        [dimensions, theme]
-    )
+    console.log(current)
+    console.log(props.data)
+
+    const getLayerColor = (props: any) => {
+        const dimension = dimensions.find((d) => d.id === props.id)
+        console.log(props)
+        if (dimension) {
+            const color = theme.colors.ranges.tools[dimension.value]
+            if (current !== null && current !== props.datum.id) {
+                return `${color}33`
+            }
+            return color
+        } else {
+            return 'blue'
+        }
+    }
 
     return (
         <ResponsiveMarimekko<ToolsExperienceMarimekkoToolData>
@@ -133,13 +147,13 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
             axisBottom={{
                 format: valueFormatter,
             }}
-            id="tool.name"
+            id="tool.id"
             value="awareness"
             valueFormat={valueFormatter}
             data={props.data}
             dimensions={dimensions}
             theme={theme.charts}
-            colors={colors}
+            colors={getLayerColor}
             enableGridX
             enableGridY={false}
             offset="diverging"

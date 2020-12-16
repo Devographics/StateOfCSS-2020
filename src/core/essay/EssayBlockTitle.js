@@ -70,8 +70,6 @@ const BlockTitle = ({
 }
 
 const StyledBlockTitle = styled.div`
-    border-bottom: ${(props) => props.theme.separationBorder};
-    padding-bottom: ${spacing(0.5)};
     margin-bottom: ${spacing(1)};
     display: flex;
     align-items: center;
