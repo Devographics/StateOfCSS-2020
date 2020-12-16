@@ -40,7 +40,7 @@ const Block = ({
         legendPosition = 'bottom',
         showTitle = true,
         showNote = true,
-        overrides,
+        overrides = {},
     } = block
 
     const BlockTitle = overrides.BlockTitle || BlockTitleOriginal

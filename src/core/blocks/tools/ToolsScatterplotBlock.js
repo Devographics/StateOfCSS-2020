@@ -60,6 +60,7 @@ const useChartData = (data, translate, metric = 'satisfaction') => {
 
                 const node = {
                     id,
+                    originalId: id,
                     x: totals[metric],
                     y: percentages[metric],
                     name,
@@ -106,7 +107,7 @@ const Switcher = ({ setMetric, metric }) => {
     )
 }
 
-const ToolsScatterplotBlock = ({ block, data, titleProps }) => {
+const ToolsScatterplotBlock = ({ block, data, triggerId, titleProps }) => {
     const { translate } = useI18n()
     const theme = useTheme()
 
@@ -123,6 +124,8 @@ const ToolsScatterplotBlock = ({ block, data, titleProps }) => {
         keyLabel: `${translate(`page.${keyId}.short`)}:`,
         color: theme.colors.ranges.toolSections[keyId],
     }))
+
+    const controlledCurrent = triggerId || current
 
     return (
         <Block
@@ -145,7 +148,8 @@ const ToolsScatterplotBlock = ({ block, data, titleProps }) => {
                     data={chartData}
                     metric={metric}
                     showQuadrants={metric === 'satisfaction'}
-                    current={current}
+                    current={controlledCurrent}
+                    setCurrent={setCurrent}
                 />
             </ChartContainer>
         </Block>

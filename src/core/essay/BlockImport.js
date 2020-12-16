@@ -16,13 +16,19 @@ const BlockImport = ({ id, children, size = 's' }) => {
         hidden: false,
         showDescription: false,
         showNote: false,
+        legendPosition: 'bottom',
         overrides: {
             BlockTitle: EssayBlockTitle,
         },
     }
 
-    const childrenWithExtraProp = React.Children.map(children, (child) =>
-        React.cloneElement(child, { triggerId, setTriggerId })
+    const childrenWithExtraProp = React.Children.map(children, (child, index) =>
+        React.cloneElement(child, {
+            triggerId,
+            setTriggerId,
+            isFirst: index === 0,
+            isLast: index === children.length - 1,
+        })
     )
 
     const hasOverlays = Array.isArray(children)
@@ -36,7 +42,9 @@ const BlockImport = ({ id, children, size = 's' }) => {
                     triggerId={triggerId}
                 />
             </ChartContents>
-            <ChartOverlays className="ChartOverlays" size={size}>{childrenWithExtraProp}</ChartOverlays>
+            <ChartOverlays className="ChartOverlays" size={size}>
+                {childrenWithExtraProp}
+            </ChartOverlays>
         </ChartWrapper>
     )
 }

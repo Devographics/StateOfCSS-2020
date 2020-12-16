@@ -9,23 +9,26 @@ import { mq, spacing, fontSize } from 'core/theme'
 import sortBy from 'lodash/sortBy'
 import range from 'lodash/range'
 
-const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
+const ToolsSectionStreamsBlock = ({ block, data, triggerId, units: defaultUnits = 'percentage' }) => {
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
 
     const filteredData = data.filter((toolData) => toolData.experience.all_years.length > 1)
+
+    const controlledCurrent = triggerId || current
 
     return (
         <Block
             units={units}
             setUnits={setUnits}
             block={{
-                ...block,
                 legendPosition: 'top',
                 legendProps: { layout: 'horizontal' },
+                ...block,
             }}
             data={filteredData}
             legendProps={{
+                current: controlledCurrent,
                 onMouseEnter: ({ id }) => {
                     setCurrent(id)
                 },
@@ -40,7 +43,7 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
                         <Stream
                             key={toolData.id}
                             toolData={toolData}
-                            current={current}
+                            current={controlledCurrent}
                             units={units}
                         />
                     )

@@ -20,6 +20,7 @@ const BlockLegends = ({
     units,
     position,
     useShortLabels = layout === 'horizontal',
+    current,
 }) => {
     const { id: blockId, bucketKeysName = blockId } = block
 
@@ -34,6 +35,7 @@ const BlockLegends = ({
                     <BlockLegendsItem
                         key={id}
                         id={id}
+                        current={current}
                         label={label}
                         shortLabel={shortLabel}
                         useShortLabels={useShortLabels}
