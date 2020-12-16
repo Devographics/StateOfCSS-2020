@@ -6,12 +6,10 @@ import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
 import EssayBlockTitle from 'core/essay/EssayBlockTitle'
 
-const NoSwitcher = () => null
-
-const BlockImport = ({ id, children }) => {
+const BlockImport = ({ id, children, size = 's' }) => {
     const [triggerId, setTriggerId] = useState()
     const pageContext = usePageContext()
-    const block = allBlocks.find((b) => b.id === id && b.lookBack)
+    const block = allBlocks.find((b) => b.id === id && b.isReport)
 
     const newBlock = {
         ...block,
@@ -30,30 +28,48 @@ const BlockImport = ({ id, children }) => {
     const hasOverlays = Array.isArray(children)
 
     return (
-        <ChartWrapper className="ChartWrapper">
-            <ChartContents className="ChartContents" hasOverlays={hasOverlays}>
+        <ChartWrapper className="ChartWrapper" size={size}>
+            <ChartContents className="ChartContents" hasOverlays={hasOverlays} size={size}>
                 <BlockSwitcher
                     pageData={pageContext.pageData}
                     block={newBlock}
                     triggerId={triggerId}
                 />
             </ChartContents>
-            <ChartOverlays className="ChartOverlays">{childrenWithExtraProp}</ChartOverlays>
+            <ChartOverlays className="ChartOverlays" size={size}>{childrenWithExtraProp}</ChartOverlays>
         </ChartWrapper>
     )
 }
 
 const ChartWrapper = styled.div`
     padding: ${spacing(2)} 0;
+    ${({ size }) => {
+        if (size === 's') {
+            return css``
+        } else if (size === 'm') {
+            return css`
+                width: 1100px;
+                margin-left: calc(50% - 550px);
+            `
+        } else if (size === 'l') {
+            return css`
+                width: 100vw;
+                margin-left: calc(50% - 50vw);
+                padding: ${spacing(2)};
+            `
+        }
+    }}
 `
 
 const ChartContents = styled.div`
-    ${({ hasOverlays }) => hasOverlays && css`
-        position: sticky;
-        top: 0;
-        height: 100vh;
-        padding: ${spacing(2)} 0;
-    `}
+    ${({ hasOverlays }) =>
+        hasOverlays &&
+        css`
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            padding: ${spacing(2)} 0;
+        `}
 `
 
 const ChartOverlays = styled.div``

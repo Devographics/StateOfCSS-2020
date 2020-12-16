@@ -4,12 +4,9 @@ import styled from 'styled-components'
 import last from 'lodash/last'
 import { mq, spacing } from 'core/theme'
 import ShareBlock from 'core/share/ShareBlock'
-import BlockExport from 'core/blocks/block/BlockExport'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
 import { getBlockMeta } from 'core/helpers/blockHelpers'
-import SharePermalink from 'core/share/SharePermalink'
-import BlockUnitsSelector from 'core/blocks/block/BlockUnitsSelector'
 import BlockCompletionIndicator from 'core/blocks/block/BlockCompletionIndicator'
 import { getBlockTitleKey, getBlockDescriptionKey, getBlockTitle } from 'core/helpers/blockHelpers'
 import T from 'core/i18n/T'
@@ -72,23 +69,6 @@ const BlockTitle = ({
     )
 }
 
-BlockTitle.propTypes = {
-    block: PropTypes.shape({
-        id: PropTypes.string.isRequired,
-        title: PropTypes.node,
-        titleId: PropTypes.string,
-        description: PropTypes.node,
-        descriptionId: PropTypes.string,
-    }).isRequired,
-    showDescription: PropTypes.bool.isRequired,
-    isShareable: PropTypes.bool.isRequired,
-}
-
-BlockTitle.defaultProps = {
-    showDescription: true,
-    isShareable: true,
-}
-
 const StyledBlockTitle = styled.div`
     border-bottom: ${(props) => props.theme.separationBorder};
     padding-bottom: ${spacing(0.5)};
@@ -128,29 +108,6 @@ const LeftPart = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
-`
-
-const Description = styled.div`
-    margin-bottom: ${spacing(1)};
-
-    p {
-        &:last-child {
-            margin: 0;
-        }
-    }
-`
-
-const BlockChartControls = styled.div`
-    display: flex;
-    justify-content: flex-end;
-
-    @media ${mq.small} {
-        margin-left: ${spacing(0.5)};
-    }
-
-    .capture & {
-        display: none;
-    }
 `
 
 export default memo(BlockTitle)

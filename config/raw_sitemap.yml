@@ -751,93 +751,93 @@
       - id: notfound
         blockType: NotFoundBlock
 
-- id: look_back
-  path: /look-back
+- id: report
+  path: /report
   is_hidden: true
   showSidebar: false
   blocks:
-      - id: look_back
-        lookBack: true
+      - id: report_contents
+        isReport: true
         blockType: EssayBlock
 
       - id: country
-        lookBack: true
+        isReport: true
         template: demographicsTemplate
         blockType: ParticipationByCountryBlock
         hidden: true
         pageId: user_info
 
       - template: featuresOverviewTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         
       - template: knowledgeScoreTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         pageId: features
 
       - template: toolsExperienceMarimekkoTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         variables: 
           parentId: css_in_js
 
       - template: toolsSectionStreamsTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         variables: 
           parentId: css_in_js
           
       - template: toolsExperienceRankingTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         variables: 
           parentId: css_frameworks
 
       - id: scatterplot_overview
-        lookBack: true
+        isReport: true
         template: scatterplotOverviewTemplate
         hidden: true
 
       - id: grid
-        lookBack: true
+        isReport: true
         template: featureExperienceTemplate
         hidden: true
 
       - id: subgrid
-        lookBack: true
+        isReport: true
         template: featureExperienceTemplate
         hidden: true
 
       - id: logical_properties
-        lookBack: true
+        isReport: true
         template: featureExperienceTemplate
         hidden: true
         
       - id: prefers_reduced_motion
-        lookBack: true
+        isReport: true
         template: featureExperienceTemplate
         hidden: true
 
       - id: prefers_color_scheme
-        lookBack: true
+        isReport: true
         template: featureExperienceTemplate
         hidden: true
 
       - id: utility_classes_to_be_avoided
-        lookBack: true
+        isReport: true
         hidden: true
         template: opinionTemplate
         pageId: opinions
 
       - id: css_is_programming_language
-        lookBack: true
+        isReport: true
         template: opinionTemplate
         hidden: true
         pageId: opinions
 
       - id: state_of_css
         template: opinionHappinessTemplate
-        lookBack: true
+        isReport: true
         hidden: true
         pageId: opinions

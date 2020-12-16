@@ -48,7 +48,7 @@ const ThemedLayout = (props) => {
             <EntitiesContextProvider>
                 <GlobalStyle />
                 <Head />
-                {props.context.id === 'look_back' ? <EssayLayout {...props} />:<MainLayout {...props} />}
+                {props.context.id === 'report' ? <EssayLayout {...props} />:<MainLayout {...props} />}
             </EntitiesContextProvider>
         </ThemeProvider>
     )
