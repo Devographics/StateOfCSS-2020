@@ -774,7 +774,7 @@
       - template: knowledgeScoreTemplate
         lookBack: true
         hidden: true
-        pageId: opinions
+        pageId: features
 
       - template: toolsExperienceMarimekkoTemplate
         lookBack: true

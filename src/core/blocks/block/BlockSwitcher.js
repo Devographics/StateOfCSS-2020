@@ -7,7 +7,7 @@ import Block from 'core/blocks/block/Block'
 import get from 'lodash/get'
 import { usePageContext } from 'core/helpers/pageContext'
 
-const BlockSwitcher = ({ pageData, block, index }) => {
+const BlockSwitcher = ({ pageData, block, index, ...props }) => {
     const pageContext = usePageContext()
     const { id, blockType, hidden } = block
     let blockData
@@ -32,7 +32,7 @@ const BlockSwitcher = ({ pageData, block, index }) => {
         }
     }
     return hidden && !pageContext.isCapturing ? null : (
-        <BlockComponent block={block} data={blockData} index={index} />
+        <BlockComponent block={block} data={blockData} index={index} {...props}/>
     )
 }
 

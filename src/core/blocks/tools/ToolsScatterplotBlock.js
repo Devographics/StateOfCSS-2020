@@ -106,7 +106,7 @@ const Switcher = ({ setMetric, metric }) => {
     )
 }
 
-const ToolsScatterplotBlock = ({ block, data }) => {
+const ToolsScatterplotBlock = ({ block, data, titleProps }) => {
     const { translate } = useI18n()
     const theme = useTheme()
 
@@ -129,7 +129,7 @@ const ToolsScatterplotBlock = ({ block, data }) => {
             className="ToolsScatterplotBlock"
             data={chartData}
             block={{ ...block, title, description, showLegend: false, legends }}
-            titleProps={{ switcher: <Switcher setMetric={setMetric} metric={metric} /> }}
+            titleProps={{ switcher: <Switcher setMetric={setMetric} metric={metric} />, ...titleProps }}
             legendProps={{
                 legends,
                 onMouseEnter: ({ id }) => {
