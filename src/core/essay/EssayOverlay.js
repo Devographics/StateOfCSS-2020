@@ -1,6 +1,7 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
+import ReactMarkdown from 'react-markdown/with-html'
 
 // From 0 (top) to 1(bottom), where in the viewport should the trigger happen
 const topViewportTriggerPoint = 0.8
@@ -51,7 +52,7 @@ const Overlay = ({ id, triggerId, setTriggerId, isFirst, isLast, children }) => 
     return (
         <OverlayContainer className="OverlayContainer">
             <OverlayContents className="OverlayContents" ref={overlayRef} isTriggered={isTriggered}>
-                {children}
+                <ReactMarkdown source={children} escapeHtml={false} />
             </OverlayContents>
             <OverlaySpacer className="OverlaySpacer" />
         </OverlayContainer>
@@ -83,6 +84,11 @@ const OverlayContents = styled.div`
             background: ${color('backgroundForeground')};
         `}
     box-shadow: ${({ theme }) => theme.blockShadow};
+    p{
+        &:last-child{
+            margin: 0;
+        }
+    }
 `
 
 export default Overlay

@@ -111,27 +111,21 @@ At this point, some of you might be shaking your head. You're not going to throw
 
 Well, I've got some bad news for you. CSS itself is changing, and the biggest changes might still be ahead of us.
 
-<Block id="grid" />
-
 When Grid came out, it finally gave us a proper way to build layouts with CSS. And now that Grid is in the process of becoming more mainstream, we're seeing its effects trickle down to other aspects of styling.
 
 For example, a smartly conceived grid can let you handle multiple viewport sizes without writing any media queries. What's more, the upcoming Subgrid module is going to unlock a whole range of new layout possibilities, making many more patterns and workaround obsolete. The CSS texbooks of 2021 might be very different indeed.
 
-<Block id="subgrid" />
-
 But this rethinking of CSS fundamentals is not limited to Grid: Logical Properties promise to make us reconsider our basic understanding of direction itself! In this new CSS world, left can be right and up can be down. Who knew M.C. Escher was part of the CSS Working Group?
-
-<Block id="logical_properties" />
 
 If all this change is making you dizzy, don't worry: it's an easy fix using the `prefers-reduced-motion` media query. And if things seem gloomy, maybe turn off that `prefers-color-scheme` dark mode?
 
-<Block id="prefers_reduced_motion" />
-
-<Block id="prefers_color_scheme" />
-
 Considered as a whole, all these new features almost paint a picture of a whole new CSS.
 
-<Block id="features_overview" legend="An overview of new and upcoming CSS features." />
+<Block id="features_overview" size="l">
+    <Overlay id={["logical_properties"]}>A new feature like *Logical Properties* is only used by **11%** of respondents (lighter inner circle) while **31%** know about it (darker outer circle), but it already has the potential to drastically change how we think about layout.</Overlay>
+    <Overlay id={["grid", "subgrid"]}>On the other hand, **73%** of respondents are already using *Grid* while **50%** of respondents are aware (darker outer circle) of *Subgrid*, despite it only being available in Firefox.</Overlay>
+    <Overlay id={["prefers_reduced_motion", "prefers_color_scheme"]}>And so do new media queries like `prefers-reduced-motion` (**15%** usage) and `prefers-color-scheme` (**18%** usage).</Overlay>
+</Block>
 
 <Heading text="The New CSS" />
 

@@ -56,7 +56,7 @@ const getChartData = (data, getName, translate) => {
     }
 }
 
-const FeaturesOverviewBlock = ({ block, data }) => {
+const FeaturesOverviewBlock = ({ block, data, triggerId }) => {
     const { getName } = useEntities()
     const { translate } = useI18n()
 
@@ -65,6 +65,8 @@ const FeaturesOverviewBlock = ({ block, data }) => {
         getName,
         translate,
     ])
+
+    const controlledCurrent = triggerId
 
     return (
         <Block
@@ -82,6 +84,7 @@ const FeaturesOverviewBlock = ({ block, data }) => {
                     className="FeaturesOverviewChart"
                     data={chartData}
                     variant="allFeatures"
+                    current={controlledCurrent}
                 />
             </ChartContainer>
         </Block>
