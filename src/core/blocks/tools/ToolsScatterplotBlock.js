@@ -127,6 +127,8 @@ const ToolsScatterplotBlock = ({ block, data, triggerId, titleProps }) => {
 
     const controlledCurrent = triggerId || current
 
+    const chartClassName = controlledCurrent ? `ToolsScatterplotChart--${controlledCurrent}` : ''
+    
     return (
         <Block
             className="ToolsScatterplotBlock"
@@ -145,6 +147,7 @@ const ToolsScatterplotBlock = ({ block, data, triggerId, titleProps }) => {
         >
             <ChartContainer vscroll={false}>
                 <ToolsScatterplotChart
+                    className={`ToolsScatterplotChart ${chartClassName}`}
                     data={chartData}
                     metric={metric}
                     showQuadrants={metric === 'satisfaction'}

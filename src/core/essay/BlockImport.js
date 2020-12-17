@@ -21,6 +21,7 @@ const BlockImport = ({ id, children, size = 's' }) => {
         showDescription: false,
         showNote: false,
         legendPosition: 'bottom',
+        height: '100%',
         overrides: {
             BlockTitle: EssayBlockTitle,
         },
@@ -40,11 +41,13 @@ const BlockImport = ({ id, children, size = 's' }) => {
     return (
         <ChartWrapper className="ChartWrapper" size={size}>
             <ChartContents className="ChartContents" hasOverlays={hasOverlays} size={size}>
-                <BlockSwitcher
-                    pageData={pageContext.pageData}
-                    block={newBlock}
-                    triggerId={triggerId}
-                />
+                <ChartContentsInner size={size}>
+                    <BlockSwitcher
+                        pageData={pageContext.pageData}
+                        block={newBlock}
+                        triggerId={triggerId}
+                    />
+                </ChartContentsInner>
             </ChartContents>
             <ChartOverlays className="ChartOverlays" size={size}>
                 {childrenWithExtraProp}
@@ -67,7 +70,7 @@ const ChartWrapper = styled.div`
             return css`
                 width: 100vw;
                 margin-left: calc(50% - 50vw);
-                padding: ${spacing(2)};
+                padding: ${spacing(2)} ${spacing(6)};
             `
         }
     }}
@@ -81,6 +84,33 @@ const ChartContents = styled.div`
             top: 0;
             height: 100vh;
             padding: ${spacing(2)} 0;
+            /* background: rebeccapurple; */
+        `}
+`
+
+const ChartContentsInner = styled.div`
+    ${({ size }) =>
+        size === 'l' &&
+        css`
+            width: 100%;
+            height: 100%;
+            .Block {
+                /* background: #004400; */
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                height: 100%;
+            }
+            .Block__Title {
+                /* background: #444400; */
+            }
+            .Block__Contents {
+                /* background: #440000; */
+                flex-grow: 1;
+            }
+            .Block__Legends {
+                /* background: #440044; */
+            }
         `}
 `
 

@@ -16,18 +16,55 @@ Gauge Chart
 */
 
 .FeaturesOverviewChart {
-    @include xsmall {
-        height: 800px;
-    }
-    @include small {
-        height: 800px;
-    }
-    @include medium {
-        height: 800px;
-    }
-    @include large {
-        height: 800px;
-    }
+    height: 100%;
+    // @include xsmall {
+    //     height: 800px;
+    // }
+    // @include small {
+    //     height: 800px;
+    // }
+    // @include medium {
+    //     height: 800px;
+    // }
+    // @include large {
+    //     height: 800px;
+    // }
+    transition: all 300ms ease-in;
+}
+
+.FeaturesOverviewChart--logical_properties{
+    transform: scale(3) translateX(-10px) translateY(-10px);
+}
+
+.FeaturesOverviewChart--grid_subgrid{
+    transform: scale(2.6) translateX(80px) translateY(20px);
+}
+.FeaturesOverviewChart--prefers_reduced_motion_prefers_color_scheme{
+    transform: scale(2.8) translateX(50px) translateY(150px);
+}
+
+.ToolsScatterplotChart{
+    transition: all 300ms ease-in;
+}
+.ToolsScatterplotChart--tailwind_css{
+    transform: scale(1.4) translateX(80px) translateY(100px);
+}
+.ToolsScatterplotChart--bootstrap{
+    transform: scale(1.3) translateX(-200px) translateY(-20px);
+}
+.ToolsScatterplotChart--sass{
+    transform: scale(1.2) translateX(-220px) translateY(50px);
+}
+
+.ParticipationByCountryChart{
+    transition: all 300ms ease-in;
+}
+.ParticipationByCountryChart--USA{
+    transform: scale(1.7) translateX(200px) translateY(0px);
+}
+.ParticipationByCountryChart--RUS{
+    transform: scale(1.5) translateX(-200px) translateY(20px);
+
 }
 .FeaturesSectionOverviewChart {
     @include xsmall {

@@ -230,7 +230,7 @@ const Quadrants = ({ width, height, margin, metric = 'satisfaction' }) => {
     )
 }
 
-const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current, setCurrent }) => {
+const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current, setCurrent, className }) => {
     const theme = useTheme()
     const { translate } = useI18n()
 
@@ -245,7 +245,7 @@ const ToolsScatterplotChart = ({ data, metric = 'satisfaction', current, setCurr
     ]
 
     return (
-        <div style={{ height: 600 }}>
+        <div style={{ height: 600 }} className={className}>
             <ResponsiveScatterPlot
                 data={data}
                 margin={margins}

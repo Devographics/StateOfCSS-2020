@@ -29,7 +29,7 @@ const BlockLegends = ({
     const rootStyle = { ...style }
 
     return (
-        <Container style={rootStyle} layout={layout} withFrame={withFrame} position={position}>
+        <Container className="Block__Legends" style={rootStyle} layout={layout} withFrame={withFrame} position={position}>
             <ContainerInner layout={layout}>
                 {blockLegends.map(({ id, label, shortLabel, color }) => (
                     <BlockLegendsItem

@@ -121,12 +121,8 @@ export const ToolsExperienceMarimekkoChart = (props: ToolsExperienceMarimekkoCha
 
     const theme = useTheme()
 
-    console.log(current)
-    console.log(props.data)
-
     const getLayerColor = (props: any) => {
         const dimension = dimensions.find((d) => d.id === props.id)
-        console.log(props)
         if (dimension) {
             const color = theme.colors.ranges.tools[dimension.value]
             if (current !== null && current !== props.datum.id) {

@@ -68,6 +68,12 @@ const FeaturesOverviewBlock = ({ block, data, triggerId }) => {
 
     const controlledCurrent = triggerId
 
+    const { height = '800px' } = block
+
+    const chartClassName = controlledCurrent
+        ? `FeaturesOverviewChart--${controlledCurrent.join('_')}`
+        : ''
+        
     return (
         <Block
             block={{
@@ -79,9 +85,9 @@ const FeaturesOverviewBlock = ({ block, data, triggerId }) => {
             className="FeaturesOverviewBlock"
             showDescription={true}
         >
-            <ChartContainer vscroll={false}>
+            <ChartContainer vscroll={false} height={height}>
                 <FeaturesOverviewCirclePackingChart
-                    className="FeaturesOverviewChart"
+                    className={`FeaturesOverviewChart ${chartClassName}`}
                     data={chartData}
                     variant="allFeatures"
                     current={controlledCurrent}
