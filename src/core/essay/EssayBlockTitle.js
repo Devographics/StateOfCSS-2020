@@ -1,14 +1,10 @@
 import React, { memo, useState } from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
-import last from 'lodash/last'
 import { mq, spacing } from 'core/theme'
 import ShareBlock from 'core/share/ShareBlock'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
-import { getBlockMeta } from 'core/helpers/blockHelpers'
-import BlockCompletionIndicator from 'core/blocks/block/BlockCompletionIndicator'
-import { getBlockTitleKey, getBlockDescriptionKey, getBlockTitle } from 'core/helpers/blockHelpers'
+import { getBlockTitleKey, getBlockTitle } from 'core/helpers/blockHelpers'
 import T from 'core/i18n/T'
 
 const BlockTitleContents = ({ block, context }) => {
@@ -22,23 +18,14 @@ const BlockTitleContents = ({ block, context }) => {
 
 const BlockTitle = ({
     isShareable,
-    isExportable = true,
     values,
-    units,
-    setUnits,
-    data,
     block,
-    switcher,
 }) => {
-    const { id, showDescription = true } = block
-    const completion =
-        data && (Array.isArray(data) ? last(data) && last(data).completion : data.completion)
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
     const { translate } = useI18n()
 
     const blockTitle = getBlockTitle(block, context, translate)
-    const blockMeta = getBlockMeta(block, context, translate)
 
     return (
         <>

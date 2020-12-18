@@ -33,7 +33,6 @@ Mixins
     }
 }
 
-
 @keyframes appear {
     to {
         opacity: 1;
@@ -121,10 +120,10 @@ Logo
 
 */
 @mixin logo($s) {
-
     $offset: 96px * $s;
 
-    .Logo {
+    .Logo,
+    .LogoElements {
         text-shadow: none;
         width: 800px * $s;
         height: 400px * $s;
@@ -203,26 +202,32 @@ Logo
     Stripes
 
     */
+        .stripes {
+            position: absolute;
+            top: 248px * $s;
+            left: 96px * $s;
+        }
         .stripe {
             height: 5px * $s;
             width: 100px * $s;
             background: $greyTeal;
+            position: absolute;
         }
         .stripe1 {
-            top: 248px * $s;
-            left: 96px * $s;
+            top: 0;
+            left: 0;
         }
         .stripe2 {
-            top: 268px * $s;
-            left: 88px * $s;
+            top: 20px * $s;
+            left: -8px * $s;
         }
         .stripe3 {
-            top: 288px * $s;
-            left: 80px * $s;
+            top: 40px * $s;
+            left: -16px * $s;
         }
         .stripe4 {
-            top: 308px * $s;
-            left: 88px * $s;
+            top: 60px * $s;
+            left: -8px * $s;
         }
         /*
 
@@ -291,27 +296,33 @@ Logo
         }
         /*
 
-        Other Elements
+        Tildes
 
         */
-        .tilde {
-            font-size: 112px * $s;
-            line-height: 1;
-        }
-        .tilde1 {
+
+        .tildes {
+            position: absolute;
             top: 80px * $s;
             right: $offset - 56px * $s;
         }
+        .tilde {
+            font-size: 112px * $s;
+            line-height: 1;
+            position: absolute;
+        }
+        .tilde1 {
+            top: 0;
+            right: 0;
+        }
         .tilde2 {
-            top: 100px * $s;
-            right: $offset - 64px * $s;
+            top: 20px * $s;
+            right: -8px * $s;
         }
         .tilde3 {
-            top: 120px * $s;
-            right: $offset - 72px * $s;
+            top: 40px * $s;
+            right: -16px * $s;
         }
     }
-
 
     // letters
     @include anim('c>div', 'pop', 300ms, 100ms) {
@@ -393,17 +404,15 @@ Logo
     }
 }
 
-.Logo__Container{
+.Logo__Container {
     overflow: hidden;
-    @include small{
+    @include small {
         @include logo(0.3);
-
     }
-    @include medium{
+    @include medium {
         @include logo(0.5);
-
     }
-    @include large{
+    @include large {
         @include logo(0.8);
     }
     @include flex-center;

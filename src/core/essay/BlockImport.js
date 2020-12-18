@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
 import EssayBlockTitle from 'core/essay/EssayBlockTitle'
 
-const BlockImport = ({ id, children, size = 's' }) => {
+const BlockImport = ({ id, children, size = 's', title }) => {
     const [triggerId, setTriggerId] = useState()
     const pageContext = usePageContext()
     const block = allBlocks.find((b) => b.id === id && b.isReport)
@@ -22,6 +22,7 @@ const BlockImport = ({ id, children, size = 's' }) => {
         showNote: false,
         legendPosition: 'bottom',
         height: '100%',
+        title,
         overrides: {
             BlockTitle: EssayBlockTitle,
         },

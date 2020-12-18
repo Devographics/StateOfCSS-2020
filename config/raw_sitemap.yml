@@ -752,6 +752,7 @@
         blockType: NotFoundBlock
 
 - id: report
+  showTitle: false
   path: /report
   is_hidden: true
   showSidebar: false

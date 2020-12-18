@@ -29,22 +29,22 @@ Gauge Chart
     // @include large {
     //     height: 800px;
     // }
-    transition: all 300ms ease-in;
+    transition: all 600ms ease-out;
 }
 
 .FeaturesOverviewChart--logical_properties{
-    transform: scale(3) translateX(-10px) translateY(-10px);
+    transform: scale(2.6) translateX(80px) translateY(20px);
 }
 
 .FeaturesOverviewChart--grid_subgrid{
     transform: scale(2.6) translateX(80px) translateY(20px);
 }
 .FeaturesOverviewChart--prefers_reduced_motion_prefers_color_scheme{
-    transform: scale(2.8) translateX(50px) translateY(150px);
+    transform: scale(2.6) translateX(150px) translateY(150px);
 }
 
 .ToolsScatterplotChart{
-    transition: all 300ms ease-in;
+    transition: all 600ms ease-out;
 }
 .ToolsScatterplotChart--tailwind_css{
     transform: scale(1.4) translateX(80px) translateY(100px);
@@ -57,10 +57,10 @@ Gauge Chart
 }
 
 .ParticipationByCountryChart{
-    transition: all 300ms ease-in;
+    transition: all 600ms ease-out;
 }
 .ParticipationByCountryChart--USA{
-    transform: scale(1.7) translateX(200px) translateY(0px);
+    transform: scale(1.7) translateX(200px) translateY(-40px);
 }
 .ParticipationByCountryChart--RUS{
     transform: scale(1.5) translateX(-200px) translateY(20px);

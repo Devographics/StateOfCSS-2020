@@ -4,39 +4,13 @@ const Logo = ({ className, animated = true, showText = true, size = 'l' }) => (
     <div aria-hidden="true" className={`Logo__Container Logo--${size} ${className || ''}`}>
         <div className={`Logo ${animated ? 'Logo--animated' : ''}`}>
             <SVGFilter />
-            <div className="triangle">
-                <div className="inner" />
-            </div>
-            <div className="blobs">
-                <div className="blob blob1" />
-                <div className="blob blob2" />
-            </div>
-            {size !== 's' && (
-                <>
-                    <div className="stripe stripe1" />
-                    <div className="stripe stripe2" />
-                    <div className="stripe stripe3" />
-                    <div className="stripe stripe4" />
-                </>
-            )}
-            <div className="circle">
-                <div className="inner">
-                    <div />
-                </div>
-            </div>
+            <Triangle />
+            <Blobs />
+            {size !== 's' && <Stripes />}
+            <Circle />
 
-            <div className="frame">
-                <div className="inner">
-                    <div />
-                </div>
-            </div>
-            {size !== 's' && (
-                <>
-                    <div className="tilde tilde1">~</div>
-                    <div className="tilde tilde2">~</div>
-                    <div className="tilde tilde3">~</div>
-                </>
-            )}
+            <Frame />
+            {size !== 's' && <Tildes />}
             {showText && <div className="text stateof">State Of</div>}
             <div className="letter c">
                 <div>C</div>
@@ -51,6 +25,54 @@ const Logo = ({ className, animated = true, showText = true, size = 'l' }) => (
         </div>
     </div>
 )
+
+export const Triangle = () => (
+    <div className="triangle">
+        <div className="inner" />
+    </div>
+)
+
+export const Blobs = () => (
+    <div className="blobs">
+        <div className="blob blob1" />
+        <div className="blob blob2" />
+    </div>
+)
+
+export const Stripes = () => (
+    <div className="stripes">
+        <div className="stripe stripe1" />
+        <div className="stripe stripe2" />
+        <div className="stripe stripe3" />
+        <div className="stripe stripe4" />
+    </div>
+)
+
+export const Circle = () => (
+    <div className="circle">
+        <div className="inner">
+            <div />
+        </div>
+    </div>
+)
+
+export const Frame = () => (
+    <div className="frame">
+        <div className="inner">
+            <div />
+        </div>
+    </div>
+)
+
+export const Tildes = () => (
+    <div className="tildes">
+        <div className="tilde tilde1">~</div>
+        <div className="tilde tilde2">~</div>
+        <div className="tilde tilde3">~</div>
+    </div>
+)
+
+export const logoElements = [Triangle, Stripes, Circle, Frame, Tildes]
 
 const SVGFilter = () => (
     <svg xmlns="http://www.w3.org/2000/svg">
