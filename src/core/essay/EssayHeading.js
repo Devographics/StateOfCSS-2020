@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { mq, spacing, fontSize, fontWeight } from 'core/theme'
-import { logoElements } from 'core/components/logo'
+import { logoElements } from 'core/components/Logo'
 import sample from 'lodash/sample'
 import random from 'lodash/random'
 

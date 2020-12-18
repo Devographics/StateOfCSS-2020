@@ -60,7 +60,8 @@ const StyledBlockTitle = styled.div`
     margin-bottom: ${spacing(1)};
     display: flex;
     align-items: center;
-
+    position: relative;
+    z-index: 10;
     .Block__Title__Share {
         margin-left: ${spacing(0.5)};
     }
