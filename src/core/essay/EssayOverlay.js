@@ -1,6 +1,6 @@
 import React, { useLayoutEffect, useRef, useState } from 'react'
 import styled, { css } from 'styled-components'
-import { mq, spacing, color } from 'core/theme'
+import { mq, spacing, color, fontSize } from 'core/theme'
 import ReactMarkdown from 'react-markdown/with-html'
 
 // From 0 (top) to 1(bottom), where in the viewport should the trigger happen
@@ -61,13 +61,13 @@ const Overlay = ({ id, triggerId, setTriggerId, isFirst, isLast, children }) => 
 
 const OverlayContainer = styled.div`
     display: flex;
-    justify-content: flex-start;
-    align-items: flex-start;
     /* background: #ff000011; */
     z-index: 100;
     position: relative;
     flex-direction: column;
     padding-top: ${spacing(2)};
+    justify-content: flex-start;
+    align-items: center;
 `
 
 const OverlaySpacer = styled.div`
@@ -76,15 +76,24 @@ const OverlaySpacer = styled.div`
     pointer-events: none;
 `
 const OverlayContents = styled.div`
-    background: ${color('backgroundAlt')}ee;
-    padding: ${spacing()};
+    /* background: ${color('backgroundAlt')}88; */
+    background: #484F73bb;
+    backdrop-filter: blur(5px);
+    padding: ${spacing(1.5)};
+    max-width: 600px;
+    opacity: 0.3;
+    transition: opacity 600ms ease-out;
+    text-shadow: 0px 1px #00000099;
     ${({ isTriggered }) =>
         isTriggered &&
         css`
-            background: ${color('backgroundForeground')};
+            /* background: rebeccapurple; */
+            opacity: 1;
         `}
     box-shadow: ${({ theme }) => theme.blockShadow};
     p{
+        font-size: ${fontSize('large')};
+        line-height: 2;
         &:last-child{
             margin: 0;
         }
