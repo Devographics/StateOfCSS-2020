@@ -759,7 +759,7 @@
   blocks:
       - id: report_contents
         isReport: true
-        blockType: EssayBlock
+        blockType: ReportBlock
 
       - id: country
         isReport: true

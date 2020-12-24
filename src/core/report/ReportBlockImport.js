@@ -4,7 +4,7 @@ import { usePageContext } from 'core/helpers/pageContext'
 import allBlocks from 'config/blocks.yml'
 import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
-import EssayBlockTitle from 'core/essay/EssayBlockTitle'
+import ReportBlockTitle from 'core/essay/ReportBlockTitle'
 
 const BlockImport = ({ id, children, size = 's', title }) => {
     const [triggerId, setTriggerId] = useState()
@@ -24,7 +24,7 @@ const BlockImport = ({ id, children, size = 's', title }) => {
         height: '100%',
         title,
         overrides: {
-            BlockTitle: EssayBlockTitle,
+            BlockTitle: ReportBlockTitle,
         },
     }
 

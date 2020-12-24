@@ -12,7 +12,7 @@ import { EntitiesContextProvider } from 'core/entities/entitiesContext'
 import themes from '../theme/themes'
 import { GlobalStyle } from 'core/theme'
 import MainLayout from 'core/layout/MainLayout'
-import EssayLayout from 'core/essay/EssayLayout'
+import ReportLayout from 'core/report/ReportLayout'
 
 const themeIds = ['js', 'css', 'test']
 
@@ -48,7 +48,7 @@ const ThemedLayout = (props) => {
             <EntitiesContextProvider>
                 <GlobalStyle />
                 <Head />
-                {props.context.id === 'report' ? <EssayLayout {...props} />:<MainLayout {...props} />}
+                {props.context.id === 'report' ? <ReportLayout {...props} />:<MainLayout {...props} />}
             </EntitiesContextProvider>
         </ThemeProvider>
     )
