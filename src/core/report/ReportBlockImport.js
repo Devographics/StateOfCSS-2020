@@ -4,7 +4,7 @@ import { usePageContext } from 'core/helpers/pageContext'
 import allBlocks from 'config/blocks.yml'
 import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
-import ReportBlockTitle from 'core/essay/ReportBlockTitle'
+import ReportBlockTitle from 'core/report/ReportBlockTitle'
 
 const BlockImport = ({ id, children, size = 's', title }) => {
     const [triggerId, setTriggerId] = useState()
