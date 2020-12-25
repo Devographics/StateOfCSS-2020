@@ -4,8 +4,6 @@ import template from 'lodash/template'
 
 Returns the translation string object
 
-Use `hello {name}` to interpolate values
-
 */
 export const getStringTranslator = (locale = {}) => (key, { values } = {}, fallback) => {
     const { strings = [], ...rest } = locale
