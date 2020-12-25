@@ -4,9 +4,20 @@ import { mq, spacing, fontSize, fontWeight } from 'core/theme'
 import { logoElements } from 'core/components/Logo'
 import sample from 'lodash/sample'
 import random from 'lodash/random'
+import { useInView } from 'react-intersection-observer'
+
+const buffer = 0.2
+const bufferPercent = buffer * 100
 
 export default ({ children }) => {
     const [part1, part2] = children.split('|')
+
+    const { ref, inView, entry } = useInView({
+        /* Optional options */
+        rootMargin: `-${bufferPercent}% 0% -${bufferPercent}% 0%`,
+        threshold: 0,
+    })
+
     return (
         <Heading className="Heading Logo__Container">
             <LogoElements className="LogoElements">
@@ -21,12 +32,12 @@ export default ({ children }) => {
                                 left: `${random(10, 60)}%`,
                             }}
                         >
-                            <Component />
+                            <Component animated={inView} delay={i * 100}/>
                         </div>
                     )
                 })}
             </LogoElements>
-            <LogoContents className="LogoContents">
+            <LogoContents className="LogoContents" ref={ref}>
                 <Part1>{part1.trim()}</Part1> <Part2>{part2.trim()}</Part2>
             </LogoContents>
         </Heading>
