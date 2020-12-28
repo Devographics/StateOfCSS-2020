@@ -1,14 +1,13 @@
-import Newsletter from 'core/components/Newsletter'
 import Block from 'core/report/ReportBlockImport'
 import Overlay from 'core/report/ReportOverlay'
 import Heading from 'core/report/ReportHeading'
 import SectionLink from 'core/report/ReportSectionLink'
-
-<!-- If you work long enough on the web, you're bound to go through a few revolutions. -->
+import ReportNewsletter from 'core/report/ReportNewsletter'
+import ReportCredits from 'core/report/ReportCredits'
 
 Way back when I was just starting my web developer career, I made the mistake of taking a few years off from building websites. I still remember clearly the moment I came back and realized table layouts were not a thing anymore. Instead, everybody was using this new hotness called "floats".
 
-This is now ancient history, and I'm willing to bet that a large percentage of you are now reading this having never known the joy of making "float: right" do what you want. You were born in a world of Flexbox, unaware of the pain and suffering of your predecessors. 
+This is now ancient history, and I'm willing to bet that a large percentage of you are now reading this having never known the joy of making "float: right" do what you want. You were born in a world of Flexbox, unaware of the pain and suffering of your predecessors.
 
 But wait! Don't get too settled just yet… The next generation is knocking on the door, and they're not OK with your weird flexes because they have mastered The Grid.
 
@@ -16,12 +15,19 @@ But wait! Don't get too settled just yet… The next generation is knocking on t
 
 And so it goes with the web. One cycle after another, always changing; and always providing a better way to center things vertically that is definitely the right way this time for real, we promise.
 
-This is why we're always looking for new resources to help us keep up, and that's where the State of CSS survey comes in. This year again, we aggregated a ton of data from developers across the world that really highlights the changes that the CSS world is going through right now. We encourage you to check out the [full results](/), but here's a quick overview of a few major trends.
+This is why we're always looking for new resources to help us keep up, and that's where the State of CSS survey comes in. This year again, we aggregated a ton of data from developers across the world that really highlights the changes that the CSS world is going through right now. While we encourage you to check out the [full results](/), we also wanted to compile this quick overview of a few major trends.
+
+But first, a little more information about who took the survey.
 
 <Block id="country" size="l" title="Respondents Country Breakdown">
-    <Overlay id="USA">Over 11,000 respondents from 102 countries took part in the survey, with a large chunk (**20.7%**) coming from the U.S.</Overlay>
+    <Overlay id="USA">
+        Over 11,000 respondents from 102 countries took part in the survey, with a large chunk
+        (**20.7%**) coming from the U.S.
+    </Overlay>
     <Overlay id="RUS">
-        This year, we were also able to make the questions available in 13 different languages for the first time thanks to a great team of volunteer translators, which resulted into **5.1%** of respondents being from Russia. 
+        This year, we were also able to make the questions available in 13 different languages for
+        the first time thanks to a great team of volunteer translators, which resulted into **5.1%**
+        of respondents being from Russia.
     </Overlay>
 </Block>
 
@@ -39,10 +45,22 @@ Well, maybe not. While HTML and CSS were adequate for building medium-scale stat
 
 Enter Tailwind CSS and other "utility-first" frameworks. Tailwind CSS stands out as one of the tools with the highest satisfaction ratio (86%), as defined by the number of developers who have used Tailwind CSS and are willing to use it again.
 
-<Block id="css_frameworks_abridged_experience_ranking" size="l" title="CSS Frameworks Rankings">
+<Block
+    id="css_frameworks_abridged_experience_ranking"
+    size="l"
+    title={({ translate, current }) => {
+        const sortKey = current === null ? 'satisfaction' : current
+        return `CSS Frameworks Rankings (${translate(`options.experience_ranking.${sortKey}`)})`
+    }}
+    customStyles={`
+        .Block__Contents{
+            pointer-events: none;
+        }
+    `}
+>
     <Overlay id="satisfaction">
-        *Tailwind CSS* took the top spot in our **satisfaction** rankings (defined as the proportion of
-        users of a technology who would use it again).
+        *Tailwind CSS* took the top spot in our **satisfaction** rankings (defined as the proportion
+        of users of a technology who would use it again).
     </Overlay>
     <Overlay id="interest">
         When looking at **interest** rates (the proportion of non-users interested in learning a
@@ -56,7 +74,11 @@ Enter Tailwind CSS and other "utility-first" frameworks. Tailwind CSS stands out
 
 Another datapoint to consider is how many respondents agree with the idea that "utility (non-semantic) classes (.center, .large-text, etc.) should be avoided". This went from 25% in 2019 (already a minority) to 20% this year. Not a dramatic drop, but certainly a sign that the semantic orthodoxy is being challenged.
 
-<Block id="utility_classes_to_be_avoided" size="s" title="Do you agree that utility classes should be avoided?"/>
+<Block
+    id="utility_classes_to_be_avoided"
+    size="s"
+    title="Do you agree that utility classes should be avoided?"
+/>
 
 This is not to say that one way is right and the other wrong. In fact, one thing that makes Tailwind CSS stand out is that it smartly works around the very real pitfalls of the non-semantic approach.
 
@@ -94,20 +116,30 @@ Again though, successful CSS-in-JS libraries are the ones that do a good job of 
     title="CSS-in-JS Libraries Experience Over Time"
 >
     <Overlay id="would_use">
-        The proportion of respondents willing to use CSS-in-JS libraries again is growing.
+        The proportion of respondents willing to **use CSS-in-JS libraries again** is growing.
     </Overlay>
-    <Overlay id="interested">And there is also growing interest for these libraries from non-users.</Overlay>
+    <Overlay id="interested">
+        And there is also growing **interest** for these libraries from non-users.
+    </Overlay>
 </Block>
 
 What really stands out though is just how many different approaches exists: from CSS Modules to Emotion to Fela to Stitches, each of them tackles the same general problem different in a slightly different way. This ends up creating a real-life genetic experiment of sorts, using natural selection to figure out the approach which developers will like the best.
 
-<Block id="css_in_js_experience_marimekko" size="l"
-    title="CSS-in-JS Libraries Positive/Negative Experience Split">
+<Block
+    id="css_in_js_experience_marimekko"
+    size="l"
+    title="CSS-in-JS Libraries Positive/Negative Experience Split"
+>
     <Overlay id="css_modules">
-        *CSS Modules* are a simple way to get the benefits of CSS-in-JS without changing your coding habits, and that translates into a lot of positive sentiment towards it.
+        *CSS Modules* are a simple way to get the benefits of CSS-in-JS without changing your coding
+        habits, and that translates into a lot of positive sentiment towards it.
     </Overlay>
-    <Overlay id="styled_components">*Styled Components* is right behind, also displaying a lot of satisfaction and interest.</Overlay>
-    <Overlay id="styled_jsx">While less popular solutions such as *Styled JSX* show a sharper opinion split.</Overlay>
+    <Overlay id="styled_components">
+        *Styled Components* is right behind, also displaying a lot of satisfaction and interest.
+    </Overlay>
+    <Overlay id="styled_jsx">
+        While less popular solutions such as *Styled JSX* show a sharper opinion split.
+    </Overlay>
 </Block>
 
 <SectionLink path="/technologies/css-in-js/">View Full Results: CSS-in-JS »</SectionLink>
@@ -129,9 +161,20 @@ If all this change is making you dizzy, don't worry: it's an easy fix using the 
 Considered as a whole, all these new features almost paint a picture of a whole new CSS.
 
 <Block id="features_overview" size="l" title="New CSS Features">
-    <Overlay id={["logical_properties"]}>A new feature like *Logical Properties* is only used by **11%** of respondents (lighter inner circle) while **31%** know about it (darker outer circle), but it already has the potential to drastically change how we think about layout.</Overlay>
-    <Overlay id={["grid", "subgrid"]}>On the other hand, **73%** of respondents are already using *Grid* while **50%** of respondents are aware (darker outer circle) of *Subgrid*, despite it only being available in Firefox.</Overlay>
-    <Overlay id={["prefers_reduced_motion", "prefers_color_scheme"]}>And so do new media queries like `prefers-reduced-motion` (**15%** usage) and `prefers-color-scheme` (**18%** usage).</Overlay>
+    <Overlay id={['logical_properties']}>
+        A new feature like *Logical Properties* is only used by **11%** of respondents (lighter
+        inner circle) while **31%** know about it (darker outer circle), but it already has the
+        potential to drastically change how we think about layout.
+    </Overlay>
+    <Overlay id={['grid', 'subgrid']}>
+        On the other hand, **73%** of respondents are already using *Grid* while **50%** of
+        respondents are aware (darker outer circle) of *Subgrid*, despite it only being available in
+        Firefox.
+    </Overlay>
+    <Overlay id={['prefers_reduced_motion', 'prefers_color_scheme']}>
+        And so do new media queries like `prefers-reduced-motion` (**15%** usage) and
+        `prefers-color-scheme` (**18%** usage).
+    </Overlay>
 </Block>
 
 <SectionLink path="/features/">View Full Results: Features »</SectionLink>
@@ -140,16 +183,39 @@ Considered as a whole, all these new features almost paint a picture of a whole 
 
 From new best practices to new media queries, this new CSS is all about embracing adaptability and flexibility; and maybe it's trying to tell us that we should do so as well?
 
-<Block id="css_is_programming_language" title="Do you agree that CSS is a programming language?" size="s"/>
+<Block
+    id="css_is_programming_language"
+    title="Do you agree that CSS is a programming language?"
+    size="s"
+/>
 
 CSS often gets criticized as not making sense, or dismissed as “not a real programming language”. But when you actually stop to take a look at the many, many jobs CSS has to fulfill, the enormity of the challenge becomes clear. And the fact that we now have a good –and only getting better– styling system is a huge achievement in itself.
 
 These improvements do come at a cost though: new developers will have more to learn to become proficient, and experienced developers won't be able to rely on their old knowledge as much anymore.
 
-<Block id="state_of_css" size="s" title="How happy are you with the general state of CSS?"/>
+<Block id="state_of_css" size="s" title="How happy are you with the general state of CSS?" />
 
 But this doesn't scare us. We're CSS developers, and we're not afraid of a little challenge!
 
 As long as it doesn't involve `float: right;`.
 
-<Newsletter />
+<ReportNewsletter
+    title="Thanks for reading!"
+    description="If you'd like to know when we publish additional results or launch our next survey, just leave us your email here:"
+/>
+
+<ReportCredits
+    title="The State of CSS Report is made by:"
+    bios={[
+        {
+            slug: 'raphael',
+            contents: `Creator of the [Nivo](http://nivo.rocks/) JavaScript data visualization library as well
+      as [Mozaik](http://mozaik.rocks/), a tool for building beautiful dashboards.`,
+        },
+        {
+            slug: 'sacha',
+            contents: `Creator of the [Sidebar](http://sidebar.io) daily newsletter and
+      [VulcanJS](http://vulcanjs.org), a React+GraphQL open-source framework.`,
+        },
+    ]}
+/>

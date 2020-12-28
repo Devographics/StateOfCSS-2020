@@ -4,28 +4,27 @@ import { mq, spacing } from 'core/theme'
 import ShareBlock from 'core/share/ShareBlock'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
-import { getBlockTitleKey, getBlockTitle } from 'core/helpers/blockHelpers'
-import T from 'core/i18n/T'
+import blocks from 'config/blocks.yml'
+import colors from 'core/theme/colors'
 
-const BlockTitleContents = ({ block, context }) => {
-    const { title, titleLink } = block
-    if (title) {
-        return titleLink ? <a href={titleLink}>{title}</a> : title
-    } else {
-        return <T k={getBlockTitleKey(block, context)} />
-    }
-}
-
-const BlockTitle = ({
-    isShareable,
-    values,
-    block,
-}) => {
+const BlockTitle = (props) => {
+    const { isShareable, values, block, current } = props
     const [showOptions, setShowOptions] = useState(false)
     const context = usePageContext()
     const { translate } = useI18n()
 
-    const blockTitle = getBlockTitle(block, context, translate)
+    let blockTitle
+    if (typeof block.title === 'function') {
+        blockTitle = block.title({ ...props, translate })
+    } else {
+        blockTitle = block.title
+    }
+
+    // the original block doesn't have `_abridged` so we need to remove it to find it
+    const originalBlockDefinition = blocks.find((b) => b.id === block.id.replace('_abridged', '') && !b.isReport)
+    const linkOverride =
+        originalBlockDefinition &&
+        `${context.host}${context.locale.path}${originalBlockDefinition.path}?report`
 
     return (
         <>
@@ -34,10 +33,7 @@ const BlockTitle = ({
             >
                 <LeftPart>
                     <BlockTitleText className="BlockTitleText">
-                        <BlockTitleContents block={block} context={context} />
-                        {/* {completion && !context.isCapturing && (
-                            <BlockCompletionIndicator completion={completion} />
-                        )} */}
+                        {blockTitle}
                     </BlockTitleText>
                     {isShareable && !context.isCapturing && (
                         <ShareBlock
@@ -45,6 +41,7 @@ const BlockTitle = ({
                             className="Block__Title__Share"
                             values={values}
                             title={blockTitle}
+                            linkOverride={linkOverride}
                             toggleClass={() => {
                                 setShowOptions(!showOptions)
                             }}
@@ -78,6 +75,8 @@ const BlockTitleText = styled.h3`
     display: flex;
     align-items: center;
     justify-content: flex-start;
+    text-shadow: 3px 3px 0px ${colors.blue};
+
     @media ${mq.small} {
         opacity: 1;
         transition: all 300ms ease-in;

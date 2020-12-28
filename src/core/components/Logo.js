@@ -1,11 +1,19 @@
 import React from 'react'
 import styled, { css } from 'styled-components'
-import { mq, spacing, color, fontWeight } from 'core/theme'
+import { mq, spacing, color, fontWeight, fontSize } from 'core/theme'
 import colors from 'core/theme/colors'
-import { getDimension, getAnimationDelay, appear, pop, anim } from './logoHelpers'
+import {
+    getDimension,
+    getAnimationDelay,
+    appear,
+    pop,
+    anim,
+    slideright,
+    slidetop,
+} from './logoHelpers'
 import { Triangle, Blobs, Circle, Frame, Stripes, Tildes } from './LogoElements'
 
-const Logo = ({ className, animated = true, showText = true, size = 'l' }) => {
+const Logo = ({ className, animated = true, showText = true, report = false, size = 'l' }) => {
     const s = 0.8
     const offset = 96
     const offset2 = Math.round(96 * s)
@@ -21,31 +29,49 @@ const Logo = ({ className, animated = true, showText = true, size = 'l' }) => {
         >
             <LogoElement className={`Logo ${animated ? 'Logo--animated' : ''}`} {...properties}>
                 <SVGFilter {...properties} />
-                <Triangle {...properties} top={180} left={offset - 80} />
-                <Blobs {...properties} top={120} left={100} />
-                {size !== 's' && <Stripes {...properties} top={248} left={96} />}
-                <Circle {...properties} left={10} />
+                <Triangle delay={2800} {...properties} top={180} left={offset - 80} />
+                <Blobs delay={900} {...properties} top={120} left={100} />
+                {size !== 's' && <Stripes delay={1400} {...properties} top={248} left={96} />}
+                <Circle delay={500} {...properties} left={10} />
 
-                <Frame {...properties} right={offset - 8} />
-                {size !== 's' && <Tildes {...properties} top={80} right={offset - 56} />}
+                <Frame delay={800} {...properties} right={offset - 8} />
+                {size !== 's' && (
+                    <Tildes delay={1900} {...properties} top={80} right={offset - 56} />
+                )}
                 {showText && (
-                    <StateOf className="text stateof" {...properties}>
+                    <StateOf delay={2200} className="text stateof" {...properties}>
                         State Of
                     </StateOf>
                 )}
-                <C className="letter c" {...properties}>
+                <C delay={100} className="letter c" {...properties}>
                     <div>C</div>
                 </C>
-                <S1 className="letter s1" {...properties}>
+                <S1 delay={100} className="letter s1" {...properties}>
                     <div>S</div>
                 </S1>
-                <S2 className="letter s2" {...properties}>
+                <S2 delay={100} className="letter s2" {...properties}>
                     <div>S</div>
                 </S2>
                 {showText && (
-                    <Year className="text year" {...properties}>
+                    <Year delay={2500} className="text year" {...properties}>
                         2020
                     </Year>
+                )}
+                {report && (
+                    <Report
+                        delay={2800}
+                        className="text report"
+                        {...properties}
+                        top={80}
+                        right={offset - 56}
+                    >
+                        <div className="R1">R</div>
+                        <div className="R2">E</div>
+                        <div className="R3">P</div>
+                        <div className="R4">O</div>
+                        <div className="R5">R</div>
+                        <div className="R6">T</div>
+                    </Report>
                 )}
             </LogoElement>
         </LogoContainer>
@@ -86,7 +112,7 @@ const StateOf = styled(Text)`
             opacity: 0;
         `
     )}
-    ${getAnimationDelay(2200)}
+    ${getAnimationDelay()}
 `
 
 const Year = styled(Text)`
@@ -100,7 +126,7 @@ const Year = styled(Text)`
             opacity: 0;
         `
     )}
-    ${getAnimationDelay(2500)}
+    ${getAnimationDelay()}
 `
 
 const Letter = styled.div`
@@ -126,7 +152,7 @@ const C = styled(Letter)`
     left: ${({ offset }) => offset}px;
     text-shadow: ${getDimension(10)} ${getDimension(10)} 0px ${colors.blue};
     div {
-        ${getAnimationDelay(100)}
+        ${getAnimationDelay()}
     }
 `
 
@@ -135,7 +161,7 @@ const S1 = styled(Letter)`
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     div {
-        ${getAnimationDelay(100, 100)}
+        ${getAnimationDelay(100)}
     }
 `
 
@@ -156,7 +182,69 @@ const S2 = styled(Letter)`
         -webkit-background-clip: text;
         background-clip: text;
         color: transparent;
-        ${getAnimationDelay(100, 200)}
+        ${getAnimationDelay(200)}
+    }
+`
+
+// const Report = styled.div`
+//     bottom: ${getDimension(50)};
+//     right: ${getDimension(-10)};
+//     display: flex;
+//     font-weight: ${fontWeight('bold')};
+//     /* background: ${colors.pink}; */
+//     font-size: ${getDimension(56)};
+//     color: ${colors.pink};
+//     transform: rotate(-45deg);
+//     letter-spacing: 5px;
+// `
+
+const Report = styled.div`
+    bottom: ${getDimension(140)};
+    right: ${getDimension(0)};
+    display: flex;
+    font-weight: ${fontWeight('bold')};
+    background: ${colors.pink};
+    font-size: ${getDimension(40)};
+    color: ${color('background')};
+    letter-spacing: 5px;
+    line-height: 1;
+    padding: 5px 10px;
+    ${anim(
+        slideright,
+        300,
+        css`
+            opacity: 0;
+            transform: translateX(${getDimension(-40)});
+        `
+    )}
+    ${getAnimationDelay()}
+
+    div {
+        ${anim(
+            slidetop,
+            300,
+            css`
+                transform: scale(0) translateY(${getDimension(-200)}) rotate(180deg);
+            `
+        )}
+    }
+    .R1 {
+        ${getAnimationDelay(300)}
+    }
+    .R2 {
+        ${getAnimationDelay(400)}
+    }
+    .R3 {
+        ${getAnimationDelay(500)}
+    }
+    .R4 {
+        ${getAnimationDelay(600)}
+    }
+    .R5 {
+        ${getAnimationDelay(700)}
+    }
+    .R6 {
+        ${getAnimationDelay(800)}
     }
 `
 

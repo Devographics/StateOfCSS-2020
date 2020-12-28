@@ -90,6 +90,8 @@ export const mergePageContext = (pageContext, location, state) => {
         location && location.search ? location.search.indexOf('capture') !== -1 : false
     const isDebugEnabled =
         location && location.search ? location.search.indexOf('debug') !== -1 : false
+    const isReportRedirect =
+        location && location.search ? location.search.indexOf('report') !== -1 : false
 
     let host = config.siteUrl
     if (location && location.host && location.protocol) {
@@ -102,6 +104,7 @@ export const mergePageContext = (pageContext, location, state) => {
         currentPath: location ? location.pathname : undefined,
         isCapturing,
         isDebugEnabled,
+        isReportRedirect,
         ...state,
     }
 }

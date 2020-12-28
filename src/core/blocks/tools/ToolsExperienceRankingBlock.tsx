@@ -95,7 +95,7 @@ export const ToolsExperienceRankingBlock = ({ block, data, triggerId }: ToolsExp
     return (
         <Block
             block={block}
-            titleProps={{ switcher: <Switcher setMetric={setMetric} metric={controlledMetric} /> }}
+            titleProps={{ current: triggerId, switcher: <Switcher setMetric={setMetric} metric={controlledMetric} /> }}
             data={data}
         >
             <ChartContainer height={data.length * 50 + 80}>

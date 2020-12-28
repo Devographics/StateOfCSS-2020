@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { mq, spacing, fontSize } from 'core/theme'
 import { usePageContext } from 'core/helpers/pageContext'
 import { useI18n } from 'core/i18n/i18nContext'
-import Locales from './Locales'
+import Locales from 'core/i18n/Locales'
 import get from 'lodash/get'
 import config from 'config/config.yml'
 
@@ -12,7 +12,7 @@ const svgs = {
     bottom: <polygon stroke="#000" points="0,0 100,0 50,50" />,
 }
 
-const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
+const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top', locales }) => {
     const { translate } = useI18n()
     const wrapperRef = useRef(null)
 
@@ -56,7 +56,7 @@ const LanguageSwitcher = ({ position = 'bottom', positionOpen = 'top' }) => {
                     className="LanguageSwitcherPopup"
                     position={position}
                 >
-                    <Locales />
+                    <Locales locales={locales}/>
                     <LanguageSwitcherHelp className="LanguageSwitcherHelp">
                         <a href={config.translationLink}>
                             {translate('general.help_us_translate')}

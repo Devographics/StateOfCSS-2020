@@ -93,9 +93,9 @@ Use either default delay defined in styled components or override it with
 `delay` prop
 
 */
-export const getAnimationDelay = (defaultDelay = 0, offsetDelay = 0) => ({ delay }) =>
+export const getAnimationDelay = (offsetDelay = 0) => ({ delay }) =>
     css`
-        animation-delay: ${(delay || defaultDelay) + offsetDelay}ms;
+        animation-delay: ${delay + offsetDelay}ms;
     `
 
 // ${css`animation-fill-mode: ${triggerAnimation? 'forwards' : 'none'};`}

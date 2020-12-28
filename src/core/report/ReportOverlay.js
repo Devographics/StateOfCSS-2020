@@ -105,7 +105,6 @@ export const OverlayOnScroll = ({ id, triggerId, setTriggerId, isFirst, isLast, 
 
 const OverlayContainer = styled.div`
     display: flex;
-    /* background: #ff000011; */
     z-index: 100;
     position: relative;
     flex-direction: column;
@@ -121,13 +120,13 @@ const OverlaySpacer = styled.div`
 `
 const OverlayContents = styled.div`
     /* background: ${color('backgroundAlt')}88; */
-    background: #484f73bb;
+    background: #484f73cc;
     backdrop-filter: blur(5px);
     padding: ${spacing(1.5)};
     max-width: 600px;
     opacity: 0.3;
     transition: opacity 600ms ease-out;
-    text-shadow: 0px 1px #00000099;
+    text-shadow: 0px 1px #000000cc;
     ${({ isTriggered }) =>
         isTriggered &&
         css`

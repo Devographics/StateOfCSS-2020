@@ -30,7 +30,7 @@ const OpinionBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
                 },
             }}
         >
-            <ChartContainer height={300} fit={true}>
+            <ChartContainer fit={true}>
                 <StreamChart
                     colorScale={bucketKeys.map((k) => k.color)}
                     current={current}

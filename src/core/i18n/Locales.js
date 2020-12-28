@@ -31,15 +31,19 @@ const Item = styled.span`
 }
 `
 
-const Locales = () => {
+const Locales = ({ locales = [] }) => {
     const context = usePageContext()
-    const links = get(context, 'locales', []).map((locale) => {
+    let links = get(context, 'locales', []).map((locale) => {
         return {
             ...locale,
             link: locale.path + context.basePath,
             isCurrent: locale.locale === context.locale,
         }
     })
+
+    if (locales.length > 0) {
+        links = links.filter((l) => locales.includes(l.id))
+    }
 
     return (
         <Container className="Locales">

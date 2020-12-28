@@ -39,7 +39,7 @@ export default ({ children }) => {
             }}
         >
             <LogoElements className="LogoElements">
-                {sampleSize(bigElements, 1).map((Component, i) => (
+                {sampleSize(bigElements, 2).map((Component, i) => (
                     <LogoElementWrapperBig
                         className="Logo__Element__Wrapper"
                         key={i}
@@ -50,22 +50,22 @@ export default ({ children }) => {
                         <Component
                             animated={true}
                             triggerAnimation={inView}
-                            delay={200 + i * 200}
+                            delay={300 + i * 300}
                         />
                     </LogoElementWrapperBig>
                 ))}
-                {sampleSize(smallElements, 2).map((Component, i) => (
+                {sampleSize(smallElements, 1).map((Component, i) => (
                     <LogoElementWrapperSmall
                         className="Logo__Element__Wrapper"
                         key={i}
-                        scale={random(0.6, 0.8)}
-                        top={sample([random(-10, 0), random(70, 80)])}
+                        scale={random(0.8, 1.2)}
+                        top={sample([random(10, 30), random(60, 80)])}
                         left={random(40, 50)}
                     >
                         <Component
                             animated={true}
                             triggerAnimation={inView}
-                            delay={200 + i * 200}
+                            delay={900 + i * 300}
                         />
                     </LogoElementWrapperSmall>
                 ))}
@@ -103,13 +103,19 @@ const LogoElementWrapper = styled.div`
     top: ${({ top }) => top}%;
     left: ${({ left }) => left}%;
     position: absolute;
+    .tilde{
+        color: ${colors.pink};
+    }
+    .stripe, .blob{
+        background: ${colors.pink};
+    }
 `
 
 const LogoElementWrapperBig = styled(LogoElementWrapper)`
 
 `
 const LogoElementWrapperSmall = styled(LogoElementWrapper)`
-    z-index: 2;
+    /* z-index: 2; */
 `
 
 const LogoContents = styled.div`
@@ -131,7 +137,7 @@ const Part = styled.span`
     padding: 5px 15px;
     line-height: 1;
     /* position: relative; */
-    background: ${colors.pink};
+    /* background: ${colors.pink}; */
 `
 
 const Part1 = styled(Part)`

@@ -3,20 +3,29 @@ import ReportContents from 'config/report.mdx'
 import styled from 'styled-components'
 import { mq, color, spacing, fontSize, fontWeight } from 'core/theme'
 import Logo from 'core/components/Logo'
+import Footer from 'core/components/Footer'
+import LanguageSwitcher from 'core/i18n/LanguageSwitcher'
 
 const debug = false
 
 export default () => (
-    <Essay className="Essay">
-        <Logo size="l" />
+    <Report className="Report">
+        {/* <Language>
+            <LanguageSwitcher locales={['en-US']}/>
+        </Language> */}
+        <LogoWrapper>
+            <Logo size="l" report={true} />
+        </LogoWrapper>
         <ReportContents />
+        <Footer />
+
         {debug && (
             <>
                 <TopTrigger />
                 <BottomTrigger />
             </>
         )}
-    </Essay>
+    </Report>
 )
 
 const Trigger = styled.div`
@@ -33,23 +42,32 @@ const TopTrigger = styled(Trigger)`
 const BottomTrigger = styled(Trigger)`
     top: 80vh;
 `
-const Essay = styled.div`
+const Report = styled.div`
+    padding: ${spacing(4)} 0;
     .first {
     }
     & > p {
-        font-size: ${fontSize('large')};
+        font-size: 1.2rem;
         line-height: 2;
         margin-bottom: ${spacing(1.5)};
         &:first-of-type:first-line {
-            font-size: ${fontSize('largest')};
+            font-size: 2.4rem;
         }
     }
     code {
         background: ${color('backgroundAlt')};
         padding: 3px 6px;
         font-weight: ${fontWeight('medium')};
-        color: ${color('contrast')};
-        border: 1px dotted ${color('contrast')};
+        color: ${color('link')};
+        border: 1px dotted ${color('link')};
         font-size: ${fontSize('smallish')};
     }
+`
+
+const LogoWrapper = styled.div`
+    margin-bottom: ${spacing(4)};
+`
+
+const Language = styled.div`
+    margin-bottom: ${spacing(2)};
 `

@@ -6,7 +6,7 @@ import styled, { css } from 'styled-components'
 import { mq, spacing, color } from 'core/theme'
 import ReportBlockTitle from 'core/report/ReportBlockTitle'
 
-const BlockImport = ({ id, children, size = 's', title }) => {
+const BlockImport = ({ id, children, size = 's', title, customStyles }) => {
     const [triggerId, setTriggerId] = useState()
     const pageContext = usePageContext()
     const block = allBlocks.find((b) => b.id === id && b.isReport)
@@ -40,7 +40,7 @@ const BlockImport = ({ id, children, size = 's', title }) => {
     const hasOverlays = typeof children !== 'undefined'
 
     return (
-        <ChartWrapper className="ChartWrapper" size={size}>
+        <ChartWrapper className="ChartWrapper" size={size} customStyles={customStyles}>
             <ChartContents className="ChartContents" hasOverlays={hasOverlays} size={size}>
                 <ChartContentsInner size={size}>
                     <BlockSwitcher
@@ -75,6 +75,10 @@ const ChartWrapper = styled.div`
             `
         }
     }}
+    ${({ customStyles }) =>
+        css`
+            ${customStyles}
+        `}
 `
 
 const ChartContents = styled.div`

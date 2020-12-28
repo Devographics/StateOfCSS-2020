@@ -35,7 +35,7 @@ const TriangleSC = styled.div`
             transform: scale(0);
         `
     )}
-    ${getAnimationDelay(2800)}
+    ${getAnimationDelay()}
   .inner {
         width: 100%;
         border: ${getDimension(100)} solid transparent;
@@ -79,7 +79,7 @@ const Blob1 = styled(Blob)`
             transform: scale(0);
         `
     )}
-    ${getAnimationDelay(900)}
+    ${getAnimationDelay()}
 `
 
 const Blob2 = styled(Blob)`
@@ -92,7 +92,7 @@ const Blob2 = styled(Blob)`
             transform: translateX(-100%);
         `
     )}
-    ${getAnimationDelay(900)}
+    ${getAnimationDelay()}
 `
 
 export const Stripes = (properties) => (
@@ -128,22 +128,22 @@ const Stripe = styled.div`
 const Stripe1 = styled(Stripe)`
     top: 0;
     left: 0;
-    ${getAnimationDelay(1400)}
+    ${getAnimationDelay()}
 `
 const Stripe2 = styled(Stripe)`
     top: ${getDimension(20)};
     left: ${getDimension(-8)};
-    ${getAnimationDelay(1400, 100)}
+    ${getAnimationDelay(100)}
 `
 const Stripe3 = styled(Stripe)`
     top: ${getDimension(40)};
     left: ${getDimension(-16)};
-    ${getAnimationDelay(1400, 200)}
+    ${getAnimationDelay(200)}
 `
 const Stripe4 = styled(Stripe)`
     top: ${getDimension(60)};
     left: ${getDimension(-8)};
-    ${getAnimationDelay(1400, 300)}
+    ${getAnimationDelay(300)}
 `
 
 export const Circle = (properties) => (
@@ -174,7 +174,7 @@ const CircleSC = styled.div`
                     transform: scale(0);
                 `
             )}
-            ${getAnimationDelay(500)}
+            ${getAnimationDelay()}
         }
     }
 `
@@ -198,7 +198,7 @@ const FrameSC = styled.div`
             transform: scale(0) translateY(${getDimension(-200)}) rotate(180deg);
         `
     )}
-    ${getAnimationDelay(800)}
+    ${getAnimationDelay()}
   .inner {
         transform: translateY(-50%) rotate(45deg);
         div {
@@ -249,18 +249,18 @@ const Tilde = styled.div`
 const Tilde1 = styled(Tilde)`
     top: 0;
     right: 0;
-    ${getAnimationDelay(1900)}
+    ${getAnimationDelay()}
 `
 const Tilde2 = styled(Tilde)`
     top: ${getDimension(20)};
     right: ${getDimension(-8)};
-    ${getAnimationDelay(1900, 100)}
+    ${getAnimationDelay(100)}
 `
 const Tilde3 = styled(Tilde)`
     top: ${getDimension(40)};
     right: ${getDimension(-16)};
-    ${getAnimationDelay(1900, 200)}
+    ${getAnimationDelay(200)}
 `
 
-export const bigElements = [Triangle, Circle, Frame, Blobs]
-export const smallElements = [Stripes, Tildes]
+export const bigElements = [Circle, Frame, Blobs]
+export const smallElements = [Triangle, Tildes]
