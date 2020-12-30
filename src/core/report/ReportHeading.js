@@ -70,9 +70,9 @@ export default ({ children }) => {
                     </LogoElementWrapperSmall>
                 ))}
             </LogoElements>
-            <LogoContents className="LogoContents" ref={ref}>
+            <HeadingContents className="LogoContents" ref={ref}>
                 <Part1>{part1.trim()}</Part1> <Part2>{part2.trim()}</Part2>
-            </LogoContents>
+            </HeadingContents>
         </Heading>
     )
 }
@@ -83,7 +83,7 @@ const Heading = styled.h2`
     font-weight: ${fontWeight('bold')};
     display: flex;
     flex-direction: column;
-    /* align-items: center; */
+    align-items: center;
     position: relative;
     overflow-y: visible !important;
     @media ${mq.small} {
@@ -127,10 +127,10 @@ const LogoElementWrapperSmall = styled(LogoElementWrapper)`
     /* z-index: 2; */
 `
 
-const LogoContents = styled.div`
+const HeadingContents = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
     z-index: 1;
     position: relative;
