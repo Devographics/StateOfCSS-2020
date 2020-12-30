@@ -94,7 +94,7 @@ const Heading = styled.h2`
     }
     @media ${mq.mediumLarge} {
         font-size: ${fontSize('huge')};
-        margin: ${spacing(6)} 0;
+        margin: ${spacing(4)} 0;
         margin-left: calc(50% - 50vw);
         padding: 0 ${spacing(2)};
     }

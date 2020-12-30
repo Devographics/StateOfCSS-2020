@@ -1,6 +1,6 @@
 import React, { memo, useState } from 'react'
 import styled from 'styled-components'
-import { mq, spacing } from 'core/theme'
+import { fontSize, mq, spacing } from 'core/theme'
 import ShareBlock from 'core/share/ShareBlock'
 import { useI18n } from 'core/i18n/i18nContext'
 import { usePageContext } from 'core/helpers/pageContext'
@@ -85,6 +85,9 @@ const BlockTitleText = styled.h3`
         .Block__Title--open & {
             opacity: 0.2;
         }
+    }
+    @media ${mq.mediumLarge} {
+        font-size: 1.3rem;
     }
 `
 

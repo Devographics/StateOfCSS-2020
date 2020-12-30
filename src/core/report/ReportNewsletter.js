@@ -16,11 +16,11 @@ const NewsletterBlock = ({ title, description }) => {
 const Container = styled.div`
     @media ${mq.small} {
         padding: ${spacing()};
-        margin: ${spacing(2)} 0;
+        margin: ${spacing(4)} 0 ${spacing(2)} 0;
     }
     @media ${mq.mediumLarge} {
         padding: ${spacing(2)};
-        margin: ${spacing(3)} 0;
+        margin: ${spacing(8)} 0 ${spacing(3)} 0;
     }
     border: ${(props) => props.theme.separationBorder};
 `

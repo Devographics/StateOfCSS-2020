@@ -68,7 +68,7 @@ const Report = styled.div`
             line-height: 2;
             margin-bottom: ${spacing(1.5)};
             &:first-of-type:first-line {
-                font-size: 2.4rem;
+                font-size: 2.3rem;
             }
         }
     }

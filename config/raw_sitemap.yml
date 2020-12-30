@@ -842,3 +842,9 @@
         isReport: true
         hidden: true
         pageId: opinions
+
+      - id: currently_missing_from_css
+        template: opinionsOthersTemplate
+        isReport: true
+        hidden: true
+        pageId: opinions
