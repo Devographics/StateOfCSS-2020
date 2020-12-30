@@ -47,11 +47,24 @@ const Report = styled.div`
     .first {
     }
     & > p {
-        font-size: 1.2rem;
-        line-height: 2;
-        margin-bottom: ${spacing(1.5)};
-        &:first-of-type:first-line {
-            font-size: 2.4rem;
+        position: relative;
+        z-index: 2;
+        @media ${mq.small} {
+            font-size: ${fontSize('smallish')};
+            line-height: 1.8;
+            margin-bottom: ${spacing(1)};
+            &:first-of-type:first-line {
+                font-size: 1.3rem;
+            }
+        }
+
+        @media ${mq.mediumLarge} {
+            font-size: 1.2rem;
+            line-height: 2;
+            margin-bottom: ${spacing(1.5)};
+            &:first-of-type:first-line {
+                font-size: 2.4rem;
+            }
         }
     }
     code {
@@ -62,10 +75,15 @@ const Report = styled.div`
         border: 1px dotted ${color('link')};
         font-size: ${fontSize('smallish')};
     }
+    .ChartContainer{
+        overflow: hidden;
+    }
 `
 
 const LogoWrapper = styled.div`
-    margin-bottom: ${spacing(4)};
+    @media ${mq.mediumLarge} {
+        margin-bottom: ${spacing(4)};
+    }
 `
 
 const Language = styled.div`

@@ -79,15 +79,27 @@ const Logo = ({ className, animated = true, showText = true, report = false, siz
 }
 
 const LogoContainer = styled.div`
-    overflow: hidden;
+    /* overflow: hidden; */
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: ${spacing(2)};
+    @media ${mq.medium} {
+        transform: scale(0.9);
+    }
+    @media ${mq.small} {
+        transform: scale(0.6);
+        margin: -${spacing(2)} 0;
+    }
+    @media ${mq.xSmall} {
+        transform: scale(0.4);
+        margin: -${spacing(4)} 0;
+    }
 `
 
 const LogoElement = styled.div`
     text-shadow: none;
+    flex: 0 0 ${getDimension(800)};
     width: ${getDimension(800)};
     height: ${getDimension(400)};
     position: relative;

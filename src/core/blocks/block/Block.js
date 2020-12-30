@@ -91,7 +91,7 @@ const Block = ({
 Block.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        title: PropTypes.node,
+        title: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
         description: PropTypes.node,
     }).isRequired,
     isShareable: PropTypes.bool.isRequired,

@@ -71,7 +71,12 @@ const ChartWrapper = styled.div`
             return css`
                 width: 100vw;
                 margin-left: calc(50% - 50vw);
-                padding: ${spacing(2)} ${spacing(6)};
+                @media ${mq.small} {
+                    padding: ${spacing(2)} ${spacing()};
+                }
+                @media ${mq.mediumLarge} {
+                    padding: ${spacing(2)} ${spacing(6)};
+                }
             `
         }
     }}

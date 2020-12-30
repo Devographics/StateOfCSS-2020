@@ -79,21 +79,33 @@ export default ({ children }) => {
 
 const Heading = styled.h2`
     text-align: center;
-    font-size: ${fontSize('huge')};
     width: 100vw;
-    margin-left: calc(50% - 50vw);
-    padding: 0 ${spacing(2)};
     font-weight: ${fontWeight('bold')};
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
-    overflow: visible !important;
-    margin-top: ${spacing(6)};
-    margin-bottom: ${spacing(6)};
+    /* overflow: visible !important; */
+    overflow-y: visible !important;
+    overflow-x: hidden;
+    @media ${mq.small} {
+        font-size: 2.4rem;
+        margin: ${spacing(3)} 0;
+        margin-left: calc(50% - 50vw);
+        padding: 0 ${spacing()};
+    }
+    @media ${mq.mediumLarge} {
+        font-size: ${fontSize('huge')};
+        margin: ${spacing(6)} 0;
+        margin-left: calc(50% - 50vw);
+        padding: 0 ${spacing(2)};
+    }
 `
 
 const LogoElements = styled.div`
+    @media ${mq.small} {
+        display: none;
+    }
     /* position: absolute !important; */
     /* opacity: 0.7; */
 `
@@ -103,17 +115,16 @@ const LogoElementWrapper = styled.div`
     top: ${({ top }) => top}%;
     left: ${({ left }) => left}%;
     position: absolute;
-    .tilde{
+    .tilde {
         color: ${colors.pink};
     }
-    .stripe, .blob{
+    .stripe,
+    .blob {
         background: ${colors.pink};
     }
 `
 
-const LogoElementWrapperBig = styled(LogoElementWrapper)`
-
-`
+const LogoElementWrapperBig = styled(LogoElementWrapper)``
 const LogoElementWrapperSmall = styled(LogoElementWrapper)`
     /* z-index: 2; */
 `
@@ -134,14 +145,16 @@ const Part = styled.span`
 
     text-shadow: 4px 4px 0px ${colors.blue};
     /* display: block; */
-    padding: 5px 15px;
-    line-height: 1;
+    /* padding: 5px 15px; */
+    /* line-height: 1; */
     /* position: relative; */
     /* background: ${colors.pink}; */
 `
 
 const Part1 = styled(Part)`
-    margin-bottom: ${spacing()};
+    @media ${mq.mediumLarge} {
+        margin-bottom: ${spacing()};
+    }
     /* left: -${spacing(6)}; */
 `
 

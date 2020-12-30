@@ -53,7 +53,7 @@ const ChartLabel = ({
 }
 
 ChartLabel.propTypes = {
-    label: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    label: PropTypes.oneOfType([PropTypes.node, PropTypes.string, PropTypes.number]).isRequired,
     fontSize: PropTypes.number,
     outlineColor: PropTypes.string,
     textColor: PropTypes.string,
