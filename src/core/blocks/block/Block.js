@@ -21,6 +21,11 @@ const Container = styled.div`
     }
 `
 
+const BlockContents= styled.div`
+    /* height: 100%; */
+    /* flex-basis: 100%; */
+`
+
 const Block = ({
     isShareable,
     className,
@@ -70,9 +75,9 @@ const Block = ({
                     {...legendProps}
                 />
             )}
-            <div className="Block__Contents">
+            <BlockContents className="Block__Contents">
                 {error ? <div className="error">{error}</div> : children}
-            </div>
+            </BlockContents>
             {showLegend && legendPosition === 'bottom' && (
                 <BlockLegends
                     block={block}

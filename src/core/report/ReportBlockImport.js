@@ -72,7 +72,7 @@ const ChartWrapper = styled.div`
                 width: 100vw;
                 margin-left: calc(50% - 50vw);
                 @media ${mq.small} {
-                    padding: ${spacing(2)} ${spacing()};
+                    padding: ${spacing()} ${spacing()};
                 }
                 @media ${mq.mediumLarge} {
                     padding: ${spacing(2)} ${spacing(6)};
@@ -93,12 +93,18 @@ const ChartContents = styled.div`
             position: sticky;
             top: 0;
             height: 100vh;
-            padding: ${spacing(2)} 0;
             /* background: rebeccapurple; */
+            @media ${mq.small} {
+                padding: ${spacing(1)} 0;
+            }
+            @media ${mq.mediumLarge} {
+                padding: ${spacing(2)} 0;
+            }
         `}
 `
 
 const ChartContentsInner = styled.div`
+    display: grid;
     ${({ size }) =>
         size === 'l' &&
         css`
@@ -106,20 +112,26 @@ const ChartContentsInner = styled.div`
             height: 100%;
             .Block {
                 /* background: #004400; */
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-                height: 100%;
+                /* display: flex; */
+                /* flex-direction: column; */
+                /* justify-content: space-between; */
+                /* height: 100%; */
+                display: grid;
+                grid-template-rows: auto minmax(0, 1fr) auto;
+                grid-template-columns: minmax(0, 1fr);
+                row-gap: ${spacing()};
             }
             .Block__Title {
                 /* background: #444400; */
+                margin: 0;
             }
             .Block__Contents {
                 /* background: #440000; */
-                flex-grow: 1;
+                /* flex-grow: 1; */
             }
             .Block__Legends {
                 /* background: #440044; */
+                margin: 0;
             }
         `}
 `

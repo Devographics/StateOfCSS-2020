@@ -83,14 +83,12 @@ const Heading = styled.h2`
     font-weight: ${fontWeight('bold')};
     display: flex;
     flex-direction: column;
-    align-items: center;
+    /* align-items: center; */
     position: relative;
-    /* overflow: visible !important; */
     overflow-y: visible !important;
-    overflow-x: hidden;
     @media ${mq.small} {
         font-size: 2.4rem;
-        margin: ${spacing(3)} 0;
+        margin: ${spacing(1)} 0;
         margin-left: calc(50% - 50vw);
         padding: 0 ${spacing()};
     }
@@ -136,7 +134,9 @@ const LogoContents = styled.div`
     justify-content: center;
     z-index: 1;
     position: relative;
-    cursor: pointer;
+    @media ${mq.mediumLarge} {
+        cursor: pointer;
+    }
 `
 
 const Part = styled.span`

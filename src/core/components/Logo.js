@@ -93,7 +93,7 @@ const LogoContainer = styled.div`
     }
     @media ${mq.xSmall} {
         transform: scale(0.4);
-        margin: -${spacing(4)} 0;
+        margin: -${spacing(3)} 0;
     }
 `
 

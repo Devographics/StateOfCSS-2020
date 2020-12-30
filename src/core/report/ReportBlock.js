@@ -43,7 +43,12 @@ const BottomTrigger = styled(Trigger)`
     top: 80vh;
 `
 const Report = styled.div`
-    padding: ${spacing(4)} 0;
+    @media ${mq.small} {
+        padding: ${spacing(2)} 0;
+    }
+    @media ${mq.mediumLarge} {
+        padding: ${spacing(4)} 0;
+    }
     .first {
     }
     & > p {
@@ -75,8 +80,8 @@ const Report = styled.div`
         border: 1px dotted ${color('link')};
         font-size: ${fontSize('smallish')};
     }
-    .ChartContainer{
-        overflow: hidden;
+    .ChartContainer {
+        /* overflow: hidden; */
     }
 `
 

@@ -9,7 +9,12 @@ import { mq, spacing, fontSize } from 'core/theme'
 import sortBy from 'lodash/sortBy'
 import range from 'lodash/range'
 
-const ToolsSectionStreamsBlock = ({ block, data, triggerId, units: defaultUnits = 'percentage' }) => {
+const ToolsSectionStreamsBlock = ({
+    block,
+    data,
+    triggerId,
+    units: defaultUnits = 'percentage',
+}) => {
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
 
@@ -98,16 +103,17 @@ const getColNumber = (count) => {
 }
 
 const GridContainer = styled.div`
-    @media ${mq.small} {
-        margin-bottom: ${spacing(2)};
-    }
-
+    display: grid;
+    width: 100%;
     @media ${mq.mediumLarge} {
-        display: grid;
-        width: 100%;
         grid-template-columns: repeat(${(props) => getColNumber(props.count)}, 1fr);
         column-gap: ${spacing(2)};
         row-gap: ${spacing(2)};
+    }
+    @media ${mq.small} {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: ${spacing(0.25)};
+        row-gap: ${spacing(0.25)};
     }
 `
 
