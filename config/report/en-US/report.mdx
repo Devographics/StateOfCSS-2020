@@ -4,6 +4,7 @@ import Heading from 'core/report/ReportHeading'
 import SectionLink from 'core/report/ReportSectionLink'
 import ReportNewsletter from 'core/report/ReportNewsletter'
 import ReportCredits from 'core/report/ReportCredits'
+import Note from 'core/report/ReportNote'
 
 Way back when I was just starting my web developer career, I made the mistake of taking a few years off from building websites. 
 
@@ -20,6 +21,8 @@ And so it goes with the web. One cycle after another, always changing; and alway
 This is why we're always looking for new resources to help us keep up, and that's where the State of CSS survey comes in. This year again, we aggregated a ton of data from developers across the world that really highlights the changes that the CSS world is going through right now. 
 
 And while we encourage you to check out the [full results](/), we also wanted to compile this quick overview of a few major trends. But first, a little more information about who took the survey.
+
+<Note>If you're curious about the CSS techniques involved in creating this report, I've recorded a [video overview](#) that takes you through its making-of process.</Note>
 
 <Block id="country" size="l" title="Respondents Country Breakdown">
     <Overlay id="USA">
@@ -56,7 +59,7 @@ Enter [Tailwind CSS](https://tailwindcss.com/) and other "utility-first" framewo
     }}
     customStyles={`
         .Block__Contents{
-            //pointer-events: none;
+            pointer-events: none;
         }
     `}
 >
