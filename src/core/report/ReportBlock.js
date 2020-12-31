@@ -1,5 +1,5 @@
 import React from 'react'
-import ReportContents from 'config/report.mdx'
+import ReportContents from 'config/report/en-US/report.mdx'
 import styled from 'styled-components'
 import { mq, color, spacing, fontSize, fontWeight } from 'core/theme'
 import Logo from 'core/components/Logo'
