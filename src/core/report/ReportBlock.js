@@ -1,32 +1,44 @@
 import React from 'react'
-import ReportContents from 'config/report/en-US/report.mdx'
 import styled from 'styled-components'
 import { mq, color, spacing, fontSize, fontWeight } from 'core/theme'
 import Logo from 'core/components/Logo'
 import Footer from 'core/components/Footer'
 import LanguageSwitcher from 'core/i18n/LanguageSwitcher'
+import { usePageContext } from 'core/helpers/pageContext'
+
+import enUS from 'config/report/en-US/report.mdx'
+import frFR from 'config/report/fr-FR/report.mdx'
+
+const reports = {
+    'en-US': enUS,
+    'fr-FR': frFR
+}
 
 const debug = false
 
-export default () => (
-    <Report className="Report">
-        {/* <Language>
-            <LanguageSwitcher locales={['en-US']}/>
-        </Language> */}
-        <LogoWrapper>
-            <Logo size="l" report={true} />
-        </LogoWrapper>
-        <ReportContents />
-        <Footer />
+export default () => {
+    const context = usePageContext()
+    const ReportContents = reports[context.locale.id]
+    return (
+        <Report className="Report">
+            <Language>
+            <LanguageSwitcher locales={Object.keys(reports)}/>
+        </Language>
+            <LogoWrapper>
+                <Logo size="l" report={true} />
+            </LogoWrapper>
+            <ReportContents />
+            <Footer />
 
-        {debug && (
-            <>
-                <TopTrigger />
-                <BottomTrigger />
-            </>
-        )}
-    </Report>
-)
+            {debug && (
+                <>
+                    <TopTrigger />
+                    <BottomTrigger />
+                </>
+            )}
+        </Report>
+    )
+}
 
 const Trigger = styled.div`
     position: fixed;

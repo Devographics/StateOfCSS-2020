@@ -10,7 +10,6 @@ const BlockImport = ({ id, children, size = 's', title, customStyles }) => {
     const [triggerId, setTriggerId] = useState()
     const pageContext = usePageContext()
     const block = allBlocks.find((b) => b.id === id && b.isReport)
-    console.log(pageContext)
     if (!block) {
         return <div>Missing block {id}</div>
     }

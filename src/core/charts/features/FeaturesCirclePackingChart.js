@@ -25,7 +25,6 @@ const sectionLabelOffsets = {
 const Node = (props) => {
     // note that `current` is an array of ids for this chart
     const { node, handlers, current } = props
-    console.log(props)
     const radius = node.r
     const theme = useTheme()
 

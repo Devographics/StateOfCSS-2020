@@ -16,10 +16,9 @@ import { Triangle, Blobs, Circle, Frame, Stripes, Tildes } from './LogoElements'
 const Logo = ({ className, animated = true, showText = true, report = false, size = 'l' }) => {
     const s = 0.8
     const offset = 96
-    const offset2 = Math.round(96 * s)
     const triggerAnimation = true
 
-    const properties = { s, offset: offset2, animated, triggerAnimation }
+    const properties = { s, offset, animated, triggerAnimation }
 
     return (
         <LogoContainer
@@ -161,7 +160,7 @@ const Letter = styled.div`
 const C = styled(Letter)`
     top: 50%;
     transform: translateY(-50%);
-    left: ${({ offset }) => offset}px;
+    left: ${({ offset, s }) => offset*s}px;
     text-shadow: ${getDimension(10)} ${getDimension(10)} 0px ${colors.blue};
     div {
         ${getAnimationDelay()}
@@ -180,7 +179,7 @@ const S1 = styled(Letter)`
 const S2 = styled(Letter)`
     top: 50%;
     transform: translateY(-50%);
-    right: ${({ offset }) => offset}px;
+    right: ${({ offset, s }) => offset*s}px;
     div {
         text-align: right;
         background: ${({ s }) =>
@@ -197,18 +196,6 @@ const S2 = styled(Letter)`
         ${getAnimationDelay(200)}
     }
 `
-
-// const Report = styled.div`
-//     bottom: ${getDimension(50)};
-//     right: ${getDimension(-10)};
-//     display: flex;
-//     font-weight: ${fontWeight('bold')};
-//     /* background: ${colors.pink}; */
-//     font-size: ${getDimension(56)};
-//     color: ${colors.pink};
-//     transform: rotate(-45deg);
-//     letter-spacing: 5px;
-// `
 
 const Report = styled.div`
     bottom: ${getDimension(140)};
