@@ -5,13 +5,14 @@ import Logo from 'core/components/Logo'
 import Footer from 'core/components/Footer'
 import LanguageSwitcher from 'core/i18n/LanguageSwitcher'
 import { usePageContext } from 'core/helpers/pageContext'
+import { translationLink } from 'config/config.yml'
 
 import enUS from 'config/report/en-US/report.mdx'
 import frFR from 'config/report/fr-FR/report.mdx'
 
 const reports = {
     'en-US': enUS,
-    'fr-FR': frFR
+    'fr-FR': frFR,
 }
 
 const debug = false
@@ -22,12 +23,19 @@ export default () => {
     return (
         <Report className="Report">
             <Language>
-            <LanguageSwitcher locales={Object.keys(reports)}/>
-        </Language>
+                <LanguageSwitcher locales={Object.keys(reports)} />
+            </Language>
             <LogoWrapper>
                 <Logo size="l" report={true} />
             </LogoWrapper>
-            <ReportContents />
+            {ReportContents ? (
+                <ReportContents />
+            ) : (
+                <div>
+                    The report is not available in this language yet.{' '}
+                    <a href={translationLink}>Help us translate it!</a>
+                </div>
+            )}
             <Footer />
 
             {debug && (
