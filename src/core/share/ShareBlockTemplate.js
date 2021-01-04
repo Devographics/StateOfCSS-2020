@@ -17,7 +17,6 @@ const ShareBlockTemplate = () => {
 
     let redirect = context.redirect
 
-    console.log(context)
     const blockTitle = getBlockTitle(block, context, translate, {
         format: 'full',
     })

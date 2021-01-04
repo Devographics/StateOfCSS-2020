@@ -75,7 +75,6 @@ export const OverlayOnScroll = ({ id, triggerId, setTriggerId, isFirst, isLast, 
                     window.scrollY + window.innerHeight * bottomViewportTriggerPoint
                 const topTrigger = window.scrollY + window.innerHeight * topViewportTriggerPoint
                 if (bottomTrigger <= overlayBottom && topTrigger > overlayTop) {
-                    // console.log(`triggered! ${id}`)
                     setTriggerId && setTriggerId(id)
                     // once animation is triggered, remove event listener
                     // window.removeEventListener('scroll', onScroll)
