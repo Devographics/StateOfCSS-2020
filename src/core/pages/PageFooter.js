@@ -6,8 +6,8 @@ import { usePageContext } from 'core/helpers/pageContext'
 import Link from 'core/components/LocaleLink'
 import Button from 'core/components/Button'
 import PageLabel from './PageLabel'
-import config from 'config/config.yml'
 import T from 'core/i18n/T'
+import Footer from 'core/components/Footer'
 
 const PageFooter = () => {
     const context = usePageContext()
@@ -41,23 +41,7 @@ const PageFooter = () => {
                     </NextLink>
                 )}
             </Nav>
-            <Notes>
-                <T k="general.charts_nivo" values={{ link: 'https://nivo.rocks/' }} html={true} />{' '}
-                <T
-                    k="general.netlify_link"
-                    values={{ link: 'https://www.netlify.com' }}
-                    html={true}
-                />
-                <br />
-                <T k="general.leave_issue" values={{ link: config.issuesUrl }} html={true} />{' '}
-                <T k="general.join_discord" values={{ link: config.discordUrl }} html={true} />
-                {context.locale.id !== 'en-US' && (
-                    <>
-                        <br />
-                        <T k="general.translator_mode" />{' '}
-                    </>
-                )}
-            </Notes>
+            <Footer/>
         </Container>
     )
 }
@@ -81,18 +65,6 @@ const Nav = styled.div`
         display: flex;
         align-items: center;
         justify-content: center;
-    }
-`
-
-const Notes = styled.div`
-    font-size: ${fontSize('small')};
-    text-align: center;
-
-    @media ${mq.small} {
-        margin-top: ${spacing(4)};
-    }
-    @media ${mq.mediumLarge} {
-        margin-top: ${spacing(6)};
     }
 `
 

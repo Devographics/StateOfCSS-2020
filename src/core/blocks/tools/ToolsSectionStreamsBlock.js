@@ -9,23 +9,31 @@ import { mq, spacing, fontSize } from 'core/theme'
 import sortBy from 'lodash/sortBy'
 import range from 'lodash/range'
 
-const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percentage' }) => {
+const ToolsSectionStreamsBlock = ({
+    block,
+    data,
+    triggerId,
+    units: defaultUnits = 'percentage',
+}) => {
     const [units, setUnits] = useState(defaultUnits)
     const [current, setCurrent] = useState(null)
 
     const filteredData = data.filter((toolData) => toolData.experience.all_years.length > 1)
+
+    const controlledCurrent = triggerId || current
 
     return (
         <Block
             units={units}
             setUnits={setUnits}
             block={{
-                ...block,
                 legendPosition: 'top',
                 legendProps: { layout: 'horizontal' },
+                ...block,
             }}
             data={filteredData}
             legendProps={{
+                current: controlledCurrent,
                 onMouseEnter: ({ id }) => {
                     setCurrent(id)
                 },
@@ -40,7 +48,7 @@ const ToolsSectionStreamsBlock = ({ block, data, units: defaultUnits = 'percenta
                         <Stream
                             key={toolData.id}
                             toolData={toolData}
-                            current={current}
+                            current={controlledCurrent}
                             units={units}
                         />
                     )
@@ -95,16 +103,17 @@ const getColNumber = (count) => {
 }
 
 const GridContainer = styled.div`
-    @media ${mq.small} {
-        margin-bottom: ${spacing(2)};
-    }
-
+    display: grid;
+    width: 100%;
     @media ${mq.mediumLarge} {
-        display: grid;
-        width: 100%;
         grid-template-columns: repeat(${(props) => getColNumber(props.count)}, 1fr);
         column-gap: ${spacing(2)};
         row-gap: ${spacing(2)};
+    }
+    @media ${mq.small} {
+        grid-template-columns: 1fr 1fr 1fr;
+        column-gap: ${spacing(0.25)};
+        row-gap: ${spacing(0.25)};
     }
 `
 
@@ -139,7 +148,7 @@ ToolsSectionStreamsBlock.propTypes = {
                             percentage: PropTypes.number.isRequired,
                         })
                     ).isRequired,
-                }).isRequired,
+                }),
             }),
         })
     ).isRequired,

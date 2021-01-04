@@ -32,6 +32,7 @@ declare module 'styled-components' {
                 large: string
                 larger: string
                 largest: string
+                huge: string
             }
             weight: {
                 light: number
@@ -45,7 +46,9 @@ declare module 'styled-components' {
             backgroundForeground: string
             backgroundAlt: string
             backgroundInverted: string
+            backgroundInvertedAlt: string
             text: string
+            textAlt: string
             textInverted: string
             textHighlight: string
             link: string

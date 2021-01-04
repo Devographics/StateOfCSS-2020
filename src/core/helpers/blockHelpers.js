@@ -1,5 +1,3 @@
-import removeMarkdown from 'remove-markdown'
-import { getTranslationValuesFromContext, getPageLabel } from '../helpers/pageHelpers'
 import get from 'lodash/get'
 import config from 'config/config.yml'
 
@@ -10,7 +8,7 @@ export const getBlockTitleKey = (block, page) => {
     } else if (blockName) {
         return `blocks.${blockName}.title`
     } else {
-        const pageId = page.i18nNamespace || page.id
+        const pageId = page.i18nNamespace || block.pageId || page.id
         const blockId = block.id.replace('_others', '.others')
         return `${pageId}.${blockId}`
     }
@@ -21,7 +19,7 @@ export const getBlockDescriptionKey = (block, page) => {
     if (blockName) {
         return `blocks.${blockName}.description`
     } else {
-        const pageId = page.i18nNamespace || page.id
+        const pageId = page.i18nNamespace || block.pageId || page.id
         const blockId = block.id.replace('_others', '.others')
         return `${pageId}.${blockId}.description`
     }
@@ -39,9 +37,9 @@ export const getBlockImage = (block, context) => {
     return `${config.capturesUrl}${get(context, 'locale.path')}/${block.id}.png`
 }
 
-export const getBlockMeta = (block, context, translate, title) => {
+export const getBlockMeta = (block, context, translate, title, linkOverride) => {
     const { id } = block
-    const link = `${context.host}${context.currentPath}${id}`
+    const link = linkOverride || `${context.host}${context.currentPath}${id}`
     const trackingId = `${context.currentPath}${id}`.replace(/^\//, '')
 
     title = title || getBlockTitle(block, context, translate)
@@ -72,4 +70,17 @@ export const getBlockMeta = (block, context, translate, title) => {
         emailBody,
         imageUrl,
     }
+}
+
+export const getAllBlocks = (sitemap) => {
+    let allBlocks = []
+    sitemap.contents.forEach((page) => {
+        allBlocks = [...allBlocks, ...page.blocks]
+        if (page.children) {
+            page.children.forEach((page) => {
+                allBlocks = [...allBlocks, ...page.blocks]
+            })
+        }
+    })
+    return allBlocks
 }

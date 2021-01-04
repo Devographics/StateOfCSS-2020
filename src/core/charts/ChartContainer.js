@@ -42,8 +42,8 @@ const Indicator = memo(({ position }) => (
  * - Expand: force a 600px width
  */
 const ChartContainer = ({ children, height, fit = false, className = '', vscroll = false }) => (
-    <ChartContainerOuter className={`ChartContainerOuter ${className}`}>
-        <Container className="ChartContainer">
+    <ChartContainerOuter className={`ChartContainerOuter ${className}`} style={{ height }}>
+        <Container className="ChartContainer" style={{ height }}>
             <ChartContainerInner
                 className={`ChartContainerInner${!fit ? ' ChartContainerInner--expand' : ''}`}
                 style={{ height }}
@@ -67,7 +67,7 @@ const ChartContainer = ({ children, height, fit = false, className = '', vscroll
 )
 
 ChartContainer.propTypes = {
-    height: PropTypes.number,
+    height: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     fit: PropTypes.bool,
     className: PropTypes.string,
     vscroll: PropTypes.bool,

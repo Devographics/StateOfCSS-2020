@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import { mq, spacing } from 'core/theme'
-import BlockTitle from 'core/blocks/block/BlockTitle'
+import BlockTitleOriginal from 'core/blocks/block/BlockTitle'
 import BlockNote from 'core/blocks/block/BlockNote'
 import ShareBlockDebug from 'core/share/ShareBlockDebug'
 import BlockLegends from 'core/blocks/block/BlockLegends'
@@ -21,6 +21,11 @@ const Container = styled.div`
     }
 `
 
+const BlockContents= styled.div`
+    /* height: 100%; */
+    /* flex-basis: 100%; */
+`
+
 const Block = ({
     isShareable,
     className,
@@ -34,21 +39,32 @@ const Block = ({
     titleProps,
     blockFooter = null,
 }) => {
-    const { id, showLegend, legendPosition = 'bottom' } = block
+    const {
+        id,
+        showLegend,
+        legendPosition = 'bottom',
+        showTitle = true,
+        showNote = true,
+        overrides = {},
+    } = block
+
+    const BlockTitle = overrides.BlockTitle || BlockTitleOriginal
 
     return (
         <Container
             id={id}
             className={`Block Block--${id}${className !== undefined ? ` ${className}` : ''}`}
         >
-            <BlockTitle
-                isShareable={isShareable}
-                units={units}
-                setUnits={setUnits}
-                data={data}
-                block={block}
-                {...titleProps}
-            />
+            {showTitle && (
+                <BlockTitle
+                    isShareable={isShareable}
+                    units={units}
+                    setUnits={setUnits}
+                    data={data}
+                    block={block}
+                    {...titleProps}
+                />
+            )}
             {isShareable && <ShareBlockDebug block={block} />}
             {showLegend && legendPosition === 'top' && (
                 <BlockLegends
@@ -59,9 +75,9 @@ const Block = ({
                     {...legendProps}
                 />
             )}
-            <div className="Block__Contents">
+            <BlockContents className="Block__Contents">
                 {error ? <div className="error">{error}</div> : children}
-            </div>
+            </BlockContents>
             {showLegend && legendPosition === 'bottom' && (
                 <BlockLegends
                     block={block}
@@ -71,7 +87,7 @@ const Block = ({
                     {...legendProps}
                 />
             )}
-            <BlockNote block={block} />
+            {showNote && <BlockNote block={block} />}
             {blockFooter}
         </Container>
     )
@@ -80,10 +96,9 @@ const Block = ({
 Block.propTypes = {
     block: PropTypes.shape({
         id: PropTypes.string.isRequired,
-        title: PropTypes.node,
+        title: PropTypes.oneOfType([PropTypes.node, PropTypes.func]),
         description: PropTypes.node,
     }).isRequired,
-    showDescription: PropTypes.bool.isRequired,
     isShareable: PropTypes.bool.isRequired,
     className: PropTypes.string,
     values: PropTypes.object,

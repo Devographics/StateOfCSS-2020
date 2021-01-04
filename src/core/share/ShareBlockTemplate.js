@@ -15,6 +15,9 @@ const ShareBlockTemplate = () => {
     const { translate } = useI18n()
     const context = mergePageContext(pageContext, location)
 
+    let redirect = context.redirect
+
+    console.log(context)
     const blockTitle = getBlockTitle(block, context, translate, {
         format: 'full',
     })
@@ -28,12 +31,16 @@ const ShareBlockTemplate = () => {
         overrides.description = blockDescription
     }
 
+    if (context.isReportRedirect) {
+        redirect = `${context.host}${context.locale.path}/report#${context.block.id}`
+    }
+
     return (
         <div className="template">
             <PageMeta overrides={overrides} />
             <PageMetaDebug overrides={overrides} />
-            {!context.isDebugEnabled && <Redirect to={context.redirect} noThrow />}
-            Redirecting…
+            {!context.isDebugEnabled && <Redirect to={redirect} noThrow />}
+            Redirecting to <code>{redirect}</code>…
         </div>
     )
 }

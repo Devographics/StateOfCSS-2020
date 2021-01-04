@@ -124,11 +124,16 @@ const Email = styled.input`
     display: block;
     padding: ${spacing(0.5)};
     border: none;
-    margin-right: ${spacing(0.5)};
     flex-grow: 1;
-    width: 100%;
-    max-width: 300px;
     background: ${(props) => (props.isLoading ? 'red' : undefined)};
+    @media ${mq.mediumLarge} {
+        max-width: 300px;
+        width: 100%;
+        margin-right: ${spacing(0.5)};
+    }
+    @media ${mq.small} {
+        width: 100%;
+    }
     /*
     @include small {
         margin-bottom: $spacing/2;

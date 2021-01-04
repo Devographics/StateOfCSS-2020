@@ -368,13 +368,11 @@
       - id: technologiesIntroduction
         template: pageIntroductionTemplate
 
-      - id: scatterplotOverview
+      - id: scatterplot_overview
         template: scatterplotOverviewTemplate
   children:
       - id: pre_post_processors
         path: /pre-post-processors
-        variables:
-            toolIds: ${toolsCategories.pre_post_processors}
         blocks:
             - template: pageIntroductionTemplate
 
@@ -405,8 +403,6 @@
 
       - id: css_frameworks
         path: /css-frameworks
-        variables:
-            toolIds: ${toolsCategories.css_frameworks}
         blocks:
             - template: pageIntroductionTemplate
 
@@ -455,8 +451,6 @@
 
       - id: css_methodologies
         path: /methodologies
-        variables:
-            toolIds: ${toolsCategories.css_methodologies}
         blocks:
             - template: pageIntroductionTemplate
 
@@ -494,8 +488,6 @@
 
       - id: css_in_js
         path: /css-in-js
-        variables:
-            toolIds: ${toolsCategories.css_in_js}
         blocks:
             - template: pageIntroductionTemplate
 
@@ -758,3 +750,101 @@
   blocks:
       - id: notfound
         blockType: NotFoundBlock
+
+- id: report
+  showTitle: false
+  path: /report
+  is_hidden: true
+  showSidebar: false
+  blocks:
+      - id: report_contents
+        isReport: true
+        blockType: ReportBlock
+
+      - id: country
+        isReport: true
+        template: demographicsTemplate
+        blockType: ParticipationByCountryBlock
+        hidden: true
+        pageId: user_info
+
+      - template: featuresOverviewTemplate
+        isReport: true
+        hidden: true
+        
+      - template: knowledgeScoreTemplate
+        isReport: true
+        hidden: true
+        pageId: features
+
+      - template: toolsExperienceMarimekkoTemplate
+        isReport: true
+        hidden: true
+        variables: 
+          parentId: css_in_js
+
+      - template: toolsSectionStreamsTemplate
+        isReport: true
+        hidden: true
+        variables: 
+          parentId: css_in_js
+          
+      - template: toolsExperienceRankingTemplate
+        isReport: true
+        hidden: true
+        variables: 
+          parentId: css_frameworks_abridged
+
+      - id: scatterplot_overview
+        isReport: true
+        template: scatterplotOverviewTemplate
+        hidden: true
+
+      - id: grid
+        isReport: true
+        template: featureExperienceTemplate
+        hidden: true
+
+      - id: subgrid
+        isReport: true
+        template: featureExperienceTemplate
+        hidden: true
+
+      - id: logical_properties
+        isReport: true
+        template: featureExperienceTemplate
+        hidden: true
+        
+      - id: prefers_reduced_motion
+        isReport: true
+        template: featureExperienceTemplate
+        hidden: true
+
+      - id: prefers_color_scheme
+        isReport: true
+        template: featureExperienceTemplate
+        hidden: true
+
+      - id: utility_classes_to_be_avoided
+        isReport: true
+        hidden: true
+        template: opinionTemplate
+        pageId: opinions
+
+      - id: css_is_programming_language
+        isReport: true
+        template: opinionTemplate
+        hidden: true
+        pageId: opinions
+
+      - id: state_of_css
+        template: opinionHappinessTemplate
+        isReport: true
+        hidden: true
+        pageId: opinions
+
+      - id: currently_missing_from_css
+        template: opinionsOthersTemplate
+        isReport: true
+        hidden: true
+        pageId: opinions
